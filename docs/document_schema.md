@@ -45,3 +45,15 @@ This order is only a visual reading-order heuristic. It does not guarantee autho
 ## PPTX unsupported content
 
 The minimal parser records warnings rather than extracting chart data, SmartArt/unsupported graphic frames, image OCR, speaker notes, animations, or shape display order.
+
+## XLSX location and value rules
+
+- `locator.sheet` is the original worksheet name; `locator.cell_range` is the minimum non-empty cell range.
+- `locator.block_index` starts at 0 in workbook order. XLSX never creates page or slide locations.
+- Each non-empty worksheet becomes one `TABLE` element. Merged ranges are stored in `TableData.merged_ranges` without filling merged cells.
+- Dates and times are serialized as ISO strings. Number and date formats are retained in `metadata.formatted_cells`.
+- A formula cell uses its last stored calculation value when available, otherwise its formula text. Both values are retained in `metadata.formula_cells`.
+
+## XLSX limitations
+
+The parser does not calculate formulas, extract chart data or image OCR, execute/interpret macros, or split multiple independent tables in a worksheet.

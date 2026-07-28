@@ -13,6 +13,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from src.ingestion.pdf_parser import PdfParser
 from src.ingestion.docx_parser import DocxParser
 from src.ingestion.pptx_parser import PptxParser
+from src.ingestion.xlsx_parser import XlsxParser
 
 
 def main() -> None:
@@ -23,7 +24,7 @@ def main() -> None:
 
     source_root = Path(args.source_root).resolve()
     file_path = Path(args.file).resolve()
-    parsers = {".pdf": PdfParser(), ".docx": DocxParser(), ".pptx": PptxParser()}
+    parsers = {".pdf": PdfParser(), ".docx": DocxParser(), ".pptx": PptxParser(), ".xlsx": XlsxParser()}
     try:
         parser = parsers[file_path.suffix.lower()]
     except KeyError as exc:

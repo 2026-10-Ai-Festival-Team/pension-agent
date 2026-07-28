@@ -1,35 +1,35 @@
-# Data Inventory Report
+# 데이터 인벤토리 보고서
 
-## Scope
+## 범위
 
-This report contains metadata only. Paths are relative to `PENSION_DATA_ROOT`; no document contents or absolute paths are stored.
+이 보고서에는 메타데이터만 담는다. 경로는 `PENSION_DATA_ROOT` 기준 상대 경로이며 문서 내용이나 절대 경로는 저장하지 않는다.
 
-## File-format counts
+## 파일 형식별 수
 
-| Extension | Files |
+| 확장자 | 파일 수 |
 | --- | ---: |
 | .docx | 18 |
 | .pdf | 137 |
 | .pptx | 1 |
 | .xlsx | 2 |
 
-## Structure checks
+## 구조 점검
 
-- Total files: 158
-- Parse-target files (`.pdf`, `.docx`, `.pptx`, `.xlsx`): 158
-- Product-code folders represented by files: 100
-- Directories with no descendant files: 0
-- Duplicate filenames (case-insensitive): 0
-- Large files (at least 100 MiB): 0
+- 전체 파일: 158개
+- 파싱 대상 파일(`.pdf`, `.docx`, `.pptx`, `.xlsx`): 158개
+- 파일이 있는 상품코드 폴더: 100개
+- 하위 파일이 없는 폴더: 0개
+- 중복 파일명(대소문자 무시): 0개
+- 대용량 파일(100MiB 이상): 0개
 
-## Empty directories
+## 빈 폴더
 
-- None
+- 없음
 
-## Duplicate filenames
+## 중복 파일명
 
-- None
+- 없음
 
-## Large files
+## 대용량 파일
 
-- None
+- 없음

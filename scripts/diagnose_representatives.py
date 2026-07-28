@@ -192,16 +192,43 @@ def write_report(rows: Iterable[Dict[str, str]], diagnostics: Dict[str, Dict[str
     parser_counts = Counter(diagnostics[row["file_id"]]["recommended_parser"] for row in rows)
     ocr_rows = [row for row in rows if diagnostics[row["file_id"]]["ocr_required"]]
     table_rows = [row for row in rows if diagnostics[row["file_id"]]["has_tables"]]
-    lines = ["# Representative Parse Quality Report", "", "## Coverage", "", f"- Diagnosed representative documents: {len(rows)}", f"- OCR-required candidates: {len(ocr_rows)}", f"- Table-bearing candidates: {len(table_rows)}", "", "## Recommended parser trials", ""]
+    lines = ["# 대표 문서 파싱 품질 보고서", "", "## 범위", "", f"- 진단한 대표 문서: {len(rows)}개", f"- OCR 필요 후보: {len(ocr_rows)}개", f"- 표 포함 후보: {len(table_rows)}개", "", "## 권장 파서 시험", ""]
     lines.extend(f"- `{parser}`: {count}" for parser, count in sorted(parser_counts.items()))
-    lines.extend(["", "## Documents needing extra attention", ""])
+    lines.extend(["", "## 추가 검토가 필요한 문서", ""])
     for row in rows:
         info = diagnostics[row["file_id"]]
         if info["warnings"] or info["ocr_required"]:
-            lines.append(f"- `{row['relative_path']}`: " + "; ".join(info["warnings"] or ["OCR required"]))
+            lines.append(
+                f"- `{row['relative_path']}`: "
+                + "; ".join(
+                    _format_warning(warning)
+                    for warning in (info["warnings"] or ["OCR 필요"])
+                )
+            )
     if lines[-1] == "":
-        lines.append("- None")
+        lines.append("- 없음")
     REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _format_warning(warning: str) -> str:
+    """Translate report prose while preserving parser and file identifiers."""
+    replacements = {
+        "table candidates detected: ": "표 후보 감지: ",
+        "pages with no native text: ": "네이티브 텍스트가 없는 페이지: ",
+        "DOCX has no stable rendered page positions without a rendering step": (
+            "렌더링 단계 없이는 안정적인 DOCX 페이지 위치를 얻을 수 없음"
+        ),
+        "Text-box reading order requires visual spot-checking": (
+            "텍스트 상자 읽기 순서는 시각 점검이 필요함"
+        ),
+        "merged-cell ranges: ": "병합 셀 범위: ",
+    }
+    for source, target in replacements.items():
+        if warning.startswith(source):
+            return warning.replace(source, target, 1)
+        if warning == source:
+            return target
+    return warning
 
 
 def main() -> None:

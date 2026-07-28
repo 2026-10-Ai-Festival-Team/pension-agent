@@ -219,16 +219,16 @@ def write_summary(
     total_elapsed_ms = sum(result.get("elapsed_ms", 0) for result in results)
 
     lines = [
-        "# Parser Smoke Test Report",
+        "# 파서 Smoke Test 보고서",
         "",
-        f"- Source root: `{_display_path(source_root)}`",
-        f"- Documents tested: {len(results)}",
-        f"- Total elapsed: {total_elapsed_ms / 1000:.2f}s",
-        "- JSONL detail: `data/diagnostics/parser_smoke_test.jsonl` (Git ignored)",
+        f"- 원본 루트: `{_display_path(source_root)}`",
+        f"- 검사 문서 수: {len(results)}개",
+        f"- 총 소요 시간: {total_elapsed_ms / 1000:.2f}초",
+        "- JSONL 상세 결과: `data/diagnostics/parser_smoke_test.jsonl`(Git 제외)",
         "",
-        "## Status",
+        "## 상태",
         "",
-        "| Status | Count |",
+        "| 상태 | 개수 |",
         "|---|---:|",
     ]
     for status, count in sorted(status_counts.items()):
@@ -237,9 +237,9 @@ def write_summary(
     lines.extend(
         [
             "",
-            "## Extension performance",
+            "## 확장자별 성능",
             "",
-            "| Extension | Tested | Successful | Success rate | Average time |",
+            "| 확장자 | 검사 수 | 성공 수 | 성공률 | 평균 시간 |",
             "|---|---:|---:|---:|---:|",
         ]
     )
@@ -254,40 +254,40 @@ def write_summary(
     lines.extend(
         [
             "",
-            "## Corpus signals",
+            "## 코퍼스 신호",
             "",
-            f"- Documents containing table elements: {documents_with_tables}",
-            "- Native-text-absent PDF pages: "
+            f"- 표 요소를 포함한 문서: {documents_with_tables}개",
+            "- 네이티브 텍스트가 없는 PDF 페이지: "
             f"{sum(result.get('native_text_missing_page_count', 0) for result in results)}",
-            f"- Total elements: {sum(result.get('element_count', 0) for result in results)}",
-            "- Total table elements: "
+            f"- 전체 요소: {sum(result.get('element_count', 0) for result in results)}개",
+            "- 전체 표 요소: "
             f"{sum(result.get('table_element_count', 0) for result in results)}",
         ]
     )
     if product_documents:
         lines.append(
-            "- Product documents with extracted product code: "
+            "- 상품코드가 추출된 상품 문서: "
             f"{product_documents_with_codes}/{len(product_documents)} "
             f"({product_documents_with_codes / len(product_documents):.1%})"
         )
     else:
-        lines.append("- Product documents with extracted product code: no product documents parsed")
+        lines.append("- 상품코드가 추출된 상품 문서: 파싱한 상품 문서 없음")
 
-    lines.extend(["", "## Failed, invalid, or empty", ""])
+    lines.extend(["", "## 실패·검증 오류·빈 문서", ""])
     if flagged_results:
         for result in flagged_results:
-            detail = result.get("error_type") or "no extractable elements"
+            detail = result.get("error_type") or "추출 가능한 요소 없음"
             lines.append(
                 f"- `{_escape_markdown(result['relative_path'])}`: "
                 f"{result['status']} ({_escape_markdown(detail)})"
             )
     else:
-        lines.append("None.")
+        lines.append("없음.")
 
     lines.extend(
         [
             "",
-            f"## Date candidates at or above {date_candidate_threshold}",
+            f"## 날짜 후보가 {date_candidate_threshold}개 이상인 문서",
             "",
         ]
     )
@@ -298,13 +298,13 @@ def write_summary(
                 f"{result['date_candidate_count']}"
             )
     else:
-        lines.append("None.")
+        lines.append("없음.")
 
-    lines.extend(["", "## Top 10 documents by warning count", ""])
+    lines.extend(["", "## 경고가 많은 문서 상위 10개", ""])
     lines.extend(
-        ["| Relative path | Warnings |", "|---|---:|"]
+        ["| 상대 경로 | 경고 수 |", "|---|---:|"]
         if warning_leaders
-        else ["None."]
+        else ["없음."]
     )
     for result in warning_leaders:
         lines.append(

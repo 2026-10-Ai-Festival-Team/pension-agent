@@ -11,6 +11,8 @@ from check_data_path import get_data_root
 
 
 PRODUCT_CODE_PATTERN = re.compile(r"^KR[A-Z0-9]+$")
+IGNORED_FILENAMES = {".DS_Store"}
+SUPPORTED_EXTENSIONS = {".pdf", ".docx", ".pptx", ".xlsx"}
 FIELDNAMES = [
     "file_id",
     "relative_path",
@@ -50,6 +52,8 @@ def infer_category(relative_path: Path) -> str:
 def build_rows(data_root: Path) -> Iterable[Dict[str, str]]:
     for file_path in sorted(data_root.rglob("*"), key=lambda path: path.as_posix()):
         if not file_path.is_file():
+            continue
+        if file_path.name in IGNORED_FILENAMES:
             continue
         relative_path = file_path.relative_to(data_root)
         yield {

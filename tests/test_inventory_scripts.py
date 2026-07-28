@@ -64,6 +64,28 @@ class InventoryScriptTests(unittest.TestCase):
         self.assertEqual(len({sample["file_id"] for sample in samples}), len(samples))
         self.assertEqual(len(samples), 8)
 
+    def test_representative_selection_includes_both_xlsx_candidates(self):
+        rows = [
+            {"file_id": str(index), "relative_path": f"docs_renamed/{index}.{extension}", "filename": f"{index}.{extension}", "extension": f".{extension}", "file_size": str(index), "product_code": "", "document_category": "pension_document"}
+            for index, extension in enumerate(["pdf"] * 5 + ["docx"] * 2 + ["pptx", "xlsx", "xlsx"], start=1)
+        ]
+        samples = self.inventory.select_representative_documents(rows)
+        self.assertEqual(len(samples), 10)
+        self.assertEqual(sum(sample["sample_role"] == "xlsx_candidate" for sample in samples), 2)
+
+    def test_representative_selection_has_twelve_rows_when_products_exist(self):
+        rows = [
+            {"file_id": str(index), "relative_path": f"docs_renamed/{index}.{extension}", "filename": f"{index}.{extension}", "extension": f".{extension}", "file_size": str(index), "product_code": "", "document_category": "pension_document"}
+            for index, extension in enumerate(["pdf"] * 5 + ["docx"] * 2 + ["pptx", "xlsx", "xlsx"], start=1)
+        ]
+        rows.extend([
+            {"file_id": "product-1", "relative_path": "투자설명서/KR123ABC/a.pdf", "filename": "a.pdf", "extension": ".pdf", "file_size": "100", "product_code": "KR123ABC", "document_category": "investment_product"},
+            {"file_id": "product-2", "relative_path": "투자설명서/KR456DEF/b.pdf", "filename": "b.pdf", "extension": ".pdf", "file_size": "101", "product_code": "KR456DEF", "document_category": "investment_product"},
+        ])
+        samples = self.inventory.select_representative_documents(rows)
+        self.assertEqual(len(samples), 12)
+        self.assertEqual(sum(sample["sample_role"] == "investment_product_candidate" for sample in samples), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

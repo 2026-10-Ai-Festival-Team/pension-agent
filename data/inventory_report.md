@@ -12,12 +12,11 @@ This report contains metadata only. Paths are relative to `PENSION_DATA_ROOT`; n
 | .pdf | 137 |
 | .pptx | 1 |
 | .xlsx | 2 |
-| [no extension] | 1 |
 
 ## Structure checks
 
-- Total files: 159
-- Parse-target files (`.pdf`, `.docx`, `.pptx`): 156
+- Total files: 158
+- Parse-target files (`.pdf`, `.docx`, `.pptx`, `.xlsx`): 158
 - Product-code folders represented by files: 100
 - Directories with no descendant files: 0
 - Duplicate filenames (case-insensitive): 0

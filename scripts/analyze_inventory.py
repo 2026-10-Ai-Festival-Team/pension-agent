@@ -13,14 +13,15 @@ REPORT_PATH = Path("data/inventory_report.md")
 SAMPLES_PATH = Path("data/representative_documents.csv")
 REQUIREMENTS_PATH = Path("data/representative_document_requirements.csv")
 LARGE_FILE_BYTES = 100 * 1024 * 1024
-SUPPORTED_EXTENSIONS = {".pdf", ".docx", ".pptx"}
+SUPPORTED_EXTENSIONS = {".pdf", ".docx", ".pptx", ".xlsx"}
 
 SAMPLE_FIELDS = ["file_id", "relative_path", "filename", "extension", "file_size", "product_code", "document_category", "sample_role", "selection_note"]
 REQUIREMENT_FIELDS = [
     "file_id", "relative_path", "filename", "sample_role", "file_format", "page_count",
-    "text_extractable", "tables_present", "images_present", "title_extractable",
-    "page_numbers_preserved", "reference_date_present", "product_code", "anticipated_parsing_issue",
-    "review_status", "notes",
+    "native_text_available", "scan_likelihood", "has_tables", "table_complexity", "has_images",
+    "title_extractable", "section_structure", "page_number_preservable", "effective_date_found",
+    "product_code_found", "header_footer_noise", "recommended_parser", "ocr_required",
+    "review_notes", "review_status",
 ]
 
 
@@ -48,7 +49,16 @@ def select_representative_documents(rows: Sequence[Dict[str, str]]) -> List[Dict
     used: set[str] = set()
     selections: List[tuple[Dict[str, str], str, str]] = []
 
-    pdfs = [row for row in rows if row["extension"] == ".pdf"]
+    # Keep the two product-investment samples separate from the five general PDF roles.
+    pdfs = [
+        row for row in rows
+        if row["extension"] == ".pdf" and row["document_category"] != "investment_product"
+    ]
+    if len(pdfs) < 5:
+        pdfs.extend(
+            row for row in rows
+            if row["extension"] == ".pdf" and row["document_category"] == "investment_product"
+        )
     pdfs.sort(key=lambda row: (file_size(row), row["relative_path"]))
     for row, role, note in zip(
         pdfs[:2],
@@ -72,6 +82,8 @@ def select_representative_documents(rows: Sequence[Dict[str, str]]) -> List[Dict
         selections.append((row, "docx_candidate", "DOCX 구조 보존 가능성을 확인할 후보"))
     for row in select_rows(rows, ".pptx", 1, used):
         selections.append((row, "pptx_candidate", "PPTX 슬라이드·도형·표 처리를 확인할 후보"))
+    for row in select_rows(rows, ".xlsx", 2, used):
+        selections.append((row, "xlsx_candidate", "시트·병합 셀·수식·숨김 요소를 확인할 후보"))
 
     investments = [row for row in rows if row["document_category"] == "investment_product" and row["file_id"] not in used]
     investments.sort(key=lambda row: (row["extension"] not in SUPPORTED_EXTENSIONS, row["relative_path"]))
@@ -80,7 +92,7 @@ def select_representative_documents(rows: Sequence[Dict[str, str]]) -> List[Dict
         selections.append((row, "investment_product_candidate", "상품코드와 투자설명서 구조를 확인할 후보"))
 
     output: List[Dict[str, str]] = []
-    for row, role, note in selections[:10]:
+    for row, role, note in selections:
         output.append({
             **{field: row[field] for field in SAMPLE_FIELDS if field in row},
             "sample_role": role,
@@ -129,7 +141,7 @@ def write_report(rows: Sequence[Dict[str, str]], data_root: Path, path: Path) ->
     lines.extend([
         "", "## Structure checks", "",
         f"- Total files: {len(rows)}",
-        f"- Parse-target files (`.pdf`, `.docx`, `.pptx`): {sum(row['extension'] in SUPPORTED_EXTENSIONS for row in rows)}",
+        f"- Parse-target files (`.pdf`, `.docx`, `.pptx`, `.xlsx`): {sum(row['extension'] in SUPPORTED_EXTENSIONS for row in rows)}",
         f"- Product-code folders represented by files: {len(product_codes)}",
         f"- Directories with no descendant files: {len(empty_dirs)}",
         f"- Duplicate filenames (case-insensitive): {len(duplicate_names)}",
@@ -158,10 +170,13 @@ def requirement_rows(samples: Sequence[Dict[str, str]]) -> List[Dict[str, str]]:
         rows.append({
             "file_id": sample["file_id"], "relative_path": sample["relative_path"], "filename": sample["filename"],
             "sample_role": sample["sample_role"], "file_format": sample["extension"], "page_count": "not_reviewed",
-            "text_extractable": "not_reviewed", "tables_present": "not_reviewed", "images_present": "not_reviewed",
-            "title_extractable": "not_reviewed", "page_numbers_preserved": "not_reviewed",
-            "reference_date_present": "not_reviewed", "product_code": sample["product_code"],
-            "anticipated_parsing_issue": sample["selection_note"], "review_status": "not_reviewed", "notes": "",
+            "native_text_available": "not_reviewed", "scan_likelihood": "not_reviewed",
+            "has_tables": "not_reviewed", "table_complexity": "not_reviewed", "has_images": "not_reviewed",
+            "title_extractable": "not_reviewed", "section_structure": "not_reviewed",
+            "page_number_preservable": "not_reviewed", "effective_date_found": "not_reviewed",
+            "product_code_found": sample["product_code"] or "not_reviewed", "header_footer_noise": "not_reviewed",
+            "recommended_parser": "not_reviewed", "ocr_required": "not_reviewed",
+            "review_notes": sample["selection_note"], "review_status": "not_reviewed",
         })
     return rows
 

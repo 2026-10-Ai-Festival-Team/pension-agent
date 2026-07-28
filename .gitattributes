@@ -1,0 +1,5 @@
+# Company source documents are immutable binary assets.
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.xlsx binary

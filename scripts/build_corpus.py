@@ -46,6 +46,7 @@ def main() -> None:
         chunks,
         Counter(path.suffix.lower() for path in paths),
         empty_documents,
+        _ocr_records(),
     )
     print(f"처리 문서: {len(paths)}개, 생성 청크: {len(chunks)}개")
 
@@ -57,7 +58,15 @@ def _paths(root: Path, representative_csv: Path, build_all: bool):
         return [root / row["relative_path"] for row in csv.DictReader(file)]
 
 
-def _write_report(report: Path, chunks, document_formats, empty_documents) -> None:
+def _ocr_records():
+    path = Path("data/diagnostics/ocr_candidates.jsonl")
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8") as file:
+        return [json.loads(line) for line in file if line.strip()]
+
+
+def _write_report(report: Path, chunks, document_formats, empty_documents, ocr_records) -> None:
     lengths = [len(chunk.text) for chunk in chunks]
     ids = [chunk.chunk_id for chunk in chunks]
     by_format = Counter(chunk.source_format for chunk in chunks)
@@ -65,7 +74,11 @@ def _write_report(report: Path, chunks, document_formats, empty_documents) -> No
     missing_locator = sum(chunk.locator is None for chunk in chunks)
     missing_elements = sum(not chunk.element_ids for chunk in chunks)
     missing_codes = sum(chunk.document_type == "investment_product" and not chunk.product_codes for chunk in chunks)
-    lines = ["# 대표 Corpus 생성 보고서", "", f"- 처리 문서 수: {sum(document_formats.values())}개", f"- 생성 청크 수: {len(chunks)}개", f"- 빈 청크 수: {sum(not chunk.text.strip() for chunk in chunks)}개", f"- 중복 chunk_id 수: {len(ids) - len(set(ids))}개", f"- locator 누락 수: {missing_locator}개", f"- element_ids 누락 수: {missing_elements}개", f"- 상품코드 누락 청크 수: {missing_codes}개", "", "## 형식별 문서 수", ""]
+    by_source = {}
+    for chunk in chunks:
+        by_source.setdefault(chunk.source_path, []).append(chunk)
+    partial_documents = {item["relative_path"] for item in ocr_records if item["relative_path"] not in empty_documents}
+    lines = ["# 전체 Corpus 생성 보고서", "", f"- 처리 문서 수: {sum(document_formats.values())}개", f"- 생성 청크 수: {len(chunks)}개", f"- 빈 청크 수: {sum(not chunk.text.strip() for chunk in chunks)}개", f"- 중복 chunk_id 수: {len(ids) - len(set(ids))}개", f"- locator 누락 수: {missing_locator}개", f"- element_ids 누락 수: {missing_elements}개", f"- 상품코드 누락 청크 수: {missing_codes}개", "", "## OCR 상태", "", f"- OCR 후보 페이지: {sum(item.get('ocr_candidate', False) for item in ocr_records)}개", f"- OCR 보류 문서: {len(empty_documents)}개", f"- 부분 네이티브 텍스트 문서: {len(partial_documents)}개", "", "## 형식별 문서 수", ""]
     lines.extend(f"- `{key}`: {value}" for key, value in sorted(document_formats.items()))
     lines.extend(["", "## 형식별 청크 수", ""])
     lines.extend(f"- `{key}`: {value}" for key, value in sorted(by_format.items()))
@@ -85,6 +98,14 @@ def _write_report(report: Path, chunks, document_formats, empty_documents) -> No
     lines.extend(f"- `{chunk.chunk_id}` ({len(chunk.text)}자)" for chunk in short_chunks)
     lines.extend(["", "## 1,500자 초과 청크", ""])
     lines.extend(f"- `{chunk.chunk_id}` ({len(chunk.text)}자)" for chunk in long_chunks)
+    lines.extend(["", "## 문서별 청크 수 상위 10개", ""])
+    lines.extend(f"- `{path}`: {len(items)}" for path, items in sorted(by_source.items(), key=lambda item: -len(item[1]))[:10])
+    lines.extend(["", "## 100자 미만 청크가 많은 문서 상위 10개", ""])
+    lines.extend(f"- `{path}`: {sum(len(chunk.text) < 100 for chunk in items)}" for path, items in sorted(by_source.items(), key=lambda item: -sum(len(chunk.text) < 100 for chunk in item[1]))[:10])
+    lines.extend(["", "## 1,500자 초과 청크가 많은 문서 상위 10개", ""])
+    lines.extend(f"- `{path}`: {sum(len(chunk.text) > 1500 for chunk in items)}" for path, items in sorted(by_source.items(), key=lambda item: -sum(len(chunk.text) > 1500 for chunk in item[1]))[:10])
+    lines.extend(["", "## 표 청크가 많은 문서 상위 10개", ""])
+    lines.extend(f"- `{path}`: {sum(chunk.chunk_type.value == 'table' for chunk in items)}" for path, items in sorted(by_source.items(), key=lambda item: -sum(chunk.chunk_type.value == 'table' for chunk in item[1]))[:10])
     report.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

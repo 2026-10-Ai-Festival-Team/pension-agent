@@ -11,6 +11,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.ingestion.pdf_parser import PdfParser
+from src.ingestion.docx_parser import DocxParser
 
 
 def main() -> None:
@@ -21,7 +22,13 @@ def main() -> None:
 
     source_root = Path(args.source_root).resolve()
     file_path = Path(args.file).resolve()
-    result = PdfParser().parse(file_path, source_root)
+    parsers = {".pdf": PdfParser(), ".docx": DocxParser()}
+    try:
+        parser = parsers[file_path.suffix.lower()]
+    except KeyError as exc:
+        supported = ", ".join(sorted(parsers))
+        raise ValueError(f"unsupported file extension: {file_path.suffix} ({supported})") from exc
+    result = parser.parse(file_path, source_root)
     print(result.model_dump_json(indent=2))
 
 

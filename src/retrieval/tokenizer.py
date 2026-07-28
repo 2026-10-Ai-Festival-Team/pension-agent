@@ -7,7 +7,12 @@ class SearchTokenizer(Protocol):
     def tokenize(self, text: str) -> List[str]: ...
 class SimpleKoreanTokenizer:
     name = "simple-ko-v1"
-    def tokenize(self, text: str) -> List[str]: return [item.lower() for item in TOKEN_PATTERN.findall(unicodedata.normalize("NFC", text))]
+    def tokenize(self, text: str) -> List[str]:
+        tokens = [item.lower() for item in TOKEN_PATTERN.findall(unicodedata.normalize("NFC", text))]
+        for token in list(tokens):
+            if re.fullmatch(r"[가-힣]+", token):
+                tokens.extend(token[index:index + 2] for index in range(len(token) - 1))
+        return list(dict.fromkeys(tokens))
 class KiwiKoreanTokenizer:
     name = "kiwi-ko-v1"; allowed = ("NN", "VV", "VA", "SL", "SN", "SH")
     def __init__(self):

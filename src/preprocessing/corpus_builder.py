@@ -31,8 +31,17 @@ class CorpusBuilder:
         chunks, paragraphs = [], []
         for element in document.elements:
             if element.kind == ElementType.TABLE:
-                chunks.extend(self.paragraph_chunker.chunk_elements(document, paragraphs)); paragraphs = []
-                chunks.extend(self.table_chunker.chunk_element(document, element))
+                heading_only = paragraphs and all(
+                    item.kind in {ElementType.TITLE, ElementType.HEADING}
+                    for item in paragraphs
+                )
+                if heading_only:
+                    section = "\n".join(item.text or "" for item in paragraphs).strip()
+                    chunks.extend(self.table_chunker.chunk_element(document, element, section, paragraphs))
+                    paragraphs = []
+                else:
+                    chunks.extend(self.paragraph_chunker.chunk_elements(document, paragraphs)); paragraphs = []
+                    chunks.extend(self.table_chunker.chunk_element(document, element))
             else:
                 paragraphs.append(element)
         chunks.extend(self.paragraph_chunker.chunk_elements(document, paragraphs))

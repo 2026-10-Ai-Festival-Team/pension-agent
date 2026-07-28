@@ -3,6 +3,8 @@ from src.preprocessing.config import ChunkingConfig
 from src.preprocessing.paragraph_chunker import ParagraphChunker
 from src.preprocessing.table_chunker import TableChunker
 from src.preprocessing.spreadsheet_chunker import SpreadsheetChunker
+from src.preprocessing.corpus_builder import CorpusBuilder
+from src.ingestion.registry import build_default_registry
 
 
 def document(elements):
@@ -31,3 +33,12 @@ def test_spreadsheet_chunks_repeat_header_and_split_locator_rows():
     chunks = SpreadsheetChunker(ChunkingConfig(spreadsheet_rows_per_chunk=20)).chunk(workbook)
     assert [chunk.locator.cell_range for chunk in chunks] == ["A2:B21", "A22:B26"]
     assert all(chunk.text.startswith("상품 | 수익률") for chunk in chunks)
+
+
+def test_heading_before_table_is_included_in_table_chunk():
+    heading = DocumentElement(element_id="heading", order=0, kind=ElementType.HEADING, text="위험등급", locator=Locator(page=1))
+    table = DocumentElement(element_id="table", order=1, kind=ElementType.TABLE, table=TableData(rows=[["등급"], ["3"]]), locator=Locator(page=1))
+    chunks = CorpusBuilder(build_default_registry())._build_ordered_document(document([heading, table]))
+    assert len(chunks) == 1
+    assert chunks[0].text.startswith("위험등급\n등급")
+    assert chunks[0].element_ids == ["heading", "table"]

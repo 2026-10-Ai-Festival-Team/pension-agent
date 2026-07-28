@@ -19,14 +19,15 @@ def make_chunk(chunk_id: str, text: str) -> SearchChunk:
     )
 
 
-def test_question_drafts_have_expected_split_and_pending_labels():
+def test_questions_have_expected_split_and_labeled_state():
     questions = load_questions(Path("evaluation/retrieval_questions.jsonl"))
 
     assert len(questions) == 40
     assert sum(question["split"] == "dev" for question in questions) == 30
     assert sum(question["split"] == "test" for question in questions) == 10
-    assert all(question["relevant_chunks"] == [] for question in questions)
-    assert all("pending_label" in question["notes"] for question in questions)
+    assert all("pending_label" not in question["notes"] for question in questions)
+    assert all(question["relevant_chunks"] for question in questions if question["answerable"])
+    assert all(not question["relevant_chunks"] for question in questions if not question["answerable"])
 
 
 def test_collection_keeps_union_scores_and_source_location():

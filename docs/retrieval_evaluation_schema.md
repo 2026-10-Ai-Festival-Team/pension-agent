@@ -16,6 +16,7 @@
 | `relevant_chunks` | 확정된 정답 청크 목록 |
 | `relevant_source_ids` | 확정된 정답 문서 ID 목록 |
 | `required_terms` | 답변 근거에 반드시 포함되어야 하는 용어 목록 |
+| `evidence_requirement` | `any`, `all`, `at_least_n` 중 근거 충족 조건 |
 | `notes` | 라벨링 상태와 예외 사유 |
 
 ## 초기 초안과 라벨링
@@ -34,6 +35,8 @@
 ```
 
 관련도는 `2`가 그 청크만으로 직접 답할 수 있는 근거, `1`이 필요한 보조 근거다. 답변 불가능 질문은 `answerable=false`, 빈 근거 배열, 그리고 `unsupported_question:` 사유를 유지한다.
+
+`evidence_requirement`는 기본적으로 `any`다. 비교·복합 질문처럼 등록된 핵심 근거가 모두 있어야 완전한 답변이 되는 경우에는 `all`을 사용한다. 첫 BM25 지표는 `any` 방식으로 계산하되 `all` 질문은 별도 분석한다.
 
 ## 편향을 줄이는 라벨링 순서
 

@@ -24,6 +24,29 @@
 
 `PENSION_DATA_ROOT`는 읽기 전용 원본 위치이며, 생성 파일은 `PARSED_DATA_ROOT`와 `INDEX_DATA_ROOT`에만 저장해야 합니다.
 
+## Data inventory
+
+문서 파싱이나 모델 호출 전에 원본의 파일 구조를 인벤토리로 확인합니다. 원본은 읽기만 하며, 결과 파일에는 절대 경로를 기록하지 않습니다.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+python3 scripts/check_data_path.py
+python3 scripts/build_manifest.py
+python3 scripts/analyze_inventory.py
+```
+
+위 명령은 다음 파일을 만듭니다.
+
+- `data/manifest.csv`: 원본 파일의 상대 경로와 메타데이터
+- `data/inventory_report.md`: 파일 형식, 상품코드 폴더, 빈 폴더, 중복 파일명, 대용량 파일 통계
+- `data/representative_documents.csv`: 메타데이터로 선정한 최대 10개 대표 문서 후보
+- `data/representative_document_requirements.csv`: 사람이 확인해 채울 파싱 요구사항 표
+
+대표 문서의 표·이미지·스캔 여부는 파일명과 크기만으로 확정할 수 없습니다. 후보를 연 뒤 마지막 CSV의 `not_reviewed` 값을 검토 결과로 바꿉니다.
+
 ## Layout
 
 ```text

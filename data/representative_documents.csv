@@ -1,0 +1,11 @@
+﻿file_id,relative_path,filename,extension,file_size,product_code,document_category,sample_role,selection_note
+b595cc0db0aa64b8,docs_renamed/doc19.pdf,doc19.pdf,.pdf,45553,,pension_document,general_pdf_candidate,일반 텍스트 PDF 여부를 확인할 후보
+ee3b84ad68394b49,docs_renamed/doc47.pdf,doc47.pdf,.pdf,81107,,pension_document,general_pdf_candidate,일반 텍스트 PDF 여부를 확인할 후보
+32a9019d096c10a2,docs_renamed/doc30.pdf,doc30.pdf,.pdf,8959101,,pension_document,table_pdf_candidate,표가 많은 PDF 여부를 확인할 후보
+00db21ed21cfa0e0,docs_renamed/doc37.pdf,doc37.pdf,.pdf,10037907,,pension_document,table_pdf_candidate,표가 많은 PDF 여부를 확인할 후보
+6a9fc4484a34f8ed,docs_renamed/doc31.pdf,doc31.pdf,.pdf,6308987,,pension_document,image_or_scan_pdf_candidate,이미지·스캔 중심 PDF 여부를 확인할 후보
+afc99f5bd68cc78b,docs_renamed/doc35.docx,doc35.docx,.docx,16723,,pension_document,docx_candidate,DOCX 구조 보존 가능성을 확인할 후보
+7cce439d30d5a8b0,docs_renamed/doc41.docx,doc41.docx,.docx,20557,,pension_document,docx_candidate,DOCX 구조 보존 가능성을 확인할 후보
+5a8516a0215f8754,docs_renamed/doc33.pptx,doc33.pptx,.pptx,140397,,pension_document,pptx_candidate,PPTX 슬라이드·도형·표 처리를 확인할 후보
+e8b9d44491ee50d2,투자설명서/KR510902511M/R2_KR510902511M.pdf,R2_KR510902511M.pdf,.pdf,1244756,KR510902511M,investment_product,investment_product_candidate,상품코드와 투자설명서 구조를 확인할 후보
+2607f0bb43b14183,투자설명서/KR510902773M/R2_KR510902773M.pdf,R2_KR510902773M.pdf,.pdf,937912,KR510902773M,investment_product,investment_product_candidate,상품코드와 투자설명서 구조를 확인할 후보

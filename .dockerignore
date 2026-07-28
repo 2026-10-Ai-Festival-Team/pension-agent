@@ -1,0 +1,14 @@
+.git/
+.env
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+
+# Never send company source data or generated local artifacts to the image build context.
+data/raw/
+data/parsed/
+data/indexes/
+logs/
+tmp/
+*.log

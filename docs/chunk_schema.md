@@ -1,4 +1,4 @@
-# Search Chunk Schema v1
+# 검색 청크 스키마 v1
 
 ## 목적
 
@@ -7,7 +7,7 @@
 
 ## 핵심 필드
 
-| Field | Purpose |
+| 필드 | 목적 |
 |---|---|
 | `source_id` | 원본 `ParsedDocument`를 식별한다. |
 | `locator` | 페이지·슬라이드·시트·셀 범위를 보존한다. |
@@ -27,9 +27,9 @@
 9. 청크 생성 과정에서 원문을 요약하거나 새 정보를 추가하지 않는다.
 10. OCR 대상 페이지는 OCR 완료 전까지 기존 네이티브 파싱 결과와 별도 상태로 유지한다.
 
-## Chunk types
+## 청크 유형
 
-| Type | Use |
+| 유형 | 용도 |
 |---|---|
 | `paragraph_group` | PDF·DOCX의 연속 문단 또는 설명형 XLSX 시트 |
 | `qa` | 질문과 답변이 하나의 구조 단위인 경우 |
@@ -37,7 +37,7 @@
 | `slide` | PPTX 슬라이드 또는 큰 슬라이드의 요소 그룹 |
 | `spreadsheet_rows` | XLSX의 헤더와 행 묶음 |
 
-## Locator conventions
+## Locator 규칙
 
 - `page_start`/`page_end`, `slide_start`/`slide_end`은 포함 범위이며 시작값이 끝값보다 클 수 없다.
 - PDF·DOCX 문단, PDF·DOCX 표는 각 원소의 원래 `element_id`를 유지한다.
@@ -45,7 +45,7 @@
 - DOCX는 안정적인 렌더링 페이지가 없으므로 locator의 페이지 필드를 비워 두고 `element_ids`로 본문 블록을 추적한다.
 - XLSX는 `sheet`와 `cell_range`를 반드시 설정한다.
 
-## Example
+## 예시
 
 ```json
 {

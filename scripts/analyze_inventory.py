@@ -133,34 +133,34 @@ def write_report(rows: Sequence[Dict[str, str]], data_root: Path, path: Path) ->
     empty_dirs = empty_directories(data_root)
 
     lines = [
-        "# Data Inventory Report", "", "## Scope", "",
-        "This report contains metadata only. Paths are relative to `PENSION_DATA_ROOT`; no document contents or absolute paths are stored.",
-        "", "## File-format counts", "", "| Extension | Files |", "| --- | ---: |",
+        "# 데이터 인벤토리 보고서", "", "## 범위", "",
+        "이 보고서에는 메타데이터만 담는다. 경로는 `PENSION_DATA_ROOT` 기준 상대 경로이며 문서 내용이나 절대 경로는 저장하지 않는다.",
+        "", "## 파일 형식별 수", "", "| 확장자 | 파일 수 |", "| --- | ---: |",
     ]
     lines.extend(f"| {extension} | {count} |" for extension, count in sorted(extensions.items()))
     lines.extend([
-        "", "## Structure checks", "",
-        f"- Total files: {len(rows)}",
-        f"- Parse-target files (`.pdf`, `.docx`, `.pptx`, `.xlsx`): {sum(row['extension'] in SUPPORTED_EXTENSIONS for row in rows)}",
-        f"- Product-code folders represented by files: {len(product_codes)}",
-        f"- Directories with no descendant files: {len(empty_dirs)}",
-        f"- Duplicate filenames (case-insensitive): {len(duplicate_names)}",
-        f"- Large files (at least {LARGE_FILE_BYTES // (1024 * 1024)} MiB): {len(large_files)}",
-        "", "## Empty directories", "",
+        "", "## 구조 점검", "",
+        f"- 전체 파일: {len(rows)}개",
+        f"- 파싱 대상 파일(`.pdf`, `.docx`, `.pptx`, `.xlsx`): {sum(row['extension'] in SUPPORTED_EXTENSIONS for row in rows)}개",
+        f"- 파일이 있는 상품코드 폴더: {len(product_codes)}개",
+        f"- 하위 파일이 없는 폴더: {len(empty_dirs)}개",
+        f"- 중복 파일명(대소문자 무시): {len(duplicate_names)}개",
+        f"- 대용량 파일({LARGE_FILE_BYTES // (1024 * 1024)}MiB 이상): {len(large_files)}개",
+        "", "## 빈 폴더", "",
     ])
-    lines.extend([f"- `{directory}`" for directory in empty_dirs] or ["- None"])
-    lines.extend(["", "## Duplicate filenames", ""])
+    lines.extend([f"- `{directory}`" for directory in empty_dirs] or ["- 없음"])
+    lines.extend(["", "## 중복 파일명", ""])
     if duplicate_names:
         for group in duplicate_names:
             lines.append(f"- `{group[0]['filename']}` ({len(group)} files): " + ", ".join(f"`{row['relative_path']}`" for row in group))
     else:
-        lines.append("- None")
-    lines.extend(["", "## Large files", ""])
+        lines.append("- 없음")
+    lines.extend(["", "## 대용량 파일", ""])
     if large_files:
         for row in sorted(large_files, key=file_size, reverse=True):
             lines.append(f"- `{row['relative_path']}` — {file_size(row) / (1024 * 1024):.1f} MiB")
     else:
-        lines.append("- None")
+        lines.append("- 없음")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

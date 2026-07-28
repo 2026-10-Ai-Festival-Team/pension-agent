@@ -256,30 +256,30 @@ def write_report(
         if summary["native_text_page_count"] == 0
     ]
     lines = [
-        "# OCR Triage Report",
+        "# OCR 분류 보고서",
         "",
-        "## Scope and rule",
+        "## 범위와 규칙",
         "",
-        f"- PDFs inspected: {len(document_summaries)}",
-        f"- Native-text-absent pages: {len(records)}",
-        f"- OCR candidates: {sum(record['ocr_candidate'] for record in records)}",
-        "- Rule: native text is absent, embedded-image coverage is at least "
-        f"{image_coverage_threshold:.0%}, and the page is not a likely first-page cover.",
-        "- `no_native_text_without_embedded_image` remains a manual-review item; "
-        "it may be blank, vector-only, or a scanned page embedded in an unsupported form.",
+        f"- 검사한 PDF: {len(document_summaries)}개",
+        f"- 네이티브 텍스트가 없는 페이지: {len(records)}개",
+        f"- OCR 후보: {sum(record['ocr_candidate'] for record in records)}개",
+        "- 규칙: 네이티브 텍스트가 없고, 임베디드 이미지 면적 비율이 최소 "
+        f"{image_coverage_threshold:.0%}이며, 첫 페이지 표지로 보이지 않는 경우다.",
+        "- `no_native_text_without_embedded_image`는 수동 검토 대상으로 남긴다. "
+        "빈 페이지, 벡터 전용 페이지, 지원하지 않는 형태로 삽입된 스캔 페이지일 수 있다.",
         "",
-        "## Classification reasons",
+        "## 분류 사유",
         "",
-        "| Reason | Pages |",
+        "| 사유 | 페이지 수 |",
         "|---|---:|",
     ]
     for reason, count in sorted(reason_counts.items()):
         lines.append(f"| {reason} | {count} |")
 
-    lines.extend(["", "## Native-text-empty documents", ""])
+    lines.extend(["", "## 네이티브 텍스트가 없는 문서", ""])
     if empty_documents:
         lines.extend(
-            ["| Relative path | Pages | OCR-candidate pages |", "|---|---:|---:|"]
+            ["| 상대 경로 | 페이지 수 | OCR 후보 페이지 수 |", "|---|---:|---:|"]
         )
         for summary in empty_documents:
             lines.append(
@@ -287,30 +287,30 @@ def write_report(
                 f"{summary['ocr_candidate_page_count']} |"
             )
     else:
-        lines.append("None.")
+        lines.append("없음.")
 
-    lines.extend(["", "## Manual visual inspection", ""])
+    lines.extend(["", "## 수동 시각 점검", ""])
     if manual_notes:
         for relative, note in manual_notes:
             lines.append(f"- `{relative}`: {note}")
     else:
-        lines.append("Not recorded in this run.")
+        lines.append("이번 실행에는 기록되지 않음.")
 
-    lines.extend(["", "## Documents with OCR candidates", ""])
+    lines.extend(["", "## OCR 후보가 있는 문서", ""])
     if candidates_by_document:
         for relative, candidates in sorted(candidates_by_document.items()):
             pages = ", ".join(str(candidate["page"]) for candidate in candidates)
-            lines.append(f"- `{relative}`: pages {pages}")
+            lines.append(f"- `{relative}`: 페이지 {pages}")
     else:
-        lines.append("None.")
+        lines.append("없음.")
 
     lines.extend(
         [
             "",
-            "## Next action",
+            "## 다음 작업",
             "",
-            "Use the OCR-candidate list as the review queue. Select an OCR engine only "
-            "after spot-checking a small sample from each candidate group.",
+            "OCR 후보 목록을 검토 대기열로 사용한다. 각 후보 그룹에서 작은 표본을 점검한 뒤에만 "
+            "OCR 엔진을 선택한다.",
         ]
     )
     summary_path.write_text("\n".join(lines) + "\n", encoding="utf-8")

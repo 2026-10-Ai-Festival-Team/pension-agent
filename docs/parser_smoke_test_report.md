@@ -1,42 +1,42 @@
-# Parser Smoke Test Report
+# 파서 Smoke Test 보고서
 
-- Source root: `data/raw/연금`
-- Documents tested: 158
-- Total elapsed: 488.82s
-- JSONL detail: `data/diagnostics/parser_smoke_test.jsonl` (Git ignored)
+- 원본 루트: `data/raw/연금`
+- 검사 문서 수: 158개
+- 총 소요 시간: 488.82초
+- JSONL 상세 결과: `data/diagnostics/parser_smoke_test.jsonl`(Git 제외)
 
-## Status
+## 상태
 
-| Status | Count |
+| 상태 | 개수 |
 |---|---:|
 | empty | 3 |
 | success | 132 |
 | success_with_warnings | 23 |
 
-## Extension performance
+## 확장자별 성능
 
-| Extension | Tested | Successful | Success rate | Average time |
+| 확장자 | 검사 수 | 성공 수 | 성공률 | 평균 시간 |
 |---|---:|---:|---:|---:|
 | .docx | 18 | 18 | 100.0% | 19.95 ms |
 | .pdf | 137 | 134 | 97.8% | 3564.97 ms |
 | .pptx | 1 | 1 | 100.0% | 22.58 ms |
 | .xlsx | 2 | 2 | 100.0% | 18.20 ms |
 
-## Corpus signals
+## 코퍼스 신호
 
-- Documents containing table elements: 138
-- Native-text-absent PDF pages: 105
-- Total elements: 240870
-- Total table elements: 11255
-- Product documents with extracted product code: 100/100 (100.0%)
+- 표 요소를 포함한 문서: 138개
+- 네이티브 텍스트가 없는 PDF 페이지: 105개
+- 전체 요소: 240870개
+- 전체 표 요소: 11255개
+- 상품코드가 추출된 상품 문서: 100/100 (100.0%)
 
-## Failed, invalid, or empty
+## 실패·검증 오류·빈 문서
 
-- `docs_renamed/doc31.pdf`: empty (no extractable elements)
-- `docs_renamed/doc37.pdf`: empty (no extractable elements)
-- `docs_renamed/doc56.pdf`: empty (no extractable elements)
+- `docs_renamed/doc31.pdf`: `empty`(추출 가능한 요소 없음)
+- `docs_renamed/doc37.pdf`: `empty`(추출 가능한 요소 없음)
+- `docs_renamed/doc56.pdf`: `empty`(추출 가능한 요소 없음)
 
-## Date candidates at or above 20
+## 날짜 후보가 20개 이상인 문서
 
 - `투자설명서/KR5111450067/R2_KR5111450067.pdf`: 171
 - `투자설명서/KR5118201004/R2_KR5118201004.pdf`: 162
@@ -139,9 +139,9 @@
 - `투자설명서/KR514X450008/R2_KR514X450008.pdf`: 32
 - `투자설명서/KR5153420339/R2_KR5153420339.pdf`: 29
 
-## Top 10 documents by warning count
+## 경고가 많은 문서 상위 10개
 
-| Relative path | Warnings |
+| 상대 경로 | 경고 수 |
 |---|---:|
 | `docs_renamed/doc30.pdf` | 16 |
 | `docs_renamed/doc54.pdf` | 16 |

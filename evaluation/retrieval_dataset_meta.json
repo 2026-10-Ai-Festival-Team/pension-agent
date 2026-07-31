@@ -1,0 +1,5 @@
+{
+  "dataset_version": "1.0",
+  "corpus_sha256": "c61ac0d54dc9af5ee339460b8b810076f6df998c76f54983d667660a1e8eaead",
+  "labeling_method": "simple_kiwi_top20_union_plus_manual_fallback"
+}

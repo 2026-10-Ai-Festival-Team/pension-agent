@@ -50,3 +50,5 @@
 ## 재현성
 
 후보 수집 결과에는 Corpus SHA-256, 토크나이저 이름, 두 검색기의 순위와 점수를 함께 저장한다. 평가셋을 동결할 때는 별도 메타데이터에 데이터셋 버전, Corpus SHA-256, 라벨링 방법(`simple_kiwi_top20_union_plus_manual_fallback`)을 기록한다.
+
+동결 메타데이터는 `evaluation/retrieval_dataset_meta.json`에 저장한다. 평가기는 이 SHA-256과 현재 Corpus, Simple 인덱스, Kiwi 인덱스의 SHA-256이 모두 같을 때만 실행한다.

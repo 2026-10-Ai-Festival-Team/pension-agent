@@ -2,7 +2,7 @@ import re
 from typing import List, Optional
 
 from src.models.chunk import ChunkLocator, ChunkType, SearchChunk
-from src.models.document import DocumentElement, DocumentType, ElementType, ParsedDocument, SourceFormat
+from src.models.document import DocumentElement, ElementType, ParsedDocument, SourceFormat
 from src.preprocessing.common import collect_element_ids, join_non_empty, make_chunk_id
 from src.preprocessing.config import ChunkingConfig
 
@@ -58,7 +58,6 @@ class ParagraphChunker:
     @staticmethod
     def _is_topic_start(document: ParsedDocument, element: DocumentElement) -> bool:
         """Detect PDF question/subtopic blocks without splitting ordinary list items."""
-        if document.source_format != SourceFormat.PDF or document.document_type != DocumentType.PENSION_GUIDE:
-            return False
-        first_line = (element.text or "").splitlines()[0] if element.text else ""
-        return bool(re.match(r"^\s*[○●■]\s*\S", first_line) and "?" in first_line)
+        return document.source_format == SourceFormat.PDF and bool(
+            re.match(r"^\s*[○●■]\s*\S", element.text or "")
+        )

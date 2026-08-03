@@ -19,10 +19,11 @@ class PensionAgent:
         response = self.retriever.search(analysis.question, top_k=top_k)
         contexts = self.context_builder.build(response.results, top_k)
         assessment = self.assessor.assess(analysis, contexts)
-        answer = self.generator.generate(analysis.question, contexts) if assessment.sufficient else self._insufficient_answer(assessment)
+        generator_called = assessment.sufficient
+        answer = self.generator.generate(analysis.question, contexts) if generator_called else self._insufficient_answer(assessment)
         if assessment.sufficient:
             answer += "\n\n" + "\n".join(self._citation(item) for item in contexts)
-        return {"question": analysis.question, "retrieved_context": contexts, "think_trace": {"query_type": analysis.intent, "normalization": "pension-v1", "retrieved_chunk_ids": [item.chunk_id for item in contexts], "evidence_sufficient": assessment.sufficient, "assessment_reason": assessment.reason, "generator": type(self.generator).__name__}, "answer": answer}
+        return {"question": analysis.question, "retrieved_context": contexts, "think_trace": {"query_type": analysis.intent, "normalization": "pension-v1", "retrieved_chunk_ids": [item.chunk_id for item in contexts], "evidence_sufficient": assessment.sufficient, "assessment_reason": assessment.reason, "generator": type(self.generator).__name__, "generator_called": generator_called}, "answer": answer}
 
     @staticmethod
     def _citation(item) -> str:

@@ -13,6 +13,8 @@ class EvidenceAssessment:
 
 class EvidenceAssessor:
     def assess(self, analysis: QueryAnalysis, contexts: list[SearchResult]) -> EvidenceAssessment:
+        if analysis.intent == "unsupported_or_personal":
+            return EvidenceAssessment(False, "unsupported_or_personal_information")
         if analysis.requires_user_conditions:
             return EvidenceAssessment(False, "conditional_recommendation_requires_user_conditions", ["투자 기간", "위험 성향", "운용 목적"])
         if not contexts:

@@ -21,5 +21,6 @@ class QueryAnalyzer:
         entities = [item for item in ("DB", "DC", "IRP") if re.search(rf"\b{item}\b", normalized, re.I)]
         conditional = any(word in normalized for word in ("추천", "어떤 상품", "적합"))
         comparison = any(word in normalized for word in ("비교", "차이", "어느", "각각")) or len(entities) >= 2
-        intent = "conditional_recommendation" if conditional else "product_explanation" if codes else "tax" if any(word in normalized for word in ("세금", "과세", "공제")) else "pension_system"
+        personal = any(word in normalized for word in ("현재 제", "내 계좌", "내 IRP", "개인 계좌"))
+        intent = "unsupported_or_personal" if personal else "conditional_recommendation" if conditional else "product_explanation" if codes else "tax" if any(word in normalized for word in ("세금", "과세", "공제")) else "pension_system"
         return QueryAnalysis(normalized, intent, codes, entities, comparison, conditional)

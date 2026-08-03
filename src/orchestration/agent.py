@@ -4,6 +4,7 @@ from src.generation.base import AnswerGenerator
 from src.orchestration.context_builder import ContextBuilder
 from src.orchestration.query_analyzer import QueryAnalyzer
 from src.orchestration.evidence_assessor import EvidenceAssessor
+from src.generation.errors import CitationValidationError, GenerationError
 
 
 @dataclass
@@ -20,9 +21,14 @@ class PensionAgent:
         contexts = self.context_builder.build(response.results, top_k)
         assessment = self.assessor.assess(analysis, contexts)
         generator_called = assessment.sufficient
-        answer = self.generator.generate(analysis.question, contexts) if generator_called else self._insufficient_answer(assessment)
-        if assessment.sufficient:
-            answer += "\n\n" + "\n".join(self._citation(item) for item in contexts)
+        try:
+            generated = self.generator.generate(question=analysis.question, contexts=contexts, query_analysis=analysis) if generator_called else None
+            if generated and (not generated.cited_chunk_ids or set(generated.cited_chunk_ids)-{item.chunk_id for item in contexts}): raise CitationValidationError("invalid citations")
+            answer = generated.answer if generated else self._insufficient_answer(assessment)
+            cited = [item for item in contexts if generated and item.chunk_id in generated.cited_chunk_ids]
+            if generated: answer += "\n\n" + "\n".join(self._citation(item) for item in cited)
+        except GenerationError:
+            answer = "생성 응답을 검증하지 못했습니다. 제공된 근거를 다시 확인해 주세요."; generator_called=False; cited=[]
         return {"question": analysis.question, "retrieved_context": contexts, "think_trace": {"query_type": analysis.intent, "normalization": "pension-v1", "retrieved_chunk_ids": [item.chunk_id for item in contexts], "evidence_sufficient": assessment.sufficient, "assessment_reason": assessment.reason, "generator": type(self.generator).__name__, "generator_called": generator_called}, "answer": answer}
 
     @staticmethod

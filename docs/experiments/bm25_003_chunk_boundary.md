@@ -30,3 +30,9 @@
 새 Corpus에서는 기존 gold `element_ids`와 새 청크의 교집합으로 이전 후보를 만들고, 38개 답변 가능 질문의 근거 존재·source_id·locator·element_ids를 다시 검증한다. test 질문은 검색 결과를 평가하지 않고 근거 존재 여부만 검증한다.
 
 상세 element 문맥, Top-10 경쟁 청크, 점수와 질문 필수 용어 일치 비율은 Git 제외 파일 `data/diagnostics/broad_chunk_analysis.csv`에 저장한다.
+
+## 실험 결과 및 결정
+
+제한적 재분할 후보는 23,503청크로 82개 증가했으나, dev Direct R@5는 63.3%에서 43.3%로, R@10은 80.0%에서 53.3%로, MRR은 0.401에서 0.211로 하락했다. 목표 네 질문의 개선도 없었다.
+
+**Rejected** — 운영 Corpus와 평가셋 gold는 원상 복구했다. 상세 점수 경쟁 분석은 `docs/retrieval_failure_analysis_after_bm25_003.md`에 기록한다.

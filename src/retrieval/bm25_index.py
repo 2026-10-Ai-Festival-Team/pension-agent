@@ -7,7 +7,9 @@ class Bm25Index:
     def __init__(self,chunks,tokens,tokenizer): self.chunks=chunks; self.tokenized_documents=tokens; self.tokenizer=tokenizer; self.bm25=BM25Okapi(tokens)
     @classmethod
     def build(cls,chunks,tokenizer): return cls(chunks,[tokenizer.tokenize(build_index_text(c)) for c in chunks],tokenizer)
-    def scores(self,query): return self.bm25.get_scores(self.tokenizer.tokenize(query))
+    def scores(self,query,query_normalizer=None):
+        query_tokens = self.tokenizer.tokenize(query) if query_normalizer is None else query_normalizer.expand(query, self.tokenizer)
+        return self.bm25.get_scores(query_tokens)
     def save(self,path,corpus_path):
         path.mkdir(parents=True,exist_ok=True)
         with (path/"tokenized_documents.jsonl").open("w",encoding="utf-8") as f:

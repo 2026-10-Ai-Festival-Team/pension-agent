@@ -59,7 +59,7 @@ def load_saved_retriever(
 
 
 def evaluate_retriever(
-    questions: list[RetrievalQuestion], retriever: Bm25Retriever, top_k: int
+    questions: list[RetrievalQuestion], retriever: Bm25Retriever, top_k: int, query_normalizer: Any = None
 ) -> list[dict[str, Any]]:
     if top_k < max(METRIC_KS):
         raise ValueError("top_k는 최소 10이어야 합니다.")
@@ -67,7 +67,8 @@ def evaluate_retriever(
     rows: list[dict[str, Any]] = []
     for question in questions:
         started = time.perf_counter()
-        response = retriever.search(question.question, top_k=top_k)
+        search_kwargs = {"query_normalizer": query_normalizer} if query_normalizer is not None else {}
+        response = retriever.search(question.question, top_k=top_k, **search_kwargs)
         elapsed_ms = (time.perf_counter() - started) * 1000
         _validate_ranked_results(response.results)
         retrieved_ids = [result.chunk_id for result in response.results]
@@ -78,6 +79,7 @@ def evaluate_retriever(
             "tokenizer": response.tokenizer,
             "answerable": question.answerable,
             "evidence_requirement": question.evidence_requirement,
+            "product_codes": question.product_codes,
             "retrieved_chunk_ids": retrieved_ids,
             "elapsed_ms": elapsed_ms,
         }
@@ -159,4 +161,15 @@ def summarize_latency(rows: list[dict[str, Any]]) -> dict[str, float]:
         "mean_ms": sum(values) / len(values) if values else 0.0,
         "p50_ms": percentile(values, 0.50),
         "p95_ms": percentile(values, 0.95),
+    }
+
+
+def summarize_composite_evidence(rows: list[dict[str, Any]]) -> dict[str, float]:
+    composite_rows = [row for row in rows if row.get("evidence_requirement") == "all" and row["answerable"]]
+    if not composite_rows:
+        return {"question_count": 0, "all_evidence_at_5": 0.0, "all_evidence_at_10": 0.0}
+    return {
+        "question_count": len(composite_rows),
+        "all_evidence_at_5": sum(row["all_evidence_at_5"] for row in composite_rows) / len(composite_rows),
+        "all_evidence_at_10": sum(row["all_evidence_at_10"] for row in composite_rows) / len(composite_rows),
     }

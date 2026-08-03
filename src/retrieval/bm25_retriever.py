@@ -5,10 +5,10 @@ from src.retrieval.bm25_index import Bm25Index
 CODE=re.compile(r"KR[A-Z0-9]{10}",re.I)
 class Bm25Retriever:
     def __init__(self,index): self.index=index
-    def search(self,query,top_k=5,document_types=None,product_codes=None):
+    def search(self,query,top_k=5,document_types=None,product_codes=None,query_normalizer=None):
         if not query.strip(): raise ValueError("query must not be empty")
         codes={item.upper() for item in CODE.findall(query)}; product_codes={item.upper() for item in (product_codes or set())}|codes
-        scores=self.index.scores(query); out=[]
+        scores=self.index.scores(query,query_normalizer=query_normalizer); out=[]
         for idx in np.argsort(scores)[::-1]:
             c=self.index.chunks[int(idx)]
             if scores[int(idx)]<=0: continue

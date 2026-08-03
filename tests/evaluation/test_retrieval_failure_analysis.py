@@ -38,3 +38,11 @@ def test_analysis_excludes_non_failure_non_composite_question():
     flags = analysis_flags(make_question(), simple_rank=1, kiwi_rank=1)
 
     assert should_analyze(flags) is False
+
+
+def test_normalized_analysis_does_not_select_kiwi_only_difference():
+    flags = analysis_flags(
+        make_question(), simple_rank=1, kiwi_rank=None, include_tokenizer_comparison=False
+    )
+
+    assert should_analyze(flags) is False

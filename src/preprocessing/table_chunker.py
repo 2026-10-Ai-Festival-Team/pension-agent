@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 from src.models.chunk import ChunkLocator, ChunkType, SearchChunk
-from src.models.document import DocumentElement, ParsedDocument
+from src.models.document import DocumentElement, DocumentType, ParsedDocument, SourceFormat
 from src.preprocessing.common import make_chunk_id
 from src.preprocessing.config import ChunkingConfig
 
@@ -17,7 +17,7 @@ class TableChunker:
         if not rows:
             return []
         header, data_rows = rows[0], rows[1:]
-        rows_per_chunk = self._rows_per_chunk(header, data_rows)
+        rows_per_chunk = self._rows_per_chunk(document, header, data_rows)
         groups = [data_rows[index:index + rows_per_chunk] for index in range(0, len(data_rows), rows_per_chunk)] or [[]]
         chunks = []
         prefix_elements = prefix_elements or []
@@ -39,9 +39,14 @@ class TableChunker:
             ))
         return chunks
 
-    def _rows_per_chunk(self, header: List[Optional[str]], data_rows: List[List[Optional[str]]]) -> int:
+    def _rows_per_chunk(self, document: ParsedDocument, header: List[Optional[str]], data_rows: List[List[Optional[str]]]) -> int:
         full_text_length = len(self.render_rows([header] + data_rows))
-        if 3 <= len(data_rows) <= self.config.refined_table_max_data_rows and full_text_length >= self.config.refined_table_min_chars:
+        if (
+            document.source_format in {SourceFormat.PDF, SourceFormat.DOCX}
+            and document.document_type == DocumentType.PENSION_GUIDE
+            and 3 <= len(data_rows) <= self.config.refined_table_max_data_rows
+            and full_text_length >= self.config.refined_table_min_chars
+        ):
             return self.config.refined_table_rows_per_chunk
         return self.config.table_rows_per_chunk
 

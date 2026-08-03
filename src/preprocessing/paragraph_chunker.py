@@ -1,4 +1,3 @@
-import re
 from typing import List, Optional
 
 from src.models.chunk import ChunkLocator, ChunkType, SearchChunk
@@ -39,8 +38,6 @@ class ParagraphChunker:
             if element.kind in {ElementType.TITLE, ElementType.HEADING}:
                 flush()
                 section = element.text
-            elif buffer and self._is_topic_start(document, element):
-                flush()
             if buffer and self._must_split(document, buffer, element):
                 flush()
             buffer.append(element)
@@ -54,10 +51,3 @@ class ParagraphChunker:
         if projected > self.config.max_chars:
             return True
         return document.source_format == SourceFormat.PDF and buffer[-1].locator.page != next_element.locator.page
-
-    @staticmethod
-    def _is_topic_start(document: ParsedDocument, element: DocumentElement) -> bool:
-        """Detect PDF question/subtopic blocks without splitting ordinary list items."""
-        return document.source_format == SourceFormat.PDF and bool(
-            re.match(r"^\s*[○●■]\s*\S", element.text or "")
-        )

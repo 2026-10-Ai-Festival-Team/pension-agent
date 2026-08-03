@@ -1,5 +1,8 @@
 from fastapi import FastAPI, Request
 from src.api.schemas import AnswerRequest, AnswerResponse, Evidence
+from src.generation.fake import FakeGenerator
+from src.orchestration.agent import PensionAgent
+from src.orchestration.retrieval_service import build_frozen_retriever
 
 
 def create_app(agent=None) -> FastAPI:
@@ -20,3 +23,8 @@ def create_app(agent=None) -> FastAPI:
 
 
 app = create_app()
+
+
+def create_local_app(corpus_path, index_path) -> FastAPI:
+    """Development composition root for the frozen retrieval baseline."""
+    return create_app(PensionAgent(build_frozen_retriever(corpus_path, index_path), FakeGenerator()))

@@ -1,0 +1,22 @@
+from fastapi import FastAPI, Request
+from src.api.schemas import AnswerRequest, AnswerResponse, Evidence
+
+
+def create_app(agent=None) -> FastAPI:
+    app = FastAPI(title="Pension Agent", version="0.1.0")
+    app.state.agent = agent
+
+    @app.get("/health")
+    def health(): return {"status": "ok"}
+
+    @app.post("/answer", response_model=AnswerResponse)
+    def answer(body: AnswerRequest, request: Request):
+        if request.app.state.agent is None:
+            raise RuntimeError("Agent is not configured")
+        result = request.app.state.agent.answer(body.question, body.top_k)
+        evidence = [Evidence(chunk_id=item.chunk_id, source_id=item.source_id, source_path=item.source_path, locator=item.locator, element_ids=item.element_ids, score=item.score, text=item.text) for item in result["retrieved_context"]]
+        return AnswerResponse(question=body.question, retrieved_context=evidence, think_trace=result["think_trace"], answer=result["answer"])
+    return app
+
+
+app = create_app()

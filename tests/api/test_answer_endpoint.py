@@ -25,3 +25,14 @@ def test_answer_keeps_structured_evidence():
 def test_answer_rejects_blank_question():
     client = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator())))
     assert client.post("/answer", json={"question": ""}).status_code == 422
+
+
+def test_get_answer_uses_evaluation_contract():
+    client = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator())))
+    response = client.get("/answer", params={"question_id": "Q-001", "question": "DB형 운용 주체는?"})
+    assert response.status_code == 200
+    body = response.json()
+    assert body["question_id"] == "Q-001"
+    assert "[c1] guide.pdf" in body["retrieved_context"]
+    assert body["think_trace"]["evidence_sufficient"] is True
+    assert "[출처: guide.pdf" in body["answer"]

@@ -18,3 +18,11 @@ class AnswerResponse(BaseModel):
     retrieved_context: list[Evidence]
     think_trace: dict[str, Any]
     answer: str
+
+
+class EvaluationAnswerResponse(BaseModel):
+    question_id: Optional[str] = None
+    question: str
+    retrieved_context: str
+    think_trace: dict[str, Any]
+    answer: str

@@ -42,3 +42,37 @@ def test_heading_before_table_is_included_in_table_chunk():
     assert len(chunks) == 1
     assert chunks[0].text.startswith("위험등급\n등급")
     assert chunks[0].element_ids == ["heading", "table"]
+
+
+def test_pdf_question_topic_starts_new_paragraph_chunk():
+    elements = [
+        DocumentElement(element_id="a", order=0, kind=ElementType.PARAGRAPH, text="○ 첫 질문\n첫 답변", locator=Locator(page=1)),
+        DocumentElement(element_id="b", order=1, kind=ElementType.PARAGRAPH, text="○ 둘째 질문\n둘째 답변", locator=Locator(page=1)),
+    ]
+
+    chunks = ParagraphChunker(ChunkingConfig()).chunk_elements(document(elements), elements)
+
+    assert [chunk.element_ids for chunk in chunks] == [["a"], ["b"]]
+
+
+def test_short_single_topic_pdf_paragraph_is_not_split():
+    elements = [
+        DocumentElement(element_id="a", order=0, kind=ElementType.PARAGRAPH, text="설명 첫 부분", locator=Locator(page=1)),
+        DocumentElement(element_id="b", order=1, kind=ElementType.PARAGRAPH, text="설명 둘째 부분", locator=Locator(page=1)),
+    ]
+
+    chunks = ParagraphChunker(ChunkingConfig()).chunk_elements(document(elements), elements)
+
+    assert len(chunks) == 1
+
+
+def test_wide_table_is_split_into_two_row_groups_with_context():
+    rows = [["구분", "설명"]] + [[f"항목 {index}", "충분히 긴 설명" * 10] for index in range(5)]
+    element = DocumentElement(element_id="table", order=0, kind=ElementType.TABLE, table=TableData(rows=rows), locator=Locator(page=1))
+    doc = document([element]).model_copy(update={"title": "퇴직연금 과세 비교"})
+
+    chunks = TableChunker(ChunkingConfig()).chunk_element(doc, element)
+
+    assert len(chunks) == 3
+    assert all(chunk.text.startswith("퇴직연금 과세 비교\n구분 | 설명") for chunk in chunks)
+    assert [chunk.metadata["data_row_start"] for chunk in chunks] == [2, 4, 6]

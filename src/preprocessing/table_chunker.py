@@ -17,16 +17,18 @@ class TableChunker:
         if not rows:
             return []
         header, data_rows = rows[0], rows[1:]
-        groups = [data_rows[index:index + self.config.table_rows_per_chunk] for index in range(0, len(data_rows), self.config.table_rows_per_chunk)] or [[]]
+        rows_per_chunk = self._rows_per_chunk(header, data_rows)
+        groups = [data_rows[index:index + rows_per_chunk] for index in range(0, len(data_rows), rows_per_chunk)] or [[]]
         chunks = []
         prefix_elements = prefix_elements or []
         element_ids = [item.element_id for item in prefix_elements] + [element.element_id]
         for index, group in enumerate(groups):
-            row_start = 2 + index * self.config.table_rows_per_chunk
+            row_start = 2 + index * rows_per_chunk
             row_end = row_start + len(group) - 1
             text = self.render_rows([header] + group)
-            if section:
-                text = f"{section}\n{text}"
+            context = section or (document.title if rows_per_chunk != self.config.table_rows_per_chunk else None)
+            if context:
+                text = f"{context}\n{text}"
             chunks.append(SearchChunk(
                 chunk_id=make_chunk_id(document.source_id, ChunkType.TABLE, element_ids, f"rows-{row_start}-{row_end}"),
                 source_id=document.source_id, source_path=document.relative_path, source_format=document.source_format.value,
@@ -36,6 +38,12 @@ class TableChunker:
                 metadata={"header_row_count": 1, "data_row_start": row_start, "data_row_end": row_end, "merged_ranges": element.table.merged_ranges},
             ))
         return chunks
+
+    def _rows_per_chunk(self, header: List[Optional[str]], data_rows: List[List[Optional[str]]]) -> int:
+        full_text_length = len(self.render_rows([header] + data_rows))
+        if 3 <= len(data_rows) <= self.config.refined_table_max_data_rows and full_text_length >= self.config.refined_table_min_chars:
+            return self.config.refined_table_rows_per_chunk
+        return self.config.table_rows_per_chunk
 
     @staticmethod
     def render_rows(rows: List[List[Optional[str]]]) -> str:

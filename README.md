@@ -23,6 +23,27 @@ API 키와 생성된 파싱·인덱스·진단 산출물은 Git에 커밋하지 
 
 `PENSION_DATA_ROOT`는 읽기 전용 원본 위치이며, 생성 파일은 `PARSED_DATA_ROOT`와 `INDEX_DATA_ROOT`에만 저장해야 합니다.
 
+## API 실행과 Docker
+
+Corpus와 Simple BM25 인덱스를 생성한 뒤 개발 Smoke Test에는 `GENERATOR_BACKEND=fake`를 설정합니다.
+
+```bash
+uvicorn src.api.server:app --host 0.0.0.0 --port 8000
+curl http://localhost:8000/health
+```
+
+컨테이너에는 원문·Corpus·인덱스를 포함하지 않습니다. 생성 데이터를 읽기 전용으로 마운트합니다.
+
+```bash
+docker build -t pension-agent .
+docker run --rm -p 8000:8000 --env-file .env \
+  -v "$(pwd)/data/parsed:/app/data/parsed:ro" \
+  -v "$(pwd)/data/indexes:/app/data/indexes:ro" \
+  pension-agent
+```
+
+필수 Corpus 또는 인덱스가 없으면 앱은 시작 시 실패합니다. evaluation/production 환경의 HCX 백엔드는 `feature/hcx-generation` 병합 후 활성화합니다. `.env`와 API 키는 이미지와 Git에 포함하지 않습니다.
+
 ## 데이터 인벤토리
 
 문서 파싱이나 모델 호출 전에 원본의 파일 구조를 인벤토리로 확인합니다. 원본은 읽기만 하며, 결과 파일에는 절대 경로를 기록하지 않습니다.

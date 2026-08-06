@@ -9,6 +9,8 @@ __pycache__/
 data/raw/
 data/parsed/
 data/indexes/
+data/diagnostics/
 logs/
 tmp/
 *.log
+image.png

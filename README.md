@@ -44,6 +44,39 @@ docker run --rm -p 8000:8000 --env-file .env \
 
 필수 Corpus 또는 인덱스가 없으면 앱은 시작 시 실패합니다. evaluation/production 환경의 HCX 백엔드는 `feature/hcx-generation` 병합 후 활성화합니다. `.env`와 API 키는 이미지와 Git에 포함하지 않습니다.
 
+### 검색 산출물 준비
+
+컨테이너를 시작하려면 아래 파일이 필요합니다.
+
+```text
+data/parsed/chunks.jsonl
+data/indexes/bm25/simple/index_meta.json
+data/indexes/bm25/simple/tokenized_documents.jsonl
+```
+
+재생성 환경에서는 원본 문서를 준비한 뒤 다음을 실행합니다.
+
+```bash
+python scripts/build_corpus.py --all --output data/parsed/chunks.jsonl --report docs/corpus_build_report.md
+python scripts/build_bm25_index.py \
+  --corpus data/parsed/chunks.jsonl \
+  --output data/indexes/bm25/simple \
+  --tokenizer simple
+```
+
+검증 기준은 청크 23,421개와 아래 Corpus SHA-256입니다.
+
+```text
+c61ac0d54dc9af5ee339460b8b810076f6df998c76f54983d667660a1e8eaead
+```
+
+```bash
+wc -l data/parsed/chunks.jsonl
+sha256sum data/parsed/chunks.jsonl  # macOS: shasum -a 256 사용
+```
+
+시작 전 검증에서 Corpus 또는 인덱스가 없으면 `Required corpus or BM25 index is missing` 오류로 안전하게 종료됩니다. 대용량 산출물을 별도 스토리지로 제공하는 경우에도 위 상대 경로에 마운트한 뒤 같은 검증값을 확인합니다.
+
 ## 데이터 인벤토리
 
 문서 파싱이나 모델 호출 전에 원본의 파일 구조를 인벤토리로 확인합니다. 원본은 읽기만 하며, 결과 파일에는 절대 경로를 기록하지 않습니다.

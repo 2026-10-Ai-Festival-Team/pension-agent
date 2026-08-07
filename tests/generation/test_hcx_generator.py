@@ -14,6 +14,18 @@ def config(retries=0): return GenerationSettings(generator_backend="hcx",hcx_api
 def test_parses_json_and_code_fence():
     t=Transport([(200,json.dumps({"choices":[{"message":{"content":"```json\n{\"answer\":\"답변\",\"cited_chunk_ids\":[\"c1\"]}\n```"}}]}))])
     assert HyperClovaXGenerator(config=config(),transport=t).generate(question="q",contexts=context(),query_analysis=None).cited_chunk_ids==["c1"]
+
+def test_parses_hcx_v3_result_envelope():
+    body = {
+        "status": {"code": "20000"},
+        "result": {
+            "message": {"content": '{"answer":"답변","cited_chunk_ids":["c1"]}'},
+            "stopReason": "end_turn",
+        },
+    }
+    result = HyperClovaXGenerator(config=config(), transport=Transport([(200, json.dumps(body))])).generate(question="q", contexts=context(), query_analysis=None)
+    assert result.answer == "답변"
+    assert result.finish_reason == "end_turn"
 def test_auth_is_not_retried():
     t=Transport([(401,"bad")])
     with pytest.raises(GenerationError): HyperClovaXGenerator(config=config(2),transport=t).generate(question="q",contexts=context(),query_analysis=None)

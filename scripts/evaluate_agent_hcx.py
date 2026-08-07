@@ -62,6 +62,7 @@ parser.add_argument("--questions", type=Path, default=ROOT / "evaluation/retriev
 parser.add_argument("--output", type=Path, default=ROOT / "data/diagnostics/agent_hcx_evaluation.json")
 parser.add_argument("--report", type=Path, default=ROOT / "docs/agent_hcx_evaluation_report.md")
 parser.add_argument("--diagnostics-only", action="store_true", help="Regenerate the report without calling HCX again.")
+parser.add_argument("--request-delay-seconds", type=float, default=0, help="Delay only evaluator requests to avoid provider rate-limit contamination.")
 args = parser.parse_args()
 
 if args.diagnostics_only:
@@ -71,7 +72,7 @@ else:
     settings = GenerationSettings.from_env()
     if settings.generator_backend != "hcx":
         raise SystemExit("HCX evaluation requires GENERATOR_BACKEND=hcx")
-    rows = evaluate_agent(TestClient(create_configured_app(args.corpus, args.index, settings)), load_questions(args.questions))
+    rows = evaluate_agent(TestClient(create_configured_app(args.corpus, args.index, settings)), load_questions(args.questions), args.request_delay_seconds)
 summary = summarize(rows)
 if not args.diagnostics_only:
     args.output.parent.mkdir(parents=True, exist_ok=True)

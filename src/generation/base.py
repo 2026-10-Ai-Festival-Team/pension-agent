@@ -10,6 +10,7 @@ class GenerationResult:
     latency_ms: float
     finish_reason: Optional[str] = None
     usage: Optional[dict[str, Any]] = None
+    diagnostic: Optional[dict[str, Any]] = None
 
 class AnswerGenerator(Protocol):
     def generate(self, *, question: str, contexts: list[SearchResult], query_analysis) -> GenerationResult: ...

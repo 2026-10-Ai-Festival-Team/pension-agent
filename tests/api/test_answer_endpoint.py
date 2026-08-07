@@ -1,6 +1,7 @@
 from fastapi.testclient import TestClient
 from src.api.main import create_app
 from src.generation.fake import FakeGenerator
+from src.generation.base import GenerationResult
 from src.models.chunk import ChunkLocator
 from src.models.retrieval import SearchResponse, SearchResult
 from src.orchestration.agent import PensionAgent
@@ -38,3 +39,17 @@ def test_get_answer_uses_evaluation_contract():
     assert body["think_trace"]["cited_chunk_ids"] == ["c1"]
     assert body["think_trace"]["generator_attempted"] is True
     assert "[출처: guide.pdf" in body["answer"]
+
+
+def test_unknown_citation_is_rejected_with_structured_reason():
+    class UnknownCitationGenerator:
+        def generate(self, **_):
+            return GenerationResult("답변", ["unknown-chunk"], "test", 1.0)
+
+    client = TestClient(create_app(PensionAgent(StubRetriever(), UnknownCitationGenerator())))
+    response = client.get("/answer", params={"question_id": "Q-002", "question": "DB형 운용 주체는?"})
+
+    body = response.json()
+    assert body["think_trace"]["generator_called"] is False
+    assert body["think_trace"]["generation_error"] == "CitationValidationError"
+    assert body["think_trace"]["generation_diagnostic"]["citation_validation_reason"] == "unknown_chunk_id"

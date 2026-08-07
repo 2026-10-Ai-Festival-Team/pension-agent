@@ -8,7 +8,7 @@ def percentile(values, fraction):
     return statistics.quantiles(values, n=100, method="inclusive")[int(fraction * 100) - 1] if len(values) > 1 else (values[0] if values else 0.0)
 
 
-def evaluate_agent(client, questions):
+def evaluate_agent(client, questions, request_delay_seconds=0):
     rows = []
     for question in questions:
         started = time.perf_counter()
@@ -22,8 +22,10 @@ def evaluate_agent(client, questions):
         retrieval_failure = question.answerable and not (set(returned_ids) & question.direct_evidence_ids)
         cited_ids = trace.get("cited_chunk_ids", [])
         citation_valid = (bool(cited_ids) and set(cited_ids).issubset(returned_ids) and all(chunk_id in body["answer"] for chunk_id in cited_ids)) if trace["generator_called"] else True
-        row.update({"intent": trace["query_type"], "retrieved_count": len(returned_ids), "evidence_sufficient": trace["evidence_sufficient"], "evidence_reason": trace["assessment_reason"], "generator_attempted": trace.get("generator_attempted", False), "generator_called": trace["generator_called"], "citation_valid": citation_valid, "cited_chunk_ids": cited_ids, "generation_model": trace.get("generation_model"), "generation_latency_ms": trace.get("generation_latency_ms"), "generation_usage": trace.get("generation_usage"), "generation_error": trace.get("generation_error"), "failure_stage": "retrieval_failure" if retrieval_failure else "evidence_rejection" if not trace["evidence_sufficient"] else "citation_failure" if not citation_valid else "generation_failure" if not trace["generator_called"] else "success"})
+        row.update({"intent": trace["query_type"], "retrieved_count": len(returned_ids), "evidence_sufficient": trace["evidence_sufficient"], "evidence_reason": trace["assessment_reason"], "generator_attempted": trace.get("generator_attempted", False), "generator_called": trace["generator_called"], "citation_valid": citation_valid, "cited_chunk_ids": cited_ids, "generation_model": trace.get("generation_model"), "generation_latency_ms": trace.get("generation_latency_ms"), "generation_finish_reason": trace.get("generation_finish_reason"), "generation_usage": trace.get("generation_usage"), "generation_error": trace.get("generation_error"), "generation_diagnostic": trace.get("generation_diagnostic"), "failure_stage": "retrieval_failure" if retrieval_failure else "evidence_rejection" if not trace["evidence_sufficient"] else "citation_failure" if not citation_valid else "generation_failure" if not trace["generator_called"] else "success"})
         rows.append(row)
+        if request_delay_seconds:
+            time.sleep(request_delay_seconds)
     return rows
 
 

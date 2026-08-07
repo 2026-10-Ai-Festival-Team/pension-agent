@@ -34,3 +34,23 @@ def test_timeout_like_failure_retries():
     t=Transport([TimeoutError(),(200,json.dumps({"message":{"content":"{\"answer\":\"a\",\"cited_chunk_ids\":[\"c1\"]}"}}))])
     assert HyperClovaXGenerator(config=config(1),transport=t).generate(question="q",contexts=context(),query_analysis=None).answer=="a"
     assert t.calls==2
+
+
+def test_truncated_json_records_sanitized_diagnostic_metadata():
+    body = json.dumps({"result": {"message": {"content": '{"answer":"답변","cited_chunk_ids":["c1"'}}})
+    with pytest.raises(GenerationError) as error:
+        HyperClovaXGenerator(config=config(), transport=Transport([(200, body)])).generate(question="q", contexts=context(), query_analysis=None)
+
+    diagnostic = error.value.diagnostic
+    assert diagnostic["http_status"] == 200
+    assert diagnostic["exception_type"] == "JSONDecodeError"
+    assert diagnostic["content_length"] > 0
+    assert "답변" not in diagnostic["content_tail_shape"]
+
+
+def test_citation_field_type_is_recorded_without_accepting_response():
+    body = json.dumps({"result": {"message": {"content": '{"answer":"답변","cited_chunk_ids":"c1"}'}}})
+    with pytest.raises(GenerationError) as error:
+        HyperClovaXGenerator(config=config(), transport=Transport([(200, body)])).generate(question="q", contexts=context(), query_analysis=None)
+
+    assert error.value.diagnostic["cited_chunk_ids_type"] == "str"

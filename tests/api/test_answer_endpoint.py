@@ -35,4 +35,6 @@ def test_get_answer_uses_evaluation_contract():
     assert body["question_id"] == "Q-001"
     assert "[c1] guide.pdf" in body["retrieved_context"]
     assert body["think_trace"]["evidence_sufficient"] is True
+    assert body["think_trace"]["cited_chunk_ids"] == ["c1"]
+    assert body["think_trace"]["generator_attempted"] is True
     assert "[출처: guide.pdf" in body["answer"]

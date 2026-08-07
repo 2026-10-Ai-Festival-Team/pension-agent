@@ -41,7 +41,8 @@ class HyperClovaXGenerator:
                     or data.get("finish_reason")
                     or data.get("finishReason")
                 )
-                return GenerationResult(answer,cited,self.config.hcx_model,(time.perf_counter()-started)*1000,finish_reason)
+                usage = result.get("usage") if isinstance(result.get("usage"), dict) else None
+                return GenerationResult(answer,cited,self.config.hcx_model,(time.perf_counter()-started)*1000,finish_reason,usage)
             except GenerationError: raise
             except Exception:
                 if attempt < self.config.max_retries: time.sleep(.1*(attempt+1)); continue

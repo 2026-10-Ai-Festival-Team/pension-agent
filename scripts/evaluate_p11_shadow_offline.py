@@ -91,6 +91,7 @@ def main() -> None:
     parser.add_argument(
         "--output", type=Path, default=ROOT / "data/diagnostics/p11_shadow_offline.json"
     )
+    parser.add_argument("--experiment-name", default="P11 shadow offline routing/gate")
     args = parser.parse_args()
 
     questions = {item.question_id: item for item in load_questions(args.questions)}
@@ -126,6 +127,7 @@ def main() -> None:
                 "product_codes": list(analysis.extracted_entities.product_codes),
                 "comparison": analysis.extracted_entities.comparison,
                 "tax_intent": analysis.extracted_entities.tax_intent,
+                "requested_fields": list(analysis.extracted_entities.requested_fields),
             },
             "required_slots": (
                 [slot.name for slot in requirement_case.slots]
@@ -136,6 +138,7 @@ def main() -> None:
             "gate_decision": decision.reason,
             "evidence_sufficient": decision.sufficient,
             "missing_slots": decision.missing_slots,
+            "selected_chunk_ids": decision.selected_chunk_ids,
             "expected_hcx_call": expected_hcx_call,
             "baseline_outcome": "not_run_in_p11_offline",
             "shadow_outcome": "would_call_hcx" if expected_hcx_call else "pre_generation_rejection",
@@ -149,7 +152,7 @@ def main() -> None:
     p9_dev = [row for row in rows if row["p9_dev"]]
     non_p9 = [row for row in rows if not row["p9_dev"]]
     payload = {
-        "experiment": "P11 shadow offline routing/gate",
+        "experiment": args.experiment_name,
         "hcx_called": False,
         "summary": {
             "p9_dev": metrics(p9_dev),

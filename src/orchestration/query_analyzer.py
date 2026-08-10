@@ -4,6 +4,14 @@ from dataclasses import dataclass, field
 
 _ASCII_ACCOUNT_PATTERN = re.compile(r"(?<![A-Za-z])(?:DB|DC|IRP)(?![A-Za-z])", re.IGNORECASE)
 _TAX_WORDS = ("세금", "과세", "공제", "세액", "소득세")
+_REQUEST_FIELD_PATTERNS = (
+    ("product_name", ("상품명", "펀드명")),
+    ("risk_grade", ("위험등급", "위험 등급")),
+    ("fee", ("판매수수료", "총보수", "보수ㆍ비용", "보수·비용")),
+    ("investment_target", ("투자대상", "투자 대상", "무엇에 투자")),
+    ("investment_strategy", ("운용전략", "운용 전략", "투자전략", "투자 전략")),
+    ("effective_date", ("기준일", "작성기준일", "작성 기준일")),
+)
 
 
 @dataclass(frozen=True)
@@ -15,6 +23,7 @@ class EntityExtraction:
     products: list[str]
     tax_intent: bool
     comparison: bool
+    requested_fields: list[str] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -42,6 +51,11 @@ class QueryAnalyzer:
         if "연금저축" in normalized:
             accounts.append("연금저축")
         codes = [code.upper() for code in re.findall(r"KR[A-Z0-9]{10}", normalized, re.I)]
+        requested_fields = [
+            field_name
+            for field_name, patterns in _REQUEST_FIELD_PATTERNS
+            if any(pattern in normalized for pattern in patterns)
+        ]
         comparison = (
             len(accounts) >= 2
             or any(word in normalized for word in ("비교", "차이", "각각", "어느", "vs", "VS"))
@@ -53,6 +67,7 @@ class QueryAnalyzer:
             products=[],
             tax_intent=any(word in normalized for word in _TAX_WORDS),
             comparison=comparison,
+            requested_fields=requested_fields,
         )
 
     def analyze(self, question: str) -> QueryAnalysis:

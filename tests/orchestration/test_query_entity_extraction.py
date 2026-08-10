@@ -35,3 +35,10 @@ def test_ascii_partial_words_do_not_match_account_abbreviations():
     extracted = QueryAnalyzer().extract_entities("DBMS와 DCON은 연금 계좌가 아닙니다")
 
     assert extracted.accounts == []
+
+
+def test_extraction_identifies_multiple_product_information_fields():
+    extracted = QueryAnalyzer().extract_entities("KR5110501016 상품의 총보수와 투자 대상을 확인하고 싶습니다")
+
+    assert extracted.product_codes == ["KR5110501016"]
+    assert extracted.requested_fields == ["fee", "investment_target"]

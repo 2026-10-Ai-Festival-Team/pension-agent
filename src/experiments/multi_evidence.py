@@ -23,6 +23,8 @@ class RequirementSlot:
     name: str
     terms: tuple[str, ...]
     min_matches: int = 1
+    max_term_span: int | None = None
+    requires_title: bool = False
 
 
 @dataclass(frozen=True)
@@ -68,9 +70,17 @@ class RequirementEvidenceSelector:
         # PDF table rendering may insert a newline inside a phrase such as
         # ``운용\n손익``. Collapse whitespace without changing original context text.
         searchable = " ".join(
-            " ".join(part.split()) for part in (result.title or "", result.section or "", result.text) if part
+            " ".join(part.split())
+            for part in (result.title or "", result.section or "", result.text, " ".join(result.product_codes))
+            if part
         ).casefold()
-        return tuple(term for term in slot.terms if term.casefold() in searchable)
+        if slot.requires_title and not (result.title or "").strip():
+            return ()
+        matched = tuple(term for term in slot.terms if term.casefold() in searchable)
+        if slot.max_term_span is None or len(matched) < 2:
+            return matched
+        positions = [searchable.find(term.casefold()) for term in matched]
+        return matched if max(positions) - min(positions) <= slot.max_term_span else ()
 
     def select(self, case: RequirementCase, results: Iterable[SearchResult]) -> EvidenceSelection:
         candidates = tuple(results)
@@ -109,6 +119,8 @@ def load_requirement_cases(path: Path) -> list[RequirementCase]:
                     name=slot["name"],
                     terms=tuple(slot["terms"]),
                     min_matches=slot.get("min_matches", 1),
+                    max_term_span=slot.get("max_term_span"),
+                    requires_title=slot.get("requires_title", False),
                 )
                 for slot in item["slots"]
             ),

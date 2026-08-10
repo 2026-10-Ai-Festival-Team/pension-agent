@@ -1,0 +1,9 @@
+{
+  "version": "0.1",
+  "purpose": "P6-B retrieval-only experiment. Queries are requirement labels derived from the user question and do not alter the frozen BM25 index or production retriever.",
+  "cases": [
+    {"question_id":"R-024","slot_queries":{"투자대상":"KR5144420081 투자대상","위험등급":"KR5144420081 위험등급"}},
+    {"question_id":"R-028","slot_queries":{"투자대상":"KR510902511M 투자대상","운용전략":"KR510902511M 운용전략"}},
+    {"question_id":"R-037","slot_queries":{"DB 적립금 운용 주체":"DB 적립금 운용 주체","DC 적립금 운용 주체":"DC 적립금 운용 주체"}}
+  ]
+}

@@ -23,35 +23,13 @@ from src.generation.hcx import HyperClovaXGenerator
 from src.generation.rate_limit import GlobalMinIntervalLimiter
 from src.experiments.multi_evidence import (
     RequirementAwarePromptBuilder,
-    RequirementCase,
     RequirementEvidenceSelector,
-    RequirementSlot,
+    load_requirement_cases,
     selection_record,
 )
 from src.orchestration.query_analyzer import QueryAnalyzer
 from src.orchestration.retrieval_service import build_frozen_retriever
 from src.evaluation.retrieval_dataset import load_questions
-
-
-def load_cases(path: Path) -> list[RequirementCase]:
-    raw = json.loads(path.read_text(encoding="utf-8"))
-    return [
-        RequirementCase(
-            question_id=item["question_id"],
-            role=item["role"],
-            generation_enabled=item.get("generation_enabled", True),
-            semantic_equivalent_allowed=item.get("semantic_equivalent_allowed", False),
-            slots=tuple(
-                RequirementSlot(
-                    name=slot["name"],
-                    terms=tuple(slot["terms"]),
-                    min_matches=slot.get("min_matches", 1),
-                )
-                for slot in item["slots"]
-            ),
-        )
-        for item in raw["cases"]
-    ]
 
 
 def run_case(case, question, retriever, selector, *, execute, settings=None, limiter=None):
@@ -144,7 +122,7 @@ def main() -> None:
     parser.add_argument("--execute", action="store_true", help="실제 HCX를 호출한다.")
     args = parser.parse_args()
 
-    cases = load_cases(args.cases)
+    cases = load_requirement_cases(args.cases)
     questions = {question.question_id: question for question in load_questions(args.questions)}
     missing = [case.question_id for case in cases if case.question_id not in questions]
     if missing:

@@ -1,4 +1,5 @@
 from src.experiments.multi_evidence import (
+    CitationBindingPromptBuilder,
     RequirementAwarePromptBuilder,
     RequirementCase,
     RequirementEvidenceSelector,
@@ -63,3 +64,19 @@ def test_selector_matches_table_phrases_split_by_pdf_line_breaks():
 
     assert selection.complete
     assert selection.contexts[0].chunk_id == "dc-table"
+
+
+def test_citation_binding_prompt_exposes_no_source_id_and_only_citation_id():
+    case = RequirementCase("R-011", "target", (RequirementSlot("과세 시점", ("과세이연",), 1),))
+    evidence = SearchResult(
+        rank=1, chunk_id="full-chunk-id", source_id="hidden-source-id", source_path="tax.pdf",
+        source_format="pdf", document_type="guide", locator=ChunkLocator(page_start=7, page_end=7),
+        element_ids=["e"], score=1.0, text="과세이연 후 연금 수령 시 과세합니다.",
+    )
+    selection = RequirementEvidenceSelector().select(case, [evidence])
+
+    prompt = CitationBindingPromptBuilder(selection).build("질문", list(selection.contexts))
+
+    assert "citation_id: full-chunk-id" in prompt
+    assert "hidden-source-id" not in prompt
+    assert "source_id" in prompt  # It is named only as a prohibited identifier.

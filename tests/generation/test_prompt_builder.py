@@ -32,3 +32,12 @@ def test_hcx_v3_payload_uses_camel_case_max_tokens():
 
     assert payload["maxTokens"] == 800
     assert "max_tokens" not in payload
+
+
+def test_hcx_007_uses_the_inference_request_contract():
+    payload = PromptBuilder().payload("질문", [], "HCX-007")
+
+    assert payload["maxCompletionTokens"] == 800
+    assert "maxTokens" not in payload
+    assert payload["thinking"] == {"effort": "none"}
+    assert payload["messages"][0]["content"] == [{"type": "text", "text": payload["messages"][0]["content"][0]["text"]}]

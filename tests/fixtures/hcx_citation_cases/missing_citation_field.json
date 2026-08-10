@@ -1,0 +1,8 @@
+{
+  "result": {
+    "message": {
+      "content": "{\"answer\":\"검증용 답변\"}"
+    },
+    "stopReason": "stop"
+  }
+}

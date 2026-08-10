@@ -1,0 +1,9 @@
+{
+  "case": "R-009 sanitized HCX response",
+  "result": {
+    "message": {
+      "content": "{\"answer\":\"[REDACTED]\",\"cited_chunk_ids\":[\"7878a3be5806fef4\"]}"
+    },
+    "stopReason": "stop"
+  }
+}

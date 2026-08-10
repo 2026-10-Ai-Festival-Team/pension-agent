@@ -23,7 +23,8 @@ def test_prompt_lists_only_context_chunk_ids_as_allowed_citations():
 
     assert "[허용 chunk_id]" in prompt
     assert "chunk-001" in prompt
-    assert "허용 목록 밖의 ID" in prompt
+    assert "source_id" in prompt
+    assert "빈 배열은 허용되지 않습니다" in prompt
 
 
 def test_hcx_v3_payload_uses_camel_case_max_tokens():

@@ -1,0 +1,18 @@
+{
+  "version": "0.1",
+  "purpose": "P8-B citation representation stability evaluation. A/B share the same requirement-specific retrieval and selected evidence.",
+  "cases": [
+    {"question_id":"R-002","group":"core_compound","repetitions":3,"slot_queries":{"DB 퇴직급여 산정":"DB 퇴직급여 평균임금","DC 퇴직급여 산정":"DC 부담금 운용 손익"}},
+    {"question_id":"R-005","group":"compound","repetitions":1,"slot_queries":{"퇴직금 지급 방식":"퇴직금 사용자 지급","퇴직연금 적립·지급 방식":"퇴직연금 금융기관 적립"}},
+    {"question_id":"R-010","group":"negative_incomplete","repetitions":0,"slot_queries":{"해지 가산세":"연금계좌 해지 가산세","연금외수령 과세":"연금외수령 기타소득","예외 사유":"연금계좌 해지 예외 사유"}},
+    {"question_id":"R-011","group":"core_compound","repetitions":3,"slot_queries":{"세금 납부 시점":"퇴직소득 세금납부시점 연금 수령","과세이연":"퇴직소득 과세이연 연금 수령"}},
+    {"question_id":"R-013","group":"compound","repetitions":1,"slot_queries":{"IRP 의무이전 원칙":"IRP 의무 이전","예외 사유":"IRP 이전 예외 사유"}},
+    {"question_id":"R-027","group":"compound","repetitions":1,"slot_queries":{"원리금보장 운용방법 분류":"원리금보장 운용방법","채권형 펀드 분류":"채권형 펀드"}},
+    {"question_id":"R-028","group":"core_compound","repetitions":3,"slot_queries":{"투자대상":"KR510902511M 투자대상","운용전략":"KR510902511M 운용전략"}},
+    {"question_id":"R-037","group":"core_compound","repetitions":3,"slot_queries":{"DB 적립금 운용 주체":"DB 적립금 운용 주체","DC 적립금 운용 주체":"DC 적립금 운용 주체"}},
+    {"question_id":"R-024","group":"negative_retrieval_missing","repetitions":0,"slot_queries":{"투자대상":"KR5144420081 투자대상","위험등급":"KR5144420081 위험등급"}},
+    {"question_id":"R-001","group":"single_evidence_control","repetitions":1,"slot_queries":{"DB·DC 적립금 운용 주체":"DB DC 적립금 운용 주체"}},
+    {"question_id":"R-004","group":"single_evidence_control","repetitions":1,"slot_queries":{"DC 회사 부담금":"DC 회사 부담금"}},
+    {"question_id":"R-009","group":"single_evidence_control","repetitions":1,"slot_queries":{"연금수령 과세":"퇴직급여 연금수령 과세"}}
+  ]
+}

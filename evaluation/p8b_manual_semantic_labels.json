@@ -1,0 +1,22 @@
+{
+  "review_method": "initial_manual_review",
+  "scope": "Accepted outputs from P8-B; transport/schema failures and pre-generation rejections are not semantic-answer denominators.",
+  "labels": [
+    {"question_id":"R-002","representation":"A_current","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-002","representation":"B_minimal","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-005","representation":"A_current","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-005","representation":"B_minimal","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-011","representation":"A_current","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-011","representation":"B_minimal","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-013","representation":"A_current","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-013","representation":"B_minimal","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-027","representation":"A_current","semantic_correctness":"minor_error","requirement_coverage":"partial","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-027","representation":"B_minimal","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-028","representation":"A_current","semantic_correctness":"not_evaluable","requirement_coverage":"not_evaluable","grounding":"not_evaluable","answer_relevance":"not_evaluable","hallucination":"not_evaluable"},
+    {"question_id":"R-028","representation":"B_minimal","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-037","representation":"A_current","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-037","representation":"B_minimal","semantic_correctness":"correct","requirement_coverage":"full","grounding":"full","answer_relevance":"direct","hallucination":"none"},
+    {"question_id":"R-004","representation":"A_current","semantic_correctness":"major_error","requirement_coverage":"none","grounding":"unsupported","answer_relevance":"direct","hallucination":"major"},
+    {"question_id":"R-004","representation":"B_minimal","semantic_correctness":"major_error","requirement_coverage":"none","grounding":"unsupported","answer_relevance":"direct","hallucination":"major"}
+  ]
+}

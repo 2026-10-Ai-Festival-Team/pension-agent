@@ -33,7 +33,7 @@ P2 run (`SHA-256: 0af114e2e07ae041f9749fc455c7a0d3396ed2ac859690542886997a56f5ec
 | ID | Retrieval | Correctness | Coverage | Grounding | Unsupported claim | Limit | Primary attribution |
 |---|---|---|---|---|---|---|---|
 | R-001 | full | correct | full | fully_supported | none | appropriate | - |
-| R-002 | partial | major_error | full | partially_supported | major | appropriate | DB→DC 전환 계산식을 일반 DC 산정식으로 사용; gold 복합 근거 누락 |
+| R-002 | full | major_error | full | partially_supported | major | appropriate | Top-10의 동등한 DC 산정 표 대신 DB→DC 전환 계산식을 일반 DC 산정식으로 사용 |
 | R-003 | full | correct | full | fully_supported | none | appropriate | - |
 | R-004 | full | correct | full | fully_supported | none | appropriate | - |
 | R-005 | full | minor_error | full | fully_supported | minor | appropriate | DB 설명의 ‘매년 정해진 금액’ 표현이 근거보다 좁음 |
@@ -42,7 +42,7 @@ P2 run (`SHA-256: 0af114e2e07ae041f9749fc455c7a0d3396ed2ac859690542886997a56f5ec
 | R-008 | full | correct | full | fully_supported | none | appropriate | gold가 아니어도 ISA 전환 관련 동등 근거 사용 |
 | R-009 | full | correct | full | fully_supported | none | appropriate | - |
 | R-010 | partial | minor_error | partial | partially_supported | minor | appropriate | 2.2%만 제시하고 연금외수령 16.5% 등 핵심 세금 조건 누락 |
-| R-011 | none | major_error | none | fully_supported | none | inappropriate | 과세 시점 대신 압류 금지 답변; 질문과 무관한 근거 |
+| R-011 | full | major_error | none | fully_supported | none | inappropriate | gold 세금 근거가 Top-10에 있었지만 과세 시점 대신 압류 금지 문서를 선택 |
 | R-013 | full | major_error | partial | partially_supported | major | appropriate | IRP 의무이전 예외를 누락해 ‘반드시’라고 단정 |
 | R-014 | full | correct | full | fully_supported | none | appropriate | 회사가 계약한 금융기관 등 조건은 근거 내에 있음 |
 | R-015 | full | correct | partial | fully_supported | none | appropriate | ‘방법’ 질문에 납입 방식·한도만 답해 절차 설명 부족 |
@@ -77,8 +77,8 @@ P2 run (`SHA-256: 0af114e2e07ae041f9749fc455c7a0d3396ed2ac859690542886997a56f5ec
 
 | Metric | 결과 |
 |---|---:|
-| Retrieval sufficiency: full | 25/31 (80.6%) |
-| Retrieval sufficiency: partial / none | 4 / 2 |
+| Retrieval sufficiency: full | 27/31 (87.1%) |
+| Retrieval sufficiency: partial / none | 3 / 1 |
 | Semantic correctness: correct | 23/31 (74.2%) |
 | Semantic correctness: minor / major error | 2 / 6 |
 | Requirement coverage: full | 23/31 (74.2%) |

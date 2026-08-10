@@ -1,0 +1,96 @@
+{
+  "run_sha256": "0af114e2e07ae041f9749fc455c7a0d3396ed2ac859690542886997a56f5ec7f",
+  "scope": "P3 semantic errors and multi-evidence diagnostics; no retrieval or generation behavior changed.",
+  "cases": [
+    {
+      "question_id": "R-002",
+      "required_topics": ["DB 퇴직급여 산정", "DC 퇴직급여 산정", "DB·DC 차이"],
+      "retrieval_coverage": "full_with_equivalent_evidence",
+      "selected_evidence_coverage": "partial",
+      "primary_failure": "generation_misread",
+      "secondary_failures": ["evidence_incomplete"],
+      "finding": "Top-10에는 DB 산정 근거와 DC의 부담금 누계액·운용손익 표가 있었지만, HCX는 DB→DC 전환용 MAX 계산식을 일반 DC 산정식으로 사용했다."
+    },
+    {
+      "question_id": "R-005",
+      "required_topics": ["퇴직금 지급 방식", "퇴직연금 적립·지급 방식"],
+      "retrieval_coverage": "full",
+      "selected_evidence_coverage": "full",
+      "primary_failure": "generation_misread",
+      "secondary_failures": [],
+      "finding": "핵심 비교 근거는 선택했으나 DB 부담금 표현을 근거보다 좁게 일반화했다."
+    },
+    {
+      "question_id": "R-010",
+      "required_topics": ["해지 가산세", "연금외수령 과세", "예외 사유"],
+      "retrieval_coverage": "partial",
+      "selected_evidence_coverage": "partial",
+      "primary_failure": "evidence_incomplete",
+      "secondary_failures": ["requirement_omission"],
+      "finding": "Top-10에는 2.2% 해지 가산세 표만 있어 16.5% 연금외수령 과세와 조건을 완결하지 못했다."
+    },
+    {
+      "question_id": "R-011",
+      "required_topics": ["IRP 이전", "세금 납부 시점", "과세이연"],
+      "retrieval_coverage": "full",
+      "selected_evidence_coverage": "none",
+      "primary_failure": "answer_irrelevance",
+      "secondary_failures": ["generation_misread"],
+      "finding": "세금 납부 시점 gold 표가 Top-10 7위에 있었지만, HCX는 상위 압류 금지 문서를 인용해 질문과 무관한 답을 생성했다."
+    },
+    {
+      "question_id": "R-013",
+      "required_topics": ["IRP 의무이전 원칙", "예외 사유"],
+      "retrieval_coverage": "full",
+      "selected_evidence_coverage": "full",
+      "primary_failure": "generation_misread",
+      "secondary_failures": ["requirement_omission"],
+      "finding": "선택된 문서 자체에 예외 사유가 있으나 답변은 예외를 생략하고 의무를 단정했다."
+    },
+    {
+      "question_id": "R-027",
+      "required_topics": ["원리금보장 운용방법 분류", "채권형 펀드 분류"],
+      "retrieval_coverage": "full",
+      "selected_evidence_coverage": "full",
+      "primary_failure": "generation_misread",
+      "secondary_failures": [],
+      "finding": "같은 표의 서로 다른 분류 행을 하나의 '증권형 집합투자증권'으로 잘못 요약했다."
+    },
+    {
+      "question_id": "R-028",
+      "required_topics": ["KR510902511M 투자대상", "KR510902511M 운용전략"],
+      "retrieval_coverage": "none",
+      "selected_evidence_coverage": "none",
+      "primary_failure": "retrieval_irrelevant",
+      "secondary_failures": ["answer_irrelevance"],
+      "finding": "같은 상품 문서의 일반 정의·환매 문단만 Top-10에 있고, 투자대상·운용전략 근거는 없었다."
+    },
+    {
+      "question_id": "R-037",
+      "required_topics": ["DB 적립금 운용 주체", "DC 적립금 운용 주체", "DB·DC 비교"],
+      "retrieval_coverage": "none",
+      "selected_evidence_coverage": "none",
+      "primary_failure": "retrieval_missing",
+      "secondary_failures": ["retrieval_irrelevant", "answer_irrelevance"],
+      "finding": "DB/DC 비교 gold가 Top-10에 없고 압류 문서가 상위를 점유해, HCX가 압류보호 답변을 냈다."
+    },
+    {
+      "question_id": "R-024",
+      "required_topics": ["KR5144420081 투자대상", "KR5144420081 위험등급"],
+      "retrieval_coverage": "none",
+      "selected_evidence_coverage": "not_applicable",
+      "primary_failure": "retrieval_missing",
+      "secondary_failures": ["citation_rejection"],
+      "finding": "동일 상품 문서의 페이지 번호·용어풀이 등만 Top-10에 있었고 투자대상·위험등급 근거는 없었다."
+    },
+    {
+      "question_id": "R-036",
+      "required_topics": ["KR5117420097 작성기준일", "KR5117420097 운용전략"],
+      "retrieval_coverage": "full_with_equivalent_evidence",
+      "selected_evidence_coverage": "full",
+      "primary_failure": "none",
+      "secondary_failures": [],
+      "finding": "정확한 gold paragraph 하나는 없었지만, 선택된 같은 상품 요약정보가 작성기준일과 운용전략을 모두 직접 제공해 정답을 지원했다."
+    }
+  ]
+}

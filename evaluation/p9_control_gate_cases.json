@@ -1,0 +1,21 @@
+{
+  "version": "0.1",
+  "purpose": "P9 gold routing labels fixed before changing router or evidence gates.",
+  "cases": [
+    {"question_id":"R-001","gold_route":"simple","notes":"comparison wording but one comparison table completes the answer"},
+    {"question_id":"R-002","gold_route":"compound","notes":"DB/DC benefit calculation comparison"},
+    {"question_id":"R-003","gold_route":"simple","notes":"single IRP eligibility fact"},
+    {"question_id":"R-004","gold_route":"simple","notes":"single DC contribution fact"},
+    {"question_id":"R-007","gold_route":"simple","notes":"single annual contribution limit"},
+    {"question_id":"R-009","gold_route":"simple","notes":"single tax fact; compound gate must not apply"},
+    {"question_id":"R-010","gold_route":"compound","notes":"tax penalty, other-income tax, and exceptions"},
+    {"question_id":"R-011","gold_route":"simple","notes":"single tax timing answer from one table"},
+    {"question_id":"R-013","gold_route":"simple","notes":"IRP transfer principle and exception in one document section"},
+    {"question_id":"R-024","gold_route":"compound","notes":"product target and risk grade"},
+    {"question_id":"R-027","gold_route":"compound","notes":"two investment-method classifications"},
+    {"question_id":"R-028","gold_route":"compound","notes":"product investment target and strategy"},
+    {"question_id":"R-037","gold_route":"compound","notes":"paraphrased company-versus-worker operation comparison"},
+    {"question_id":"R-039","gold_route":"unsupported","notes":"personal account information is outside corpus"},
+    {"question_id":"R-040","gold_route":"unsupported","notes":"personal recommendation requires unavailable user conditions"}
+  ]
+}

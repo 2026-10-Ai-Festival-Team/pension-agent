@@ -144,7 +144,11 @@ class CitationBindingPromptBuilder(PromptBuilder):
         self.selection = selection
 
     def build(self, question, contexts):
-        requirements = "\n".join(f"- {match.slot.name}" for match in self.selection.matches)
+        requirements = "\n".join(
+            f"- {match.slot.name}: "
+            f"{match.result.chunk_id if match.result is not None else '근거 미확보'}"
+            for match in self.selection.matches
+        )
         evidence = "\n\n".join(
             "\n".join(
                 (

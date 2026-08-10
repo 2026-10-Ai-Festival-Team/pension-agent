@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "purpose": "P13 Router/Gate 일반화 평가용. 기존 40문항과 독립적으로 작성한 HCX 비호출 holdout 질문.",
+  "questions": [
+    {"question_id":"H-001","question":"확정기여형 퇴직연금에서 회사가 매년 적립해야 하는 부담금은 어떤 기준으로 정해지나요?","category":"simple"},
+    {"question_id":"H-002","question":"퇴직연금 가입자 교육은 누가 실시해야 하고, 얼마나 자주 해야 하나요?","category":"simple"},
+    {"question_id":"H-003","question":"재직 중인 근로자가 퇴직연금 사업자를 다른 금융회사로 바꾸려면 어떤 범위에서 선택할 수 있나요?","category":"simple"},
+    {"question_id":"H-004","question":"퇴직급여를 연금으로 받으려면 최소 몇 살부터, 어느 기간 이상 나누어 받아야 하나요?","category":"simple"},
+    {"question_id":"H-005","question":"KR5110601022 상품의 위험등급만 확인해 주세요.","category":"simple"},
+    {"question_id":"H-006","question":"퇴직연금규약을 지키지 않으면 회사와 근로자에게 어떤 문제가 생길 수 있나요?","category":"simple"},
+    {"question_id":"H-007","question":"IRP 가입자가 직접 고를 수 있는 운용상품에는 어떤 예시가 있나요?","category":"simple"},
+    {"question_id":"H-008","question":"퇴직급여제도를 새로 설정하거나 바꾸게 되는 대표적인 상황은 무엇인가요?","category":"simple"},
+    {"question_id":"H-009","question":"급여 산정 방식과 적립금 운용 책임을 함께 기준으로 DB제도와 DC제도를 설명해 주세요.","category":"compound"},
+    {"question_id":"H-010","question":"퇴직소득을 연금계좌로 옮긴 뒤 연금으로 받을 때의 과세 시점과, 일시금으로 받을 때의 차이를 알려주세요.","category":"compound"},
+    {"question_id":"H-011","question":"KR5113420013 상품의 투자 대상과 위험등급을 함께 알려주세요.","category":"compound"},
+    {"question_id":"H-012","question":"KR5113420013과 KR5113420015의 위험등급과 총보수를 비교해 주세요.","category":"compound"},
+    {"question_id":"H-013","question":"회사가 퇴직연금규약을 새로 만들 때 준비할 내용과 근로자대표의 동의 절차를 설명해 주세요.","category":"compound"},
+    {"question_id":"H-014","question":"DC제도에서 중도인출을 신청할 수 있는 사유와 신청 절차에 필요한 준비를 함께 설명해 주세요.","category":"compound"},
+    {"question_id":"H-015","question":"IRP에서 연금 수령을 시작할 수 있는 연령과 최소 수령기간을 함께 알려주세요.","category":"compound"},
+    {"question_id":"H-016","question":"DB제도에서 DC제도로 바꿀 수 있는지와 전환 금액을 어떤 방식으로 계산하는지를 함께 알려주세요.","category":"compound"},
+    {"question_id":"H-017","question":"제 IRP 계좌에 지금 얼마가 쌓여 있는지 조회해 주세요.","category":"unsupported"},
+    {"question_id":"H-018","question":"오늘 기준으로 적용되는 최신 연금계좌 세액공제 한도를 확인해 주세요.","category":"unsupported"},
+    {"question_id":"H-019","question":"제 나이와 투자기간을 고려하지 말고 가장 수익이 높을 상품 세 개를 골라 주세요.","category":"unsupported"},
+    {"question_id":"H-020","question":"제가 다니는 회사의 퇴직연금 적립금 운용수익률을 알려주세요.","category":"unsupported"}
+  ]
+}

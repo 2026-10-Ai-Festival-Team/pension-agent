@@ -25,6 +25,7 @@ class RequirementSlot:
     min_matches: int = 1
     max_term_span: int | None = None
     requires_title: bool = False
+    key: str | None = None
 
 
 @dataclass(frozen=True)
@@ -121,6 +122,7 @@ def load_requirement_cases(path: Path) -> list[RequirementCase]:
                     min_matches=slot.get("min_matches", 1),
                     max_term_span=slot.get("max_term_span"),
                     requires_title=slot.get("requires_title", False),
+                    key=slot.get("key"),
                 )
                 for slot in item["slots"]
             ),

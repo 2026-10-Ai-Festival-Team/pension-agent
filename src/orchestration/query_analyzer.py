@@ -4,6 +4,11 @@ from dataclasses import dataclass, field
 
 _ASCII_ACCOUNT_PATTERN = re.compile(r"(?<![A-Za-z])(?:DB|DC|IRP)(?![A-Za-z])", re.IGNORECASE)
 _TAX_WORDS = ("세금", "과세", "공제", "세액", "소득세")
+_ACCOUNT_ALIASES = (
+    ("확정급여형", "DB"),
+    ("확정기여형", "DC"),
+    ("개인형 퇴직연금", "IRP"),
+)
 _REQUEST_FIELD_PATTERNS = (
     ("product_name", ("상품명", "펀드명")),
     ("risk_grade", ("위험등급", "위험 등급")),
@@ -48,6 +53,9 @@ class QueryAnalyzer:
         for account in account_hits:
             if account not in accounts:
                 accounts.append(account)
+        for alias, account in _ACCOUNT_ALIASES:
+            if alias in normalized and account not in accounts:
+                accounts.append(account)
         if "연금저축" in normalized:
             accounts.append("연금저축")
         codes = [code.upper() for code in re.findall(r"KR[A-Z0-9]{10}", normalized, re.I)]
@@ -58,7 +66,7 @@ class QueryAnalyzer:
         ]
         comparison = (
             len(accounts) >= 2
-            or any(word in normalized for word in ("비교", "차이", "각각", "어느", "vs", "VS"))
+            or any(word in normalized for word in ("비교", "차이", "각각", "vs", "VS"))
             or any(symbol in normalized for symbol in ("/", "·")) and len(accounts) >= 2
         )
         return EntityExtraction(

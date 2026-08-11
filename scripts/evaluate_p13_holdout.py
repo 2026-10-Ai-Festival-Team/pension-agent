@@ -152,10 +152,13 @@ def main() -> None:
         analysis = analyzer.analyze(question["question"])
         route = router.classify(analysis)
         results = retriever.search(question["question"], top_k=10).results
-        dynamic_case = gate._product_field_case(analysis) if route.route == "compound" else None
-        decision = gate.assess(route.route, analysis, results, dynamic_case)
-        generated_slots = [slot.name for slot in dynamic_case.slots] if dynamic_case else []
-        generated_slot_keys = [slot.replace(" ", ":", 1) for slot in generated_slots]
+        generated_case = route.requirement_case
+        decision = gate.assess(route.route, analysis, results, generated_case)
+        generated_slots = [slot.name for slot in generated_case.slots] if generated_case else []
+        generated_slot_keys = [
+            slot.key or slot.name.replace(" ", ":", 1)
+            for slot in (generated_case.slots if generated_case else ())
+        ]
         extracted_entities = list(analysis.extracted_entities.accounts) + list(analysis.product_codes)
         row = {
             "question_id": question_id,

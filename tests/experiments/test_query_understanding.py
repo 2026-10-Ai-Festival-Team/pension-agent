@@ -11,6 +11,27 @@ def test_support_classifier_separates_personal_current_and_recommendation_reques
     assert classifier.classify("DC 부담금 기준은 무엇인가요?").supported
 
 
+def test_support_classifier_does_not_treat_je_inside_a_korean_noun_as_possessive():
+    classifier = SupportClassifier()
+
+    decision = classifier.classify("DB제도와 DC제도의 적립금 운용 책임을 비교해 주세요.")
+
+    assert decision.supported
+    assert decision.category == "supported"
+
+
+def test_support_classifier_keeps_korean_possessive_forms_as_personal_requests():
+    classifier = SupportClassifier()
+
+    assert classifier.classify("제가 다니는 회사의 적립금 운용수익률을 알려주세요.").category == "personal_account_lookup"
+
+
+def test_support_classifier_detects_future_external_prediction_requests():
+    classifier = SupportClassifier()
+
+    assert classifier.classify("다음 달 퇴직연금 시장 전망을 알려주세요.").category == "unsupported_recommendation_or_prediction"
+
+
 def test_requirement_builder_makes_cartesian_product_slots_for_multiple_codes():
     analysis = QueryAnalyzer().analyze("KR5113420013과 KR5113420015의 위험등급과 총보수를 비교해 주세요")
 
@@ -32,3 +53,13 @@ def test_requirement_builder_groups_shared_operation_comparison_as_one_requireme
 
     assert plan.requirement_count == 1
     assert plan.category == "shared_operation_comparison"
+
+
+def test_requirement_builder_recognizes_irp_annuity_age_and_duration_with_varied_surface_form():
+    analysis = QueryAnalyzer().analyze("IRP 연금은 몇 살부터 받고, 지급은 최소 몇 년이어야 하나요?")
+
+    plan = RequirementBuilder().build(analysis)
+
+    assert plan.category == "annuity_age_and_duration"
+    assert [slot.key for slot in plan.case.slots] == ["annuity_age", "annuity_duration"]
+    assert all(slot.retrieval_query for slot in plan.case.slots)

@@ -26,6 +26,7 @@ class RequirementSlot:
     max_term_span: int | None = None
     requires_title: bool = False
     key: str | None = None
+    retrieval_query: str | None = None
 
 
 @dataclass(frozen=True)
@@ -123,6 +124,7 @@ def load_requirement_cases(path: Path) -> list[RequirementCase]:
                     max_term_span=slot.get("max_term_span"),
                     requires_title=slot.get("requires_title", False),
                     key=slot.get("key"),
+                    retrieval_query=slot.get("retrieval_query"),
                 )
                 for slot in item["slots"]
             ),

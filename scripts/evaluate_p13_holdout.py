@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from src.experiments.routing_gate import ExperimentalRouteGate, ExperimentalRouter
+from src.experiments.requirement_retrieval import expand_requirement_candidates
 from src.orchestration.query_analyzer import QueryAnalyzer
 from src.orchestration.retrieval_service import build_frozen_retriever
 
@@ -133,6 +134,12 @@ def main() -> None:
     parser.add_argument("--corpus", type=Path, default=ROOT / "data/parsed/chunks.jsonl")
     parser.add_argument("--index", type=Path, default=ROOT / "data/indexes/bm25/simple")
     parser.add_argument("--output", type=Path, default=ROOT / "evaluation/p13_holdout_results.jsonl")
+    parser.add_argument(
+        "--requirement-retrieval-top-k",
+        type=int,
+        default=0,
+        help="0이면 원 질문 Top-k만 사용한다. 양수면 requirement query 후보를 추가한다.",
+    )
     args = parser.parse_args()
 
     questions = _load_items(args.questions, "questions")
@@ -151,8 +158,14 @@ def main() -> None:
             continue
         analysis = analyzer.analyze(question["question"])
         route = router.classify(analysis)
-        results = retriever.search(question["question"], top_k=10).results
         generated_case = route.requirement_case
+        base_results = retriever.search(question["question"], top_k=10).results
+        results = expand_requirement_candidates(
+            generated_case,
+            base_results,
+            retriever,
+            top_k=args.requirement_retrieval_top_k,
+        )
         decision = gate.assess(route.route, analysis, results, generated_case)
         generated_slots = [slot.name for slot in generated_case.slots] if generated_case else []
         generated_slot_keys = [
@@ -197,6 +210,7 @@ def main() -> None:
         "requirement_slot_cases": sum(bool(row["required_evidence_slots"]) for row in rows if row["gold_route"] == "compound"),
         "compound_with_generated_slots": sum(bool(row["generated_evidence_slots"]) for row in rows if row["gold_route"] == "compound"),
         "failure_owners": dict(Counter(row["primary_owner"] for row in rows)),
+        "requirement_retrieval_top_k": args.requirement_retrieval_top_k,
         "hcx_called": False,
     }
     args.output.write_text(

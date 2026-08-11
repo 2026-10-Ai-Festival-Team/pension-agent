@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import re
 
 from src.experiments.multi_evidence import RequirementCase, RequirementSlot
 
@@ -18,17 +19,25 @@ class SupportClassifier:
 
     def classify(self, question: str) -> SupportDecision:
         normalized = question.replace(" ", "")
-        if self._is_personal_account_lookup(normalized):
+        if self._is_personal_account_lookup(question):
             return SupportDecision(False, "personal_account_lookup", "personal_account_state_requested")
         if any(marker in normalized for marker in ("오늘기준", "최신", "실시간")):
             return SupportDecision(False, "unavailable_external_information", "time_sensitive_external_information")
+        if self._is_external_prediction(normalized):
+            return SupportDecision(False, "unsupported_recommendation_or_prediction", "external_prediction_requested")
         if self._is_unconditional_recommendation(normalized):
             return SupportDecision(False, "unsupported_recommendation_or_prediction", "ranking_or_recommendation_requested")
         return SupportDecision(True, "supported", "document_grounded_question")
 
     @staticmethod
     def _is_personal_account_lookup(question: str) -> bool:
-        possessive = any(marker in question for marker in ("제", "내", "제가", "우리"))
+        """한국어 조사 경계를 보존해 제도·공제의 ``제`` 오탐을 막는다."""
+        possessive = bool(
+            re.search(r"(?:^|[\s,])제(?:[\s]|$)", question)
+            or re.search(r"제가(?:[\s]|$)", question)
+            or re.search(r"(?:^|[\s,])내(?:[\s]|$)", question)
+            or re.search(r"(?:^|[\s,])우리(?:[\s]|$)", question)
+        )
         account_state = any(
             marker in question
             for marker in ("계좌", "적립금", "잔액", "운용수익률", "수익률", "보유상품")
@@ -40,6 +49,12 @@ class SupportClassifier:
         product_selection = any(marker in question for marker in ("추천", "골라", "선정", "가장수익"))
         product_context = any(marker in question for marker in ("상품", "펀드", "수익률", "수익"))
         return product_selection and product_context
+
+    @staticmethod
+    def _is_external_prediction(question: str) -> bool:
+        future = any(marker in question for marker in ("내일", "다음달", "다음 달", "향후"))
+        prediction = any(marker in question for marker in ("전망", "예측", "금리", "수익률"))
+        return future and prediction
 
 
 @dataclass(frozen=True)
@@ -97,10 +112,22 @@ class RequirementBuilder:
                 RequirementSlot("연금 수령 과세 시점", ("연금", "과세", "수령"), 2, key="annuity_tax_timing"),
                 RequirementSlot("일시금 수령 과세", ("일시금", "퇴직소득세"), 2, key="lump_sum_tax_difference"),
             ))
-        if "IRP" in extracted.accounts and "연금" in question and "기간" in question and "함께" in question:
+        if self._has_irp_annuity_age_and_duration(question, extracted.accounts):
             return self._plan("annuity_age_and_duration", (
-                RequirementSlot("연금 수령 연령", ("55", "연금"), 2, key="annuity_age"),
-                RequirementSlot("최소 수령기간", ("5 년", "연금"), 2, key="annuity_duration"),
+                RequirementSlot(
+                    "연금 수령 연령",
+                    ("IRP", "55 세"),
+                    2,
+                    key="annuity_age",
+                    retrieval_query="개인형퇴직연금 연금 지급기간 5년 이상",
+                ),
+                RequirementSlot(
+                    "최소 수령기간",
+                    ("IRP", "5 년", "연금"),
+                    3,
+                    key="annuity_duration",
+                    retrieval_query="개인형퇴직연금 연금 지급기간 5년 이상",
+                ),
             ))
         if len(extracted.accounts) >= 2 and "적립금을 누가 운용" in question:
             return self._plan("shared_operation_comparison", (
@@ -139,6 +166,13 @@ class RequirementBuilder:
         return {"DB", "DC"} <= set(accounts) and any(marker in question for marker in ("바꿀", "전환")) and any(
             marker in question for marker in ("계산", "산정")
         )
+
+    @staticmethod
+    def _has_irp_annuity_age_and_duration(question: str, accounts: list[str]) -> bool:
+        has_annuity = "연금" in question and any(marker in question for marker in ("수령", "지급", "받"))
+        has_age = any(marker in question for marker in ("연령", "나이", "몇 살", "55세", "55 세"))
+        has_duration = any(marker in question for marker in ("기간", "몇 년", "몇년", "5년", "5 년"))
+        return "IRP" in accounts and has_annuity and has_age and has_duration
 
     @staticmethod
     def _plan(category: str, slots: tuple[RequirementSlot, ...]) -> RequirementPlan:

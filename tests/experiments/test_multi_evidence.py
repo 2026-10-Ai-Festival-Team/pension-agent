@@ -66,6 +66,66 @@ def test_selector_matches_table_phrases_split_by_pdf_line_breaks():
     assert selection.contexts[0].chunk_id == "dc-table"
 
 
+def test_product_field_slot_rejects_a_table_of_contents_even_when_it_lists_field_names():
+    case = RequirementCase(
+        "product", "test", (
+            RequirementSlot(
+                "투자전략",
+                ("KR510902511M", "투자전략"),
+                2,
+                reject_table_of_contents=True,
+            ),
+        ),
+    )
+    contents = result(1, "toc", "[목 차] 투자대상 투자전략 투자위험")
+    contents.product_codes = ["KR510902511M"]
+
+    selection = RequirementEvidenceSelector().select(case, [contents])
+
+    assert not selection.complete
+    assert selection.missing_slot_names == ["투자전략"]
+
+
+def test_product_field_slot_requires_field_content_not_only_a_generic_field_mention():
+    case = RequirementCase(
+        "product", "test", (
+            RequirementSlot(
+                "투자대상",
+                ("KR510902511M", "투자대상"),
+                2,
+                required_any_text_terms=("투자비율", "주된 투자대상"),
+                forbidden_text_terms=("투자대상이 되는 자산가치",),
+            ),
+        ),
+    )
+    generic = result(1, "generic", "투자대상이 되는 자산가치의 가격변동에 따라 손익이 결정됩니다.")
+    generic.product_codes = ["KR510902511M"]
+    specific = result(2, "specific", "투자대상 투자비율 국내 주식에 60% 이상 투자합니다.")
+    specific.product_codes = ["KR510902511M"]
+
+    selection = RequirementEvidenceSelector().select(case, [generic, specific])
+
+    assert selection.complete
+    assert selection.contexts[0].chunk_id == "specific"
+
+
+def test_field_value_pattern_accepts_whitespace_split_risk_grade():
+    case = RequirementCase(
+        "product", "test", (
+            RequirementSlot(
+                "위험등급",
+                ("KR5110601022", "위험등급"),
+                2,
+                required_text_pattern=r"[1-6]\s*등급",
+            ),
+        ),
+    )
+    chunk = result(1, "grade", "KR5110601022 위험등급 2 등급")
+    chunk.product_codes = ["KR5110601022"]
+
+    assert RequirementEvidenceSelector().select(case, [chunk]).complete
+
+
 def test_citation_binding_prompt_exposes_no_source_id_and_only_citation_id():
     case = RequirementCase("R-011", "target", (RequirementSlot("과세 시점", ("과세이연",), 1),))
     evidence = SearchResult(

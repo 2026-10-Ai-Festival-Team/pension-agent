@@ -10,6 +10,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from pathlib import Path
+import re
 from typing import Iterable
 
 from src.generation.prompt_builder import PromptBuilder
@@ -27,6 +28,10 @@ class RequirementSlot:
     requires_title: bool = False
     key: str | None = None
     retrieval_query: str | None = None
+    reject_table_of_contents: bool = False
+    required_any_text_terms: tuple[str, ...] = ()
+    forbidden_text_terms: tuple[str, ...] = ()
+    required_text_pattern: str | None = None
 
 
 @dataclass(frozen=True)
@@ -69,6 +74,21 @@ class RequirementEvidenceSelector:
 
     @staticmethod
     def _matched_terms(slot: RequirementSlot, result: SearchResult) -> tuple[str, ...]:
+        if slot.reject_table_of_contents and RequirementEvidenceSelector._looks_like_table_of_contents(result):
+            return ()
+        evidence_text = " ".join(
+            " ".join(part.split())
+            for part in (result.title or "", result.section or "", result.text)
+            if part
+        ).casefold()
+        if any(term.casefold() in evidence_text for term in slot.forbidden_text_terms):
+            return ()
+        if slot.required_any_text_terms and not any(
+            term.casefold() in evidence_text for term in slot.required_any_text_terms
+        ):
+            return ()
+        if slot.required_text_pattern and not re.search(slot.required_text_pattern, evidence_text):
+            return ()
         # PDF table rendering may insert a newline inside a phrase such as
         # ``운용\n손익``. Collapse whitespace without changing original context text.
         searchable = " ".join(
@@ -83,6 +103,12 @@ class RequirementEvidenceSelector:
             return matched
         positions = [searchable.find(term.casefold()) for term in matched]
         return matched if max(positions) - min(positions) <= slot.max_term_span else ()
+
+    @staticmethod
+    def _looks_like_table_of_contents(result: SearchResult) -> bool:
+        """필드명이 나열된 목차를 실제 상품 필드 근거로 사용하지 않는다."""
+        leading = " ".join((result.text or "").split())[:400].casefold()
+        return "목 차" in leading or "목차" in leading or "table of contents" in leading
 
     def select(self, case: RequirementCase, results: Iterable[SearchResult]) -> EvidenceSelection:
         candidates = tuple(results)
@@ -125,6 +151,10 @@ def load_requirement_cases(path: Path) -> list[RequirementCase]:
                     requires_title=slot.get("requires_title", False),
                     key=slot.get("key"),
                     retrieval_query=slot.get("retrieval_query"),
+                    reject_table_of_contents=slot.get("reject_table_of_contents", False),
+                    required_any_text_terms=tuple(slot.get("required_any_text_terms", ())),
+                    forbidden_text_terms=tuple(slot.get("forbidden_text_terms", ())),
+                    required_text_pattern=slot.get("required_text_pattern"),
                 )
                 for slot in item["slots"]
             ),

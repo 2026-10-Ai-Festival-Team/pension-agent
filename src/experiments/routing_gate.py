@@ -29,6 +29,10 @@ class ExperimentalRouter:
         if not support.supported or analysis.intent in {"unsupported_or_personal", "conditional_recommendation"}:
             return RouteDecision("unsupported", [support.category if not support.supported else analysis.intent])
         plan = self.requirement_builder.build(analysis)
+        # DB/DC 운용 주체는 두 대상의 값을 확인하지만 하나의 직접 사실을 묻는
+        # simple route다. requirement slot은 simple gate에서도 모두 검증한다.
+        if plan.category == "shared_operation_comparison":
+            return RouteDecision("simple", [f"requirements:{plan.category}"], plan.case)
         if plan.requirement_count >= 2:
             return RouteDecision("compound", [f"requirements:{plan.category}"], plan.case)
         if plan.requirement_count == 1:

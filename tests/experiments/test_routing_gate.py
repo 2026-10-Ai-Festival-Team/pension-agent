@@ -21,6 +21,15 @@ def test_router_identifies_compound_korean_bound_entities_and_product_topics():
     assert router.classify(analyzer.analyze("IRP 개인부담금 한도는?")).route == "simple"
 
 
+def test_router_keeps_shared_operation_question_on_simple_route_with_complete_slots():
+    route = ExperimentalRouter().classify(
+        QueryAnalyzer().analyze("DB형과 DC형은 적립금을 누가 운용하나요?")
+    )
+
+    assert route.route == "simple"
+    assert len(route.requirement_case.slots) == 2
+
+
 def test_compound_gate_requires_every_requirement_slot():
     analysis = QueryAnalyzer().analyze("DB와 DC 비교")
     case = RequirementCase("R", "test", (RequirementSlot("DB", ("DB", "회사"), 2), RequirementSlot("DC", ("DC", "근로자"), 2)))
@@ -72,7 +81,7 @@ def test_compound_product_fields_get_generic_code_bound_requirement_slots():
     decision = ExperimentalRouteGate().assess(
         "compound",
         analysis,
-        [result("KR510902511M 상품명 위험등급")],
+        [result("KR510902511M 상품명 위험등급 2등급")],
     )
 
     assert decision.sufficient
@@ -85,7 +94,7 @@ def test_product_name_slot_requires_a_titled_product_context():
         rank=1,
         chunk_id="c",
         score=1,
-        text="KR510902511M 위험등급",
+        text="KR510902511M 위험등급 2등급",
         source_id="s",
         source_path="x",
         source_format="pdf",

@@ -9,8 +9,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from src.experiments.citation_diagnosis import CitationDiagnosisPromptBuilder
-from src.experiments.requirement_retrieval import expand_requirement_candidates
 from src.experiments.routing_gate import ExperimentalRouteGate, ExperimentalRouter
+from src.experiments.shadow_execution import prepare_shadow_execution
 from src.generation.errors import CitationValidationError, GenerationError
 from src.generation.hcx import HyperClovaXGenerator
 from src.orchestration.context_builder import ContextBuilder
@@ -27,6 +27,19 @@ class ConditionalRoutingShadowAgent:
     router: ExperimentalRouter = field(default_factory=ExperimentalRouter)
     gate: ExperimentalRouteGate = field(default_factory=ExperimentalRouteGate)
     requirement_retrieval_top_k: int = 5
+
+    def prepare(self, question: str, top_k: int = 5):
+        """P17 등 offline 진단에서 재사용할 generation 전 Shadow 상태."""
+        return prepare_shadow_execution(
+            question=question,
+            top_k=top_k,
+            retriever=self.retriever,
+            analyzer=self.analyzer,
+            context_builder=self.context_builder,
+            router=self.router,
+            gate=self.gate,
+            requirement_retrieval_top_k=self.requirement_retrieval_top_k,
+        )
 
     def _compound_generator(self, selection):
         """같은 HCX transport·limiter를 공유하되 prompt representation만 교체한다."""
@@ -56,30 +69,14 @@ class ConditionalRoutingShadowAgent:
         return "제공된 문서에서 질문에 답할 충분한 근거를 확인하지 못했습니다."
 
     def answer(self, question: str, top_k: int = 5) -> dict:
-        analysis = self.analyzer.analyze(question)
-        route = self.router.classify(analysis)
-        base_results = self.retriever.search(analysis.question, top_k=top_k).results
-        requirement_case = route.requirement_case
-        candidate_results = expand_requirement_candidates(
-            requirement_case if route.route == "compound" else None,
-            base_results,
-            self.retriever,
-            top_k=self.requirement_retrieval_top_k,
-        )
-        decision = self.gate.assess(route.route, analysis, candidate_results, requirement_case)
-
-        selection = None
-        if route.route == "compound" and requirement_case is not None:
-            selection = self.gate.selector.select(requirement_case, candidate_results)
-            contexts = list(selection.contexts)
-        else:
-            contexts = self.context_builder.build(base_results, top_k)
-        assessment = EvidenceAssessment(
-            decision.sufficient,
-            decision.reason,
-            decision.missing_slots,
-            decision.selected_chunk_ids,
-        )
+        plan = self.prepare(question, top_k)
+        analysis = plan.analysis
+        route = plan.route
+        requirement_case = plan.requirement_case
+        candidate_results = plan.candidate_results
+        selection = plan.selection
+        contexts = list(plan.contexts)
+        assessment = plan.assessment
         generator_attempted = assessment.sufficient
         generator_called = generator_attempted
         generated = None
@@ -125,6 +122,7 @@ class ConditionalRoutingShadowAgent:
             "route": route.route,
             "route_reasons": route.reasons,
             "retrieved_chunk_ids": [item.chunk_id for item in contexts],
+            "base_retrieved_chunk_ids": [item.chunk_id for item in plan.base_results],
             "candidate_chunk_ids": [item.chunk_id for item in candidate_results],
             "selected_requirement_slots": [slot.name for slot in requirement_case.slots] if requirement_case else [],
             "missing_requirement_slots": assessment.missing_requirements,

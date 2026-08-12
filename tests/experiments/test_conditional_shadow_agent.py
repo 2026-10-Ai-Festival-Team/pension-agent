@@ -53,3 +53,15 @@ def test_shadow_agent_uses_minimal_compound_context_after_requirement_gate():
     assert answer["think_trace"]["evidence_sufficient"]
     assert answer["think_trace"]["generator_called"]
     assert answer["think_trace"]["retrieved_chunk_ids"] == ["irp-law"]
+
+
+def test_shadow_prepare_and_answer_share_same_compound_context():
+    agent = ConditionalRoutingShadowAgent(_Retriever(), FakeGenerator())
+    question = "IRP 연금은 몇 살부터 받고, 지급은 최소 몇 년이어야 하나요?"
+
+    plan = agent.prepare(question, top_k=10)
+    answer = agent.answer(question, top_k=10)
+
+    assert plan.assessment.sufficient
+    assert [item.chunk_id for item in plan.contexts] == answer["think_trace"]["retrieved_chunk_ids"]
+    assert [item.chunk_id for item in plan.candidate_results] == answer["think_trace"]["candidate_chunk_ids"]

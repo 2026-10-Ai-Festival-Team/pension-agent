@@ -1,1 +1,1 @@
-"""Traceable baseline retrieval."""
+"""Replaceable retrieval implementations."""

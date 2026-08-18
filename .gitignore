@@ -1,5 +1,7 @@
 # Secrets
 .env
+.env.*
+!.env.example
 
 # Python
 .venv/
@@ -15,6 +17,11 @@ __pycache__/
 data/parsed/
 data/indexes/
 data/diagnostics/
+data/processed/
+eval/results/
+
+# Local source archives (GitHub rejects files over 100 MB)
+data/raw/**/*.zip
 
 # Logs
 logs/

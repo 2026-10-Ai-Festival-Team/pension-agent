@@ -1,19 +1,75 @@
+from __future__ import annotations
+
+import json
+import math
 import re
-import numpy as np
-from src.models.retrieval import SearchResponse, SearchResult
-from src.retrieval.bm25_index import Bm25Index
-CODE=re.compile(r"KR[A-Z0-9]{10}",re.I)
-class Bm25Retriever:
-    def __init__(self,index): self.index=index
-    def search(self,query,top_k=5,document_types=None,product_codes=None,query_normalizer=None):
-        if not query.strip(): raise ValueError("query must not be empty")
-        codes={item.upper() for item in CODE.findall(query)}; product_codes={item.upper() for item in (product_codes or set())}|codes
-        scores=self.index.scores(query,query_normalizer=query_normalizer); out=[]
-        for idx in np.argsort(scores)[::-1]:
-            c=self.index.chunks[int(idx)]
-            if scores[int(idx)]<=0: continue
-            if document_types and c.document_type not in document_types: continue
-            if product_codes and not product_codes.intersection({x.upper() for x in c.product_codes}): continue
-            out.append(SearchResult(rank=len(out)+1,chunk_id=c.chunk_id,score=float(scores[int(idx)]),text=c.text,source_id=c.source_id,source_path=c.source_path,source_format=c.source_format,document_type=c.document_type,title=c.title,section=c.section,locator=c.locator,product_codes=c.product_codes,element_ids=c.element_ids,metadata={"retriever":"bm25"}))
-            if len(out)>=top_k: break
-        return SearchResponse(query=query,tokenizer=self.index.tokenizer.name,total_candidates=len(self.index.chunks),results=out)
+from collections import Counter
+from pathlib import Path
+
+from src.retrieval.retriever import Retriever
+from src.schemas.models import DocumentChunk, RetrievalResult
+
+
+TOKEN_PATTERN = re.compile(r"[가-힣]+|[A-Za-z]+|\d+(?:[.,]\d+)*%?")
+
+
+def tokenize_korean(text: str) -> list[str]:
+    """Dependency-free baseline: eojeol-like terms plus Korean character bigrams."""
+    tokens: list[str] = []
+    for term in TOKEN_PATTERN.findall(text.lower()):
+        normalized = term.replace(",", "")
+        tokens.append(normalized)
+        if re.fullmatch(r"[가-힣]{3,}", normalized):
+            tokens.extend(normalized[i : i + 2] for i in range(len(normalized) - 1))
+    return tokens
+
+
+class BM25Retriever(Retriever):
+    def __init__(self, chunks: list[DocumentChunk], k1: float = 1.5, b: float = 0.75):
+        self.chunks = chunks
+        self.k1 = k1
+        self.b = b
+        self.tokens = [tokenize_korean(chunk.text) for chunk in chunks]
+        self.term_frequencies = [Counter(tokens) for tokens in self.tokens]
+        self.avgdl = sum(map(len, self.tokens)) / len(self.tokens) if self.tokens else 0.0
+        self.document_frequency = Counter()
+        for tokens in self.tokens:
+            self.document_frequency.update(set(tokens))
+
+    @classmethod
+    def from_jsonl(cls, path: Path) -> "BM25Retriever":
+        if not path.exists():
+            return cls([])
+        chunks = [DocumentChunk.model_validate_json(line) for line in path.read_text("utf-8").splitlines() if line.strip()]
+        return cls(chunks)
+
+    def retrieve(self, query: str, top_k: int = 5) -> list[RetrievalResult]:
+        if not query.strip() or top_k <= 0 or not self.chunks:
+            return []
+        query_terms = tokenize_korean(query)
+        n_docs = len(self.chunks)
+        scores: list[tuple[float, int]] = []
+        for index, frequencies in enumerate(self.term_frequencies):
+            score = 0.0
+            document_length = len(self.tokens[index])
+            for term in query_terms:
+                tf = frequencies[term]
+                if not tf:
+                    continue
+                df = self.document_frequency[term]
+                idf = math.log(1 + (n_docs - df + 0.5) / (df + 0.5))
+                denominator = tf + self.k1 * (1 - self.b + self.b * document_length / (self.avgdl or 1))
+                score += idf * tf * (self.k1 + 1) / denominator
+            if score > 0:
+                scores.append((score, index))
+        scores.sort(key=lambda item: (-item[0], item[1]))
+        return [
+            RetrievalResult(**self.chunks[index].model_dump(), score=round(score, 6))
+            for score, index in scores[:top_k]
+        ]
+
+
+def save_chunks(chunks: list[DocumentChunk], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = "\n".join(chunk.model_dump_json() for chunk in chunks)
+    path.write_text(payload + ("\n" if payload else ""), encoding="utf-8")

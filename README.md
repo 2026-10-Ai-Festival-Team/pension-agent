@@ -1,71 +1,95 @@
-# 연금 Agent
+# Pension AI Agent Baseline
 
-제10회 2026 미래에셋증권 AI Festival 연금 Agent 프로젝트입니다. 사측 제공 연금 문서를 검색하고, 근거와 위치를 표시하는 답변을 생성합니다.
+2026 미래에셋증권 AI Festival 연금 AI Agent 과제를 위한 최소 RAG 베이스라인입니다. 답변 생성 LLM은 HyperCLOVA X만 사용하며 웹 검색이나 다른 LLM API는 포함하지 않습니다.
 
-## 저장소 범위
+> 현재 원본 158개(PDF 137, DOCX 18, XLSX 2, PPTX 1)를 파싱해 12,815개 chunk와 실제 문서 근거 기반 평가문제 30개를 구축했습니다.
 
-- GitHub 비공개 저장소: 코드, 설정, 기술 문서의 기준 저장소
-- `data/raw/연금`: 저장소에 포함되는 사측 제공 원본 데이터의 읽기 전용 위치
-- `data/parsed`, `data/indexes`: 로컬에서 생성되는 파싱 결과와 검색 인덱스
-- HyperCLOVA X: 제출 Agent의 답변 생성 LLM
-
-API 키와 생성된 파싱·인덱스·진단 산출물은 Git에 커밋하지 않습니다. 원본 문서는 `data/raw/연금`에 변경 없이 포함합니다. 자세한 제약은 [AGENTS.md](AGENTS.md)를 따릅니다.
-
-## 빠른 시작
-
-1. 환경 파일을 만들고 HyperCLOVA X 자격 증명을 채웁니다.
-
-   ```bash
-   cp .env.example .env
-   ```
-
-3. `.env`의 `PENSION_DATA_ROOT`는 저장소 내 상대 경로로 유지합니다.
-
-`PENSION_DATA_ROOT`는 읽기 전용 원본 위치이며, 생성 파일은 `PARSED_DATA_ROOT`와 `INDEX_DATA_ROOT`에만 저장해야 합니다.
-
-## 데이터 인벤토리
-
-문서 파싱이나 모델 호출 전에 원본의 파일 구조를 인벤토리로 확인합니다. 원본은 읽기만 하며, 결과 파일에는 절대 경로를 기록하지 않습니다.
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-python3 scripts/check_data_path.py
-python3 scripts/build_manifest.py
-python3 scripts/analyze_inventory.py
-```
-
-위 명령은 다음 파일을 만듭니다.
-
-- `data/manifest.csv`: 원본 파일의 상대 경로와 메타데이터
-- `data/inventory_report.md`: 파일 형식, 상품코드 폴더, 빈 폴더, 중복 파일명, 대용량 파일 통계
-- `data/representative_documents.csv`: 메타데이터로 선정한 12개 대표 문서 후보 (XLSX 2개 포함)
-- `data/representative_document_requirements.csv`: 사람이 확인해 채울 파싱 요구사항 표
-
-대표 문서의 표·이미지·스캔 여부는 파일명과 크기만으로 확정할 수 없습니다. 후보를 연 뒤 마지막 CSV의 `not_reviewed` 값을 검토 결과로 바꿉니다.
-
-## 디렉터리 구조
+## Architecture
 
 ```text
-src/           애플리케이션 모듈
-scripts/       운영 스크립트
-tests/         자동화 테스트
-evaluation/    평가 데이터와 코드
-data/raw/      버전 관리되는 읽기 전용 사측 원본 문서
-data/parsed/   생성된 파싱 문서(Git 제외)
-data/indexes/  생성된 검색 인덱스(Git 제외)
-docs/          프로젝트 문서
+Question
+  -> Question Analyzer (HyperCLOVA X, 실패 시 보수적 fallback)
+  -> 1~3 Search Queries
+  -> BM25 Retriever
+  -> Evidence
+  -> ANSWER / CLARIFY / ABSTAIN
+  -> HyperCLOVA X Grounded Answer
 ```
 
-## 첫 Push 전 확인
+검색기는 교체 가능한 `Retriever` 인터페이스를 사용합니다. baseline 한국어 토큰화는 어절·숫자·한글 bi-gram 조합이며, 모든 chunk는 문서 ID, 파일명, 페이지를 보존합니다. `eval/`은 평가 스크립트만 읽으며 production pipeline에서는 접근하지 않습니다.
 
-Review the staged files and confirm that no `.env` file or generated artifact is included.
+## Setup
 
 ```bash
-git status
-git add AGENTS.md README.md .gitignore .dockerignore .env.example requirements.txt Dockerfile \\
-  src scripts tests evaluation docs data/raw
-git diff --cached
+cd /home/yewon/jupyter/aset/pension-agent
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
 ```
+
+노트북에 있던 기존 API 키는 노출된 것으로 보고 폐기·재발급해야 합니다. 새 키는 Git에 포함되지 않는 `.env`에만 입력합니다. `HCX_API_KEY`에는 `Bearer ` 접두사가 있어도 없어도 됩니다.
+
+## Data preparation
+
+대회에서 제공한 원본 PDF, CSV, JSON, TXT, Markdown, XLSX 파일 전체를 `data/raw/` 아래에 원래 폴더 구조를 유지해 복사합니다. 이후 다음을 실행합니다.
+
+```bash
+python scripts/inspect_data.py
+python scripts/build_index.py
+```
+
+`inspect_data.py`는 `data/metadata/document_inventory.csv`를 생성합니다. 자동으로 확정할 수 없는 문서 유형, 주제, 상품명, 시행일은 `unclassified` 또는 빈 값으로 남겨 수동 검토 대상으로 표시합니다. 표 자료는 원문과 index 결과를 반드시 표본 검수하세요.
+
+## Evaluation dataset
+
+실제 문서를 읽고 `eval/SCHEMA.md`의 분포와 schema에 맞춰 `eval/eval_questions.json`, `eval/eval_questions.csv`, `eval/gold_evidence.json`을 작성합니다. 문서가 없을 때 `generate_eval_set.py`는 임의 정답 생성을 거부합니다.
+
+```bash
+python scripts/generate_eval_set.py
+python scripts/run_eval.py
+```
+
+`run_eval.py`는 Recall@1/3/5/10, MRR, 행동 정확도와 confusion matrix를 출력하고 `eval/results/baseline_results.json` 및 CSV를 저장합니다.
+
+## Run server
+
+```bash
+uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+curl http://localhost:8000/health
+curl --get http://localhost:8000/answer \
+  --data-urlencode 'question_id=Q-001' \
+  --data-urlencode 'question=DC와 DB의 차이가 무엇인가요?'
+```
+
+Index가 없거나 근거가 검색되지 않으면 서버는 500 오류 대신 `ABSTAIN` 답변을 반환합니다. 추천에 필요한 조건이 부족하면 `CLARIFY`로 역질문합니다. `think_trace`는 내부 사고과정이 아닌 intent, 검색어, 사용 문서, 행동, 검증 항목의 JSON 문자열입니다.
+
+## Test
+
+```bash
+pytest -q
+```
+
+테스트는 HyperCLOVA X를 실제 호출하지 않습니다.
+
+## Docker
+
+```bash
+docker build -t pension-agent .
+docker run --env-file .env -p 8000:8000 pension-agent
+curl http://localhost:8000/health
+```
+
+## Environment variables
+
+- `HCX_API_KEY`, `HCX_REQUEST_ID`: 필수 인증값
+- `HCX_ENDPOINT`, `HCX_MODEL`: API endpoint와 모델
+- `HCX_TIMEOUT_SECONDS`, `HCX_MAX_RETRIES`: timeout과 제한 재시도
+- `RETRIEVAL_TOP_K`: 기본 검색 결과 수
+- `MAX_QUESTION_LENGTH`: 입력 길이 상한
+
+## Known limitations
+
+- 현재 평가는 HCX 인증값 없이 retrieval과 보수적 fallback 행동을 측정했으며, 실제 생성 답변 품질 평가는 유효한 HCX 환경변수 설정 후 재실행해야 합니다.
+- 일반 PDF text extraction만 제공하므로 복잡한 표는 파싱 품질 수동 검수가 필요합니다.
+- lexical retrieval만 포함하며 reranker, vector DB, 멀티에이전트, 웹 검색은 의도적으로 제외했습니다.

@@ -1,1 +1,1 @@
-"""Pension Agent application package."""
+"""Pension agent baseline package."""

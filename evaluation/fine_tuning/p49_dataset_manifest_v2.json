@@ -1,0 +1,16 @@
+{
+  "dataset_status": "draft_awaiting_human_approval",
+  "total_records": 38,
+  "modified_records": 14,
+  "unchanged_records": 24,
+  "qa_pass": 38,
+  "qa_fail": 0,
+  "human_approved": 0,
+  "human_pending": 38,
+  "positive_draft_sha256": "bfc89cf6cb3d92a9d6b5543a420edd4f2f3561cdbd0482f63f0528b7214d39eb",
+  "contrastive_draft_sha256": "e3340c2ea3ea8d5a2b5de2591427255d13bef62b37de03b420177c268077d61e",
+  "source_v1_positive_sha256": "6b941b7a92c51dc33b84dbb3ab16c344253e4d6c506808b5b2c9fed9c0daf3d1",
+  "source_v1_contrastive_sha256": "8366cc275256b6140ea5cf54cbee817bb4bf679772452baf1efe9e99158dd306",
+  "tuning_api_calls": 0,
+  "ncp_resource_changes": 0
+}

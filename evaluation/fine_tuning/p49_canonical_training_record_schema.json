@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "P49 Canonical Generator Training Record",
+  "description": "Internal, model-provider-neutral record. It is not a CLOVA Studio upload payload.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_type",
+    "question",
+    "selected_requirements",
+    "direct_evidence",
+    "cited_chunk_ids",
+    "completion",
+    "quality"
+  ],
+  "properties": {
+    "schema_version": {"const": "p49.training_record.v1"},
+    "record_type": {"const": "training_example"},
+    "question": {"type": "string", "minLength": 1},
+    "selected_requirements": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "direct_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["chunk_id", "text", "provenance"],
+        "properties": {
+          "chunk_id": {"type": "string", "minLength": 1},
+          "text": {"type": "string", "minLength": 1},
+          "provenance": {"const": "original_primary"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "cited_chunk_ids": {
+      "description": "Citation IDs expected from the generator. P49-2 verifies each is present in direct_evidence.",
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "completion": {
+      "type": "string",
+      "pattern": "^\\[답변\\][\\s\\S]*\\[근거\\][\\s\\S]*\\[유의사항\\][\\s\\S]*$"
+    },
+    "quality": {
+      "type": "object",
+      "required": ["failure_family", "required_facts", "forbidden_claims", "manual_review"],
+      "properties": {
+        "failure_family": {"enum": ["required_field_completeness", "table_enumeration_completeness", "field_distinction", "evidence_fidelity"]},
+        "required_facts": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "forbidden_claims": {"type": "array", "items": {"type": "string"}},
+        "manual_review": {"const": "required"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

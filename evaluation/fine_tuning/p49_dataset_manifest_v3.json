@@ -1,0 +1,16 @@
+{
+  "dataset_status": "draft_awaiting_human_approval",
+  "total_records": 38,
+  "substantive_modified_records": 6,
+  "output_contract": "[유의사항] 없음 when no evidence-grounded user caution applies",
+  "qa_pass": 38,
+  "qa_fail": 0,
+  "human_approved": 0,
+  "human_pending": 38,
+  "positive_draft_sha256": "69227f3cb1eba3fd86eb26f4b1c8c728757226f3f7b17efc6fe883c6b3b55fcc",
+  "contrastive_draft_sha256": "0380ff5c409b98376b3850b46b62a17d93649d8b7b95293783faadebb0e70b29",
+  "source_v2_positive_sha256": "d66ddcafbdb76cfd7146a481999ec36225b0a79dc92d0916e30f1542d3be80af",
+  "source_v2_contrastive_sha256": "923ece51b6d11d7e6eb69182254b0406fe9dafec490fc337d4c28ee0cb81c3a9",
+  "tuning_api_calls": 0,
+  "ncp_resource_changes": 0
+}

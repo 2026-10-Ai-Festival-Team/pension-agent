@@ -1,0 +1,13 @@
+{
+  "dataset_state": "draft_review_bundle_not_frozen_training_data",
+  "positive_record_count": 19,
+  "contrastive_record_count": 19,
+  "automatic_qa_pass_count": 38,
+  "human_approved_count": 0,
+  "release_eligible_count": 0,
+  "positive_draft_sha256": "71c8643f617bfb712347cb3b25d62f2007106e8e473e761d7124f9d357a7f598",
+  "contrastive_draft_sha256": "c3b905d3f0b98675683ebffa650acde24f37d402399fb38ec74a80b309ab9cd3",
+  "source_seed_sha256": "6a45e070f2bac909a80e25f4524c002b1af06c09e84cbf8bc5061dbcb22dadfa",
+  "review_bundle_sha256": "26699fa8cd3157c17c3551d7d3eba681178845a2a4718aad6d6d202c9d5da586",
+  "tuning_api_calls": 0
+}

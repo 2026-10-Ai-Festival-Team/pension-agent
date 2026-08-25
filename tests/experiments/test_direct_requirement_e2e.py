@@ -135,11 +135,17 @@ def test_e2e_corrects_confirmation_polarity_without_changing_the_evidence_body()
     agent = DirectRequirementE2EAgent(
         _DBSelector(), ScopedFrontendPreparationShadow(_Retriever()), _WrongPolarityGenerator(),
     )
-    response = agent.answer("DB는 내가 직접 굴리는 거지?")
+    response = agent.answer("DB는 내가 직접 굴리는 거 맞지? 아닌가?")
 
     assert "[답변]\n아니요. DB형 적립금의 운용 주체는 회사입니다." in response["answer"]
     assert response["think_trace"]["claim_stance"] == {
         "stance": "contradict",
         "user_claim": "적립금 운용 주체는 근로자입니다.",
         "supported_fact": "DB형 적립금 운용 주체는 회사입니다.",
+        "query_modality": "confirmation_uncertain",
+        "normalized_claim": "DB 근로자 operation",
+        "claim_polarity": "positive",
+        "stance_reason": "direct_requirement:DB.operation_party states 회사 operates reserves",
     }
+    assert response["think_trace"]["query_modality"] == "confirmation_uncertain"
+    assert response["think_trace"]["claim_polarity"] == "positive"

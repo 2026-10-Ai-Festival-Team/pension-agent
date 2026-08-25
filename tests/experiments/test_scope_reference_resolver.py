@@ -129,3 +129,11 @@ def test_plain_negative_or_genuine_pair_is_not_misread_as_exclusive_scope():
 
     assert negative.active_subjects == ("IRP", "pension_savings")
     assert pair.active_subjects == ("DB", "DC")
+
+
+def test_confirmation_or_self_doubt_suffix_does_not_change_a_single_db_scope():
+    resolution = ScopeReferenceResolver().resolve("DB는 내가 직접 굴리는 거 맞지? 아닌가?")
+
+    assert resolution.active_subjects == ("DB",)
+    assert not resolution.references
+    assert not resolution.unresolved_references

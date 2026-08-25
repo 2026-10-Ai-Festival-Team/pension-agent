@@ -7,7 +7,7 @@ deterministic extraction from the user's question.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 import json
 import re
@@ -15,6 +15,10 @@ import time
 import urllib.error
 
 from src.experiments.hcx_semantic_planner import lexically_normalize
+from src.orchestration.confirmation_normalizer import (
+    confirmation_core_requirements,
+    normalize_confirmation_query,
+)
 from src.generation.errors import GenerationError
 from src.generation.hcx import UrllibTransport
 from src.generation.rate_limit import GlobalMinIntervalLimiter
@@ -247,8 +251,10 @@ class HCXDirectRequirementSelector:
         active_subjects: tuple[str, ...] = (),
     ) -> DirectRequirementSelection:
         normalized = lexically_normalize(question)
+        confirmation = normalize_confirmation_query(normalized)
+        selector_question = confirmation.proposition_core
         payload = self.prompt_builder.payload(
-            normalized,
+            selector_question,
             self.config.hcx_model,
             allowed_requirements=allowed_requirements,
             active_subjects=active_subjects,
@@ -260,6 +266,8 @@ class HCXDirectRequirementSelector:
                 "attempt": attempt + 1,
                 "request_payload_bytes": len(json.dumps(payload, ensure_ascii=False).encode("utf-8")),
                 "lexical_normalization_applied": normalized != question,
+                "confirmation_normalization_applied": confirmation.changed,
+                "query_modality": confirmation.query_modality,
             }
             try:
                 diagnostic["rate_limit_wait_ms"] = round(self.rate_limiter.acquire() * 1000, 3)
@@ -281,11 +289,27 @@ class HCXDirectRequirementSelector:
                     raise GenerationError("HCX direct selector request failed", diagnostic={**diagnostic, "attempts": attempts})
                 parsed = json.loads(self._content(body))
                 attempts.append({**diagnostic, "outcome": "success"})
-                return self.validator.validate(
+                validated = self.validator.validate(
                     parsed,
                     question=question,
                     diagnostic={**diagnostic, "attempts": attempts},
                     allowed_requirements=allowed_requirements,
+                )
+                forced = confirmation_core_requirements(
+                    confirmation,
+                    active_subjects=active_subjects,
+                    allowed_requirements=allowed_requirements or DIRECT_REQUIREMENTS,
+                )
+                selected = tuple(sorted(set(validated.selected_requirements) | set(forced)))
+                return replace(
+                    validated,
+                    selected_requirements=selected,
+                    unresolved=False if forced else validated.unresolved,
+                    diagnostic={
+                        **validated.diagnostic,
+                        "confirmation_normalization": confirmation.as_dict(),
+                        "deterministic_confirmation_requirements": list(forced),
+                    },
                 )
             except GenerationError:
                 raise

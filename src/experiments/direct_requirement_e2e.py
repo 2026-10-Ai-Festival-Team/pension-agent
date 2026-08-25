@@ -152,6 +152,15 @@ class DirectRequirementE2EAgent:
         ):
             return self._insufficient(analysis.question, trace, "single_subject_frontend_unresolved")
 
+        stance = resolve_claim_stance(analysis.question, tuple(selection.selected_requirements))
+        trace.update({
+            "claim_stance": stance.as_dict(),
+            "query_modality": stance.query_modality,
+            "normalized_claim": stance.normalized_claim,
+            "claim_polarity": stance.claim_polarity,
+            "stance_reason": stance.stance_reason,
+        })
+
         prepared = self.preparation.prepare(analysis.question, self._frontend_payload(selected))
         trace.update({
             "preparation_status": prepared.status,
@@ -186,8 +195,6 @@ class DirectRequirementE2EAgent:
             else "direct_requirement_evidence_partial"
         )
         trace["generator_attempted"] = True
-        stance = resolve_claim_stance(analysis.question, tuple(selection.selected_requirements))
-        trace["claim_stance"] = stance.as_dict()
         generated = None
         cited = []
         try:

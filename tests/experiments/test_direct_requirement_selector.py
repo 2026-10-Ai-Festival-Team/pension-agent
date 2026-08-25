@@ -80,6 +80,23 @@ def test_direct_selector_validates_a_multi_requirement_response_without_access_t
     assert result.resolved_product_codes == ()
 
 
+def test_confirmation_uncertainty_keeps_db_operation_requirement_even_if_hcx_selects_none():
+    allowed = requirements_for_active_subject("DB")
+    result = HCXDirectRequirementSelector(
+        config=_config(),
+        transport=Transport({"selected_requirements": [], "unresolved": True}),
+    ).select(
+        "DB는 내가 직접 굴리는 거 맞지? 아닌가?",
+        allowed_requirements=allowed,
+        active_subjects=("DB",),
+    )
+
+    assert result.selected_requirements == ("DB.operation_party",)
+    assert result.unresolved is False
+    assert result.diagnostic["confirmation_normalization"]["proposition_core"] == "DB는 내가 직접 굴리는 거"
+    assert result.diagnostic["deterministic_confirmation_requirements"] == ["DB.operation_party"]
+
+
 def test_direct_requirement_evaluator_exposes_multi_requirement_recall_and_extra_requirements():
     rows = [{"source_question_id": "Q-1", "question": "q", "selected_requirements": ["A", "B"]}]
     result = score_requirement_predictions(rows, {"Q-1": ("A", "C")})

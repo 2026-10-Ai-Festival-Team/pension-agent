@@ -11,6 +11,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 import re
 
+from src.orchestration.confirmation_normalizer import normalize_confirmation_query
+
 
 _OPERATION_PARTY = {
     "DB.operation_party": ("회사", "DB형 적립금 운용 주체는 회사입니다."),
@@ -28,6 +30,10 @@ class ClaimStance:
     stance: str = "neutral"  # support | contradict | neutral
     user_claim: str | None = None
     supported_fact: str | None = None
+    query_modality: str = "neutral"
+    normalized_claim: str | None = None
+    claim_polarity: str | None = None
+    stance_reason: str | None = None
 
     @property
     def answer_prefix(self) -> str | None:
@@ -42,6 +48,10 @@ class ClaimStance:
             "stance": self.stance,
             "user_claim": self.user_claim,
             "supported_fact": self.supported_fact,
+            "query_modality": self.query_modality,
+            "normalized_claim": self.normalized_claim,
+            "claim_polarity": self.claim_polarity,
+            "stance_reason": self.stance_reason,
         }
 
     def writer_instruction(self) -> str:
@@ -76,28 +86,45 @@ def resolve_claim_stance(question: str, requirements: tuple[str, ...]) -> ClaimS
     proposition, so it remains neutral.  Negated wording is likewise left
     neutral rather than riskfully reversing the user's claim.
     """
+    normalization = normalize_confirmation_query(question)
     operation_requirements = [key for key in requirements if key in _OPERATION_PARTY]
     if len(operation_requirements) != 1:
-        return ClaimStance()
+        return ClaimStance(query_modality=normalization.query_modality)
 
     normalized = re.sub(r"\s+", "", question)
-    if "누가" in normalized or not any(token in normalized for token in ("운용", "굴리", "관리")):
-        return ClaimStance()
-    if any(token in normalized for token in ("않", "아닌", "아니")):
-        return ClaimStance()
+    core = re.sub(r"\s+", "", normalization.proposition_core)
+    if "누가" in core or not any(token in core for token in ("운용", "굴리", "관리", "맡")):
+        return ClaimStance(query_modality=normalization.query_modality)
 
     asserted_party = None
-    if any(token in normalized for token in ("회사", "사업주", "사용자")):
+    if any(token in core for token in ("회사", "사업주", "사용자")):
         asserted_party = "회사"
-    elif any(token in normalized for token in ("내가", "제가", "근로자", "가입자", "직접")):
+    elif any(token in core for token in ("내가", "제가", "근로자", "가입자", "직접")):
         asserted_party = "근로자"
     if asserted_party is None:
-        return ClaimStance()
+        return ClaimStance(query_modality=normalization.query_modality)
 
     supported_party, supported_fact = _OPERATION_PARTY[operation_requirements[0]]
-    user_claim = f"적립금 운용 주체는 {asserted_party}입니다."
+    participant = r"(?:내가|제가|근로자(?:가|는)?|가입자(?:가|는)?|직접)"
+    company = r"(?:회사(?:가|는)?|사업주(?:가|는)?|사용자(?:가|는)?)"
+    party_pattern = participant if asserted_party == "근로자" else company
+    # Internal negation (``내가 안 굴리는``) and a declarative
+    # ``... 제도가 아니지`` negate the proposition.  Terminal ``거 아니야?``
+    # is handled as an interrogative modality by the normalizer, not as scope
+    # negation.
+    claim_negative = bool(
+        re.search(party_pattern + r".{0,16}(?:안|않).{0,8}(?:운용|굴리|관리|맡)", normalized)
+        or re.search(party_pattern + r".{0,24}(?:운용|굴리|관리|맡).{0,12}(?:제도|방식).{0,4}아니", normalized)
+    )
+    claim_polarity = "negative" if claim_negative else "positive"
+    user_claim = f"적립금 운용 주체는 {asserted_party}{'가 아닙니다' if claim_negative else '입니다'}."
+    claim_matches_fact = (asserted_party == supported_party) != claim_negative
     return ClaimStance(
-        stance="support" if asserted_party == supported_party else "contradict",
+        stance="support" if claim_matches_fact else "contradict",
         user_claim=user_claim,
         supported_fact=supported_fact,
+        query_modality=normalization.query_modality,
+        normalized_claim=f"{operation_requirements[0].split('.')[0]} {asserted_party} operation",
+        claim_polarity=claim_polarity,
+        stance_reason=f"direct_requirement:{operation_requirements[0]} states {supported_party} operates reserves",
     )

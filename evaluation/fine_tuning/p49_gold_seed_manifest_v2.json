@@ -1,0 +1,32 @@
+{
+  "dataset_status": "frozen_gold_seed_v2",
+  "record_count": 38,
+  "human_approved": 38,
+  "human_pending": 0,
+  "reviewer": "project_owner",
+  "approved_at": "2026-08-25T10:39:20Z",
+  "outcome_distribution": {
+    "supported_answer": 38
+  },
+  "evidence_status_distribution": {
+    "full": 38
+  },
+  "required_fact_coverage": "38/38",
+  "evidence_grounding": "38/38",
+  "citation_context_match": "38/38",
+  "wrong_field_claims": 0,
+  "source_candidates": {
+    "p49_human_review_candidate_gold_v6.jsonl": "385ef5c2139f92af76654efaf5de1fb3ab6b963b5881776034cc890dfd0ed129",
+    "p49_human_review_candidate_contrastive_v6.jsonl": "2dee3d7aed7685878951dd10e75ca5bf33a8bde5760d048366e7ad0e9671f57f"
+  },
+  "evidence_first_audit": {
+    "p49_team_merge_review_candidate_v6_audit.jsonl": "43e0c901e3d753fef91aeea54739226cfd07e39b98d1504c69d30100b8275d00",
+    "p49_team_merge_review_candidate_v6_audit_manifest.json": "c5798f822a245e182afbf01339f38ce7dc2b85920107a3e2cbe10943eafd537b"
+  },
+  "canonical_dataset_sha256": "51332ccc89f2a06a78b3b5eb0dc86a3a7764da7693365ea72d00833ff6a429a2",
+  "human_review_ledger_sha256": "848073fcdd43aec71df1ef3b012b39d7d5205e4537aa8b1c2b8622e7d2a444cb",
+  "supersedes": "p49_gold_seed_records_v1.jsonl",
+  "tuning_api_calls": 0,
+  "ncp_resource_changes": 0,
+  "next_allowed_stage": "P49-2H domain-grounded augmentation design"
+}

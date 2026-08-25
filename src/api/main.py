@@ -5,7 +5,11 @@ from src.api.schemas import AnswerRequest, AnswerResponse, EvaluationAnswerRespo
 from src.generation.fake import FakeGenerator
 from src.generation.factory import build_answer_generator
 from src.config.generation import GenerationSettings
-from src.experiments.p27d_structured_output import P27DStructuredOutputAgent
+from src.experiments.direct_requirement_e2e import DirectRequirementE2EAgent
+from src.experiments.direct_requirement_selector import HCXDirectRequirementSelector
+from src.experiments.scoped_direct_requirement_selector import ResolverFirstScopedSelector
+from src.experiments.scoped_frontend_shadow import ScopedFrontendPreparationShadow
+from src.generation.rate_limit import GlobalMinIntervalLimiter
 from src.orchestration.agent import PensionAgent
 from src.orchestration.retrieval_service import build_frozen_retriever
 
@@ -18,6 +22,11 @@ def create_app(agent=None, shadow_observer=None) -> FastAPI:
 
     def answer_with_optional_shadow(question: str, top_k: int):
         result = app.state.agent.answer(question, top_k)
+        # The browser must render exactly the contexts that were selected for
+        # answer generation, never a second raw-BM25 candidate list.
+        result["think_trace"]["displayed_evidence_chunk_ids"] = [
+            item.chunk_id for item in result["retrieved_context"]
+        ]
         observer = app.state.shadow_observer
         if observer is not None:
             try:
@@ -67,17 +76,26 @@ def create_configured_app(corpus_path, index_path, settings=None) -> FastAPI:
 
 
 def create_browser_configured_app(corpus_path, index_path, settings=None) -> FastAPI:
-    """Browser/API composition with the validated requirement and native-SO path.
+    """Build the P49-R runtime from the frozen P42--P48 scoped path.
 
-    ``PensionAgent`` remains available as the minimal baseline for tests and
-    experiments.  The user-facing endpoint needs the same requirement-bound
-    evidence selection and HCX-007 structured-output contract that protect the
-    evaluated candidate path.
+    There is deliberately no P27 fallback here.  A deployment that cannot
+    satisfy the HCX-007 structured-selector contract must fail at startup
+    rather than silently serving raw BM25 contexts.
     """
     settings = settings or GenerationSettings.from_env()
+    if settings.generator_backend.lower() != "hcx" or settings.hcx_model.upper() != "HCX-007":
+        raise RuntimeError("The browser runtime requires GENERATOR_BACKEND=hcx and HCX_MODEL=HCX-007.")
+    limiter = GlobalMinIntervalLimiter(
+        settings.hcx_min_interval_seconds,
+        guard_seconds=settings.hcx_pacing_guard_seconds,
+    )
+    retriever = build_frozen_retriever(corpus_path, index_path)
     return create_app(
-        P27DStructuredOutputAgent(
-            build_frozen_retriever(corpus_path, index_path),
-            build_answer_generator(settings),
+        DirectRequirementE2EAgent(
+            scoped_selector=ResolverFirstScopedSelector(
+                HCXDirectRequirementSelector(config=settings, rate_limiter=limiter),
+            ),
+            preparation=ScopedFrontendPreparationShadow(retriever),
+            generator=build_answer_generator(settings, rate_limiter=limiter),
         )
     )

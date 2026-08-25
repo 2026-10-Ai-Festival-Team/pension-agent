@@ -66,7 +66,22 @@ def test_e2e_uses_only_scoped_prepared_primary_context_for_generation():
     assert response["think_trace"]["evidence_sufficient"] is True
     assert response["think_trace"]["generator_called"] is True
     assert response["think_trace"]["cited_chunk_ids"] == ["primary-1"]
+    assert response["think_trace"]["selected_evidence_chunk_ids"] == ["primary-1"]
+    assert response["think_trace"]["retrieval_queries"] == {
+        "DC.operation_party": "DC DC형 적립금 운용 주체 근로자",
+    }
     assert "[근거]" in response["answer"]
+
+
+def test_e2e_accepts_api_top_k_without_reopening_raw_retrieval():
+    agent = DirectRequirementE2EAgent(
+        _Selector(), ScopedFrontendPreparationShadow(_Retriever()), FakeGenerator(),
+    )
+
+    response = agent.answer("DC형 적립금은 누가 운용하나요?", top_k=10)
+
+    assert response["think_trace"]["requested_top_k"] == 10
+    assert response["think_trace"]["selected_evidence_chunk_ids"] == ["primary-1"]
 
 
 def test_e2e_passes_the_same_scoped_catalog_contract_to_preparation():

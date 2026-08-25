@@ -120,7 +120,13 @@ class DirectRequirementE2EAgent:
             "answer": "[답변]\n제공된 원본 문서에서 질문의 핵심 정보를 직접 확인하지 못했습니다. 근거가 없는 내용은 추측하지 않겠습니다.\n\n[유의사항]\n- 관련 있어 보이는 일반 안내문을 질문의 직접 근거로 대신 사용하지 않습니다.",
         }
 
-    def answer(self, question: str) -> dict:
+    def answer(self, question: str, top_k: int = 5) -> dict:
+        """Answer through the frozen scoped path.
+
+        ``top_k`` is accepted to preserve the public API contract.  It is not
+        allowed to reopen raw BM25 retrieval: this path has a frozen,
+        requirement-scoped context budget in ``ScopedFrontendPreparationShadow``.
+        """
         analysis = self.analyzer.analyze(question)
         selected = self.scoped_selector.select(analysis.question)
         selection = selected.selection
@@ -133,6 +139,7 @@ class DirectRequirementE2EAgent:
             "allowed_requirements": list(selected.allowed_requirements),
             "resolution": selected.resolution.as_dict(),
             "binding": selected.binding.as_dict() if selected.binding else None,
+            "requested_top_k": top_k,
         }
         if (
             selected.status != "selected" or selection is None or selection.unresolved
@@ -145,8 +152,13 @@ class DirectRequirementE2EAgent:
         prepared = self.preparation.prepare(analysis.question, self._frontend_payload(selected))
         trace.update({
             "preparation_status": prepared.status,
+            "retrieval_queries": {
+                requirement: self.preparation.retrieval_query(selected.active_subject, requirement)
+                for requirement in selection.selected_requirements
+            },
             "requirement_candidate_ids": {key: list(value) for key, value in prepared.requirement_candidates.items()},
             "retrieved_chunk_ids": [context.chunk_id for context in prepared.contexts],
+            "selected_evidence_chunk_ids": [context.chunk_id for context in prepared.contexts],
         })
         missing = [requirement for requirement in selection.selected_requirements if not prepared.requirement_candidates.get(requirement)]
         supported = [requirement for requirement in selection.selected_requirements if requirement not in missing]

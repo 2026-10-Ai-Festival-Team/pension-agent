@@ -49,7 +49,7 @@ CHAT_PAGE = """<!doctype html>
       <h2>답변</h2>
       <div id="answer"></div>
       <details id="evidence-details">
-        <summary id="evidence-summary">검색 근거</summary>
+        <summary id="evidence-summary">답변에 사용한 근거</summary>
         <div id="evidence"></div>
       </details>
     </section>
@@ -95,14 +95,14 @@ CHAT_PAGE = """<!doctype html>
         if (!response.ok) throw new Error(body.detail || '답변 요청을 처리하지 못했습니다.');
         answer.textContent = body.answer;
         const contexts = body.retrieved_context || [];
-        evidenceSummary.textContent = `검색 근거 ${contexts.length}개`;
+        evidenceSummary.textContent = `답변에 사용한 근거 ${contexts.length}개`;
         contexts.forEach(appendEvidence);
         result.hidden = false;
         status.textContent = '';
       } catch (error) {
         answer.textContent = error.message || '답변 요청 중 오류가 발생했습니다.';
         answer.classList.add('error');
-        evidenceSummary.textContent = '검색 근거 0개';
+        evidenceSummary.textContent = '답변에 사용한 근거 0개';
         result.hidden = false;
         status.textContent = '';
       } finally {

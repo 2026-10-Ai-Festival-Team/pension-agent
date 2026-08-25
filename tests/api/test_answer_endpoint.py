@@ -21,6 +21,7 @@ def test_answer_keeps_structured_evidence():
     assert body["retrieved_context"][0]["source_path"] == "guide.pdf"
     assert body["retrieved_context"][0]["locator"]["page_start"] == 2
     assert body["retrieved_context"][0]["element_ids"] == ["e1"]
+    assert body["think_trace"]["displayed_evidence_chunk_ids"] == ["c1"]
 
 
 def test_root_serves_a_browser_question_ui():
@@ -31,6 +32,7 @@ def test_root_serves_a_browser_question_ui():
     assert response.status_code == 200
     assert "연금 Agent" in response.text
     assert "fetch('/answer'" in response.text
+    assert "답변에 사용한 근거" in response.text
 
 
 def test_answer_rejects_blank_question():

@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from src.experiments.direct_requirement_selector import DIRECT_REQUIREMENT_LABELS
 from src.experiments.scoped_frontend_shadow import ScopedFrontendPreparationShadow
 from src.generation.bounded_evidence_prompt_builder import BoundedEvidencePromptBuilder
+from src.generation.claim_stance import ClaimStance, resolve_claim_stance
 from src.generation.errors import CitationValidationError, GenerationError
 from src.generation.hcx import HyperClovaXGenerator
 from src.generation.prompt_builder import NativeStructuredOutputPromptBuilder
@@ -21,8 +22,9 @@ from src.orchestration.query_analyzer import QueryAnalyzer
 class DirectRequirementCitationPromptBuilder(NativeStructuredOutputPromptBuilder):
     """Native SO answer contract bound to direct-selector requirements/evidence."""
 
-    def __init__(self, requirements: tuple[str, ...]):
+    def __init__(self, requirements: tuple[str, ...], stance: ClaimStance = ClaimStance()):
         self.requirements = requirements
+        self.stance = stance
 
     def build(self, question, contexts):
         allowed = ", ".join(context.chunk_id for context in contexts)
@@ -41,6 +43,7 @@ class DirectRequirementCitationPromptBuilder(NativeStructuredOutputPromptBuilder
             "cited_chunk_ids에는 실제 사용한 아래 허용 citation_id만 원문 그대로 하나 이상 넣으세요.\n\n"
             f"[Required factual units]\n{requested}\n\n[Question]\n{question}\n\n"
             f"{evidence}\n\n[Allowed citation_id]\n{allowed}"
+            f"{self.stance.writer_instruction()}"
         )
 
     def payload(self, question, contexts, model):
@@ -61,13 +64,13 @@ class DirectRequirementE2EAgent:
     analyzer: QueryAnalyzer = QueryAnalyzer()
     financial_policy: FinancialAnswerPolicy = FinancialAnswerPolicy()
 
-    def _answer_generator(self, requirements: tuple[str, ...]):
+    def _answer_generator(self, requirements: tuple[str, ...], stance: ClaimStance):
         if not isinstance(self.generator, HyperClovaXGenerator):
             return self.generator
         return HyperClovaXGenerator(
             config=self.generator.config,
             transport=self.generator.transport,
-            prompt_builder=DirectRequirementCitationPromptBuilder(requirements),
+            prompt_builder=DirectRequirementCitationPromptBuilder(requirements, stance),
             rate_limiter=self.generator.rate_limiter,
             sleeper=self.generator.sleeper,
             response_capture=self.generator.response_capture,
@@ -183,17 +186,23 @@ class DirectRequirementE2EAgent:
             else "direct_requirement_evidence_partial"
         )
         trace["generator_attempted"] = True
+        stance = resolve_claim_stance(analysis.question, tuple(selection.selected_requirements))
+        trace["claim_stance"] = stance.as_dict()
         generated = None
         cited = []
         try:
             active_generator = (
-                self._answer_generator(tuple(selection.selected_requirements))
+                self._answer_generator(tuple(selection.selected_requirements), stance)
                 if not missing
                 else self._bounded_generator(tuple(supported), tuple(missing))
             )
             generated = active_generator.generate(
                 question=analysis.question, contexts=contexts, query_analysis=analysis,
             )
+            if not missing:
+                generated_answer = stance.apply_answer_prefix(generated.answer)
+            else:
+                generated_answer = generated.answer
             allowed = {context.chunk_id for context in contexts}
             unknown = sorted(set(generated.cited_chunk_ids) - allowed)
             if not generated.cited_chunk_ids or unknown:
@@ -217,7 +226,7 @@ class DirectRequirementE2EAgent:
                     },
                 )
             answer = (
-                self.financial_policy.format_answer(generated.answer, analysis, cited)
+                self.financial_policy.format_answer(generated_answer, analysis, cited)
                 if not missing
                 else self.financial_policy.format_bounded_answer(
                     generated.answer,

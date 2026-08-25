@@ -4,6 +4,7 @@ from src.experiments.scope_reference_resolver import DeterministicBinder, ScopeR
 from src.experiments.scoped_direct_requirement_selector import ScopedSelectionResult
 from src.experiments.scoped_frontend_shadow import ScopedFrontendPreparationShadow
 from src.generation.fake import FakeGenerator
+from src.generation.base import GenerationResult
 from src.models.chunk import ChunkLocator
 from src.models.document import AuthorityLevel, SourceType
 from src.models.retrieval import SearchResponse, SearchResult
@@ -45,6 +46,14 @@ class _UnresolvedSelector:
         resolver = ScopeReferenceResolver()
         resolution = resolver.resolve(question)
         return ScopedSelectionResult("unresolved_scope", None, (), None, resolution, None, "non_unique_active_subject")
+
+
+class _WrongPolarityGenerator:
+    def generate(self, *, question, contexts, query_analysis):
+        return GenerationResult(
+            "네, 맞습니다. DB형 적립금의 운용 주체는 회사입니다.",
+            [contexts[0].chunk_id], "fake", 0.0,
+        )
 
 
 class _CapturingPreparation(ScopedFrontendPreparationShadow):
@@ -107,3 +116,30 @@ def test_e2e_stops_before_retrieval_and_generation_for_non_unique_scope():
     assert response["think_trace"]["assessment_reason"] == "single_subject_frontend_unresolved"
     assert response["think_trace"]["generator_called"] is False
     assert response["retrieved_context"] == []
+
+
+def test_e2e_corrects_confirmation_polarity_without_changing_the_evidence_body():
+    class _DBSelector:
+        def select(self, question):
+            requirement = "DB.operation_party"
+            resolver = ScopeReferenceResolver()
+            resolution = resolver.resolve(question)
+            selection = DirectRequirementSelection(
+                (requirement,), (), False, True, True, (), {"source": "test"},
+            )
+            return ScopedSelectionResult(
+                "selected", "DB", (requirement,), selection, resolution,
+                DeterministicBinder().bind(question, resolution, selection.selected_requirements), None,
+            )
+
+    agent = DirectRequirementE2EAgent(
+        _DBSelector(), ScopedFrontendPreparationShadow(_Retriever()), _WrongPolarityGenerator(),
+    )
+    response = agent.answer("DB는 내가 직접 굴리는 거지?")
+
+    assert "[답변]\n아니요. DB형 적립금의 운용 주체는 회사입니다." in response["answer"]
+    assert response["think_trace"]["claim_stance"] == {
+        "stance": "contradict",
+        "user_claim": "적립금 운용 주체는 근로자입니다.",
+        "supported_fact": "DB형 적립금 운용 주체는 회사입니다.",
+    }

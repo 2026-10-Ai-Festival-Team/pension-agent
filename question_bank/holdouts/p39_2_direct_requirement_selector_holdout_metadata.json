@@ -1,0 +1,17 @@
+{
+  "experiment": "P39-2 Fresh Direct-Selector Holdout",
+  "question_count": 18,
+  "category_counts": {
+    "compound_closed": 3,
+    "institution": 3,
+    "procedure": 3,
+    "product_comparison": 3,
+    "product_factual": 3,
+    "tax": 3
+  },
+  "manifest_sha256": "0bdf08a789a29d7bceeac7220a3dcd70434fad69c37c76390c270ac45ffb13ff",
+  "duplicate_check": "normalize_pension_question exact normalized overlap against question_bank and holdout/Closed-Core evaluation assets",
+  "unknown_enum_values": [],
+  "frozen_before_hcx": true,
+  "hcx_calls": 0
+}

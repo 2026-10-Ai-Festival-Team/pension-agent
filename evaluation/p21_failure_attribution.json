@@ -1,0 +1,127 @@
+{
+  "run_variant": "p20_conditional_shadow",
+  "model": "HCX-DASH-002",
+  "preparation_parity": "40/40",
+  "attribution": {
+    "unconditional_strict_e2e": {
+      "useful": 15,
+      "denominator": 38,
+      "rate": 0.395
+    },
+    "provider_successfully_evaluable": {
+      "definition": "answerable questions excluding only provider 429 retry exhaustion; recovered 429 responses remain evaluable",
+      "useful": 15,
+      "denominator": 25,
+      "rate": 0.6
+    },
+    "strict_no_429_subset": {
+      "definition": "answerable questions with no 429 in any provider attempt",
+      "useful": 13,
+      "denominator": 23,
+      "rate": 0.565
+    },
+    "normal_hcx_semantic": {
+      "definition": "accepted answers: provider response, structured parsing, and citation validation all passed",
+      "accepted": 18,
+      "strict_useful": 15,
+      "semantic_failure": 3,
+      "semantic_failure_question_ids": [
+        "R-011",
+        "R-033",
+        "R-034"
+      ]
+    },
+    "provider_incident": {
+      "provider_affected_questions": 15,
+      "provider_affected_question_ids": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005",
+        "R-006",
+        "R-007",
+        "R-013",
+        "R-014",
+        "R-015",
+        "R-016",
+        "R-017",
+        "R-018",
+        "R-020",
+        "R-038"
+      ],
+      "provider_retry_exhaustion": 13,
+      "provider_retry_exhaustion_question_ids": [
+        "R-001",
+        "R-002",
+        "R-003",
+        "R-004",
+        "R-005",
+        "R-006",
+        "R-013",
+        "R-014",
+        "R-015",
+        "R-016",
+        "R-017",
+        "R-018",
+        "R-038"
+      ],
+      "provider_recovered_after_429": 2,
+      "http_429_attempts": 42,
+      "retry_after_seen": 0,
+      "historical_attempt_timing_complete": 0,
+      "historical_attempt_count": 64
+    },
+    "owner_counts": {
+      "provider_retry_exhaustion": 13,
+      "strict_useful": 15,
+      "pre_generation_gate": 5,
+      "post_hcx_semantic_quality": 3,
+      "hcx_schema_or_transport": 1,
+      "citation_validation": 1,
+      "unsupported_policy": 2
+    },
+    "owner_by_question_id": {
+      "R-001": "provider_retry_exhaustion",
+      "R-002": "provider_retry_exhaustion",
+      "R-003": "provider_retry_exhaustion",
+      "R-004": "provider_retry_exhaustion",
+      "R-005": "provider_retry_exhaustion",
+      "R-006": "provider_retry_exhaustion",
+      "R-007": "strict_useful",
+      "R-008": "strict_useful",
+      "R-009": "strict_useful",
+      "R-010": "pre_generation_gate",
+      "R-011": "post_hcx_semantic_quality",
+      "R-012": "hcx_schema_or_transport",
+      "R-013": "provider_retry_exhaustion",
+      "R-014": "provider_retry_exhaustion",
+      "R-015": "provider_retry_exhaustion",
+      "R-016": "provider_retry_exhaustion",
+      "R-017": "provider_retry_exhaustion",
+      "R-018": "provider_retry_exhaustion",
+      "R-019": "pre_generation_gate",
+      "R-020": "strict_useful",
+      "R-021": "strict_useful",
+      "R-022": "strict_useful",
+      "R-023": "strict_useful",
+      "R-024": "pre_generation_gate",
+      "R-025": "strict_useful",
+      "R-026": "strict_useful",
+      "R-027": "strict_useful",
+      "R-028": "pre_generation_gate",
+      "R-029": "strict_useful",
+      "R-030": "strict_useful",
+      "R-031": "strict_useful",
+      "R-032": "strict_useful",
+      "R-033": "post_hcx_semantic_quality",
+      "R-034": "post_hcx_semantic_quality",
+      "R-035": "citation_validation",
+      "R-036": "strict_useful",
+      "R-037": "pre_generation_gate",
+      "R-038": "provider_retry_exhaustion",
+      "R-039": "unsupported_policy",
+      "R-040": "unsupported_policy"
+    }
+  }
+}

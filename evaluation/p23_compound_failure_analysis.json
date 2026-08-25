@@ -1,0 +1,386 @@
+{
+  "source_run": "P22",
+  "records": [
+    {
+      "question_id": "R-002",
+      "question": "DB형과 DC형의 퇴직급여 산정 방식은 어떻게 다른가요?",
+      "route": "compound",
+      "requirement_slots": [
+        "DB 급여 산정",
+        "DC 급여 산정"
+      ],
+      "candidate_chunk_ids": [
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "49ed30e0f7b42e68-table-90e8e416ec4e",
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "selected_merged_evidence_ids": [
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "generator_attempted": true,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "generation_or_citation_rejection",
+      "semantic_label": "generation_or_citation_rejection",
+      "failure_type": "citation_contract",
+      "rationale": "required evidence was selected; HCX returned an invalid citation identifier"
+    },
+    {
+      "question_id": "R-005",
+      "question": "퇴직금 제도와 퇴직연금 제도는 어떤 차이가 있나요?",
+      "route": "compound",
+      "requirement_slots": [
+        "퇴직금 지급 방식",
+        "퇴직연금 적립·지급 방식"
+      ],
+      "candidate_chunk_ids": [
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "49ed30e0f7b42e68-table-90e8e416ec4e",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699"
+      ],
+      "selected_merged_evidence_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "generator_attempted": true,
+      "accepted_answer": true,
+      "semantic_review_eligibility": "generated_answer",
+      "semantic_label": "strict_useful",
+      "failure_type": "success",
+      "rationale": "all required evidence is present and the accepted answer is strict useful"
+    },
+    {
+      "question_id": "R-006",
+      "question": "DB 제도를 DC 제도로 바꿀 수 있는 조건은 무엇인가요?",
+      "route": "compound",
+      "requirement_slots": [
+        "DB에서 DC 전환 가능 여부",
+        "제도전환 규약·동의 조건"
+      ],
+      "candidate_chunk_ids": [
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+        "49ed30e0f7b42e68-table-90e8e416ec4e",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "ee3b84ad68394b49-paragraph_group-f006c30bc1af"
+      ],
+      "selected_merged_evidence_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "93b9b09c57458c3b-paragraph_group-fd7b1d062026"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "generator_attempted": true,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "generation_or_citation_rejection",
+      "semantic_label": "generation_or_citation_rejection",
+      "failure_type": "citation_contract",
+      "rationale": "required evidence was selected; HCX returned an invalid citation identifier"
+    },
+    {
+      "question_id": "R-010",
+      "question": "연금계좌를 해지할 때 세금상 불이익이 있나요?",
+      "route": "compound",
+      "requirement_slots": [
+        "해지 가산세",
+        "연금외수령 과세",
+        "해지 과세 예외"
+      ],
+      "candidate_chunk_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "37adcdadd2f3f902-table-08a7c9924f4f",
+        "545de7c663ff2726-table-04ce37349669",
+        "f24a347b7c7a170c-table-0238e1315fc4",
+        "ed9a44f422ed81cc-table-da00c576e08b",
+        "fecffc9866eb7cca-table-04493f5a9dba",
+        "dbf5c74748e751a9-table-c1a858c273a1",
+        "fba2a2502fc335a4-table-54d125ef4a99",
+        "c249bf0050445a4a-table-05a85dfb95c6",
+        "745f9a08e811b6b1-table-5b26881cf7ac"
+      ],
+      "selected_merged_evidence_ids": [
+        "37adcdadd2f3f902-table-08a7c9924f4f",
+        "55f36905c388adb6-table-aaec2abb0a55"
+      ],
+      "evidence_sufficient": false,
+      "gate_decision": "compound_requirements_incomplete",
+      "generator_attempted": false,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "evidence_policy_rejection",
+      "semantic_label": "evidence_policy_rejection",
+      "failure_type": "evidence_incomplete",
+      "rationale": "pre-generation gate blocked because a required tax/exception slot was not covered"
+    },
+    {
+      "question_id": "R-024",
+      "question": "KR5144420081 상품은 무엇에 투자하며 위험등급은 무엇인가요?",
+      "route": "compound",
+      "requirement_slots": [
+        "KR5144420081 risk_grade",
+        "KR5144420081 investment_target"
+      ],
+      "candidate_chunk_ids": [
+        "42226bacb5f3829a-table-fbb4c956b5ed",
+        "42226bacb5f3829a-table-e186cdf5d835",
+        "42226bacb5f3829a-paragraph_group-78dd337a8d89",
+        "42226bacb5f3829a-table-99ab8a1a25a9",
+        "42226bacb5f3829a-paragraph_group-3412b1bd6c8b",
+        "42226bacb5f3829a-paragraph_group-74d6c6d29299",
+        "42226bacb5f3829a-paragraph_group-0f3c48de2259",
+        "42226bacb5f3829a-paragraph_group-776f618a0f93",
+        "42226bacb5f3829a-paragraph_group-180a3a930ea8",
+        "42226bacb5f3829a-paragraph_group-0902c2ef52af",
+        "42226bacb5f3829a-paragraph_group-f1c1e9cb58f5",
+        "42226bacb5f3829a-paragraph_group-e2957c701d49",
+        "42226bacb5f3829a-table-9748bbdce95b",
+        "42226bacb5f3829a-table-bfb8366cb303"
+      ],
+      "selected_merged_evidence_ids": [
+        "42226bacb5f3829a-table-9748bbdce95b"
+      ],
+      "evidence_sufficient": false,
+      "gate_decision": "compound_requirements_incomplete",
+      "generator_attempted": false,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "evidence_policy_rejection",
+      "semantic_label": "evidence_policy_rejection",
+      "failure_type": "retrieval_missing",
+      "rationale": "product-field requirement remained incomplete before generation"
+    },
+    {
+      "question_id": "R-027",
+      "question": "원리금보장 운용방법과 채권형 펀드는 어떤 분류로 소개되나요?",
+      "route": "compound",
+      "requirement_slots": [
+        "원리금보장 운용방법 분류",
+        "채권형 펀드 분류"
+      ],
+      "candidate_chunk_ids": [
+        "d1728c489e13ad51-table-9fea908b050d",
+        "d1728c489e13ad51-paragraph_group-48881ec73acc",
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+        "0df8c3cfaf3a3b5a-spreadsheet_rows-41aa8c2e4790",
+        "d9ee75020670276d-table-c425ee47eff5",
+        "52e63bd25a4a03bb-paragraph_group-5464259a241a",
+        "df53afbeea3c89ed-paragraph_group-e77cc8ec8e57",
+        "9cdbd9d725f7a2e9-paragraph_group-c385eb259ad3",
+        "c249bf0050445a4a-table-497615e824cc",
+        "dbf5c74748e751a9-table-7c718f083025"
+      ],
+      "selected_merged_evidence_ids": [
+        "d1728c489e13ad51-table-9fea908b050d"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "generator_attempted": true,
+      "accepted_answer": true,
+      "semantic_review_eligibility": "generated_answer",
+      "semantic_label": "semantic_error",
+      "failure_type": "generation_misread",
+      "rationale": "the classification table was selected, but the answer reduced it to examples rather than the requested classification"
+    },
+    {
+      "question_id": "R-028",
+      "question": "KR510902511M 상품의 투자대상과 운용전략은 무엇인가요?",
+      "route": "compound",
+      "requirement_slots": [
+        "KR510902511M investment_target",
+        "KR510902511M investment_strategy"
+      ],
+      "candidate_chunk_ids": [
+        "ac97d050d2b39ec2-table-3d0698ba3c6a",
+        "ac97d050d2b39ec2-table-8153bebfab3c",
+        "ac97d050d2b39ec2-paragraph_group-a0d335ee1c31",
+        "ac97d050d2b39ec2-table-bf0a1417c40b",
+        "ac97d050d2b39ec2-table-fe724dd8f9fb",
+        "ac97d050d2b39ec2-paragraph_group-9091aadd06a9",
+        "ac97d050d2b39ec2-table-557cc72c3eac",
+        "ac97d050d2b39ec2-table-a31d7f762bad",
+        "ac97d050d2b39ec2-paragraph_group-968001528330",
+        "ac97d050d2b39ec2-table-ef5d1542c398",
+        "ac97d050d2b39ec2-table-fdab853f4031",
+        "ac97d050d2b39ec2-paragraph_group-b33458a2561e",
+        "ac97d050d2b39ec2-table-86cfee5adb19"
+      ],
+      "selected_merged_evidence_ids": [
+        "ac97d050d2b39ec2-table-fdab853f4031"
+      ],
+      "evidence_sufficient": false,
+      "gate_decision": "compound_requirements_incomplete",
+      "generator_attempted": false,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "evidence_policy_rejection",
+      "semantic_label": "evidence_policy_rejection",
+      "failure_type": "retrieval_missing",
+      "rationale": "product-field requirement remained incomplete before generation"
+    },
+    {
+      "question_id": "R-033",
+      "question": "상품코드 KR510902511M의 상품명과 위험등급을 알려주세요.",
+      "route": "compound",
+      "requirement_slots": [
+        "KR510902511M product_name",
+        "KR510902511M risk_grade"
+      ],
+      "candidate_chunk_ids": [
+        "ac97d050d2b39ec2-table-1308cbbba31e",
+        "ac97d050d2b39ec2-paragraph_group-141d2400ed00",
+        "ac97d050d2b39ec2-paragraph_group-ba756a42817e",
+        "ac97d050d2b39ec2-paragraph_group-69c18967789b",
+        "ac97d050d2b39ec2-paragraph_group-838b08f2980f",
+        "ac97d050d2b39ec2-paragraph_group-68e73d9ab9a5",
+        "ac97d050d2b39ec2-table-50ed2d99287f",
+        "ac97d050d2b39ec2-table-3d63816fd021",
+        "ac97d050d2b39ec2-table-4405b8c2d386",
+        "ac97d050d2b39ec2-table-a4b667d2022b",
+        "ac97d050d2b39ec2-paragraph_group-04845a538fd5",
+        "ac97d050d2b39ec2-paragraph_group-5b11eddf6e3f",
+        "ac97d050d2b39ec2-table-517030d4ecb4",
+        "ac97d050d2b39ec2-table-3c3be297fdb7",
+        "ac97d050d2b39ec2-table-fe724dd8f9fb"
+      ],
+      "selected_merged_evidence_ids": [
+        "ac97d050d2b39ec2-table-fe724dd8f9fb"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "generator_attempted": true,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "generation_or_citation_rejection",
+      "semantic_label": "generation_or_citation_rejection",
+      "failure_type": "provider_retry_exhaustion",
+      "rationale": "provider 429 exhaustion prevented evaluation of selected product evidence"
+    },
+    {
+      "question_id": "R-034",
+      "question": "KR5110501016 상품의 총보수와 투자 대상을 확인하고 싶습니다.",
+      "route": "compound",
+      "requirement_slots": [
+        "KR5110501016 fee",
+        "KR5110501016 investment_target"
+      ],
+      "candidate_chunk_ids": [
+        "1294013a2a74e0a4-paragraph_group-3afce45f32f5",
+        "1294013a2a74e0a4-table-507caa070261",
+        "1294013a2a74e0a4-table-3f7a2b96291a",
+        "1294013a2a74e0a4-table-7d8bb79ab98d",
+        "1294013a2a74e0a4-paragraph_group-a67be11eb2a8",
+        "1294013a2a74e0a4-paragraph_group-b077501cef48",
+        "1294013a2a74e0a4-paragraph_group-266dad234220",
+        "1294013a2a74e0a4-paragraph_group-3b287ae0cc19",
+        "1294013a2a74e0a4-table-b1fb62dc7e59",
+        "1294013a2a74e0a4-table-5ee4aad31165",
+        "1294013a2a74e0a4-table-89c0989d7512",
+        "1294013a2a74e0a4-table-0689dcaed960",
+        "1294013a2a74e0a4-paragraph_group-b2b85dc7e0a1",
+        "1294013a2a74e0a4-table-5bebca45aecd",
+        "1294013a2a74e0a4-table-ad25c6702bd0",
+        "1294013a2a74e0a4-table-b8ae11818530",
+        "1294013a2a74e0a4-table-94098819692f"
+      ],
+      "selected_merged_evidence_ids": [
+        "1294013a2a74e0a4-paragraph_group-3afce45f32f5",
+        "1294013a2a74e0a4-table-94098819692f"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "generator_attempted": true,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "generation_or_citation_rejection",
+      "semantic_label": "generation_or_citation_rejection",
+      "failure_type": "provider_retry_exhaustion",
+      "rationale": "provider 429 exhaustion prevented evaluation of selected product evidence"
+    },
+    {
+      "question_id": "R-036",
+      "question": "상품코드 KR5117420097의 기준일과 운용전략을 찾아주세요.",
+      "route": "compound",
+      "requirement_slots": [
+        "KR5117420097 investment_strategy",
+        "KR5117420097 effective_date"
+      ],
+      "candidate_chunk_ids": [
+        "f138f60435a4eed7-paragraph_group-5fda32f62f2b",
+        "f138f60435a4eed7-table-e6a16e013b49",
+        "f138f60435a4eed7-paragraph_group-53be26c7e779",
+        "f138f60435a4eed7-paragraph_group-4427bf36ca95",
+        "f138f60435a4eed7-paragraph_group-0cf7fabbba5e",
+        "f138f60435a4eed7-table-922e5d1676c8",
+        "f138f60435a4eed7-table-654f8fb685f9",
+        "f138f60435a4eed7-paragraph_group-2463f095f9f5",
+        "f138f60435a4eed7-table-a6a4f8dd3b85",
+        "f138f60435a4eed7-paragraph_group-e53e7969b0c8",
+        "f138f60435a4eed7-table-81b830e47c56",
+        "f138f60435a4eed7-paragraph_group-82561d18051b",
+        "f138f60435a4eed7-table-b02919c5aed6",
+        "f138f60435a4eed7-paragraph_group-0de0b4a2daff",
+        "f138f60435a4eed7-table-657bc27614a7",
+        "f138f60435a4eed7-paragraph_group-85267c9b21f9"
+      ],
+      "selected_merged_evidence_ids": [
+        "f138f60435a4eed7-paragraph_group-53be26c7e779",
+        "f138f60435a4eed7-table-b02919c5aed6"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "generator_attempted": true,
+      "accepted_answer": true,
+      "semantic_review_eligibility": "generated_answer",
+      "semantic_label": "strict_useful",
+      "failure_type": "success",
+      "rationale": "both requested product fields are answered with selected evidence"
+    },
+    {
+      "question_id": "R-037",
+      "question": "회사가 굴리는 퇴직연금과 내가 직접 굴리는 퇴직연금의 차이가 궁금해요.",
+      "route": "compound",
+      "requirement_slots": [
+        "DB 적립금 운용",
+        "DC 적립금 운용"
+      ],
+      "candidate_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "2ce564b5ddde4f21-paragraph_group-22a1d60f3e3d",
+        "2ce564b5ddde4f21-table-899cb955b4a1",
+        "2ce564b5ddde4f21-paragraph_group-502bae338bd5",
+        "2ce564b5ddde4f21-table-df602195ef06",
+        "2ce564b5ddde4f21-paragraph_group-21a528a0c5f6",
+        "04782a392f49293e-paragraph_group-b263be8e0a1c",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "7878a3be5806fef4-paragraph_group-4db22464421b"
+      ],
+      "selected_merged_evidence_ids": [],
+      "evidence_sufficient": false,
+      "gate_decision": "compound_requirements_incomplete",
+      "generator_attempted": false,
+      "accepted_answer": false,
+      "semantic_review_eligibility": "evidence_policy_rejection",
+      "semantic_label": "evidence_policy_rejection",
+      "failure_type": "retrieval_missing",
+      "rationale": "DB/DC operation requirements remained incomplete before generation"
+    }
+  ]
+}

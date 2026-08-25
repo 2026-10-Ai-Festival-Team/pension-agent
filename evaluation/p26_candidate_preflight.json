@@ -1,0 +1,328 @@
+{
+  "experiment": "P26 candidate offline preflight",
+  "hcx_called": false,
+  "production_agent_changed": false,
+  "full40_preparation_parity": "40/40",
+  "parity_mismatches": {},
+  "known_false_rejection": [],
+  "known_unsafe_pass": [],
+  "p15_route_gate_regressions": [],
+  "target_cases": [
+    {
+      "question_id": "R-010",
+      "route": "compound",
+      "extracted_entities": {
+        "accounts": [],
+        "product_codes": [],
+        "comparison": false,
+        "tax_intent": true,
+        "requested_fields": []
+      },
+      "requirement_plan": {
+        "category": "account_cancellation_tax",
+        "slots": [
+          {
+            "name": "해지 가산세",
+            "key": "cancellation_penalty_tax",
+            "terms": [
+              "해지",
+              "가산세"
+            ],
+            "min_matches": 2,
+            "retrieval_query": null
+          },
+          {
+            "name": "연금외수령 과세",
+            "key": "non_annuity_tax",
+            "terms": [
+              "연금외수령",
+              "과세"
+            ],
+            "min_matches": 2,
+            "retrieval_query": null
+          },
+          {
+            "name": "해지 과세 예외",
+            "key": "cancellation_exception",
+            "terms": [
+              "부득이한",
+              "연금외수령",
+              "연금소득세"
+            ],
+            "min_matches": 2,
+            "retrieval_query": null
+          }
+        ]
+      },
+      "base_retrieved_chunk_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "37adcdadd2f3f902-table-08a7c9924f4f",
+        "545de7c663ff2726-table-04ce37349669",
+        "f24a347b7c7a170c-table-0238e1315fc4",
+        "ed9a44f422ed81cc-table-da00c576e08b",
+        "fecffc9866eb7cca-table-04493f5a9dba",
+        "dbf5c74748e751a9-table-c1a858c273a1",
+        "fba2a2502fc335a4-table-54d125ef4a99",
+        "c249bf0050445a4a-table-05a85dfb95c6",
+        "745f9a08e811b6b1-table-5b26881cf7ac"
+      ],
+      "candidate_chunk_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "37adcdadd2f3f902-table-08a7c9924f4f",
+        "545de7c663ff2726-table-04ce37349669",
+        "f24a347b7c7a170c-table-0238e1315fc4",
+        "ed9a44f422ed81cc-table-da00c576e08b",
+        "fecffc9866eb7cca-table-04493f5a9dba",
+        "dbf5c74748e751a9-table-c1a858c273a1",
+        "fba2a2502fc335a4-table-54d125ef4a99",
+        "c249bf0050445a4a-table-05a85dfb95c6",
+        "745f9a08e811b6b1-table-5b26881cf7ac"
+      ],
+      "selected_merged_evidence_ids": [
+        "37adcdadd2f3f902-table-08a7c9924f4f",
+        "55f36905c388adb6-table-aaec2abb0a55"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "missing_requirement_slots": [],
+      "hcx_would_be_invoked": true
+    },
+    {
+      "question_id": "R-024",
+      "route": "compound",
+      "extracted_entities": {
+        "accounts": [],
+        "product_codes": [
+          "KR5144420081"
+        ],
+        "comparison": false,
+        "tax_intent": false,
+        "requested_fields": [
+          "risk_grade",
+          "investment_target"
+        ]
+      },
+      "requirement_plan": {
+        "category": "product_fields",
+        "slots": [
+          {
+            "name": "KR5144420081 risk_grade",
+            "key": "KR5144420081:risk_grade",
+            "terms": [
+              "KR5144420081",
+              "위험등급",
+              "위험 등급"
+            ],
+            "min_matches": 2,
+            "retrieval_query": "KR5144420081 위험등급 위험 등급 실제 수익률 변동성"
+          },
+          {
+            "name": "KR5144420081 investment_target",
+            "key": "KR5144420081:investment_target",
+            "terms": [
+              "KR5144420081",
+              "투자대상",
+              "투자 대상"
+            ],
+            "min_matches": 2,
+            "retrieval_query": "KR5144420081 투자대상 투자 대상"
+          }
+        ]
+      },
+      "base_retrieved_chunk_ids": [
+        "42226bacb5f3829a-table-fbb4c956b5ed",
+        "42226bacb5f3829a-table-e186cdf5d835",
+        "42226bacb5f3829a-paragraph_group-78dd337a8d89",
+        "42226bacb5f3829a-table-99ab8a1a25a9",
+        "42226bacb5f3829a-paragraph_group-3412b1bd6c8b",
+        "42226bacb5f3829a-paragraph_group-74d6c6d29299",
+        "42226bacb5f3829a-paragraph_group-0f3c48de2259",
+        "42226bacb5f3829a-paragraph_group-776f618a0f93",
+        "42226bacb5f3829a-paragraph_group-180a3a930ea8",
+        "42226bacb5f3829a-paragraph_group-0902c2ef52af"
+      ],
+      "candidate_chunk_ids": [
+        "42226bacb5f3829a-table-fbb4c956b5ed",
+        "42226bacb5f3829a-table-e186cdf5d835",
+        "42226bacb5f3829a-paragraph_group-78dd337a8d89",
+        "42226bacb5f3829a-table-99ab8a1a25a9",
+        "42226bacb5f3829a-paragraph_group-3412b1bd6c8b",
+        "42226bacb5f3829a-paragraph_group-74d6c6d29299",
+        "42226bacb5f3829a-paragraph_group-0f3c48de2259",
+        "42226bacb5f3829a-paragraph_group-776f618a0f93",
+        "42226bacb5f3829a-paragraph_group-180a3a930ea8",
+        "42226bacb5f3829a-paragraph_group-0902c2ef52af",
+        "42226bacb5f3829a-paragraph_group-889fe3824a63",
+        "42226bacb5f3829a-table-8140747608ba",
+        "42226bacb5f3829a-table-669c8dee1825",
+        "42226bacb5f3829a-table-93a519572737",
+        "42226bacb5f3829a-paragraph_group-e2957c701d49",
+        "42226bacb5f3829a-table-9748bbdce95b",
+        "42226bacb5f3829a-table-bfb8366cb303"
+      ],
+      "selected_merged_evidence_ids": [
+        "42226bacb5f3829a-table-669c8dee1825",
+        "42226bacb5f3829a-table-9748bbdce95b"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "missing_requirement_slots": [],
+      "hcx_would_be_invoked": true
+    },
+    {
+      "question_id": "R-028",
+      "route": "compound",
+      "extracted_entities": {
+        "accounts": [],
+        "product_codes": [
+          "KR510902511M"
+        ],
+        "comparison": false,
+        "tax_intent": false,
+        "requested_fields": [
+          "investment_target",
+          "investment_strategy"
+        ]
+      },
+      "requirement_plan": {
+        "category": "product_fields",
+        "slots": [
+          {
+            "name": "KR510902511M investment_target",
+            "key": "KR510902511M:investment_target",
+            "terms": [
+              "KR510902511M",
+              "투자대상",
+              "투자 대상"
+            ],
+            "min_matches": 2,
+            "retrieval_query": "KR510902511M 투자대상 투자 대상"
+          },
+          {
+            "name": "KR510902511M investment_strategy",
+            "key": "KR510902511M:investment_strategy",
+            "terms": [
+              "KR510902511M",
+              "운용전략",
+              "운용 전략",
+              "투자전략",
+              "투자 전략"
+            ],
+            "min_matches": 2,
+            "retrieval_query": "KR510902511M 운용전략 운용 전략 투자전략 투자 전략"
+          }
+        ]
+      },
+      "base_retrieved_chunk_ids": [
+        "ac97d050d2b39ec2-table-3d0698ba3c6a",
+        "ac97d050d2b39ec2-table-8153bebfab3c",
+        "ac97d050d2b39ec2-paragraph_group-a0d335ee1c31",
+        "ac97d050d2b39ec2-table-bf0a1417c40b",
+        "ac97d050d2b39ec2-table-fe724dd8f9fb",
+        "ac97d050d2b39ec2-paragraph_group-9091aadd06a9",
+        "ac97d050d2b39ec2-table-557cc72c3eac",
+        "ac97d050d2b39ec2-table-a31d7f762bad",
+        "ac97d050d2b39ec2-paragraph_group-968001528330",
+        "ac97d050d2b39ec2-table-ef5d1542c398"
+      ],
+      "candidate_chunk_ids": [
+        "ac97d050d2b39ec2-table-3d0698ba3c6a",
+        "ac97d050d2b39ec2-table-8153bebfab3c",
+        "ac97d050d2b39ec2-paragraph_group-a0d335ee1c31",
+        "ac97d050d2b39ec2-table-bf0a1417c40b",
+        "ac97d050d2b39ec2-table-fe724dd8f9fb",
+        "ac97d050d2b39ec2-paragraph_group-9091aadd06a9",
+        "ac97d050d2b39ec2-table-557cc72c3eac",
+        "ac97d050d2b39ec2-table-a31d7f762bad",
+        "ac97d050d2b39ec2-paragraph_group-968001528330",
+        "ac97d050d2b39ec2-table-ef5d1542c398",
+        "ac97d050d2b39ec2-table-fdab853f4031",
+        "ac97d050d2b39ec2-paragraph_group-b33458a2561e",
+        "ac97d050d2b39ec2-table-86cfee5adb19"
+      ],
+      "selected_merged_evidence_ids": [
+        "ac97d050d2b39ec2-table-fdab853f4031"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "missing_requirement_slots": [],
+      "hcx_would_be_invoked": true
+    },
+    {
+      "question_id": "R-037",
+      "route": "compound",
+      "extracted_entities": {
+        "accounts": [],
+        "product_codes": [],
+        "comparison": true,
+        "tax_intent": false,
+        "requested_fields": []
+      },
+      "requirement_plan": {
+        "category": "implicit_operation_contrast",
+        "slots": [
+          {
+            "name": "DB 적립금 운용",
+            "key": "db_operation",
+            "terms": [
+              "DB",
+              "회사",
+              "적립금 운용"
+            ],
+            "min_matches": 3,
+            "retrieval_query": "확정급여형 DB 운용 주체 회사 적립금"
+          },
+          {
+            "name": "DC 적립금 운용",
+            "key": "dc_operation",
+            "terms": [
+              "DC",
+              "근로자",
+              "적립금 운용"
+            ],
+            "min_matches": 3,
+            "retrieval_query": "확정기여형 DC 운용 주체 근로자 적립금"
+          }
+        ]
+      },
+      "base_retrieved_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "2ce564b5ddde4f21-paragraph_group-22a1d60f3e3d",
+        "2ce564b5ddde4f21-table-899cb955b4a1",
+        "2ce564b5ddde4f21-paragraph_group-502bae338bd5",
+        "2ce564b5ddde4f21-table-df602195ef06",
+        "2ce564b5ddde4f21-paragraph_group-21a528a0c5f6",
+        "04782a392f49293e-paragraph_group-b263be8e0a1c",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "7878a3be5806fef4-paragraph_group-4db22464421b"
+      ],
+      "candidate_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "2ce564b5ddde4f21-paragraph_group-22a1d60f3e3d",
+        "2ce564b5ddde4f21-table-899cb955b4a1",
+        "2ce564b5ddde4f21-paragraph_group-502bae338bd5",
+        "2ce564b5ddde4f21-table-df602195ef06",
+        "2ce564b5ddde4f21-paragraph_group-21a528a0c5f6",
+        "04782a392f49293e-paragraph_group-b263be8e0a1c",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "7878a3be5806fef4-paragraph_group-4db22464421b",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "04782a392f49293e-paragraph_group-f6d10875adfc",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3",
+        "49ed30e0f7b42e68-paragraph_group-6f15fb4edc6b"
+      ],
+      "selected_merged_evidence_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "evidence_sufficient": true,
+      "gate_decision": "compound_requirements_complete",
+      "missing_requirement_slots": [],
+      "hcx_would_be_invoked": true
+    }
+  ],
+  "go": true
+}

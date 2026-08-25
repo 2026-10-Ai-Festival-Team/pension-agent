@@ -1,0 +1,1762 @@
+{
+  "experiment": "P48 Final Fresh Single-Subject Closed E2E",
+  "manifest": "question_bank/holdouts/p48_final_single_subject_closed_e2e.jsonl",
+  "manifest_sha256": "d0894d03e8e7df7164d5ba8fd3e416ead0f42aadbf5ef3dc7f14daeabe89bff1",
+  "capability_boundary": "genuine multi-subject comparison; non_unique_active_subject remains unresolved",
+  "runtime": {
+    "hcx_model": "HCX-007",
+    "selector_and_answer_share_global_pacing_seconds": 6.0,
+    "candidate_or_browser_changed": false
+  },
+  "operational_summary": {
+    "question_count": 18,
+    "front_end_requirement_recall": 1.0,
+    "front_end_requirement_precision": 1.0,
+    "front_end_requirement_exact": 18,
+    "scope_reference_critical_error": 0,
+    "ambiguous_unsafe_resolution": 0,
+    "required_evidence_coverage": 18,
+    "wrong_scope_or_product_evidence": 0,
+    "generator_attempted": 18,
+    "generator_called": 18,
+    "provider_or_schema_failure": 0,
+    "citation_valid": 18,
+    "empty_answer": 0,
+    "answer_hashes_recorded": 18,
+    "answer_generation_latency_ms": {
+      "mean": 6911.475,
+      "max": 7418.227
+    },
+    "semantic_labeling": "pending; do not re-call HCX before manual labels attach to answer_hash"
+  },
+  "outputs": [
+    {
+      "id": "P48-001",
+      "question": "DB형 근로자의 퇴직급여는 퇴직 직전 임금과 근속기간을 어떤 방식으로 반영해 정하나요?",
+      "expected_active_subject": "DB",
+      "expected_requirements": [
+        "DB.benefit_determination"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DB",
+      "selected_requirements": [
+        "DB.benefit_determination"
+      ],
+      "requirement_candidate_ids": {
+        "DB.benefit_determination": [
+          "49ed30e0f7b42e68-table-0910adeedcae",
+          "fc71bcf7cc90f68d-table-fc470df2b580"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "fc71bcf7cc90f68d-table-fc470df2b580"
+      ],
+      "cited_chunk_ids": [
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "fc71bcf7cc90f68d-table-fc470df2b580"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nDB형 근로자의 퇴직급여는 퇴직 전 평균임금 30일분과 계속근로기간을 곱하여 정합니다.\n\n[근거]\n- [출처: docs_renamed/doc13.pdf, 2페이지, 49ed30e0f7b42e68-table-0910adeedcae]\n- [출처: docs_renamed/doc15.pdf, 1페이지, fc71bcf7cc90f68d-table-fc470df2b580]",
+      "answer_hash": "a085c66bb79c146e4ce8f26c4fd4602940b23266c77276dfd30340435cf2ef80",
+      "output_hash": "e1f4702064b349aaf1127586454f3d8af311dcfa91989998b58ffe46302bdc3d",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 7799.326,
+      "generation_latency_ms": 6957.933,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.047,
+        "request_payload_bytes": 1853,
+        "rate_limit_wait_ms": 5264.458,
+        "request_started_offset_ms": 5264.546,
+        "request_started_monotonic_ms": 8025.298,
+        "request_completed_offset_ms": 6957.759,
+        "request_completed_monotonic_ms": 9718.526,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 161,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "\"xxxxxx\": \"xxx xxxx xxxxx xx x xxxx xxxxx xxxxxxx xxx xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 440,
+          "completionTokens": 76,
+          "totalTokens": 516
+        },
+        "attempt_latency_ms": 6957.861,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.047,
+            "request_started_offset_ms": 5264.546,
+            "request_completed_offset_ms": 6957.759,
+            "request_started_monotonic_ms": 8025.298,
+            "request_completed_monotonic_ms": 9718.526,
+            "rate_limit_wait_ms": 5264.458,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6957.861,
+            "request_payload_bytes": 1853,
+            "message_content_length": 161,
+            "usage": {
+              "promptTokens": 440,
+              "completionTokens": 76,
+              "totalTokens": 516
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-002",
+      "question": "확정기여형 퇴직연금에서 회사 부담금은 매년 임금총액보다 적게 정할 수 있나요? 법정 기준을 알려주세요.",
+      "expected_active_subject": "DC",
+      "expected_requirements": [
+        "DC.employer_contribution"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DC",
+      "selected_requirements": [
+        "DC.employer_contribution"
+      ],
+      "requirement_candidate_ids": {
+        "DC.employer_contribution": [
+          "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+          "04782a392f49293e-table-bc16c5284b58"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+        "04782a392f49293e-table-bc16c5284b58"
+      ],
+      "cited_chunk_ids": [
+        "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+        "04782a392f49293e-table-bc16c5284b58"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nDC형 퇴직연금에서 회사의 부담금은 연간 임금총액의 1/12 이상으로 설정되어야 하며, 이를 초과하지 않는 범위 내에서 정할 수 있습니다.\n\n[근거]\n- [출처: docs_renamed/doc15.pdf, 2페이지, fc71bcf7cc90f68d-table-c1ac92bf85cc]\n- [출처: docs_renamed/doc55.docx, 위치 정보 없음, 04782a392f49293e-table-bc16c5284b58]",
+      "answer_hash": "20905a9243a3137c8c37b1bfb9618c2592125ecd58dac70ee3221131a326b142",
+      "output_hash": "5280b53976bc35f963cef1530832a922d5329fa2fee10c62de64051316220a4c",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12373.975,
+      "generation_latency_ms": 6997.131,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.038,
+        "request_payload_bytes": 3051,
+        "rate_limit_wait_ms": 5137.175,
+        "request_started_offset_ms": 5137.258,
+        "request_started_monotonic_ms": 20233.866,
+        "request_completed_offset_ms": 6996.907,
+        "request_completed_monotonic_ms": 22093.526,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 190,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "x xx xxxxx xxxx xxxx xxxxx xx, xx xxxx xx xx xxx xx x xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 710,
+          "completionTokens": 83,
+          "totalTokens": 793
+        },
+        "attempt_latency_ms": 6997.074,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.038,
+            "request_started_offset_ms": 5137.258,
+            "request_completed_offset_ms": 6996.907,
+            "request_started_monotonic_ms": 20233.866,
+            "request_completed_monotonic_ms": 22093.526,
+            "rate_limit_wait_ms": 5137.175,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6997.074,
+            "request_payload_bytes": 3051,
+            "message_content_length": 190,
+            "usage": {
+              "promptTokens": 710,
+              "completionTokens": 83,
+              "totalTokens": 793
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-003",
+      "question": "DC제도에서는 적립금으로 어떤 상품을 운용할지 최종 결정을 누가 하나요?",
+      "expected_active_subject": "DC",
+      "expected_requirements": [
+        "DC.operation_party"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DC",
+      "selected_requirements": [
+        "DC.operation_party"
+      ],
+      "requirement_candidate_ids": {
+        "DC.operation_party": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "cited_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nDC제도에서는 적립금으로 어떤 상품을 운용할지 최종 결정은 근로자가 합니다.\n\n[근거]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-table-6f164502cbce]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-paragraph_group-fd0d4e7d80e6]",
+      "answer_hash": "e32ed391269af30c2c982bdd48e4bcb8bbfc5a054d68cb7e802029bbb78d3c43",
+      "output_hash": "84f755d03545164f24617ccc650df5f37e2430a4ce92b747e2c9c718ea26aa7b",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12052.711,
+      "generation_latency_ms": 6890.335,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.047,
+        "request_payload_bytes": 4735,
+        "rate_limit_wait_ms": 5183.965,
+        "request_started_offset_ms": 5184.061,
+        "request_started_monotonic_ms": 32442.062,
+        "request_completed_offset_ms": 6890.115,
+        "request_completed_monotonic_ms": 34148.129,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 165,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxx\": \"xxxxxxx xxxxx xx xxx xxxx xx xxx xxxx xxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1189,
+          "completionTokens": 71,
+          "totalTokens": 1260
+        },
+        "attempt_latency_ms": 6890.277,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.047,
+            "request_started_offset_ms": 5184.061,
+            "request_completed_offset_ms": 6890.115,
+            "request_started_monotonic_ms": 32442.062,
+            "request_completed_monotonic_ms": 34148.129,
+            "rate_limit_wait_ms": 5183.965,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6890.277,
+            "request_payload_bytes": 4735,
+            "message_content_length": 165,
+            "usage": {
+              "promptTokens": 1189,
+              "completionTokens": 71,
+              "totalTokens": 1260
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-004",
+      "question": "연금저축 계좌 하나만으로 공제를 받는다면 납입액 중 연간 얼마까지 공제 대상인가요?",
+      "expected_active_subject": "pension_savings",
+      "expected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "pension_savings",
+      "selected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "requirement_candidate_ids": {
+        "pension_savings.tax_credit.limit": [
+          "7cce439d30d5a8b0-table-20114875d339",
+          "04782a392f49293e-table-d2d7171cef89"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "04782a392f49293e-table-d2d7171cef89"
+      ],
+      "cited_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "04782a392f49293e-table-d2d7171cef89"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n연금저축 계좌 하나만으로 공제를 받는다면 납입액 중 연간 600만 원까지 공제 대상이 됩니다.\n\n[근거]\n- [출처: docs_renamed/doc41.docx, 위치 정보 없음, 7cce439d30d5a8b0-table-20114875d339]\n- [출처: docs_renamed/doc55.docx, 위치 정보 없음, 04782a392f49293e-table-d2d7171cef89]\n\n[유의사항]\n- 제공 문서 기준의 일반 정보입니다. 실제 세금 적용은 소득, 계좌, 수령 방식, 적용 시점에 따라 달라질 수 있으므로 금융회사 또는 세무전문가에게 확인하세요.",
+      "answer_hash": "e4779d653ee54c7c9cf84d16f094cd8b7f61a3294de2a3a3f3e9213f31415e39",
+      "output_hash": "a3b0901e6e88f8df157d5b31a02226812714d4c95a02be3f28d028cb161f35c9",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12266.929,
+      "generation_latency_ms": 6818.986,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.034,
+        "request_payload_bytes": 2231,
+        "rate_limit_wait_ms": 5052.46,
+        "request_started_offset_ms": 5052.757,
+        "request_started_monotonic_ms": 44649.5,
+        "request_completed_offset_ms": 6818.451,
+        "request_completed_monotonic_ms": 46415.218,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 165,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxx\": \"xxxx xx xxxxx xxx xxxx xxx x xx xxxx xxx xx xxx xxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 588,
+          "completionTokens": 73,
+          "totalTokens": 661
+        },
+        "attempt_latency_ms": 6818.871,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.034,
+            "request_started_offset_ms": 5052.757,
+            "request_completed_offset_ms": 6818.451,
+            "request_started_monotonic_ms": 44649.5,
+            "request_completed_monotonic_ms": 46415.218,
+            "rate_limit_wait_ms": 5052.46,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6818.871,
+            "request_payload_bytes": 2231,
+            "message_content_length": 165,
+            "usage": {
+              "promptTokens": 588,
+              "completionTokens": 73,
+              "totalTokens": 661
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-005",
+      "question": "퇴직급여 일시금을 IRP에 넣고 나중에 연금으로 받는 경우, 세금은 적립 중과 연금 수령 중 언제 붙나요?",
+      "expected_active_subject": "IRP",
+      "expected_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "IRP",
+      "selected_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "requirement_candidate_ids": {
+        "retirement_income.IRP_transfer.tax_timing": [
+          "55f36905c388adb6-table-aaec2abb0a55",
+          "7878a3be5806fef4-table-a3623398dbaa"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ],
+      "cited_chunk_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n퇴직급여 일시금을 IRP에 넣고 나중에 연금으로 받을 때 세금은 두 가지 방식으로 나뉩니다. 첫째, 연금수령 한도 내에서 연금으로 받으면 연금소득세가 부과됩니다. 둘째, 연금수령 한도를 초과하여 연금외수령으로 받으면 기타소득세가 부과됩니다.\n\n[근거]\n- [출처: docs_renamed/doc39.docx, 위치 정보 없음, 55f36905c388adb6-table-aaec2abb0a55]\n- [출처: docs_renamed/doc51.docx, 위치 정보 없음, 7878a3be5806fef4-table-a3623398dbaa]\n\n[유의사항]\n- 제공 문서 기준의 일반 정보입니다. 실제 세금 적용은 소득, 계좌, 수령 방식, 적용 시점에 따라 달라질 수 있으므로 금융회사 또는 세무전문가에게 확인하세요.",
+      "answer_hash": "ca50d1c719a3236c555c583aefe6a8a3adb20d1bec9074784c8e5b2703a0e952",
+      "output_hash": "3357de4ad20bc1534cfaa0a196a8b608239f99b0addfe394ed6558d9a4fcf062",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12778.201,
+      "generation_latency_ms": 7273.381,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.043,
+        "request_payload_bytes": 2785,
+        "rate_limit_wait_ms": 4935.074,
+        "request_started_offset_ms": 4935.151,
+        "request_started_monotonic_ms": 56859.35,
+        "request_completed_offset_ms": 7273.285,
+        "request_completed_monotonic_ms": 59197.486,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 247,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "x xxxxxx xxxxx. xx, xxxx xxx xxxx xxxxxxx xxx xxxxxx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 743,
+          "completionTokens": 118,
+          "totalTokens": 861
+        },
+        "attempt_latency_ms": 7273.332,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.043,
+            "request_started_offset_ms": 4935.151,
+            "request_completed_offset_ms": 7273.285,
+            "request_started_monotonic_ms": 56859.35,
+            "request_completed_monotonic_ms": 59197.486,
+            "rate_limit_wait_ms": 4935.074,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7273.332,
+            "request_payload_bytes": 2785,
+            "message_content_length": 247,
+            "usage": {
+              "promptTokens": 743,
+              "completionTokens": 118,
+              "totalTokens": 861
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-006",
+      "question": "IRP의 기존 투자상품을 현금으로 바꾸지 않은 채 다른 금융기관으로 이전할 때, 신청할 수 있는 채널은 무엇인가요?",
+      "expected_active_subject": "IRP",
+      "expected_requirements": [
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "IRP",
+      "selected_requirements": [
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "requirement_candidate_ids": {
+        "retirement_pension.in_kind_transfer.IRP.application_route": [
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "04782a392f49293e-paragraph_group-09adcb298a6f"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+        "04782a392f49293e-paragraph_group-09adcb298a6f"
+      ],
+      "cited_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nIRP의 기존 투자상품을 현금으로 바꾸지 않고 다른 금융기관으로 이전하려면, 영업점을 통한 이전신청 또는 모바일을 통한 이전신청이 가능합니다.\n\n[근거]\n- [출처: docs_renamed/doc35.docx, 위치 정보 없음, afc99f5bd68cc78b-paragraph_group-549eae06e466]",
+      "answer_hash": "645c8a4729b6d4ecfae7f45d71594c89122d4bc36fd95bf2f6cf5544e0ad14fa",
+      "output_hash": "8012275ce8cff2c9c7ebff0254661212921fe8abb92c0b8872171de1ea66737f",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11463.218,
+      "generation_latency_ms": 6670.586,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.059,
+        "request_payload_bytes": 5452,
+        "rate_limit_wait_ms": 5074.244,
+        "request_started_offset_ms": 5074.341,
+        "request_started_monotonic_ms": 69065.601,
+        "request_completed_offset_ms": 6670.356,
+        "request_completed_monotonic_ms": 70661.626,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 163,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxxxx\": \"xxxx xx xxxxx xxxx xxx xx xx xxxxxx xxxxx, xxxx xx xxxx xx xxxx xx xxxxx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1341,
+          "completionTokens": 68,
+          "totalTokens": 1409
+        },
+        "attempt_latency_ms": 6670.509,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.059,
+            "request_started_offset_ms": 5074.341,
+            "request_completed_offset_ms": 6670.356,
+            "request_started_monotonic_ms": 69065.601,
+            "request_completed_monotonic_ms": 70661.626,
+            "rate_limit_wait_ms": 5074.244,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6670.509,
+            "request_payload_bytes": 5452,
+            "message_content_length": 163,
+            "usage": {
+              "promptTokens": 1341,
+              "completionTokens": 68,
+              "totalTokens": 1409
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-007",
+      "question": "DC 가입자에게 해야 하는 교육은 1년에 적어도 몇 번이고, 교육 진행을 전문기관에 맡길 수 있나요?",
+      "expected_active_subject": "DC",
+      "expected_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DC",
+      "selected_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "requirement_candidate_ids": {
+        "retirement_pension.participant_education.frequency": [
+          "ae713c70a631594f-table-800a3663c3f6",
+          "ae713c70a631594f-paragraph_group-b665fce408b0"
+        ],
+        "retirement_pension.participant_education.outsourcing": [
+          "ae713c70a631594f-table-800a3663c3f6",
+          "ae713c70a631594f-paragraph_group-b665fce408b0"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "ae713c70a631594f-table-800a3663c3f6",
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "cited_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n퇴직연금 가입자 교육은 매년 1회 이상 실시해야 하며, 교육 진행을 전문기관에 맡길 수 있습니다.\n\n[근거]\n- [출처: docs_renamed/doc18.pdf, 1페이지, ae713c70a631594f-paragraph_group-b665fce408b0]",
+      "answer_hash": "6913e38b1b35bbaf15b093e0120fc22e01778baa0a40f838edbade7d7c478bb1",
+      "output_hash": "c729bd0031d04e973e5dd402094759917583ef9c3e7b2115e40e55caa155603f",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12196.411,
+      "generation_latency_ms": 6502.765,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.051,
+        "request_payload_bytes": 4164,
+        "rate_limit_wait_ms": 4913.427,
+        "request_started_offset_ms": 4913.592,
+        "request_started_monotonic_ms": 81273.101,
+        "request_completed_offset_ms": 6502.579,
+        "request_completed_monotonic_ms": 82862.096,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 138,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xxxx xxx xxx xx xx xx xxxx xx, xx xxx xxxxx xx x xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 889,
+          "completionTokens": 59,
+          "totalTokens": 948
+        },
+        "attempt_latency_ms": 6502.687,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.051,
+            "request_started_offset_ms": 4913.592,
+            "request_completed_offset_ms": 6502.579,
+            "request_started_monotonic_ms": 81273.101,
+            "request_completed_monotonic_ms": 82862.096,
+            "rate_limit_wait_ms": 4913.427,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6502.687,
+            "request_payload_bytes": 4164,
+            "message_content_length": 138,
+            "usage": {
+              "promptTokens": 889,
+              "completionTokens": 59,
+              "totalTokens": 948
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-008",
+      "question": "KR5113420012의 지금 위험등급은 무엇이며, 장래에도 문서상 같은 등급으로 보장된다고 할 수 있나요?",
+      "expected_active_subject": "product:KR5113420012",
+      "expected_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.change_possibility"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5113420012",
+      "selected_requirements": [
+        "product.risk_grade.change_possibility",
+        "product.risk_grade.current"
+      ],
+      "requirement_candidate_ids": {
+        "product.risk_grade.change_possibility": [
+          "c61c1c27df94646e-paragraph_group-209bb3d672f2",
+          "c61c1c27df94646e-table-52d53a2b5d36"
+        ],
+        "product.risk_grade.current": [
+          "c61c1c27df94646e-paragraph_group-b06d95a59550",
+          "c61c1c27df94646e-table-52d53a2b5d36"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "c61c1c27df94646e-paragraph_group-209bb3d672f2",
+        "c61c1c27df94646e-paragraph_group-b06d95a59550",
+        "c61c1c27df94646e-table-52d53a2b5d36"
+      ],
+      "cited_chunk_ids": [
+        "c61c1c27df94646e-paragraph_group-209bb3d672f2",
+        "c61c1c27df94646e-paragraph_group-b06d95a59550",
+        "c61c1c27df94646e-table-52d53a2b5d36"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n현재 KR5113420012의 위험등급은 '5등급(낮은위험)'입니다.\n\n[근거]\n- [출처: 투자설명서/KR5113420012/R2_KR5113420012.pdf, 5페이지, c61c1c27df94646e-paragraph_group-209bb3d672f2]\n- [출처: 투자설명서/KR5113420012/R2_KR5113420012.pdf, 1페이지, c61c1c27df94646e-paragraph_group-b06d95a59550]\n- [출처: 투자설명서/KR5113420012/R2_KR5113420012.pdf, 1페이지, c61c1c27df94646e-table-52d53a2b5d36]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "a5c5031985743100658a28aa7703a282e5aed9d1cd9d864a99ab15adea53fc45",
+      "output_hash": "850cb20228196a19c5394c155f8261b4fbece320f76ee9fb540fad8f342b7fe5",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12779.699,
+      "generation_latency_ms": 7077.295,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.049,
+        "request_payload_bytes": 8062,
+        "rate_limit_wait_ms": 4914.891,
+        "request_started_offset_ms": 4914.984,
+        "request_started_monotonic_ms": 93481.25,
+        "request_completed_offset_ms": 7077.161,
+        "request_completed_monotonic_ms": 95643.434,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 210,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 2233,
+          "completionTokens": 101,
+          "totalTokens": 2334
+        },
+        "attempt_latency_ms": 7077.236,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.049,
+            "request_started_offset_ms": 4914.984,
+            "request_completed_offset_ms": 7077.161,
+            "request_started_monotonic_ms": 93481.25,
+            "request_completed_monotonic_ms": 95643.434,
+            "rate_limit_wait_ms": 4914.891,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7077.236,
+            "request_payload_bytes": 8062,
+            "message_content_length": 210,
+            "usage": {
+              "promptTokens": 2233,
+              "completionTokens": 101,
+              "totalTokens": 2334
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-009",
+      "question": "KR5113450111이 과거에 위험등급을 바꾼 이유와 변경 전후 수준은 설명서의 어떤 기록에서 알 수 있나요?",
+      "expected_active_subject": "product:KR5113450111",
+      "expected_requirements": [
+        "product.risk_grade.historical"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5113450111",
+      "selected_requirements": [
+        "product.risk_grade.historical"
+      ],
+      "requirement_candidate_ids": {
+        "product.risk_grade.historical": [
+          "9175b4d6847de4c3-table-012d76a0b2f1",
+          "9175b4d6847de4c3-table-dba03661e41f"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "9175b4d6847de4c3-table-012d76a0b2f1",
+        "9175b4d6847de4c3-table-dba03661e41f"
+      ],
+      "cited_chunk_ids": [
+        "9175b4d6847de4c3-table-012d76a0b2f1"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n상품 KR5113450111의 과거 위험등급 변경 이유와 변경 전후 수준은 첫 번째 증거 문서에서 확인할 수 있습니다.\n\n[근거]\n- [출처: 투자설명서/KR5113450111/R2_KR5113450111.pdf, 30페이지, 9175b4d6847de4c3-table-012d76a0b2f1]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "e71d168bb86f50e8904a7e1385b656b43a126bf11084b7d837ba4c0c0467ea58",
+      "output_hash": "a475f5ba6a7caedb5222f3bef7fe6d080babf4e2ab56bb196716413dc50c9e0d",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11568.677,
+      "generation_latency_ms": 6792.759,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.052,
+        "request_payload_bytes": 3245,
+        "rate_limit_wait_ms": 5269.282,
+        "request_started_offset_ms": 5269.369,
+        "request_started_monotonic_ms": 105690.508,
+        "request_completed_offset_ms": 6792.648,
+        "request_completed_monotonic_ms": 107213.794,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 140,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xx xxxxxxxxxxxxx xx xxxx xx xxx xx xx xxx x xx xx xxxx xxx x xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1008,
+          "completionTokens": 63,
+          "totalTokens": 1071
+        },
+        "attempt_latency_ms": 6792.699,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.052,
+            "request_started_offset_ms": 5269.369,
+            "request_completed_offset_ms": 6792.648,
+            "request_started_monotonic_ms": 105690.508,
+            "request_completed_monotonic_ms": 107213.794,
+            "rate_limit_wait_ms": 5269.282,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6792.699,
+            "request_payload_bytes": 3245,
+            "message_content_length": 140,
+            "usage": {
+              "promptTokens": 1008,
+              "completionTokens": 63,
+              "totalTokens": 1071
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-010",
+      "question": "KR5111420047의 매년 드는 총보수·비용률은 설명서에서 어떤 표의 어떤 열을 기준으로 읽어야 하나요?",
+      "expected_active_subject": "product:KR5111420047",
+      "expected_requirements": [
+        "product.total_fee"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5111420047",
+      "selected_requirements": [
+        "product.total_fee"
+      ],
+      "requirement_candidate_ids": {
+        "product.total_fee": [
+          "1bfc399c9b3d6a67-table-d384a980cda1",
+          "1bfc399c9b3d6a67-paragraph_group-89472cf934ff"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "1bfc399c9b3d6a67-table-d384a980cda1",
+        "1bfc399c9b3d6a67-paragraph_group-89472cf934ff"
+      ],
+      "cited_chunk_ids": [
+        "1bfc399c9b3d6a67-table-d384a980cda1",
+        "1bfc399c9b3d6a67-paragraph_group-89472cf934ff"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n상품의 연간 총보수율을 확인하려면 '지급비율(연간, %)' 열을 참조하면 됩니다.\n\n[근거]\n- [출처: 투자설명서/KR5111420047/R2_KR5111420047.pdf, 35페이지, 1bfc399c9b3d6a67-table-d384a980cda1]\n- [출처: 투자설명서/KR5111420047/R2_KR5111420047.pdf, 35페이지, 1bfc399c9b3d6a67-paragraph_group-89472cf934ff]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "3b5c796073da90407a026a13bd56673b25fa0a07c4c7c2e367b61db18f2be453",
+      "output_hash": "02c66f5030c03eb58cb7e880abb3baae75f8bc2fcb760a17ea1e98c4f6bd9dbd",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12580.109,
+      "generation_latency_ms": 7169.132,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.044,
+        "request_payload_bytes": 4951,
+        "rate_limit_wait_ms": 5275.016,
+        "request_started_offset_ms": 5275.18,
+        "request_started_monotonic_ms": 117900.478,
+        "request_completed_offset_ms": 7168.861,
+        "request_completed_monotonic_ms": 119794.174,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 168,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "\": \"xxx xx xxxxx xxxxx xxxxxxxx, xxx xx xxxx xxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1962,
+          "completionTokens": 81,
+          "totalTokens": 2043
+        },
+        "attempt_latency_ms": 7169.064,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.044,
+            "request_started_offset_ms": 5275.18,
+            "request_completed_offset_ms": 7168.861,
+            "request_started_monotonic_ms": 117900.478,
+            "request_completed_monotonic_ms": 119794.174,
+            "rate_limit_wait_ms": 5275.016,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7169.064,
+            "request_payload_bytes": 4951,
+            "message_content_length": 168,
+            "usage": {
+              "promptTokens": 1962,
+              "completionTokens": 81,
+              "totalTokens": 2043
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-011",
+      "question": "KR5113450111을 1,000만원 기준으로 3년 들고 있을 때의 비용은 어느 비용 예시 표의 어느 기간 열에서 보나요?",
+      "expected_active_subject": "product:KR5113450111",
+      "expected_requirements": [
+        "product.period_cost"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5113450111",
+      "selected_requirements": [
+        "product.period_cost"
+      ],
+      "requirement_candidate_ids": {
+        "product.period_cost": [
+          "9175b4d6847de4c3-paragraph_group-f2fb35f40652",
+          "9175b4d6847de4c3-table-9ed35d020b3b"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "9175b4d6847de4c3-paragraph_group-f2fb35f40652",
+        "9175b4d6847de4c3-table-9ed35d020b3b"
+      ],
+      "cited_chunk_ids": [
+        "9175b4d6847de4c3-table-9ed35d020b3b"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n3년\n\n[근거]\n- [출처: 투자설명서/KR5113450111/R2_KR5113450111.pdf, 6페이지, 9175b4d6847de4c3-table-9ed35d020b3b]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "9a2711ebb036325a32546aec3cbb578a51afd8b3f1c3ebd619c1cf05acb52dda",
+      "output_hash": "8ae7c31598dcf88054abf3d7354cb656c517242ac751b412e5e6e0be5ed04e28",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11499.625,
+      "generation_latency_ms": 6454.549,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.045,
+        "request_payload_bytes": 6663,
+        "rate_limit_wait_ms": 5267.897,
+        "request_started_offset_ms": 5268.022,
+        "request_started_monotonic_ms": 130109.632,
+        "request_completed_offset_ms": 6454.431,
+        "request_completed_monotonic_ms": 131296.05,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 76,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xx\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1934,
+          "completionTokens": 37,
+          "totalTokens": 1971
+        },
+        "attempt_latency_ms": 6454.496,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.045,
+            "request_started_offset_ms": 5268.022,
+            "request_completed_offset_ms": 6454.431,
+            "request_started_monotonic_ms": 130109.632,
+            "request_completed_monotonic_ms": 131296.05,
+            "rate_limit_wait_ms": 5267.897,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6454.496,
+            "request_payload_bytes": 6663,
+            "message_content_length": 76,
+            "usage": {
+              "promptTokens": 1934,
+              "completionTokens": 37,
+              "totalTokens": 1971
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-012",
+      "question": "KR510902511M은 운용성과를 평가할 때 어느 시장지수를 비교 기준으로 삼나요?",
+      "expected_active_subject": "product:KR510902511M",
+      "expected_requirements": [
+        "product.tracking_index"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR510902511M",
+      "selected_requirements": [
+        "product.tracking_index"
+      ],
+      "requirement_candidate_ids": {
+        "product.tracking_index": [
+          "ac97d050d2b39ec2-table-117a72233ddc",
+          "ac97d050d2b39ec2-paragraph_group-5b11eddf6e3f"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "ac97d050d2b39ec2-table-117a72233ddc",
+        "ac97d050d2b39ec2-paragraph_group-5b11eddf6e3f"
+      ],
+      "cited_chunk_ids": [
+        "ac97d050d2b39ec2-table-117a72233ddc"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nKOSPI\n\n[근거]\n- [출처: 투자설명서/KR510902511M/R2_KR510902511M.pdf, 18페이지, ac97d050d2b39ec2-table-117a72233ddc]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "057c249f750c64dc08532113fb1decc9a98ebd0132783a31077b9abe0c93a462",
+      "output_hash": "4beaf1bd29c2d02a68b55a469472e7076e261c404c097ee38e056c4b3374325b",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12227.552,
+      "generation_latency_ms": 6550.519,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.046,
+        "request_payload_bytes": 2154,
+        "rate_limit_wait_ms": 5340.244,
+        "request_started_offset_ms": 5340.316,
+        "request_started_monotonic_ms": 142314.347,
+        "request_completed_offset_ms": 6550.411,
+        "request_completed_monotonic_ms": 143524.448,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 79,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xxxxx\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 608,
+          "completionTokens": 35,
+          "totalTokens": 643
+        },
+        "attempt_latency_ms": 6550.467,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.046,
+            "request_started_offset_ms": 5340.316,
+            "request_completed_offset_ms": 6550.411,
+            "request_started_monotonic_ms": 142314.347,
+            "request_completed_monotonic_ms": 143524.448,
+            "rate_limit_wait_ms": 5340.244,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6550.467,
+            "request_payload_bytes": 2154,
+            "message_content_length": 79,
+            "usage": {
+              "promptTokens": 608,
+              "completionTokens": 35,
+              "totalTokens": 643
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-013",
+      "question": "KR5110501016은 현재 위험 수준을 몇 등급으로 표시하고 있나요?",
+      "expected_active_subject": "product:KR5110501016",
+      "expected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5110501016",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "requirement_candidate_ids": {
+        "product.risk_grade.current": [
+          "1294013a2a74e0a4-paragraph_group-8640e402a2a3",
+          "1294013a2a74e0a4-table-9f3b03a7b259"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "1294013a2a74e0a4-paragraph_group-8640e402a2a3",
+        "1294013a2a74e0a4-table-9f3b03a7b259"
+      ],
+      "cited_chunk_ids": [
+        "1294013a2a74e0a4-paragraph_group-8640e402a2a3",
+        "1294013a2a74e0a4-table-9f3b03a7b259"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n현재 KR5110501016의 위험 수준은 6등급으로 표시되고 있습니다.\n\n[근거]\n- [출처: 투자설명서/KR5110501016/R2_KR5110501016.pdf, 1페이지, 1294013a2a74e0a4-paragraph_group-8640e402a2a3]\n- [출처: 투자설명서/KR5110501016/R2_KR5110501016.pdf, 3페이지, 1294013a2a74e0a4-table-9f3b03a7b259]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "2b348f6d97e0b0547f9e46657b0e4410fde56a8d6718d3ea0dd65434e36e3776",
+      "output_hash": "28a441891bcab3ed24c9722035b4e083d3b0441dfb4b5bbeb1e6d2e802155766",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12829.657,
+      "generation_latency_ms": 7007.821,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.041,
+        "request_payload_bytes": 4801,
+        "rate_limit_wait_ms": 5177.809,
+        "request_started_offset_ms": 5177.938,
+        "request_started_monotonic_ms": 154524.544,
+        "request_completed_offset_ms": 7007.591,
+        "request_completed_monotonic_ms": 156354.209,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 163,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxxxx\": \"xx xxxxxxxxxxxxx xx xxx xxxxx xxxx xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1207,
+          "completionTokens": 81,
+          "totalTokens": 1288
+        },
+        "attempt_latency_ms": 7007.76,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.041,
+            "request_started_offset_ms": 5177.938,
+            "request_completed_offset_ms": 7007.591,
+            "request_started_monotonic_ms": 154524.544,
+            "request_completed_monotonic_ms": 156354.209,
+            "rate_limit_wait_ms": 5177.809,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7007.76,
+            "request_payload_bytes": 4801,
+            "message_content_length": 163,
+            "usage": {
+              "promptTokens": 1207,
+              "completionTokens": 81,
+              "totalTokens": 1288
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-014",
+      "question": "KR5114420027의 판매수수료가 아닌 연간 총보수·비용은 지급비율 표의 어느 항목인가요?",
+      "expected_active_subject": "product:KR5114420027",
+      "expected_requirements": [
+        "product.total_fee"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5114420027",
+      "selected_requirements": [
+        "product.total_fee"
+      ],
+      "requirement_candidate_ids": {
+        "product.total_fee": [
+          "37c0cd9b61ebeb19-table-57d54383176e",
+          "37c0cd9b61ebeb19-paragraph_group-a4149a021fe8"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "37c0cd9b61ebeb19-table-57d54383176e",
+        "37c0cd9b61ebeb19-paragraph_group-a4149a021fe8"
+      ],
+      "cited_chunk_ids": [
+        "37c0cd9b61ebeb19-table-57d54383176e",
+        "37c0cd9b61ebeb19-paragraph_group-a4149a021fe8"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n수수료미징구-오프라인(C)\n\n[근거]\n- [출처: 투자설명서/KR5114420027/R2_KR5114420027.pdf, 34페이지, 37c0cd9b61ebeb19-table-57d54383176e]\n- [출처: 투자설명서/KR5114420027/R2_KR5114420027.pdf, 34페이지, 37c0cd9b61ebeb19-paragraph_group-a4149a021fe8]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "8dcb56bb074720425c7153a0f13258cde1881594108eb2f7c2c02b101dcb6b77",
+      "output_hash": "33c9ec6edd0b477e3d271694c9aaf38cc5ae6924ec52413a23cc1f4587a04757",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12127.742,
+      "generation_latency_ms": 6925.817,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.043,
+        "request_payload_bytes": 4976,
+        "rate_limit_wait_ms": 5175.975,
+        "request_started_offset_ms": 5176.05,
+        "request_started_monotonic_ms": 166734.564,
+        "request_completed_offset_ms": 6925.659,
+        "request_completed_monotonic_ms": 168484.182,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 137,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xxxxxx-xxxxxxx\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1640,
+          "completionTokens": 65,
+          "totalTokens": 1705
+        },
+        "attempt_latency_ms": 6925.763,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.043,
+            "request_started_offset_ms": 5176.05,
+            "request_completed_offset_ms": 6925.659,
+            "request_started_monotonic_ms": 166734.564,
+            "request_completed_monotonic_ms": 168484.182,
+            "rate_limit_wait_ms": 5175.975,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6925.763,
+            "request_payload_bytes": 4976,
+            "message_content_length": 137,
+            "usage": {
+              "promptTokens": 1640,
+              "completionTokens": 65,
+              "totalTokens": 1705
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-015",
+      "question": "KR5110501016의 1,000만원 투자 기준 비용 예시에는 보유기간을 어떤 다섯 구간으로 나누어 적었나요?",
+      "expected_active_subject": "product:KR5110501016",
+      "expected_requirements": [
+        "product.period_cost"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5110501016",
+      "selected_requirements": [
+        "product.period_cost"
+      ],
+      "requirement_candidate_ids": {
+        "product.period_cost": [
+          "1294013a2a74e0a4-table-0689dcaed960",
+          "1294013a2a74e0a4-paragraph_group-266dad234220"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "1294013a2a74e0a4-table-0689dcaed960",
+        "1294013a2a74e0a4-paragraph_group-266dad234220"
+      ],
+      "cited_chunk_ids": [
+        "1294013a2a74e0a4-table-0689dcaed960",
+        "1294013a2a74e0a4-paragraph_group-266dad234220"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nKR5110501016의 1,000만원 투자 기준 비용 예시는 보유기간을 '1년 후', '2년 후', '3년 후', '5년 후', 그리고 '10년 후'라는 다섯 구간으로 나누었습니다.\n\n[근거]\n- [출처: 투자설명서/KR5110501016/R2_KR5110501016.pdf, 28페이지, 1294013a2a74e0a4-table-0689dcaed960]\n- [출처: 투자설명서/KR5110501016/R2_KR5110501016.pdf, 3페이지, 1294013a2a74e0a4-paragraph_group-266dad234220]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "eca8ce28849d2e209655a9906fa53a4f84debe31a3ab2cc51b3ef7718c0b0856",
+      "output_hash": "928c691f6349812233a000531b8173bda4ada75efb6826846523882c987a87c7",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12812.089,
+      "generation_latency_ms": 7418.227,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.072,
+        "request_payload_bytes": 3477,
+        "rate_limit_wait_ms": 5063.528,
+        "request_started_offset_ms": 5063.648,
+        "request_started_monotonic_ms": 178942.482,
+        "request_completed_offset_ms": 7417.967,
+        "request_completed_monotonic_ms": 181296.806,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 225,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xx, xxx xx, xxx xx, xxx xxxx xxxx xx xxxx xxxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 873,
+          "completionTokens": 108,
+          "totalTokens": 981
+        },
+        "attempt_latency_ms": 7418.129,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.072,
+            "request_started_offset_ms": 5063.648,
+            "request_completed_offset_ms": 7417.967,
+            "request_started_monotonic_ms": 178942.482,
+            "request_completed_monotonic_ms": 181296.806,
+            "rate_limit_wait_ms": 5063.528,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7418.129,
+            "request_payload_bytes": 3477,
+            "message_content_length": 225,
+            "usage": {
+              "promptTokens": 873,
+              "completionTokens": 108,
+              "totalTokens": 981
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-016",
+      "question": "KR5113450111 설명서상 현재 투자위험도는 높은 편인지 낮은 편인지, 몇 등급인지 알려주세요.",
+      "expected_active_subject": "product:KR5113450111",
+      "expected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5113450111",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "requirement_candidate_ids": {
+        "product.risk_grade.current": [
+          "9175b4d6847de4c3-paragraph_group-70ef2f2747a8",
+          "9175b4d6847de4c3-table-2503deb53294"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "9175b4d6847de4c3-paragraph_group-70ef2f2747a8",
+        "9175b4d6847de4c3-table-2503deb53294"
+      ],
+      "cited_chunk_ids": [
+        "9175b4d6847de4c3-paragraph_group-70ef2f2747a8",
+        "9175b4d6847de4c3-table-2503deb53294"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n현재 KR5113450111의 투자위험도는 '2등급'으로 높은 편입니다.\n\n[근거]\n- [출처: 투자설명서/KR5113450111/R2_KR5113450111.pdf, 1페이지, 9175b4d6847de4c3-paragraph_group-70ef2f2747a8]\n- [출처: 투자설명서/KR5113450111/R2_KR5113450111.pdf, 1페이지, 9175b4d6847de4c3-table-2503deb53294]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "b565382c306dea93c9c5c0a9032555ec764e57cbe33a88bd65d95321be82672a",
+      "output_hash": "93a863450a7756f29a06a42970e490af50f3e18132e89374c8a77f469ba77d90",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11550.171,
+      "generation_latency_ms": 6961.705,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.041,
+        "request_payload_bytes": 4921,
+        "rate_limit_wait_ms": 5261.608,
+        "request_started_offset_ms": 5261.692,
+        "request_started_monotonic_ms": 191148.547,
+        "request_completed_offset_ms": 6961.555,
+        "request_completed_monotonic_ms": 192848.421,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 163,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxxxx\": \"xx xxxxxxxxxxxxx xxxxxx xxxxxxx xx xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1355,
+          "completionTokens": 77,
+          "totalTokens": 1432
+        },
+        "attempt_latency_ms": 6961.654,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.041,
+            "request_started_offset_ms": 5261.692,
+            "request_completed_offset_ms": 6961.555,
+            "request_started_monotonic_ms": 191148.547,
+            "request_completed_monotonic_ms": 192848.421,
+            "rate_limit_wait_ms": 5261.608,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6961.654,
+            "request_payload_bytes": 4921,
+            "message_content_length": 163,
+            "usage": {
+              "promptTokens": 1355,
+              "completionTokens": 77,
+              "totalTokens": 1432
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-017",
+      "question": "DB형 적립 재산은 누가 관리하며, 퇴직급여 계산에는 평균임금 외에 어떤 근속 관련 기준이 쓰이나요?",
+      "expected_active_subject": "DB",
+      "expected_requirements": [
+        "DB.operation_party",
+        "DB.benefit_determination"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DB",
+      "selected_requirements": [
+        "DB.benefit_determination",
+        "DB.operation_party"
+      ],
+      "requirement_candidate_ids": {
+        "DB.benefit_determination": [
+          "49ed30e0f7b42e68-table-0910adeedcae",
+          "fc71bcf7cc90f68d-table-fc470df2b580"
+        ],
+        "DB.operation_party": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "fc71bcf7cc90f68d-table-fc470df2b580",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "cited_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "fc71bcf7cc90f68d-table-fc470df2b580",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nDB형 적립 재산은 회사가 관리합니다. 퇴직급여 계산에는 평균임금 외에도 계속근로기간이 사용됩니다.\n\n[근거]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-table-6f164502cbce]\n- [출처: docs_renamed/doc15.pdf, 1페이지, fc71bcf7cc90f68d-table-fc470df2b580]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-paragraph_group-fd0d4e7d80e6]",
+      "answer_hash": "eed09843747dae27ba83375ce5492099d4bd14d5cd089a52ca28333190f75c21",
+      "output_hash": "48cbe9f644ad9cf3ce4676848aba63d60feb588a055482b576ac8ab799db5138",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12491.256,
+      "generation_latency_ms": 6837.573,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.053,
+        "request_payload_bytes": 5443,
+        "rate_limit_wait_ms": 4852.78,
+        "request_started_offset_ms": 4852.872,
+        "request_started_monotonic_ms": 203356.062,
+        "request_completed_offset_ms": 6837.374,
+        "request_completed_monotonic_ms": 205340.573,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 217,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1428,
+          "completionTokens": 97,
+          "totalTokens": 1525
+        },
+        "attempt_latency_ms": 6837.509,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.053,
+            "request_started_offset_ms": 4852.872,
+            "request_completed_offset_ms": 6837.374,
+            "request_started_monotonic_ms": 203356.062,
+            "request_completed_monotonic_ms": 205340.573,
+            "rate_limit_wait_ms": 4852.78,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6837.509,
+            "request_payload_bytes": 5443,
+            "message_content_length": 217,
+            "usage": {
+              "promptTokens": 1428,
+              "completionTokens": 97,
+              "totalTokens": 1525
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P48-018",
+      "question": "ISA가 만료된 돈을 연금계좌 납입으로 전환하려면 만기 이후 며칠 안에 이전 절차를 마쳐야 하나요?",
+      "expected_active_subject": "ISA",
+      "expected_requirements": [
+        "ISA.transfer.deadline"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "ISA",
+      "selected_requirements": [
+        "ISA.transfer.deadline"
+      ],
+      "requirement_candidate_ids": {
+        "ISA.transfer.deadline": [
+          "ae22159be59440b6-table-5897a6d84778",
+          "ae22159be59440b6-paragraph_group-edb7af982168"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-edb7af982168"
+      ],
+      "cited_chunk_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-edb7af982168"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nISA 만기자금을 연금계좌로 이전하기 위해서는 만기 후 60일 이내에 이전 절차를 완료해야 합니다.\n\n[근거]\n- [출처: docs_renamed/doc23.docx, 위치 정보 없음, ae22159be59440b6-table-5897a6d84778]\n- [출처: docs_renamed/doc23.docx, 위치 정보 없음, ae22159be59440b6-paragraph_group-edb7af982168]",
+      "answer_hash": "a09f8600487f177f54f90d4d925fb12c2287d7422fe729ad835515eab0fe6778",
+      "output_hash": "a19efe0d35cf06253b01ebe18b816c902c9c35f2eec6b21ebb6742ce1de685be",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12048.505,
+      "generation_latency_ms": 7100.036,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.042,
+        "request_payload_bytes": 2204,
+        "rate_limit_wait_ms": 5269.089,
+        "request_started_offset_ms": 5269.2,
+        "request_started_monotonic_ms": 215560.086,
+        "request_completed_offset_ms": 7099.822,
+        "request_completed_monotonic_ms": 217390.718,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 178,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxx xxxxx xxxx xxxx xx x xxx xxx xx xxx xxxx xxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 528,
+          "completionTokens": 76,
+          "totalTokens": 604
+        },
+        "attempt_latency_ms": 7099.979,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.042,
+            "request_started_offset_ms": 5269.2,
+            "request_completed_offset_ms": 7099.822,
+            "request_started_monotonic_ms": 215560.086,
+            "request_completed_monotonic_ms": 217390.718,
+            "rate_limit_wait_ms": 5269.089,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7099.979,
+            "request_payload_bytes": 2204,
+            "message_content_length": 178,
+            "usage": {
+              "promptTokens": 528,
+              "completionTokens": 76,
+              "totalTokens": 604
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    }
+  ]
+}

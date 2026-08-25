@@ -1,0 +1,9 @@
+{
+  "experiment": "P46 Final Fresh Single-Subject Closed E2E",
+  "question_count": 18,
+  "supported_lane": "single-active-subject Closed factual",
+  "excluded_capability": "genuine multi-subject comparison; non_unique_active_subject remains unresolved",
+  "manifest_sha256": "497826ea123e96a58bb6c60cbc1cf123cfce3f3e36afa428a35b12fcd0eea649",
+  "frozen_before_hcx": true,
+  "hcx_calls": 0
+}

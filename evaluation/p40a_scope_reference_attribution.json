@@ -1,0 +1,56 @@
+{
+  "experiment": "P40-A Scope/Reference Attribution",
+  "input_result": "evaluation/p40_scope_reference_holdout.json",
+  "hcx_calls": 0,
+  "attributions": [
+    {
+      "id": "P40-005",
+      "question": "KR5114420022와 KR5114450222를 비교할 때 그 상품의 위험등급은 무엇인가요?",
+      "primary_owner": "ambiguity_detection_miss",
+      "secondary_effect": "binder_scope_expansion",
+      "trace": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "reference_expression": "그 상품",
+        "resolver_unresolved_references": [],
+        "binder_status": [
+          "bound_comparison"
+        ]
+      },
+      "finding": "The anaphora recognizer covers '그 계좌' and '그 제도' but not '그 상품'. The resolver therefore emits no unresolved reference, allowing the binder to produce a two-product comparison binding.",
+      "safe_expected_behavior": "multiple candidates + singular anaphora + no ordinal/disambiguating cue -> unresolved",
+      "hcx_calls": 0
+    },
+    {
+      "id": "P40-009",
+      "question": "사용자가 매년 임금 기준으로 부담금을 넣는 제도는 무엇이고, 그 계좌의 운용방법은 누가 선택하나요?",
+      "primary_owner": "resolver_antecedent_unavailable",
+      "final_pipeline_behavior": "safe_selector_anchored_binding",
+      "trace": {
+        "resolver_unresolved_references": [
+          "그 계좌"
+        ],
+        "selected_requirements": [
+          "DC.employer_contribution",
+          "DC.operation_party"
+        ],
+        "binding_active_subjects": [
+          "DC"
+        ],
+        "binding_status": [
+          "bound",
+          "bound"
+        ]
+      },
+      "finding": "The raw resolver has no explicit account antecedent. The selector returns only DC-scoped requirements, so the binder anchors DC without fabricating any requirement. This is safe final behavior, but should not be counted as standalone resolver success.",
+      "hcx_calls": 0
+    }
+  ],
+  "decision": {
+    "primary_blocker": "P40-005 ambiguity_detection_miss",
+    "candidate_integration": "prohibited",
+    "next_fix_boundary": "generalized singular-anaphora ambiguity rule in resolver; binder must preserve unresolved output"
+  }
+}

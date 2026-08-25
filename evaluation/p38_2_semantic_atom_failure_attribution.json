@@ -1,0 +1,527 @@
+{
+  "experiment": "P38-2A frozen atom-level failure attribution",
+  "input_execution": "evaluation/p38_2_semantic_atom_holdout_results.json",
+  "hcx_calls": 0,
+  "candidate_agent_changed": false,
+  "parser_changed": false,
+  "failure_count": 14,
+  "primary_owner_summary": {
+    "subject_miss": 2,
+    "action_miss": 0,
+    "field_miss": 3,
+    "modifier_miss": 1,
+    "multi_atom_miss": 7,
+    "composition_miss": 0,
+    "ontology_gap": 1,
+    "semantic_binding_error": 0
+  },
+  "failure_family_summary": {
+    "withdrawal_document": 3,
+    "contribution_comparison": 3,
+    "transfer": 3,
+    "product_field_time": 3,
+    "other_closed_factual": 2
+  },
+  "failures": [
+    {
+      "source_question_id": "P38-2-001",
+      "primary_owner": "field_miss",
+      "failure_family": "other_closed_factual",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "benefit_determination"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [
+        "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+      ],
+      "gold_requirements": [
+        "account:DB+account:DC.compare+manage.benefit_determination[account_specific+comparison]",
+        "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-002",
+      "primary_owner": "multi_atom_miss",
+      "failure_family": "withdrawal_document",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [
+            "withdraw"
+          ],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "required_document",
+            "withdrawal_reason"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "before_retirement"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:DC.withdraw.required_document[before_retirement]",
+        "account:DC.withdraw.withdrawal_reason[before_retirement]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-003",
+      "primary_owner": "field_miss",
+      "failure_family": "other_closed_factual",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "education_frequency"
+          ],
+          "unexpected": [
+            "operation_party"
+          ]
+        },
+        "modifiers": {
+          "missing": [],
+          "unexpected": [
+            "annual_rate"
+          ]
+        }
+      },
+      "predicted_requirements": [
+        "system:retirement_pension.educate.education_outsourcing[annual_rate]",
+        "system:retirement_pension.educate.operation_party[annual_rate]"
+      ],
+      "gold_requirements": [
+        "system:retirement_pension.educate.education_frequency[none]",
+        "system:retirement_pension.educate.education_outsourcing[none]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-004",
+      "primary_owner": "multi_atom_miss",
+      "failure_family": "contribution_comparison",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [
+            "compare",
+            "contribute"
+          ],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "combined_limit",
+            "comparison"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [
+        "account:IRP+account:pension_savings..tax_credit_limit[account_specific]"
+      ],
+      "gold_requirements": [
+        "account:IRP+account:pension_savings.compare+contribute.tax_credit_limit[account_specific+combined_limit+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-005",
+      "primary_owner": "subject_miss",
+      "failure_family": "contribution_comparison",
+      "atom_diff": {
+        "subjects": {
+          "missing": [
+            "account:general",
+            "account:pension"
+          ],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [
+            "compare"
+          ],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "account_specific",
+            "comparison"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [
+        ".receive.tax_timing[not_tax_exempt]"
+      ],
+      "gold_requirements": [
+        "account:general+account:pension.compare+receive.tax_timing[account_specific+comparison+not_tax_exempt]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-006",
+      "primary_owner": "subject_miss",
+      "failure_family": "contribution_comparison",
+      "atom_diff": {
+        "subjects": {
+          "missing": [
+            "account:general"
+          ],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "tax_timing"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "account_specific"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:general+account:pension+product:foreign_etf.compare+invest.tax_timing[account_specific+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-007",
+      "primary_owner": "multi_atom_miss",
+      "failure_family": "withdrawal_document",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [
+            "withdraw"
+          ],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "tax_treatment",
+            "withdrawal_reason"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "before_retirement"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:IRP+account:pension_savings.compare+withdraw.tax_treatment[account_specific+before_retirement+comparison]",
+        "account:IRP+account:pension_savings.compare+withdraw.withdrawal_reason[account_specific+before_retirement+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-008",
+      "primary_owner": "multi_atom_miss",
+      "failure_family": "transfer",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [
+            "transfer"
+          ],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "transfer_deadline"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "maturity_event"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [
+        "account:ISA+account:pension..tax_credit_limit[account_specific+additional_credit]"
+      ],
+      "gold_requirements": [
+        "account:ISA+account:pension.transfer.tax_credit_limit[account_specific+additional_credit+maturity_event]",
+        "account:ISA+account:pension.transfer.transfer_deadline[account_specific+additional_credit+maturity_event]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-009",
+      "primary_owner": "multi_atom_miss",
+      "failure_family": "transfer",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [
+            "transfer"
+          ],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "application_route",
+            "transfer_definition"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "in_kind"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:DB+account:DC+account:IRP.compare+transfer.application_route[account_specific+comparison+in_kind]",
+        "account:DB+account:DC+account:IRP.compare+transfer.transfer_definition[account_specific+comparison+in_kind]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-012",
+      "primary_owner": "field_miss",
+      "failure_family": "product_field_time",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "tracking_index"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [
+        "product:KR5127450215.invest.equity_allocation_limit[none]"
+      ],
+      "gold_requirements": [
+        "product:KR5127450215.invest.equity_allocation_limit[none]",
+        "product:KR5127450215.invest.tracking_index[none]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-013",
+      "primary_owner": "multi_atom_miss",
+      "failure_family": "product_field_time",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [],
+          "unexpected": [
+            "compare"
+          ]
+        },
+        "fields": {
+          "missing": [
+            "total_fee"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "annual_rate",
+            "field_boundary",
+            "holding_period"
+          ],
+          "unexpected": [
+            "comparison"
+          ]
+        }
+      },
+      "predicted_requirements": [
+        "product:KR510902773M.compare+invest.cost_example[comparison]"
+      ],
+      "gold_requirements": [
+        "product:KR510902773M.invest.cost_example[annual_rate+field_boundary+holding_period]",
+        "product:KR510902773M.invest.total_fee[annual_rate+field_boundary+holding_period]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-015",
+      "primary_owner": "ontology_gap",
+      "failure_family": "product_field_time",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [
+            "compare"
+          ],
+          "unexpected": [
+            "invest"
+          ]
+        },
+        "fields": {
+          "missing": [],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [
+            "comparison",
+            "current",
+            "historical"
+          ],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [
+        "product:KR5120420039+product:KR5120420091.invest.risk_grade[none]"
+      ],
+      "gold_requirements": [
+        "product:KR5120420039+product:KR5120420091.compare.risk_grade[comparison+current+historical]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-017",
+      "primary_owner": "modifier_miss",
+      "failure_family": "transfer",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [],
+          "unexpected": [
+            "current"
+          ]
+        }
+      },
+      "predicted_requirements": [
+        "account:IRP.transfer.tax_timing[current]"
+      ],
+      "gold_requirements": [
+        "account:IRP.transfer.tax_timing[none]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "source_question_id": "P38-2-018",
+      "primary_owner": "multi_atom_miss",
+      "failure_family": "withdrawal_document",
+      "atom_diff": {
+        "subjects": {
+          "missing": [],
+          "unexpected": []
+        },
+        "actions": {
+          "missing": [],
+          "unexpected": []
+        },
+        "fields": {
+          "missing": [
+            "tax_treatment",
+            "withdrawal_reason"
+          ],
+          "unexpected": []
+        },
+        "modifiers": {
+          "missing": [],
+          "unexpected": []
+        }
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:pension.compare+withdraw.tax_treatment[comparison]",
+        "account:pension.compare+withdraw.withdrawal_reason[comparison]"
+      ],
+      "requirement_exact": false
+    }
+  ]
+}

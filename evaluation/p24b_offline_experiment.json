@@ -1,0 +1,199 @@
+{
+  "experiment": "P24-B offline requirement retrieval and canonical matcher",
+  "hcx_called": false,
+  "production_agent_changed": false,
+  "full40_shared_preparation_parity": true,
+  "target_cases": [
+    {
+      "question_id": "R-010",
+      "primary_owner": "evidence_matcher",
+      "before": {
+        "gate_pass": false,
+        "missing_slots": [
+          "해지 과세 예외"
+        ],
+        "selected_chunk_ids": [
+          "37adcdadd2f3f902-table-08a7c9924f4f",
+          "55f36905c388adb6-table-aaec2abb0a55"
+        ]
+      },
+      "after": {
+        "gate_pass": true,
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "37adcdadd2f3f902-table-08a7c9924f4f",
+          "55f36905c388adb6-table-aaec2abb0a55"
+        ],
+        "current_evidence_sufficient_review": true
+      },
+      "review_reason": "selected tax table contains the canonical unavoidable non-annuity withdrawal exception"
+    },
+    {
+      "question_id": "R-024",
+      "primary_owner": "retrieval_recall",
+      "before": {
+        "gate_pass": false,
+        "missing_slots": [
+          "KR5144420081 risk_grade"
+        ],
+        "selected_chunk_ids": [
+          "42226bacb5f3829a-table-9748bbdce95b"
+        ]
+      },
+      "after": {
+        "gate_pass": true,
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "42226bacb5f3829a-table-669c8dee1825",
+          "42226bacb5f3829a-table-9748bbdce95b"
+        ],
+        "current_evidence_sufficient_review": true
+      },
+      "review_reason": "requirement query newly returns a same-product risk-grade table; the investment-target evidence was already selected"
+    },
+    {
+      "question_id": "R-028",
+      "primary_owner": "evidence_matcher",
+      "before": {
+        "gate_pass": false,
+        "missing_slots": [
+          "KR510902511M investment_target"
+        ],
+        "selected_chunk_ids": [
+          "ac97d050d2b39ec2-table-fdab853f4031"
+        ]
+      },
+      "after": {
+        "gate_pass": true,
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "ac97d050d2b39ec2-table-fdab853f4031"
+        ],
+        "current_evidence_sufficient_review": true
+      },
+      "review_reason": "same-product selected table states domestic-stock allocation and investment strategy, satisfying the target/strategy request"
+    },
+    {
+      "question_id": "R-037",
+      "primary_owner": "retrieval_recall",
+      "before": {
+        "gate_pass": false,
+        "missing_slots": [
+          "DB 적립금 운용",
+          "DC 적립금 운용"
+        ],
+        "selected_chunk_ids": []
+      },
+      "after": {
+        "gate_pass": true,
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "4607500e74afcdf8-table-6f164502cbce"
+        ],
+        "current_evidence_sufficient_review": true
+      },
+      "review_reason": "DB/DC operation subqueries newly return the source comparison table"
+    }
+  ],
+  "full40_context_impact": {
+    "changed_questions": [
+      {
+        "question_id": "R-010",
+        "changed_fields": [
+          "evidence_sufficient",
+          "gate_decision",
+          "missing_requirement_slots"
+        ],
+        "candidate_count": [
+          10,
+          10
+        ],
+        "selected_context_count": [
+          2,
+          2
+        ]
+      },
+      {
+        "question_id": "R-024",
+        "changed_fields": [
+          "candidate_chunk_ids",
+          "selected_merged_evidence_ids",
+          "evidence_sufficient",
+          "gate_decision",
+          "missing_requirement_slots"
+        ],
+        "candidate_count": [
+          14,
+          17
+        ],
+        "selected_context_count": [
+          1,
+          2
+        ]
+      },
+      {
+        "question_id": "R-028",
+        "changed_fields": [
+          "evidence_sufficient",
+          "gate_decision",
+          "missing_requirement_slots"
+        ],
+        "candidate_count": [
+          13,
+          13
+        ],
+        "selected_context_count": [
+          1,
+          1
+        ]
+      },
+      {
+        "question_id": "R-033",
+        "changed_fields": [
+          "candidate_chunk_ids",
+          "selected_merged_evidence_ids"
+        ],
+        "candidate_count": [
+          15,
+          18
+        ],
+        "selected_context_count": [
+          1,
+          2
+        ]
+      },
+      {
+        "question_id": "R-037",
+        "changed_fields": [
+          "candidate_chunk_ids",
+          "selected_merged_evidence_ids",
+          "evidence_sufficient",
+          "gate_decision",
+          "missing_requirement_slots"
+        ],
+        "candidate_count": [
+          10,
+          16
+        ],
+        "selected_context_count": [
+          0,
+          1
+        ]
+      }
+    ],
+    "candidate_count": [
+      425,
+      437
+    ],
+    "selected_context_count": [
+      305,
+      308
+    ]
+  },
+  "p15_mini_holdout": {
+    "route_or_gate_regressions": [],
+    "regression_free": true
+  },
+  "decision": "candidate_for_follow_up_review",
+  "caveat": "P11's old partial/none labels for R-010, R-028, and R-037 describe the old candidate sets. They are not valid ground truth for the new current-evidence gate judgement and were not overwritten."
+}

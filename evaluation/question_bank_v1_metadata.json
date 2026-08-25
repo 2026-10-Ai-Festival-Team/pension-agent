@@ -1,0 +1,17 @@
+{
+  "namespace_rule": "id = CSV-<source_item_id> or JSON-<source_item_id>; never merge source files by EVAL number alone",
+  "planner_slot_policy": "Source files do not supply canonical planner slots. planner.expected_slots remains empty until separately reviewed; gold answer rubrics must not be silently treated as canonical slots.",
+  "purpose": "development/regression specification bank; not training data and not a fresh holdout",
+  "record_count": 60,
+  "schema_version": "1.0",
+  "source_sets": {
+    "eval_questions_final_csv": {
+      "count": 30,
+      "sha256": "38bf78295dd33df13e5aa88543868638149af3d0a19641a249761b3b17a33eb2"
+    },
+    "eval_questions_json": {
+      "count": 30,
+      "sha256": "570a4a728aa119daf88bf3c5c87d595b65b3618696eb8a26c9c1b6fe1e5f3f19"
+    }
+  }
+}

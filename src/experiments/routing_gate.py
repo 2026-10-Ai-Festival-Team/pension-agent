@@ -26,12 +26,17 @@ class ExperimentalRouter:
         question = analysis.question
         extracted = analysis.extracted_entities
         support = self.support_classifier.classify(question)
-        if not support.supported or analysis.intent in {"unsupported_or_personal", "conditional_recommendation"}:
+        # 과거 성과가 장래 성과를 보장하는지 묻는 안전 전제 교정은
+        # ``가장 좋은 선택`` 같은 표현이 있어도 추천 요청으로 차단하지 않는다.
+        if not support.supported or (
+            analysis.intent in {"unsupported_or_personal", "conditional_recommendation"}
+            and support.category != "safety_premise"
+        ):
             return RouteDecision("unsupported", [support.category if not support.supported else analysis.intent])
         plan = self.requirement_builder.build(analysis)
         # DB/DC 운용 주체는 두 대상의 값을 확인하지만 하나의 직접 사실을 묻는
         # simple route다. requirement slot은 simple gate에서도 모두 검증한다.
-        if plan.category == "shared_operation_comparison":
+        if plan.category in {"shared_operation_comparison", "past_performance_premise"}:
             return RouteDecision("simple", [f"requirements:{plan.category}"], plan.case)
         if plan.requirement_count >= 2:
             return RouteDecision("compound", [f"requirements:{plan.category}"], plan.case)

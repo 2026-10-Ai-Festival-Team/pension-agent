@@ -34,4 +34,17 @@ def expand_requirement_candidates(
             if result.chunk_id not in seen:
                 candidates.append(result)
                 seen.add(result.chunk_id)
+    # Product factual slots receive only direct, product-bound anchors.  This
+    # is not a global BM25 change and does not permit a generic risk warning to
+    # satisfy a grade requirement.
+    anchor_lookup = getattr(retriever, "product_field_anchors", None)
+    if callable(anchor_lookup):
+        for slot in case.slots:
+            if not slot.key or ":" not in slot.key:
+                continue
+            product_code, field = slot.key.split(":", 1)
+            for result in anchor_lookup(product_code, field, top_k=top_k):
+                if result.chunk_id not in seen:
+                    candidates.append(result)
+                    seen.add(result.chunk_id)
     return tuple(candidates)

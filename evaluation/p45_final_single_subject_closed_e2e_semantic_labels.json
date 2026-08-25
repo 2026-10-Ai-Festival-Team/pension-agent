@@ -1,0 +1,40 @@
+{
+  "experiment": "P45 Final Fresh Single-Subject Closed E2E — semantic labels",
+  "source_result": "evaluation/p45_final_single_subject_closed_e2e.json",
+  "labeling_rule": "Manual labels are attached to the frozen answer_hash values; no HCX recall was made during labeling.",
+  "labels": [
+    {"id":"P45-001","answer_hash":"43590b2ba5d02887be2c4524d74ad8b2cb8818674a4c29d4b676e10a6ab2f259","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"primary_owner":null},
+    {"id":"P45-002","answer_hash":"5a23bbdcea84124d9a0c8d361615f030dc9f3fa8c44e4b2007d84ad88fc13aa2","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"primary_owner":null},
+    {"id":"P45-003","answer_hash":"1c0b60da9d51389abb6a6a440387bb9d9d20209381f27fa01d753b735deef16a","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":false,"primary_owner":"subject_resolution_miss"},
+    {"id":"P45-004","answer_hash":"1c0b60da9d51389abb6a6a440387bb9d9d20209381f27fa01d753b735deef16a","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":false,"primary_owner":"scope_resolution_miss"},
+    {"id":"P45-005","answer_hash":"b2a4eb12624d9a3c0dcca99fe7241336535add8b4a31802c5fe8de3266ba35bd","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"primary_owner":null},
+    {"id":"P45-006","answer_hash":"8c739d631a53475cd6593c3bf663d85651935c6d261a9c89d74c0dc758b2d224","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"correct","strict_useful":true,"primary_owner":null},
+    {"id":"P45-007","answer_hash":"353b0d64eeb48ef2d88215733ce34518113c080f89fd22d9ee4eb6a23d07252c","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"primary_owner":null},
+    {"id":"P45-008","answer_hash":"cbf97db2ee3cdba8a22878f84a61fc77037be96562873d3e9d64f66dbfe51c8b","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"correct","strict_useful":true,"primary_owner":null},
+    {"id":"P45-009","answer_hash":"8dd307057d5db13bc9bbc42c5a511de450e1d9bd5d63d7dffbe5ce4e6f8a0bc2","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"correct","strict_useful":true,"primary_owner":null},
+    {"id":"P45-010","answer_hash":"66af46e02dbb3f1d5334a4cee162ac2d88565d4ddadd9aaefb13a47c90b3c041","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"fully_supported","policy_behavior":"correct","strict_useful":false,"primary_owner":"generation_omission"},
+    {"id":"P45-011","answer_hash":"be409f6029a2b5d519d553f5ae9b60edf95a4ff6f8d25a40b15ed8069e6a9c69","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"fully_supported","policy_behavior":"correct","strict_useful":false,"primary_owner":"generation_omission"},
+    {"id":"P45-012","answer_hash":"615e2d674449e1e9df3e9e2d3c86cd291438100697b8af8759d501f044494bc4","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"correct","strict_useful":true,"primary_owner":null},
+    {"id":"P45-013","answer_hash":"cfc654b08670b6612fb2ee7a29ac20bfe080dbb5548b22288cb72e181f6064eb","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"fully_supported","policy_behavior":"correct","strict_useful":false,"primary_owner":"field_confusion"},
+    {"id":"P45-014","answer_hash":"057c249f750c64dc08532113fb1decc9a98ebd0132783a31077b9abe0c93a462","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"correct","strict_useful":true,"primary_owner":null},
+    {"id":"P45-015","answer_hash":"134792b2452d1c1be748e5665d0951f494f802a7ce3462df11bc9944efbeadb8","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"partially_supported","policy_behavior":"correct","strict_useful":false,"primary_owner":"generation_misread"},
+    {"id":"P45-016","answer_hash":"eecfb90d431db88d8bb8776b7d3f74007d1fe75e9c5bbb94343c0fef204e8c9c","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"fully_supported","policy_behavior":"correct","strict_useful":false,"primary_owner":"field_confusion"},
+    {"id":"P45-017","answer_hash":"6573903d0ab981d3f9d672ebe99b60a9bb902d3df0a0be91c34bf61a74ae5e1c","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"correct","strict_useful":true,"primary_owner":null},
+    {"id":"P45-018","answer_hash":"dee9f84ee29fe83da72cc1c62a0b3e8422428b1d393bcb38a4ad21b3b4216473","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":false,"primary_owner":"generation_omission"}
+  ],
+  "summary": {
+    "answerable": 18,
+    "strict_useful": 10,
+    "semantic_correct": 10,
+    "semantic_partial": 6,
+    "semantic_incorrect": 2,
+    "primary_failure_owners": {
+      "subject_resolution_miss": 1,
+      "scope_resolution_miss": 1,
+      "field_confusion": 2,
+      "generation_misread": 1,
+      "generation_omission": 3
+    },
+    "manual_labeling_hcx_calls": 0
+  }
+}

@@ -23,9 +23,32 @@ def test_answer_keeps_structured_evidence():
     assert body["retrieved_context"][0]["element_ids"] == ["e1"]
 
 
+def test_root_serves_a_browser_question_ui():
+    client = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator())))
+
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert "연금 Agent" in response.text
+    assert "fetch('/answer'" in response.text
+
+
 def test_answer_rejects_blank_question():
     client = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator())))
     assert client.post("/answer", json={"question": ""}).status_code == 422
+
+
+def test_read_only_shadow_exception_does_not_change_candidate_response():
+    class ExplodingShadow:
+        def observe(self, _question):
+            raise RuntimeError("shadow failure")
+
+    response = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator()), ExplodingShadow())).post(
+        "/answer", json={"question": "DB형 운용 주체는?"},
+    )
+
+    assert response.status_code == 200
+    assert response.json()["answer"]
 
 
 def test_get_answer_uses_evaluation_contract():

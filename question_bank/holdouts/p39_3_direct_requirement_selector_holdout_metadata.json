@@ -1,0 +1,17 @@
+{
+  "experiment": "P39-3 Fresh Direct-Selector Holdout",
+  "supersedes": "P39-2 invalid execution incident; no P39-2 result was retained",
+  "question_count": 18,
+  "category_counts": {
+    "compound_closed": 3,
+    "institution": 3,
+    "procedure": 3,
+    "product_comparison": 3,
+    "product_factual": 3,
+    "tax": 3
+  },
+  "manifest_sha256": "db7fece6924f4b7183fd227e57b453b29ae06b5f65cd2b970426b94ffff1b679",
+  "unknown_enum_values": [],
+  "frozen_before_hcx": true,
+  "hcx_calls": 0
+}

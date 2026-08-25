@@ -1,0 +1,522 @@
+{
+  "experiment": "P44 Read-only Shadow Integration",
+  "input": {
+    "p42_frozen_selector_output": "evaluation/p42_final_frontend_holdout.json",
+    "manifest": "question_bank/holdouts/p42_final_frontend_holdout.jsonl"
+  },
+  "boundary": "frozen selector replay + live resolver/binder/retrieval; no HCX, candidate decision, or browser response mutation",
+  "summary": {
+    "question_count": 18,
+    "candidate_response_unchanged": 18,
+    "shadow_contract_errors": 0,
+    "shadow_exceptions": 0,
+    "ambiguous_scope_retrieval": 0,
+    "shadow_worse": 0,
+    "shadow_better": 1,
+    "equivalent": 17,
+    "shadow_latency_ms": {
+      "min": 0.03,
+      "median": 58.27,
+      "max": 138.558
+    },
+    "hcx_answer_calls_added": 0,
+    "candidate_decision_changed": false,
+    "browser_output_changed": false
+  },
+  "rows": [
+    {
+      "id": "P42-001",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "5acebaf5036216c8ccf8f30e932619bd3a924238a0b49814f33275cf7ac9276a",
+      "shadow": {
+        "question_sha256": "cd6c3f1a718e5e14d3178b374bcc7427dbb07784cc04d283a7cdad5a2f615797",
+        "status": "prepared",
+        "active_subject": "product:KR5127450215",
+        "selected_requirements": [
+          "product.tracking_index"
+        ],
+        "context_ids": [
+          "8297231e70bc792a-paragraph_group-7ecf4273221c",
+          "8297231e70bc792a-paragraph_group-945cc5a3a4d7"
+        ],
+        "latency_ms": 120.598,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "shadow_better",
+      "divergence_reason": "legacy_insufficient_shadow_prepared",
+      "legacy_context_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c",
+        "8297231e70bc792a-paragraph_group-d2e006f7202a",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90",
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976"
+      ]
+    },
+    {
+      "id": "P42-002",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "172fbd172a577d32bfdbd7a06353254743b16ea77ab33c02b3193f9399410427",
+      "shadow": {
+        "question_sha256": "6d49e9fbfe2b5cf8226ee27082ff372444b0d17052fd21b268132b62b206e420",
+        "status": "prepared",
+        "active_subject": "product:KR5114420022",
+        "selected_requirements": [
+          "product.total_fee"
+        ],
+        "context_ids": [
+          "f24a347b7c7a170c-table-976297acc5c3",
+          "f24a347b7c7a170c-paragraph_group-b4dbdb7c37cd"
+        ],
+        "latency_ms": 60.328,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "f24a347b7c7a170c-paragraph_group-55712934ceb5",
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287"
+      ]
+    },
+    {
+      "id": "P42-003",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "41b5630cd1c965c361cc5fc1364cec24571c4af129424a3e4151ab5c06c3dc17",
+      "shadow": {
+        "question_sha256": "674fbe5d35782be20a7f84254937f1eb23849ca82fbfadafe388c98ce196dbae",
+        "status": "prepared",
+        "active_subject": "product:KR5114450222",
+        "selected_requirements": [
+          "product.risk_grade.change_possibility",
+          "product.risk_grade.current"
+        ],
+        "context_ids": [
+          "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+          "545de7c663ff2726-table-0b26f6286e7d",
+          "545de7c663ff2726-paragraph_group-150e75283733"
+        ],
+        "latency_ms": 138.558,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "8297231e70bc792a-table-2114705787fe",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+      ]
+    },
+    {
+      "id": "P42-004",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "11f31d6b4a41f1a73c4d12fbcf2cc6675cc994091556ace0a0168453fb4c3513",
+      "shadow": {
+        "question_sha256": "5f4ced5d5de3d608854f2b55a0f6079d12da82ab2af197765bac16e672dcd2e6",
+        "status": "prepared",
+        "active_subject": "DC",
+        "selected_requirements": [
+          "DC.benefit_determination"
+        ],
+        "context_ids": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "ef05c9c97fbadd27-table-6cb74dcb5e83"
+        ],
+        "latency_ms": 51.256,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ]
+    },
+    {
+      "id": "P42-005",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "dfaecac5d542786a3f177c5620a3965da55b0da06d4bd30704b582f21a0ab32c",
+      "shadow": {
+        "question_sha256": "c8a18e7383b80fd061a50811db474c53050b9e8d44ea29e07b601cd7408fa252",
+        "status": "prepared",
+        "active_subject": "IRP",
+        "selected_requirements": [
+          "IRP.early_withdrawal.allowed_reasons",
+          "IRP.withdrawal.tax_treatment"
+        ],
+        "context_ids": [
+          "e8d7e6a69504e042-table-e07c4f8c5781",
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+          "e8d7e6a69504e042-table-05de077f1213"
+        ],
+        "latency_ms": 113.568,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ]
+    },
+    {
+      "id": "P42-006",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "9c52126ccc2e543eb6c5ccdd1a259c3698c30b6e0f812312858b830a115bf08b",
+      "shadow": {
+        "question_sha256": "8094a1b00417c45ed806bfd05f2ea37dd5291225218f5ef295ceb1f29b68a7e2",
+        "status": "prepared",
+        "active_subject": "pension_savings",
+        "selected_requirements": [
+          "pension_savings.early_withdrawal.allowed_reasons",
+          "pension_savings.withdrawal.tax_treatment"
+        ],
+        "context_ids": [
+          "a1e78e21d33dafed-table-e9ba0606db15",
+          "e8d7e6a69504e042-table-05de077f1213",
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+        ],
+        "latency_ms": 97.074,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b"
+      ]
+    },
+    {
+      "id": "P42-007",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "9a39eb6e7e9125dcc613781208f34326c460c7419e3438217f581413a1ceaeb0",
+      "shadow": {
+        "question_sha256": "d32dbe01ee44a015583674896943e40a745522544780f63c10b8a1f598996471",
+        "status": "prepared",
+        "active_subject": "DC",
+        "selected_requirements": [
+          "DC.early_withdrawal.allowed_reasons",
+          "DC.early_withdrawal.required_documents"
+        ],
+        "context_ids": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "04782a392f49293e-paragraph_group-4390ad8476e5",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "15fb5460a23aa10d-paragraph_group-9b55ec13ba82"
+        ],
+        "latency_ms": 56.213,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "04782a392f49293e-paragraph_group-09adcb298a6f"
+      ]
+    },
+    {
+      "id": "P42-008",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "9f1b0e04d10e667e4d923fbaa5c0244eb688211bd90b4a33191fe1a75792eb39",
+      "shadow": {
+        "question_sha256": "bf0dd98e5b8d2c827fd72f5df8fa973913113dcc7d78f23ab368cbeaeaf40633",
+        "status": "prepared",
+        "active_subject": "ISA",
+        "selected_requirements": [
+          "ISA.transfer.additional_tax_credit",
+          "ISA.transfer.deadline"
+        ],
+        "context_ids": [
+          "ae22159be59440b6-table-433001f3f808",
+          "ae22159be59440b6-table-5897a6d84778",
+          "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+          "ae22159be59440b6-paragraph_group-edb7af982168"
+        ],
+        "latency_ms": 72.332,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d"
+      ]
+    },
+    {
+      "id": "P42-009",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "95db38cad9e09ce73a7434ac62f7223445fd3ba85eb1368ea3c10b7489980351",
+      "shadow": {
+        "question_sha256": "68b25a180d1d4942f241d6448e21eed9d9831f939335525768aa84c1930fd27c",
+        "status": "prepared",
+        "active_subject": "DC",
+        "selected_requirements": [
+          "DC.benefit_determination",
+          "retirement_pension.participant_education.frequency",
+          "retirement_pension.participant_education.outsourcing"
+        ],
+        "context_ids": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "ae713c70a631594f-table-800a3663c3f6",
+          "ef05c9c97fbadd27-table-6cb74dcb5e83",
+          "ae713c70a631594f-paragraph_group-b665fce408b0"
+        ],
+        "latency_ms": 115.13,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ]
+    },
+    {
+      "id": "P42-010",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "d0509302b5e7ff44da6781b33e9ccc92a662d8612853e54eda28ac9ee570607b",
+      "shadow": {
+        "question_sha256": "0c573a270a4e2d8af800cd944fb36303feb005d2f45a5f6d3cb29614227e864f",
+        "status": "prepared",
+        "active_subject": "product:KR5114450222",
+        "selected_requirements": [
+          "product.period_cost"
+        ],
+        "context_ids": [
+          "545de7c663ff2726-table-c23d15637943",
+          "545de7c663ff2726-paragraph_group-10110248f7f2"
+        ],
+        "latency_ms": 39.905,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "545de7c663ff2726-paragraph_group-10110248f7f2",
+        "cf922cacac95fad9-paragraph_group-50171832b91f"
+      ]
+    },
+    {
+      "id": "P42-011",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "11993907871a99b9e38c6ca3655a31e3428dcc0e95a3e6aa787d5a67e1b92234",
+      "shadow": {
+        "question_sha256": "43e8a37cb5d4be79a6ec7c6b78c1f29bf7485834b9445c084da7d71cbff140f6",
+        "status": "prepared",
+        "active_subject": "IRP",
+        "selected_requirements": [
+          "retirement_pension.in_kind_transfer.IRP.application_route"
+        ],
+        "context_ids": [
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "04782a392f49293e-paragraph_group-09adcb298a6f"
+        ],
+        "latency_ms": 22.881,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "0df8c3cfaf3a3b5a-spreadsheet_rows-41aa8c2e4790",
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ]
+    },
+    {
+      "id": "P42-012",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "372d912279b4cab6d46f0fb472f2afda3efbdd25baa021e3d9b13ee016aaf401",
+      "shadow": {
+        "question_sha256": "e676a3e625976e1e346bf20fb097ab937bd357f9ddebe4c5dacc89d7a709f1b1",
+        "status": "prepared",
+        "active_subject": "DB",
+        "selected_requirements": [
+          "DB.benefit_determination",
+          "DB.operation_party"
+        ],
+        "context_ids": [
+          "49ed30e0f7b42e68-table-0910adeedcae",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "fc71bcf7cc90f68d-table-fc470df2b580",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ],
+        "latency_ms": 78.101,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ]
+    },
+    {
+      "id": "P42-013",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "7835908ad398777199fe806d5f59693df95bc17b0a9637508b832b63241068c0",
+      "shadow": {
+        "question_sha256": "5f54aad609b8a979664bd965d5327dcf21ca60eadcb19fe01a4c8a5d94612425",
+        "status": "prepared",
+        "active_subject": "product:KR5127450215",
+        "selected_requirements": [
+          "product.risk_grade.current",
+          "product.risk_grade.historical"
+        ],
+        "context_ids": [
+          "8297231e70bc792a-paragraph_group-462abaa9735c",
+          "8297231e70bc792a-paragraph_group-06a80bce2773",
+          "8297231e70bc792a-table-2114705787fe",
+          "8297231e70bc792a-table-7051b9a2f3e0"
+        ],
+        "latency_ms": 75.12,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "8297231e70bc792a-table-2114705787fe"
+      ]
+    },
+    {
+      "id": "P42-014",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "ef2e7a7bca4df8fd21d360ac7e9ab10708f2c0e84979ceb352136ae086fd6890",
+      "shadow": {
+        "question_sha256": "7b9e7650fe437c24fff2801438d01458b1256d5e8dc9374d3b605c5872a6866a",
+        "status": "prepared",
+        "active_subject": "IRP",
+        "selected_requirements": [
+          "retirement_income.IRP_transfer.tax_timing"
+        ],
+        "context_ids": [
+          "55f36905c388adb6-table-aaec2abb0a55",
+          "7878a3be5806fef4-table-a3623398dbaa"
+        ],
+        "latency_ms": 35.4,
+        "reason": null,
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "4607500e74afcdf8-paragraph_group-45b428961c7a",
+        "04782a392f49293e-paragraph_group-aa7d8f27995b",
+        "68ed4316f0a6a16e-paragraph_group-514fde38e182",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133"
+      ]
+    },
+    {
+      "id": "P42-015",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "c44ab7cd0f9d18403247345d052c5bea2eba8120f90a35fb9fd8b212c3ed4178",
+      "shadow": {
+        "question_sha256": "fece550b51db4e5b5707d095cd350cbd4b27350ff4239a6bb8cdd093a671dfe7",
+        "status": "unresolved_scope",
+        "active_subject": null,
+        "selected_requirements": [],
+        "context_ids": [],
+        "latency_ms": 0.032,
+        "reason": "unresolved_reference",
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ]
+    },
+    {
+      "id": "P42-016",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "275c6b8deb9929a80a9574e702f5acc536199a21032da525eb4f045af5cc68bf",
+      "shadow": {
+        "question_sha256": "80e504fb967eaffae365505473ca5561ff6e2fd0b037b17e1f91e9055ec300c1",
+        "status": "unresolved_scope",
+        "active_subject": null,
+        "selected_requirements": [],
+        "context_ids": [],
+        "latency_ms": 0.03,
+        "reason": "unresolved_reference",
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ]
+    },
+    {
+      "id": "P42-017",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "cd681a47c267e6a3160d12ef005f2ca7eba3ea03e35e0679c74d10d925925350",
+      "shadow": {
+        "question_sha256": "f00f3e1761614a4224dc9136b62727fe0f4690574073ab8b1004c90415eafa44",
+        "status": "unresolved_scope",
+        "active_subject": null,
+        "selected_requirements": [],
+        "context_ids": [],
+        "latency_ms": 0.031,
+        "reason": "unresolved_reference",
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428"
+      ]
+    },
+    {
+      "id": "P42-018",
+      "candidate_response_unchanged": true,
+      "candidate_response_hash": "d6782a98b30a009f43e8c8db443116fd63ed959d41404da4a2cf76b9367ee949",
+      "shadow": {
+        "question_sha256": "51caf3c4ff81b0172a7c4e83d22d26b027cf1ff772107f8913e05bb89f4dcc3c",
+        "status": "unresolved_scope",
+        "active_subject": null,
+        "selected_requirements": [],
+        "context_ids": [],
+        "latency_ms": 0.032,
+        "reason": "unresolved_reference",
+        "exception_type": null
+      },
+      "divergence": "equivalent",
+      "divergence_reason": "different_context_requires_source_relevance_not_answer_comparison",
+      "legacy_context_ids": [
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287",
+        "8297231e70bc792a-paragraph_group-8ef4ada87a1a"
+      ]
+    }
+  ]
+}

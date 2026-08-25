@@ -1,0 +1,14 @@
+{
+  "name": "P38-5 Manual Semantic Contract v2 Gold",
+  "question_count": 48,
+  "annotation_status_counts": {
+    "confirmed": 48,
+    "needs_annotation": 0,
+    "ambiguous": 0
+  },
+  "auto_converted_count": 0,
+  "unknown_ontology_value_count": 0,
+  "manifest_sha256": "2249f41fcc4938935ebeba93051f39147ee9b96f7a698efcb8427cae816a2c2f",
+  "hcx_calls": 0,
+  "candidate_agent_changed": false
+}

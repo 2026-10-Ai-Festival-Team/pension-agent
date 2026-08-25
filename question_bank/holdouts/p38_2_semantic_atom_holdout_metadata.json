@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "name": "P38-2 Fresh Semantic-Atom Mini Holdout",
+  "status": "frozen_before_isolated_parser_execution",
+  "question_count": 18,
+  "scope": "closed factual semantic decomposition only",
+  "excluded": [
+    "candidate_agent",
+    "retrieval",
+    "HCX",
+    "citation",
+    "policy"
+  ],
+  "manifest_sha256": "a8f2c972c589dd012375fa422cb714e0695e0999349624171217abb946f2213e",
+  "normalised_overlap_with_prior_material": 0,
+  "go_criteria": {
+    "subject_f1": 0.9,
+    "action_f1": 0.9,
+    "field_f1": 0.85,
+    "modifier_f1": 0.8,
+    "requirement_exact": 0.8
+  }
+}

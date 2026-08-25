@@ -1,0 +1,65 @@
+{
+  "experiment": "P47-B Exclusive Scope Regression",
+  "selector_output_reused": true,
+  "summary": {
+    "target_count": 2,
+    "scope_correct": 2,
+    "requirement_exact": 2,
+    "gold_evidence_covered": 2,
+    "schema_valid": 2,
+    "ontology_valid": 2,
+    "unknown_requirement_count": 0,
+    "answer_generation_hcx_calls": 0,
+    "candidate_or_browser_changed": false
+  },
+  "outputs": [
+    {
+      "id": "P45-004",
+      "active_subject": "pension_savings",
+      "expected_active_subject": "pension_savings",
+      "selected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "expected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "allowed_requirements": [
+        "pension_savings.tax_credit.limit",
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "scope_correct": true,
+      "requirement_exact": true,
+      "gold_evidence_covered": {
+        "pension_savings.tax_credit.limit": true
+      },
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_requirements": []
+    },
+    {
+      "id": "P47-004",
+      "active_subject": "pension_savings",
+      "expected_active_subject": "pension_savings",
+      "selected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "expected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "allowed_requirements": [
+        "pension_savings.tax_credit.limit",
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "scope_correct": true,
+      "requirement_exact": true,
+      "gold_evidence_covered": {
+        "pension_savings.tax_credit.limit": true
+      },
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_requirements": []
+    }
+  ]
+}

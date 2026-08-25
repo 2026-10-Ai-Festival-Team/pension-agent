@@ -1,0 +1,369 @@
+{
+  "experiment": "P33-C1 source-relevance generalization",
+  "hcx_called": false,
+  "adjudication_rule": "subject + account/product/system scope + field/requirement + factual value/condition",
+  "summary": {
+    "total": 18,
+    "exact_gold": 12,
+    "semantic_equivalent": 6,
+    "partial": 0,
+    "wrong_scope": 0,
+    "exact_or_equivalent": 18
+  },
+  "source_relevance_gate_pass": true,
+  "go_for_p34": false,
+  "rows": [
+    {
+      "question_id": "P33-001",
+      "question": "DB나 DC를 운영하는 회사는 가입자 교육을 누가, 얼마나 자주 해야 하나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ],
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-002",
+      "question": "근로자가 DC 계좌에 본인이 추가로 넣은 돈과 그 운용수익도 압류 보호 대상인가요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a"
+      ],
+      "selected_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "de4f8448134189df-paragraph_group-56c3e7dd9332",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "2ce564b5ddde4f21-table-899cb955b4a1",
+        "2ce564b5ddde4f21-paragraph_group-502bae338bd5",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "2ce564b5ddde4f21-table-df602195ef06",
+        "04782a392f49293e-paragraph_group-a9603aad0402",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+      ],
+      "route": "simple",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-003",
+      "question": "계속근로기간이 1년 미만이고 주당 근로시간도 15시간 미만이면 IRP를 아예 만들 수 없나요?",
+      "verdict": "semantic_equivalent",
+      "basis": "선택된 동일 IRP 원본 표가 단기·단시간 근로자의 IRP 가입 대상을 직접 설명한다.",
+      "declared_acceptable_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-ccf30a6fc558",
+        "ef05c9c97fbadd27-paragraph_group-ea2cf30bcee0"
+      ],
+      "selected_chunk_ids": [
+        "ef05c9c97fbadd27-table-8e56553263f7",
+        "61c5315b1e7c0f25-table-e5096bd1614a",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-table-7b4869d9a706",
+        "61c5315b1e7c0f25-table-2cf4a5f0980e",
+        "61c5315b1e7c0f25-paragraph_group-7415ee00da59",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "49ed30e0f7b42e68-table-f9077dc63b19",
+        "49ed30e0f7b42e68-paragraph_group-4d1bc4e95c19",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428"
+      ],
+      "route": "simple",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-004",
+      "question": "보유 상품을 팔지 않고 퇴직연금 금융회사만 바꾸려면 DB·DC와 IRP의 신청 경로가 같은가요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "selected_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-005",
+      "question": "DC나 IRP에서 레버리지 ETF와 인버스 ETF를 직접 매매할 수 있나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "selected_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-006",
+      "question": "DC 회사가 정기부담금을 늦게 냈다면 어떤 문제가 생기고, 퇴직한 직원에게는 언제까지 미납분을 내야 하나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "46551bfa35d467ed-paragraph_group-ef7c4c45d935"
+      ],
+      "selected_chunk_ids": [
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "46551bfa35d467ed-paragraph_group-ef7c4c45d935",
+        "46551bfa35d467ed-table-869b91f75225",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "04782a392f49293e-table-bc16c5284b58",
+        "46551bfa35d467ed-table-2949fe56b6ba",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+      ],
+      "route": "simple",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-007",
+      "question": "ISA 만기 자금을 연금저축이나 IRP로 옮길 때 기한과 추가 세액공제 한도를 함께 알려주세요.",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "ae22159be59440b6-table-433001f3f808"
+      ],
+      "selected_chunk_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-008",
+      "question": "연금저축과 IRP에 나눠 넣는 경우, 세액공제 한도와 중간에 돈이 필요할 때 인출 유연성은 어떻게 달라지나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "7cce439d30d5a8b0-table-20114875d339"
+      ],
+      "selected_chunk_ids": [
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "04782a392f49293e-table-d2d7171cef89",
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-009",
+      "question": "국내 상장 해외 ETF를 일반계좌로 보유할 때와 연금계좌로 보유할 때, 매매차익·분배금 과세 시점은 어떻게 다른가요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-table-ce8fee5b43be"
+      ],
+      "selected_chunk_ids": [
+        "13621d38202e2fc3-table-5431011b44b5",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "de4f8448134189df-table-3b9ac10c94d4",
+        "de4f8448134189df-table-ce8fee5b43be",
+        "13621d38202e2fc3-paragraph_group-41027eb1c16a",
+        "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+        "13621d38202e2fc3-paragraph_group-81d30048d288",
+        "13621d38202e2fc3-paragraph_group-b16130931557",
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ],
+      "route": "simple",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-010",
+      "question": "연금수령한도에 쓰는 연차와 실제로 연금을 받은 연차는 무엇이 다르고, 퇴직소득세 감면에는 어느 쪽이 영향을 주나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "98556b19ed28c070-paragraph_group-29ad11de5d9a",
+        "98556b19ed28c070-table-205dd515e51e"
+      ],
+      "selected_chunk_ids": [
+        "98556b19ed28c070-paragraph_group-29ad11de5d9a",
+        "7878a3be5806fef4-paragraph_group-4db22464421b",
+        "98556b19ed28c070-table-205dd515e51e",
+        "98556b19ed28c070-paragraph_group-ae84e15629c6",
+        "745f9a08e811b6b1-table-5b26881cf7ac",
+        "55f36905c388adb6-paragraph_group-ec73e8644b04",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "6cf691c50b1e1ce9-paragraph_group-328a961da574",
+        "401aa15b0e898e9b-paragraph_group-f331093fe43c",
+        "7875bce4243126a0-table-72fb18f05075"
+      ],
+      "route": "simple",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-011",
+      "question": "KR5147430065는 운용전환 전과 후 위험등급이 어떻게 달라지고, 채권형으로 바뀌면 예금처럼 원금이 보장되나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a",
+        "d8a6e37c05c58b07-paragraph_group-f278d6a17afd"
+      ],
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-c3342b6d4f83",
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a",
+        "d8a6e37c05c58b07-paragraph_group-a5b80f2b7c74"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-012",
+      "question": "KR5174420011은 어떤 위험등급·자산유형이고, 낮은 위험이라는 이유만으로 손실 가능성이 없다고 볼 수 있나요?",
+      "verdict": "semantic_equivalent",
+      "basis": "동일 상품 청크가 5등급·채권 운용전략·실적배당 및 원금손실 가능성을 함께 지지한다.",
+      "declared_acceptable_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-af5c9f3c5aa2",
+        "a7eb7560c10ba4f2-paragraph_group-e81241cbda21"
+      ],
+      "selected_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-934493173fce",
+        "a7eb7560c10ba4f2-table-23b55dd1b308",
+        "a7eb7560c10ba4f2-paragraph_group-c0cbab4ca054",
+        "a7eb7560c10ba4f2-paragraph_group-a521f2f07267"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-013",
+      "question": "KR515302022M과 KR5129420025의 위험등급과 주된 투자대상은 어떻게 대비되나요?",
+      "verdict": "semantic_equivalent",
+      "basis": "각 상품의 선택 청크가 해당 상품의 위험등급과 주식 60% 이상 또는 국내 채권 투자 사실을 직접 지지한다.",
+      "declared_acceptable_chunk_ids": [
+        "745f9a08e811b6b1-paragraph_group-731bca46dc5a",
+        "745f9a08e811b6b1-table-dcc9968a1974",
+        "ec6207f6286e8df1-paragraph_group-830c26711cef"
+      ],
+      "selected_chunk_ids": [
+        "ec6207f6286e8df1-table-8819bf6f75c8",
+        "ec6207f6286e8df1-paragraph_group-5de913394d3c",
+        "745f9a08e811b6b1-table-392c216e0efe",
+        "745f9a08e811b6b1-paragraph_group-15c23c59c85c"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-014",
+      "question": "KR5174420011의 온라인 C-E 클래스에서 연간 총보수·비용과 3년 총비용 예시는 같은 숫자를 뜻하나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-7150e1c9103a",
+        "a7eb7560c10ba4f2-table-71fc43eb708a"
+      ],
+      "selected_chunk_ids": [
+        "a7eb7560c10ba4f2-table-48201921a8eb",
+        "a7eb7560c10ba4f2-paragraph_group-7150e1c9103a"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-015",
+      "question": "KR5147430065는 운용전환 뒤 투자전략이 무엇으로 바뀌고, 그 변화만으로 목표수익이 확정된다고 말할 수 있나요?",
+      "verdict": "exact_gold",
+      "basis": "Selected context contains a manifest-declared acceptable chunk.",
+      "declared_acceptable_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a",
+        "d8a6e37c05c58b07-table-7922a4581179"
+      ],
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-86c50106a472",
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a",
+        "d8a6e37c05c58b07-paragraph_group-a5b80f2b7c74"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-023",
+      "question": "6등급 채권형 펀드라면 은행예금처럼 예금자보호와 원금보장이 된다고 이해해도 되나요?",
+      "verdict": "semantic_equivalent",
+      "basis": "한 6등급 채권형 상품의 동일 원본에서 위험등급 산정, 예금자보호 비대상 및 원금손실 가능성을 직접 지지한다.",
+      "declared_acceptable_chunk_ids": [
+        "745f9a08e811b6b1-paragraph_group-3a78f12de00d",
+        "745f9a08e811b6b1-paragraph_group-731bca46dc5a"
+      ],
+      "selected_chunk_ids": [
+        "745f9a08e811b6b1-table-392c216e0efe",
+        "745f9a08e811b6b1-paragraph_group-b8cb0320120d"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-024",
+      "question": "목표전환형 펀드가 채권 중심으로 운용을 바꾸면 이후 가격이 절대 내려가지 않는다고 볼 수 있나요?",
+      "verdict": "semantic_equivalent",
+      "basis": "동일 목표전환 상품의 요약정보와 위험 문단이 운용전환 후 국내 채권 전략 및 전환 과정 손실 가능성을 지지한다.",
+      "declared_acceptable_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a",
+        "d8a6e37c05c58b07-table-7922a4581179"
+      ],
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-0f4eb69b3eb4",
+        "d8a6e37c05c58b07-paragraph_group-a97233816116"
+      ],
+      "route": "compound",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    },
+    {
+      "question_id": "P33-025",
+      "question": "채권형 펀드의 지난 3년 수익률이 꾸준했다면 앞으로도 같은 성과가 확정된다고 봐도 되나요?",
+      "verdict": "semantic_equivalent",
+      "basis": "선택된 원본들은 각각 과거 투자실적의 장래 비보장과 투자성향에 따른 적합성 판단을 직접 지지한다. 질문은 특정 상품을 지칭하지 않는 일반 안전 전제다.",
+      "declared_acceptable_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-af5c9f3c5aa2"
+      ],
+      "selected_chunk_ids": [
+        "71758d888c643ea0-table-660e77513fdd",
+        "ac97d050d2b39ec2-table-3c3be297fdb7"
+      ],
+      "route": "simple",
+      "evidence_sufficient": true,
+      "missing_slots": []
+    }
+  ]
+}

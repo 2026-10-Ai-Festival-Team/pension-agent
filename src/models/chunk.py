@@ -7,6 +7,8 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field, model_validator
 
+from src.models.document import AuthorityLevel, SourceType
+
 
 class ChunkType(str, Enum):
     PARAGRAPH_GROUP = "paragraph_group"
@@ -52,6 +54,9 @@ class SearchChunk(BaseModel):
     source_path: str = Field(min_length=1)
     source_format: str = Field(min_length=1)
     document_type: str = Field(min_length=1)
+    source_type: SourceType = SourceType.ORIGINAL
+    authority_level: AuthorityLevel = AuthorityLevel.PRIMARY
+    as_of_date: Optional[str] = None
     title: Optional[str] = None
     section: Optional[str] = None
     chunk_type: ChunkType

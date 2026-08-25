@@ -18,3 +18,19 @@ def test_assessor_requests_conditions_for_recommendation():
     assessment = EvidenceAssessor().assess(analysis, [result()])
     assert not assessment.sufficient
     assert "위험 성향" in assessment.missing_requirements
+
+
+def test_assessor_can_compare_provenance_policy_without_changing_other_gates():
+    from src.models.document import AuthorityLevel, SourceType
+
+    augmented = result().model_copy(
+        update={
+            "source_type": SourceType.AUGMENTED,
+            "authority_level": AuthorityLevel.SECONDARY,
+        }
+    )
+    analysis = QueryAnalyzer().analyze("DB형 운용 주체는?")
+    assessor = EvidenceAssessor()
+
+    assert assessor.assess_without_provenance(analysis, [augmented]).sufficient is True
+    assert assessor.assess(analysis, [augmented]).reason == "primary_original_evidence_missing"

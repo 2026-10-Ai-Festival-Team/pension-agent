@@ -1,0 +1,193 @@
+{
+  "experiment": "P33-C source-relevance attribution",
+  "hcx_called": false,
+  "scope": "P33-B exact manifest-source overlap mismatch 7 cases",
+  "decision_rule": [
+    "A selected chunk is equivalent only when subject, account/product/system scope, required field, and factual value or condition all match.",
+    "Same document_id or source_path alone is not sufficient.",
+    "A case is partial when at least one required fact is supported but another required fact is absent or not scoped to the subject.",
+    "A case is irrelevant_or_wrong_scope when a required fact is supported only by a different product/system or by text unrelated to the requirement."
+  ],
+  "summary": {
+    "manifest_source_cases": 18,
+    "exact_gold_chunk": 11,
+    "equivalent_evidence": 3,
+    "partial_evidence": 2,
+    "irrelevant_or_wrong_scope": 2,
+    "exact_or_equivalent": 14,
+    "wrong_scope_count": 2,
+    "go": false
+  },
+  "cases": [
+    {
+      "question_id": "P33-003",
+      "verdict": "equivalent_evidence",
+      "manifest_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-ccf30a6fc558",
+        "ef05c9c97fbadd27-paragraph_group-ea2cf30bcee0"
+      ],
+      "selected_chunk_ids": ["ef05c9c97fbadd27-table-8e56553263f7"],
+      "requirement_assessment": [
+        {
+          "requirement": "IRP 설정 가능 여부와 단기·단시간 근로자 범위",
+          "verdict": "equivalent_evidence",
+          "basis": "동일 IRP 원본 표가 계속근로 1년 미만 또는 주 15시간 미만 근로자를 퇴직급여제도 미설정 근로자의 IRP 가입 대상으로 명시한다."
+        }
+      ]
+    },
+    {
+      "question_id": "P33-011",
+      "verdict": "equivalent_evidence",
+      "manifest_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-f278d6a17afd",
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a"
+      ],
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-c3342b6d4f83",
+        "d8a6e37c05c58b07-table-670077753176"
+      ],
+      "requirement_assessment": [
+        {
+          "requirement": "운용전환 전·후 위험등급",
+          "verdict": "equivalent_evidence",
+          "basis": "동일 상품의 선택 청크가 전환 전 4등급, 전환 후 5등급을 직접 설명한다."
+        },
+        {
+          "requirement": "실적배당·예금자보호·원금손실 여부",
+          "verdict": "equivalent_evidence",
+          "basis": "동일 상품의 선택 표가 예금자보호 비대상 실적배당상품이며 목표전환·상환 과정 손실 위험을 부담할 수 있음을 명시한다."
+        }
+      ]
+    },
+    {
+      "question_id": "P33-012",
+      "verdict": "equivalent_evidence",
+      "manifest_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-e81241cbda21",
+        "a7eb7560c10ba4f2-paragraph_group-af5c9f3c5aa2"
+      ],
+      "selected_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-934493173fce",
+        "a7eb7560c10ba4f2-paragraph_group-c0cbab4ca054",
+        "a7eb7560c10ba4f2-paragraph_group-a521f2f07267"
+      ],
+      "requirement_assessment": [
+        {
+          "requirement": "5등급 낮은 위험",
+          "verdict": "equivalent_evidence",
+          "basis": "동일 상품의 선택 청크가 실제 수익률 변동성 기준 5등급(낮은 위험)을 명시한다."
+        },
+        {
+          "requirement": "채권형 투자대상·전략",
+          "verdict": "equivalent_evidence",
+          "basis": "동일 상품의 선택 청크가 채권운용전략과 주된 채권 투자를 명시한다."
+        },
+        {
+          "requirement": "실적배당·예금자보호 비대상·원금손실 가능성",
+          "verdict": "equivalent_evidence",
+          "basis": "동일 상품의 선택 청크가 실적배당상품, 예금자보호 비대상, 투자원금 손실 가능성을 명시한다."
+        }
+      ]
+    },
+    {
+      "question_id": "P33-013",
+      "verdict": "partial_evidence",
+      "manifest_chunk_ids": [
+        "ec6207f6286e8df1-paragraph_group-830c26711cef",
+        "745f9a08e811b6b1-paragraph_group-731bca46dc5a",
+        "745f9a08e811b6b1-table-dcc9968a1974"
+      ],
+      "selected_chunk_ids": [
+        "ec6207f6286e8df1-table-8819bf6f75c8",
+        "745f9a08e811b6b1-paragraph_group-15c23c59c85c"
+      ],
+      "requirement_assessment": [
+        {
+          "requirement": "KR515302022M 위험등급",
+          "verdict": "equivalent_evidence",
+          "basis": "동일 상품 표가 2등급(높은 위험)을 명시한다."
+        },
+        {
+          "requirement": "KR515302022M 국내 주식 60% 이상",
+          "verdict": "partial_evidence",
+          "basis": "선택 context에는 해당 상품의 국내 주식 60% 이상 투자 사실이 없다."
+        },
+        {
+          "requirement": "KR5129420025 6등급 및 국내 채권 중심 전략",
+          "verdict": "partial_evidence",
+          "basis": "동일 상품 설명은 6등급을 지지하지만, 선택 청크에는 manifest가 요구한 국내 채권 중심 투자전략이 없다."
+        }
+      ]
+    },
+    {
+      "question_id": "P33-023",
+      "verdict": "partial_evidence",
+      "manifest_chunk_ids": [
+        "745f9a08e811b6b1-paragraph_group-731bca46dc5a",
+        "745f9a08e811b6b1-paragraph_group-3a78f12de00d"
+      ],
+      "selected_chunk_ids": [
+        "1bfc399c9b3d6a67-table-5093de102793",
+        "69f2f29169453f73-table-cff0e11af3e5",
+        "1a566e32ad45144c-table-9b843babd6ba"
+      ],
+      "requirement_assessment": [
+        {
+          "requirement": "6등급 채권형의 위험등급 의미",
+          "verdict": "irrelevant_or_wrong_scope",
+          "basis": "선택 표는 자산유형별 수탁고 표이며 6등급 또는 해당 채권형의 위험등급 의미를 지지하지 않는다."
+        },
+        {
+          "requirement": "예금자보호 비대상 및 원금손실 가능성",
+          "verdict": "equivalent_evidence",
+          "basis": "선택 원본들은 집합투자증권의 예금자보호 비대상과 원금손실 가능성을 직접 설명한다."
+        }
+      ]
+    },
+    {
+      "question_id": "P33-024",
+      "verdict": "irrelevant_or_wrong_scope",
+      "manifest_chunk_ids": [
+        "d8a6e37c05c58b07-table-7922a4581179",
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a"
+      ],
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-table-890efed5e3b0",
+        "1a566e32ad45144c-table-9b843babd6ba"
+      ],
+      "requirement_assessment": [
+        {
+          "requirement": "목표전환 후 채권 중심 운용전략",
+          "verdict": "partial_evidence",
+          "basis": "동일 목표전환 상품의 표제는 전환 후 채권형임을 보이지만, 구체적인 채권 중심 운용전략을 설명하지 않는다."
+        },
+        {
+          "requirement": "그 목표전환 상품의 원금·성과 비보장",
+          "verdict": "irrelevant_or_wrong_scope",
+          "basis": "비보장 문구는 다른 상품(KR5160420009)의 원금손실 표에서 가져왔으므로 목표전환 상품의 사실로 대체할 수 없다."
+        }
+      ]
+    },
+    {
+      "question_id": "P33-025",
+      "verdict": "irrelevant_or_wrong_scope",
+      "manifest_chunk_ids": ["a7eb7560c10ba4f2-paragraph_group-af5c9f3c5aa2"],
+      "selected_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "e5926e3e3ff2677f-paragraph_group-ebcbbe4fe19c"
+      ],
+      "requirement_assessment": [
+        {
+          "requirement": "과거 성과가 장래 성과를 보장하지 않음",
+          "verdict": "irrelevant_or_wrong_scope",
+          "basis": "선택 청크는 퇴직연금 압류 안내와 별도 채권 ESG 전략이며 과거 성과의 장래 비보장을 말하지 않는다."
+        },
+        {
+          "requirement": "과거 성과만으로 적합성·최선 선택을 단정하지 않음",
+          "verdict": "irrelevant_or_wrong_scope",
+          "basis": "선택 context에는 투자목적·위험성향에 따른 적합성 판단 또는 과거 성과 한계가 없다."
+        }
+      ]
+    }
+  ]
+}

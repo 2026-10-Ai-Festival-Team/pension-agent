@@ -1,0 +1,58 @@
+{
+  "experiment": "P39-3A Scope and Reference Attribution",
+  "input_artifact": "evaluation/p39_3_fresh_direct_requirement_selector_holdout.json",
+  "hcx_calls": 0,
+  "candidate_agent_changed": false,
+  "cases": [
+    {
+      "id": "P39-3-001",
+      "raw_question": "퇴직급여가 미리 정해지는 DB와 달리, 근로자가 운용 성과에 따라 받을 금액이 달라지는 쪽은 무엇이며 적립금 선택은 누가 하나요?",
+      "detected_subjects_current": ["DB"],
+      "reference_expressions": ["DB와 달리", "근로자가 운용 성과에 따라 받을 금액이 달라지는 쪽"],
+      "resolved_subject_gold": ["DC"],
+      "gold_requirements": ["DC.benefit_determination", "DC.operation_party"],
+      "selected_requirements": ["DB.benefit_determination", "DC.benefit_determination"],
+      "output_hash": "a5cc8362a14822111563b1f038a91ba2e01dafdafa0bf19b86bef2cc4d3a37ce",
+      "trace": "Current deterministic entity detection recognises only explicit DB. The direct selector semantically infers DC for benefit determination, but does not recover the independent operation-party request and adds an unsupported DB benefit requirement.",
+      "primary_owner": "subject_detection_miss",
+      "secondary_observation": "requirement_semantic_miss",
+      "why_not_binding_miss": "No separate resolved-DC subject is available before requirement selection in the current path; the first failed boundary is indirect subject detection."
+    },
+    {
+      "id": "P39-3-003",
+      "raw_question": "회사 부담금이 매년 임금에 따라 정해져 적립되는 제도는 어느 것이고, 그 계좌 운용방법은 누가 고르나요?",
+      "detected_subjects_current": [],
+      "reference_expressions": ["그 계좌", "운용방법은 누가"],
+      "resolved_subject_gold": ["DC"],
+      "gold_requirements": ["DC.employer_contribution", "DC.operation_party"],
+      "selected_requirements": ["DC.employer_contribution"],
+      "output_hash": "88650aad6816b279e0fe7ea7357e54b464de6deecb01c17bb42b10eed4f3734d",
+      "trace": "The selector correctly identifies the DC employer-contribution distinction, so it has enough semantic scope for the first factual unit. It omits the second independently asked operation-party unit after the anaphoric phrase '그 계좌'.",
+      "primary_owner": "multi_requirement_omission",
+      "secondary_observation": "reference_resolution_miss",
+      "why_not_subject_detection_miss": "Although the legacy deterministic detector returns no account, the direct selector itself selected a DC-scoped requirement correctly; its proven failure is omission of the second requirement."
+    },
+    {
+      "id": "P39-3-018",
+      "raw_question": "KR5114420022를 먼저, KR5114450222를 다음으로 언급했을 때 뒤에 적은 상품의 현재 위험등급은 무엇인가요?",
+      "detected_subjects_current": ["KR5114420022", "KR5114450222"],
+      "reference_expressions": ["뒤에 적은 상품"],
+      "resolved_subject_gold": ["KR5114450222"],
+      "gold_requirements": ["product.risk_grade.current"],
+      "selected_requirements": ["product.risk_grade.current"],
+      "resolved_product_codes_current": ["KR5114420022", "KR5114450222"],
+      "output_hash": "2757f88c2528abf51dc40e151452d0907a6928b43ba2bb0018690e42ad30c5e6",
+      "trace": "The direct requirement is exact. The deterministic resolver extracts both explicit codes but has no ordinal-reference rule to reduce the subject set to the second code.",
+      "primary_owner": "product_reference_resolution",
+      "secondary_observation": null,
+      "why_not_requirement_semantic_miss": "The requested field is selected exactly; only product identity is over-broad."
+    }
+  ],
+  "owner_summary": {
+    "subject_detection_miss": 1,
+    "multi_requirement_omission": 1,
+    "product_reference_resolution": 1,
+    "subject_requirement_binding_miss": 0
+  },
+  "decision": "P39-3 remains a development regression set. Do not modify the selector or rerun HCX until P39-3B isolates subject/reference resolution from direct requirement selection."
+}

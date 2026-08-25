@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "purpose": "P38-0 compositional canonicalizer development specification",
+  "question_count": 30,
+  "source_sets": [
+    "P36",
+    "P37"
+  ],
+  "status": "development_regression_only",
+  "sha256": "b9cb6269d87c696b03d057eeb8b532c58e09f2bb19daac5a1f374f619c379143",
+  "ontology": {
+    "subjects": "account/system/product scoped identities",
+    "actions": [
+      "contribute",
+      "withdraw",
+      "transfer",
+      "receive",
+      "manage",
+      "invest",
+      "compare",
+      "educate"
+    ],
+    "fields": "closed factual attributes such as tax timing, withdrawal reason, risk grade, fee, or application route",
+    "modifiers": "conditions such as before_retirement, current, change_possibility, combined_limit, or comparison"
+  }
+}

@@ -106,3 +106,29 @@ def test_product_name_slot_requires_a_titled_product_context():
 
     assert not decision.sufficient
     assert decision.missing_slots == ["KR510902511M product_name"]
+
+
+def test_product_loss_slot_accepts_original_loss_wording_without_general_fuzzy_match():
+    analysis = QueryAnalyzer().analyze("KR510902511M은 투자원금의 손실이 발생할 수 있나요?")
+    plan = ExperimentalRouter().requirement_builder.build(analysis)
+
+    decision = ExperimentalRouteGate().assess(
+        "simple",
+        analysis,
+        [result("KR510902511M은 실적배당 상품으로 투자원금의 손실이 발생할 수 있습니다.")],
+        plan.case,
+    )
+
+    assert decision.sufficient
+
+
+def test_router_does_not_block_a_past_performance_safety_premise_as_recommendation():
+    route = ExperimentalRouter().classify(
+        QueryAnalyzer().analyze("과거 투자실적이 높았던 펀드는 앞으로도 가장 좋은 선택인가요?")
+    )
+
+    assert route.route == "simple"
+    assert [slot.key for slot in route.requirement_case.slots] == [
+        "past_performance_not_guarantee",
+        "past_performance_suitability",
+    ]

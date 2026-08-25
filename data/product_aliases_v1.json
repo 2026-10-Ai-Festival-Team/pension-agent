@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "provenance": "Verified against the canonical product name on page 1 of the parsed original investment prospectus.",
+  "products": [
+    {
+      "product_code": "KR510902511M",
+      "canonical_name": "미래에셋장기성장포커스증권자투자신탁1호(주식)",
+      "aliases": ["미래에셋 장기성장포커스 1호", "장기성장포커스", "미래에셋장기성장포커스증권자투자신탁1호"]
+    },
+    {
+      "product_code": "KR5110501016",
+      "canonical_name": "미래에셋프리미엄크레딧알파증권자투자신탁(채권)",
+      "aliases": ["프리미엄크레딧알파", "미래에셋 프리미엄크레딧알파", "미래에셋프리미엄크레딧알파증권자투자신탁"]
+    },
+    {
+      "product_code": "KR5111420047",
+      "canonical_name": "하나파워e단기채증권자투자신탁[채권]",
+      "aliases": ["하나파워e단기채", "하나파워e 단기채", "하나파워e단기채증권자투자신탁"]
+    },
+    {
+      "product_code": "KR5113420012",
+      "canonical_name": "한국투자골드플랜연금증권전환형투자신탁1호(국공채)",
+      "aliases": ["골드플랜 국공채형", "한국투자 골드플랜 연금 국공채형", "한국투자골드플랜연금국공채형"]
+    },
+    {
+      "product_code": "KR5113450111",
+      "canonical_name": "한국투자골드플랜연금증권전환형투자신탁1호(주식)",
+      "aliases": ["골드플랜 주식형", "한국투자 골드플랜 연금 주식형", "한국투자골드플랜연금주식형"]
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import pytest
 from src.config.generation import GenerationSettings
 from src.generation.hcx import HyperClovaXGenerator
 from src.generation.errors import GenerationError
+from src.generation.prompt_builder import PromptBuilder
 from src.models.chunk import ChunkLocator
 from src.models.retrieval import SearchResult
 
@@ -65,6 +66,26 @@ def test_citation_field_type_is_recorded_without_accepting_response():
     assert error.value.diagnostic["cited_chunk_ids_type"] == "str"
 
 
+def test_empty_answer_and_citation_are_recorded_as_contract_failures():
+    body = json.dumps({"result": {"message": {"content": '{"answer":"","cited_chunk_ids":[]}'}}})
+
+    with pytest.raises(GenerationError) as error:
+        HyperClovaXGenerator(config=config(), transport=Transport([(200, body)])).generate(
+            question="q", contexts=context(), query_analysis=None
+        )
+
+    assert error.value.diagnostic["response_contract_failures"] == [
+        "empty_answer",
+        "empty_cited_chunk_ids",
+    ]
+
+
+def test_prompt_builder_explicitly_forbids_empty_json_output():
+    prompt = PromptBuilder().build("질문", context())
+
+    assert "빈 문자열과 빈 배열은 반환하면 안 됩니다" in prompt
+
+
 def test_generator_records_global_rate_limit_wait():
     class Limiter:
         def acquire(self): return 2.0
@@ -93,4 +114,11 @@ def test_429_uses_bounded_retry_and_retry_after_header():
 
     assert result.answer == "답변"
     assert sleeps == [1.0]
-    assert result.diagnostic["attempt_history"][0]["http_status"] == 429
+    first_attempt = result.diagnostic["attempt_history"][0]
+    assert first_attempt["http_status"] == 429
+    assert first_attempt["retry_after_seconds"] == 1.0
+    assert first_attempt["rate_limit_wait_ms"] == 0.0
+    assert first_attempt["request_started_offset_ms"] is not None
+    assert first_attempt["request_completed_offset_ms"] is not None
+    assert first_attempt["request_started_monotonic_ms"] is not None
+    assert first_attempt["request_completed_monotonic_ms"] is not None

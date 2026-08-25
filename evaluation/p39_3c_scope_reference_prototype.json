@@ -1,0 +1,818 @@
+{
+  "experiment": "P39-3C Scope/Reference Resolver + Binder Prototype",
+  "input": "evaluation/p39_3_fresh_direct_requirement_selector_holdout.json",
+  "selector_enum_prompt_changed": false,
+  "rows": [
+    {
+      "id": "P39-3-001",
+      "question": "퇴직급여가 미리 정해지는 DB와 달리, 근로자가 운용 성과에 따라 받을 금액이 달라지는 쪽은 무엇이며 적립금 선택은 누가 하나요?",
+      "frozen_output_hash": "a5cc8362a14822111563b1f038a91ba2e01dafdafa0bf19b86bef2cc4d3a37ce",
+      "resolution": {
+        "explicit_subjects": [
+          "DB"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 14,
+            "end": 16,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "DB와 달리",
+            "kind": "closed_pair_contrast",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "inferred_closed_pair"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DB",
+            "requirement": "DB.benefit_determination",
+            "status": "conflict"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.benefit_determination",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [
+          "subject_requirement_conflict:DB:DB.benefit_determination"
+        ],
+        "unresolved_references": [],
+        "incomplete_reasons": [
+          "selector_multi_requirement_incomplete:operation_party"
+        ]
+      }
+    },
+    {
+      "id": "P39-3-002",
+      "question": "DB와 DC에서 적립금을 누가 관리·운용하는지 각각 구별해 주세요.",
+      "frozen_output_hash": "f3e78ab1705a4904da43821d574c48af7184126707c7c4875bcb87fc6e351873",
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 4,
+            "end": 6,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DB",
+            "requirement": "DB.operation_party",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.operation_party",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-003",
+      "question": "회사 부담금이 매년 임금에 따라 정해져 적립되는 제도는 어느 것이고, 그 계좌 운용방법은 누가 고르나요?",
+      "frozen_output_hash": "88650aad6816b279e0fe7ea7357e54b464de6deecb01c17bb42b10eed4f3734d",
+      "resolution": {
+        "explicit_subjects": [],
+        "subject_mentions": [],
+        "references": [],
+        "active_subjects": [],
+        "unresolved_references": [
+          "그 계좌"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.employer_contribution",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": [
+          "selector_multi_requirement_incomplete:operation_party"
+        ]
+      }
+    },
+    {
+      "id": "P39-3-004",
+      "question": "연금저축에 낸 돈만 공제받는 한도와 IRP 납입분까지 합산할 때의 공제 한도를 따로 알려주세요.",
+      "frozen_output_hash": "bc8849d725d0fb0ab453174b6e719af756bc834234903369faaa4698bc034257",
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "IRP",
+            "order": 2,
+            "start": 20,
+            "end": 23,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "pension_savings",
+            "requirement": "pension_savings.tax_credit.limit",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_savings_IRP.tax_credit.combined_limit",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-005",
+      "question": "만기가 된 ISA 자금을 연금계좌에 넣는다면 이전 신청 시한과 추가 세액공제의 계산 비율·최대액을 알려주세요.",
+      "frozen_output_hash": "2c2c387d3582bfde7273b40998409db141519086327a8438c9c4d3d364e2cb67",
+      "resolution": {
+        "explicit_subjects": [
+          "ISA"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "ISA",
+            "order": 1,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "ISA"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "ISA"
+        ],
+        "bindings": [
+          {
+            "subject": "ISA",
+            "requirement": "ISA.transfer.additional_tax_credit",
+            "status": "bound"
+          },
+          {
+            "subject": "ISA",
+            "requirement": "ISA.transfer.deadline",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-006",
+      "question": "퇴직소득을 IRP로 옮겼을 때 세금은 바로 확정되는지, 실제 연금 수령 시점까지 미뤄지는지 설명해 주세요.",
+      "frozen_output_hash": "ccc4344ad44553e3db6308fa17362eec8c522a22d597be35f1b0fcd14e32be75",
+      "resolution": {
+        "explicit_subjects": [
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "IRP",
+            "order": 1,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "IRP",
+            "requirement": "retirement_income.IRP_transfer.tax_timing",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-007",
+      "question": "DC 적립금을 재직 중에 일부 수령하려면 법에서 인정한 이유가 무엇이고 어떤 자료를 내야 하나요?",
+      "frozen_output_hash": "b11f579c5e0bd2d2afe64fc445235d52f7417fbaf8774ebaeaddf81c903170e1",
+      "resolution": {
+        "explicit_subjects": [
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DC",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.early_withdrawal.required_documents",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-008",
+      "question": "상품을 처분하지 않고 퇴직연금 사업자만 변경할 경우, 재직 중인 DB·DC 가입자와 개인형퇴직연금 가입자의 접수 창구가 어떻게 다른가요?",
+      "frozen_output_hash": "d448c8fbab161380344edf97f7ec169fc5c77845a6a86dc874e5d527ca488c10",
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 36,
+            "end": 38,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 39,
+            "end": 41,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.in_kind_transfer.IRP.application_route",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-009",
+      "question": "가입자 대상 퇴직연금 교육은 해마다 몇 회 이상 해야 하며, 이 업무를 전문기관에 위탁할 수 있나요?",
+      "frozen_output_hash": "8f4e929d3bb13daf3f4407cafd228b28b7ed83d25a64e8e1d1ef2b667f3b5847",
+      "resolution": {
+        "explicit_subjects": [],
+        "subject_mentions": [],
+        "references": [],
+        "active_subjects": [],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.frequency",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.outsourcing",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-010",
+      "question": "일반계좌에 투자했을 때와 연금계좌 안에서 운용했을 때 이익에 세금을 붙이는 시점은 어떻게 다르고, 과세이연은 면세와 같은 뜻인가요?",
+      "frozen_output_hash": "194f1f4fb4c6e1d7067459371f96e1d0b7147e5a1e2e948905be063205af793a",
+      "resolution": {
+        "explicit_subjects": [],
+        "subject_mentions": [],
+        "references": [],
+        "active_subjects": [],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "general_account.investment_income.tax_timing",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_account.investment_income.not_tax_exempt",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_account.investment_income.tax_timing",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-011",
+      "question": "연금계좌에서 일부 금액만 꺼내는 것과 계좌를 해지해 전부 받는 것은 각각 어떤 조건이고 세금 처리는 어떻게 다른가요?",
+      "frozen_output_hash": "cad8d835a66d99b92f33d621c1cf1d0df52f1b36a0286053a7db61e5920c9c0f",
+      "resolution": {
+        "explicit_subjects": [],
+        "subject_mentions": [],
+        "references": [],
+        "active_subjects": [],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "pension_account.account_closure.condition",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_account.account_closure.tax_treatment",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_account.partial_withdrawal.condition",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_account.partial_withdrawal.tax_treatment",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-012",
+      "question": "퇴직연금 계좌에서 ETF를 직접 거래할 수 있는 범위와, 레버리지 또는 인버스 ETF를 담을 수 있는지를 같이 알려주세요.",
+      "frozen_output_hash": "29a0d2f1884542f90b9868f9f58952f5c52e6522dd0b22ca6de0d1799617cf67",
+      "resolution": {
+        "explicit_subjects": [],
+        "subject_mentions": [],
+        "references": [],
+        "active_subjects": [],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "retirement_pension.ETF.direct_trade_scope",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.ETF.leverage_inverse_restriction",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-013",
+      "question": "KR510902773M은 현재 위험등급이 몇 단계이며, 이후 시장이나 운용 상황 때문에 그 단계가 달라질 수 있나요?",
+      "frozen_output_hash": "129fc28ad0dc3531cbcd5fff1b2b6ab7e3777ca80cea89311da274fc77c8869d",
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR510902773M",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.risk_grade.change_possibility",
+            "status": "bound"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-014",
+      "question": "KR5127450215의 성과는 어느 기준지수에 연동되고, 주식 관련 자산 편입 한도는 어디까지인가요?",
+      "frozen_output_hash": "05300e8227c227f921cd0826935bce16b36dafc50827216053d846f37db80982",
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5127450215"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5127450215",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR5127450215"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5127450215"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5127450215",
+            "requirement": "product.equity_allocation_limit",
+            "status": "bound"
+          },
+          {
+            "subject": "product:KR5127450215",
+            "requirement": "product.tracking_index",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-015",
+      "question": "KR510902773M C-e에서 연 단위 총보수와 3년 보유 시 제시된 비용 금액은 어떤 차이가 있나요?",
+      "frozen_output_hash": "d1c3fc78cf8ea898f16d573e0b0f614e55e2601bba276bd26bfd995089225b92",
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR510902773M",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.period_cost",
+            "status": "bound"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.total_fee",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-016",
+      "question": "KR5114420022와 KR5114450222 가운데 현재 위험등급이 더 낮은 상품은 무엇인지 비교해 주세요.",
+      "frozen_output_hash": "2757f88c2528abf51dc40e151452d0907a6928b43ba2bb0018690e42ad30c5e6",
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5114420022+product:KR5114450222",
+            "requirement": "product.risk_grade.current",
+            "status": "bound_comparison"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-017",
+      "question": "KR5120420039와 KR5120420091의 최신 위험등급과 이전에 표시된 위험등급을 구별하여 각각 제시해 주세요.",
+      "frozen_output_hash": "1b503bf267364c34d79dc8b8501c325b381af2a00ab4d991eb8602b0faa5e0df",
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5120420039",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5120420091",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5120420039+product:KR5120420091",
+            "requirement": "product.risk_grade.current",
+            "status": "bound_comparison"
+          },
+          {
+            "subject": "product:KR5120420039+product:KR5120420091",
+            "requirement": "product.risk_grade.historical",
+            "status": "bound_comparison"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    },
+    {
+      "id": "P39-3-018",
+      "question": "KR5114420022를 먼저, KR5114450222를 다음으로 언급했을 때 뒤에 적은 상품의 현재 위험등급은 무엇인가요?",
+      "frozen_output_hash": "2757f88c2528abf51dc40e151452d0907a6928b43ba2bb0018690e42ad30c5e6",
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 18,
+            "end": 30,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "뒤에 적은 상품",
+            "kind": "ordinal_product_reference",
+            "resolved_to": [
+              "product:KR5114450222"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR5114450222"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5114450222"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5114450222",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      }
+    }
+  ],
+  "acceptance": {
+    "p39_3_001_active_dc": true,
+    "p39_3_001_conflict_detected": true,
+    "p39_3_003_incomplete_detected": true,
+    "p39_3_018_second_product_only": true,
+    "hcx_calls": 0,
+    "candidate_agent_changed": false
+  }
+}

@@ -31,6 +31,17 @@ class _Retriever:
         return SimpleNamespace(results=[self.result])
 
 
+class _AnchorRetriever(_Retriever):
+    def __init__(self, result: SearchResult, anchor: SearchResult) -> None:
+        super().__init__(result)
+        self.anchor = anchor
+        self.anchor_requests: list[tuple[str, str, int]] = []
+
+    def product_field_anchors(self, product_code: str, field: str, top_k: int):
+        self.anchor_requests.append((product_code, field, top_k))
+        return (self.anchor,)
+
+
 def test_requirement_candidate_expansion_preserves_base_results_and_adds_only_unique_hits():
     base = _result("base")
     expanded = _result("duration-evidence")
@@ -58,3 +69,23 @@ def test_requirement_candidate_expansion_is_disabled_at_zero_top_k():
 
     assert expand_requirement_candidates(case, [base], retriever, top_k=0) == (base,)
     assert retriever.queries == []
+
+
+def test_product_field_anchor_is_added_without_replacing_bm25_candidates():
+    base = _result("base")
+    bm25 = _result("bm25")
+    anchor = _result("direct-risk-grade")
+    retriever = _AnchorRetriever(bm25, anchor)
+    case = RequirementCase(
+        "product", "test", (
+            RequirementSlot(
+                "위험등급", ("KR111", "위험등급"), 2,
+                key="KR111:risk_grade", retrieval_query="KR111 위험등급",
+            ),
+        ),
+    )
+
+    candidates = expand_requirement_candidates(case, [base], retriever, top_k=3)
+
+    assert [item.chunk_id for item in candidates] == ["base", "bm25", "direct-risk-grade"]
+    assert retriever.anchor_requests == [("KR111", "risk_grade", 3)]

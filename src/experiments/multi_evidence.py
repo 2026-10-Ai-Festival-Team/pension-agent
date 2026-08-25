@@ -30,8 +30,16 @@ class RequirementSlot:
     retrieval_query: str | None = None
     reject_table_of_contents: bool = False
     required_any_text_terms: tuple[str, ...] = ()
+    required_all_text_terms: tuple[str, ...] = ()
+    # A document title may describe a broad theme without proving a factual
+    # requirement.  This guard requires the term in the actual chunk body.
+    required_body_any_text_terms: tuple[str, ...] = ()
+    required_body_all_text_terms: tuple[str, ...] = ()
+    required_subject_terms: tuple[str, ...] = ()
     forbidden_text_terms: tuple[str, ...] = ()
     required_text_pattern: str | None = None
+    canonical_terms: tuple[str, ...] = ()
+    scope_group: str | None = None
 
 
 @dataclass(frozen=True)
@@ -41,6 +49,7 @@ class RequirementCase:
     slots: tuple[RequirementSlot, ...]
     generation_enabled: bool = True
     semantic_equivalent_allowed: bool = False
+    context_selection_required: bool = False
 
 
 @dataclass(frozen=True)
@@ -81,10 +90,23 @@ class RequirementEvidenceSelector:
             for part in (result.title or "", result.section or "", result.text)
             if part
         ).casefold()
+        evidence_body = " ".join((result.text or "").split()).casefold()
         if any(term.casefold() in evidence_text for term in slot.forbidden_text_terms):
             return ()
         if slot.required_any_text_terms and not any(
             term.casefold() in evidence_text for term in slot.required_any_text_terms
+        ):
+            return ()
+        if slot.required_all_text_terms and not all(
+            term.casefold() in evidence_text for term in slot.required_all_text_terms
+        ):
+            return ()
+        if slot.required_body_all_text_terms and not all(
+            term.casefold() in evidence_body for term in slot.required_body_all_text_terms
+        ):
+            return ()
+        if slot.required_body_any_text_terms and not any(
+            term.casefold() in evidence_body for term in slot.required_body_any_text_terms
         ):
             return ()
         if slot.required_text_pattern and not re.search(slot.required_text_pattern, evidence_text):
@@ -96,9 +118,20 @@ class RequirementEvidenceSelector:
             for part in (result.title or "", result.section or "", result.text, " ".join(result.product_codes))
             if part
         ).casefold()
+        if slot.required_subject_terms and not all(
+            term.casefold() in searchable for term in slot.required_subject_terms
+        ):
+            return ()
         if slot.requires_title and not (result.title or "").strip():
             return ()
-        matched = tuple(term for term in slot.terms if term.casefold() in searchable)
+        # ``canonical_terms`` are deliberately slot-scoped aliases, not a
+        # general fuzzy matcher.  A product-field slot still also requires its
+        # exact product code and its field-specific value guard above.
+        matched = tuple(
+            term
+            for term in (*slot.terms, *slot.canonical_terms)
+            if term.casefold() in searchable
+        )
         if slot.max_term_span is None or len(matched) < 2:
             return matched
         positions = [searchable.find(term.casefold()) for term in matched]
@@ -110,22 +143,81 @@ class RequirementEvidenceSelector:
         leading = " ".join((result.text or "").split())[:400].casefold()
         return "목 차" in leading or "목차" in leading or "table of contents" in leading
 
+    @staticmethod
+    def _field_selection_quality(slot: RequirementSlot, result: SearchResult) -> int:
+        """Prefer direct present-tense product facts over historical logs."""
+        if not slot.key or not slot.key.endswith(":risk_grade"):
+            return 0
+        body = " ".join((result.text or "").split()).casefold()
+        quality = 0
+        if re.match(r"투자\s*위험\s*등급\s*[1-6]\s*등급", body):
+            quality += 8
+        elif "분류하" in body and re.search(r"[1-6]\s*등급", body):
+            quality += 3
+        if "변경내역" in body or "변경 일" in body or "변경일" in body:
+            quality -= 3
+        return quality
+
     def select(self, case: RequirementCase, results: Iterable[SearchResult]) -> EvidenceSelection:
         candidates = tuple(results)
         matches: list[SlotMatch] = []
         ordered_contexts: list[SearchResult] = []
         seen: set[str] = set()
+        # A grouped set of slots (for example, a target-conversion strategy
+        # and its loss warning) must come from one document.  Choose the
+        # document *before* selecting an individual slot: a greedy first slot
+        # could otherwise lock us onto a different fund and make the second
+        # slot either wrong-scope or falsely incomplete.
+        grouped_slots: dict[str, list[RequirementSlot]] = {}
+        for slot in case.slots:
+            if slot.scope_group:
+                grouped_slots.setdefault(slot.scope_group, []).append(slot)
+        scope_sources: dict[str, str] = {}
+        for group, slots in grouped_slots.items():
+            per_source: dict[str, list[tuple[int, float, int]]] = {}
+            for slot in slots:
+                for result in candidates:
+                    terms = self._matched_terms(slot, result)
+                    if len(terms) >= slot.min_matches:
+                        per_source.setdefault(result.source_id, []).append(
+                            (len(terms), result.score, -result.rank)
+                        )
+            if not per_source:
+                continue
+            # Maximize number of independently satisfiable slots first, then
+            # lexical strength and original retrieval rank.
+            source, evidence = max(
+                per_source.items(),
+                key=lambda item: (
+                    len(item[1]),
+                    sum(match[0] for match in item[1]),
+                    max(match[1] for match in item[1]),
+                    max(match[2] for match in item[1]),
+                ),
+            )
+            scope_sources[group] = source
         for slot in case.slots:
             scored = []
             for result in candidates:
                 terms = self._matched_terms(slot, result)
                 if len(terms) >= slot.min_matches:
-                    # Match count is primary; original BM25 order remains the tie breaker.
-                    scored.append((len(terms), result.score, -result.rank, result, terms))
+                    if slot.scope_group and result.source_id != scope_sources.get(slot.scope_group):
+                        continue
+                    # Match count is primary.  Product-field factual quality
+                    # then separates a current grade statement from a
+                    # historical change table; BM25 order remains a tie breaker.
+                    scored.append((
+                        len(terms),
+                        self._field_selection_quality(slot, result),
+                        result.score,
+                        -result.rank,
+                        result,
+                        terms,
+                    ))
             if not scored:
                 matches.append(SlotMatch(slot, None, ()))
                 continue
-            _, _, _, selected, terms = max(scored, key=lambda item: item[:3])
+            _, _, _, _, selected, terms = max(scored, key=lambda item: item[:4])
             matches.append(SlotMatch(slot, selected, terms))
             if selected.chunk_id not in seen:
                 ordered_contexts.append(selected)
@@ -142,6 +234,7 @@ def load_requirement_cases(path: Path) -> list[RequirementCase]:
             role=item["role"],
             generation_enabled=item.get("generation_enabled", True),
             semantic_equivalent_allowed=item.get("semantic_equivalent_allowed", False),
+            context_selection_required=item.get("context_selection_required", False),
             slots=tuple(
                 RequirementSlot(
                     name=slot["name"],
@@ -153,8 +246,14 @@ def load_requirement_cases(path: Path) -> list[RequirementCase]:
                     retrieval_query=slot.get("retrieval_query"),
                     reject_table_of_contents=slot.get("reject_table_of_contents", False),
                     required_any_text_terms=tuple(slot.get("required_any_text_terms", ())),
+                    required_all_text_terms=tuple(slot.get("required_all_text_terms", ())),
+                    required_body_any_text_terms=tuple(slot.get("required_body_any_text_terms", ())),
+                    required_body_all_text_terms=tuple(slot.get("required_body_all_text_terms", ())),
+                    required_subject_terms=tuple(slot.get("required_subject_terms", ())),
                     forbidden_text_terms=tuple(slot.get("forbidden_text_terms", ())),
                     required_text_pattern=slot.get("required_text_pattern"),
+                    canonical_terms=tuple(slot.get("canonical_terms", ())),
+                    scope_group=slot.get("scope_group"),
                 )
                 for slot in item["slots"]
             ),

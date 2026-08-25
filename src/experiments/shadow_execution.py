@@ -43,16 +43,21 @@ def prepare_shadow_execution(
     base_results = tuple(retriever.search(analysis.question, top_k=top_k).results)
     requirement_case = route.requirement_case
     candidate_results = expand_requirement_candidates(
-        requirement_case if route.route == "compound" else None,
+        requirement_case,
         base_results,
         retriever,
         top_k=requirement_retrieval_top_k,
     )
     decision = gate.assess(route.route, analysis, candidate_results, requirement_case)
 
-    selection = None
-    if route.route == "compound" and requirement_case is not None:
-        selection = gate.selector.select(requirement_case, candidate_results)
+    # Requirement plan이 있는 simple 질문도 Writer에 같은 checklist를 전달한다.
+    # 일반 simple 경로는 기존 Top-k context를 유지한다. 다만 product field 및
+    # safety-premise처럼 subject/field binding이 필요한 plan은 명시적으로
+    # ``context_selection_required``를 설정해 검증된 slot evidence만 전달한다.
+    selection = gate.selector.select(requirement_case, candidate_results) if requirement_case is not None else None
+    if selection is not None and (
+        route.route == "compound" or requirement_case.context_selection_required
+    ):
         contexts = tuple(selection.contexts)
     else:
         contexts = tuple(context_builder.build(list(base_results), top_k))

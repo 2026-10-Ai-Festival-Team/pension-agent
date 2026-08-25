@@ -1,0 +1,152 @@
+{
+  "version": "1.0",
+  "purpose": "Canonical index for question-bank datasets without duplicating evaluation source files.",
+  "sets": [
+    {
+      "name": "eval_questions_final_csv",
+      "status": "development_regression",
+      "kind": "competition_style_mixed_evaluation",
+      "question_count": 30,
+      "data": "../eval_questions_final.csv",
+      "notes": "Original CSV question set. It has already been executed and analyzed, so it is not a fresh holdout."
+    },
+    {
+      "name": "eval_questions_json",
+      "status": "development_regression",
+      "kind": "competition_style_mixed_evaluation",
+      "question_count": 30,
+      "data": "../eval_questions.json",
+      "notes": "JSON version with expected behavior, gold answer points, evidence, and forbidden claims. It has already been used for evaluation and attribution."
+    },
+    {
+      "name": "normal_questions_reference",
+      "status": "development_reference",
+      "kind": "mixed_question_source",
+      "question_count": 30,
+      "data": "../normal_questions.jsonl",
+      "notes": "Original normal-question source. The Closed 13-question subset is reviewed separately; this source remains unchanged."
+    },
+    {
+      "name": "robustness_questions_reference",
+      "status": "development_reference",
+      "kind": "mixed_robustness_question_source",
+      "question_count": 24,
+      "data": "../robustness_questions.jsonl",
+      "notes": "Original robustness-question source. The Closed 5-question subset is reviewed separately; this source remains unchanged."
+    },
+    {
+      "name": "closed_factual_reviewed_v1",
+      "status": "development_regression",
+      "kind": "closed_factual_reviewed_rubric",
+      "question_count": 18,
+      "data": "development/closed_factual_reviewed_v1.jsonl",
+      "metadata": "development/closed_factual_reviewed_v1_metadata.json",
+      "notes": "Closed-only review of normal (13) and robustness (5) questions. Strict required facts are separated from optional supporting facts; N-014 remains evidence-pending for its extra-document details."
+    },
+    {
+      "name": "closed_core_v1",
+      "status": "development_regression",
+      "kind": "closed_factual",
+      "question_count": 46,
+      "data": "../evaluation/closed_core_benchmark_v1.jsonl",
+      "metadata": "../evaluation/closed_core_benchmark_v1_metadata.json",
+      "documentation": "../docs/closed_core_benchmark_v1.md"
+    },
+    {
+      "name": "question_bank_v1",
+      "status": "development_regression",
+      "kind": "mixed_behavior",
+      "data": "../evaluation/question_bank_v1.jsonl",
+      "metadata": "../evaluation/question_bank_v1_metadata.json",
+      "documentation": "../docs/question_bank_v1.md"
+    },
+    {
+      "name": "question_bank_behavior_contract_v1",
+      "status": "development_regression",
+      "kind": "answer_clarify_correct_abstain",
+      "data": "../evaluation/question_bank_behavior_contract_v1.jsonl",
+      "metadata": "../evaluation/question_bank_behavior_contract_v1_metadata.json",
+      "documentation": "../docs/question_bank_behavior_contract_v1.md"
+    },
+    {
+      "name": "p32",
+      "status": "development_regression",
+      "kind": "mixed_holdout_converted_to_dev",
+      "manifest": "../evaluation/p32_holdout_manifest.json",
+      "execution": "../evaluation/p32_holdout_execution.jsonl"
+    },
+    {
+      "name": "p33",
+      "status": "development_regression",
+      "kind": "mixed_holdout_converted_to_dev",
+      "manifest": "../evaluation/p33_holdout_manifest.json",
+      "execution": "../evaluation/p33_holdout_execution.jsonl"
+    },
+    {
+      "name": "p34",
+      "status": "development_regression",
+      "kind": "closed_factual_holdout_converted_to_dev",
+      "manifest": "../evaluation/p34_closed_holdout_manifest.json",
+      "pre_hcx": "../evaluation/p34_closed_pre_hcx.json"
+    },
+    {
+      "name": "p35",
+      "status": "development_regression",
+      "kind": "closed_factual_holdout_converted_to_dev",
+      "manifest": "../evaluation/p35_closed_holdout_manifest.json",
+      "pre_hcx": "../evaluation/p35_closed_pre_hcx.json"
+    },
+    {
+      "name": "p36",
+      "status": "development_regression",
+      "kind": "closed_factual_holdout_converted_to_dev",
+      "manifest": "../evaluation/p36_closed_holdout_manifest.json",
+      "pre_hcx": "../evaluation/p36_closed_pre_hcx.json"
+    },
+    {
+      "name": "p37",
+      "status": "development_regression",
+      "kind": "closed_factual_holdout_converted_to_dev",
+      "manifest": "../evaluation/p37_closed_holdout_manifest.json",
+      "pre_hcx": "../evaluation/p37_closed_pre_hcx.json",
+      "attribution": "../evaluation/p37a_failure_attribution.json"
+    },
+    {
+      "name": "semantic_atoms_v1",
+      "status": "development_regression",
+      "kind": "compositional_parser_specification",
+      "question_count": 30,
+      "data": "development/semantic_atoms_v1.jsonl",
+      "metadata": "development/semantic_atoms_v1_metadata.json",
+      "baseline": "../evaluation/regressions/p38_1_compositional_parser_baseline.json",
+      "documentation": "../docs/p38_0_compositional_canonicalizer_redesign.md",
+      "notes": "Human-reviewed P36/P37 development annotations. It is not a live Agent input or fresh holdout."
+    },
+    {
+      "name": "yw_retrieval_questions_reference",
+      "status": "development_reference",
+      "kind": "evidence_aware_retrieval_fixture",
+      "question_count": 40,
+      "data": "../evaluation/retrieval_questions.jsonl",
+      "crosswalk": "../evaluation/integrations/yw_retrieval_fixture_crosswalk.jsonl",
+      "inventory": "../evaluation/integrations/yw_branch_asset_inventory.json",
+      "notes": "Reviewed teammate-branch snapshot. It is dev/reference material only and must never be used as a fresh holdout or automatic semantic-atom gold."
+    },
+    {
+      "name": "p38_2_semantic_atom_holdout",
+      "status": "development_regression",
+      "kind": "semantic_atom_holdout_converted_to_dev",
+      "question_count": 18,
+      "data": "holdouts/p38_2_semantic_atom_holdout.jsonl",
+      "metadata": "holdouts/p38_2_semantic_atom_holdout_metadata.json",
+      "execution": "../evaluation/p38_2_semantic_atom_holdout_results.json",
+      "notes": "Executed once against the isolated parser. It is no longer a fresh holdout and must not be used for parser changes as generalization evidence."
+    }
+  ],
+  "next_fresh_holdout": {
+    "name": "post_p38_redesign_semantic_atom_holdout",
+    "kind": "closed_factual",
+    "required_status_before_execution": "frozen_before_pre_hcx_execution",
+    "rule": "Create only after the compositional parser is frozen. Do not add its questions to development fixtures or inspect results before the pre-HCX Go/No-Go decision."
+  }
+}

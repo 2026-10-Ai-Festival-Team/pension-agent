@@ -1,0 +1,304 @@
+{
+  "experiment": "P33-C4 current evidence revalidation",
+  "hcx_called": false,
+  "adjudication_rule": "subject + field + value/condition + account/product/system scope",
+  "summary": {
+    "total": 18,
+    "exact_gold": 12,
+    "semantic_equivalent": 6,
+    "partial": 0,
+    "wrong_scope": 0,
+    "needs_revalidation": 0,
+    "exact_or_equivalent": 18
+  },
+  "source_relevance_gate_pass": true,
+  "rows": [
+    {
+      "question_id": "P33-001",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3",
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-002",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "04782a392f49293e-paragraph_group-a9603aad0402",
+        "2ce564b5ddde4f21-paragraph_group-502bae338bd5",
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "2ce564b5ddde4f21-table-899cb955b4a1",
+        "2ce564b5ddde4f21-table-df602195ef06",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "de4f8448134189df-paragraph_group-56c3e7dd9332",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-003",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "49ed30e0f7b42e68-paragraph_group-4d1bc4e95c19",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "49ed30e0f7b42e68-table-f9077dc63b19",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "61c5315b1e7c0f25-paragraph_group-7415ee00da59",
+        "61c5315b1e7c0f25-table-2cf4a5f0980e",
+        "61c5315b1e7c0f25-table-e5096bd1614a",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-table-7b4869d9a706",
+        "ef05c9c97fbadd27-table-8e56553263f7"
+      ],
+      "required_selected_chunks": [
+        "ef05c9c97fbadd27-table-8e56553263f7"
+      ],
+      "requirements": [
+        {
+          "subject": "IRP 설정 대상",
+          "field": "단기·단시간 근로자의 설정 가능 여부",
+          "value_or_condition": "1년 미만 또는 주 15시간 미만 근로자는 퇴직급여제도 미설정 근로자로서 IRP 설정 대상",
+          "scope": "IRP 가입 대상"
+        }
+      ]
+    },
+    {
+      "question_id": "P33-004",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-005",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-006",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "04782a392f49293e-table-bc16c5284b58",
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "46551bfa35d467ed-paragraph_group-ef7c4c45d935",
+        "46551bfa35d467ed-table-2949fe56b6ba",
+        "46551bfa35d467ed-table-869b91f75225",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-007",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "ae22159be59440b6-table-5897a6d84778"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-008",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "04782a392f49293e-table-d2d7171cef89",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-009",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "13621d38202e2fc3-table-5431011b44b5",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-table-ce8fee5b43be"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-010",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "401aa15b0e898e9b-paragraph_group-f331093fe43c",
+        "55f36905c388adb6-paragraph_group-ec73e8644b04",
+        "6cf691c50b1e1ce9-paragraph_group-328a961da574",
+        "745f9a08e811b6b1-table-5b26881cf7ac",
+        "7875bce4243126a0-table-72fb18f05075",
+        "7878a3be5806fef4-paragraph_group-4db22464421b",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "98556b19ed28c070-paragraph_group-29ad11de5d9a",
+        "98556b19ed28c070-paragraph_group-ae84e15629c6",
+        "98556b19ed28c070-table-205dd515e51e"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-011",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a",
+        "d8a6e37c05c58b07-paragraph_group-a5b80f2b7c74",
+        "d8a6e37c05c58b07-paragraph_group-c3342b6d4f83"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-012",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-934493173fce",
+        "a7eb7560c10ba4f2-paragraph_group-a521f2f07267",
+        "a7eb7560c10ba4f2-paragraph_group-c0cbab4ca054",
+        "a7eb7560c10ba4f2-table-23b55dd1b308"
+      ],
+      "required_selected_chunks": [
+        "a7eb7560c10ba4f2-paragraph_group-934493173fce",
+        "a7eb7560c10ba4f2-paragraph_group-a521f2f07267",
+        "a7eb7560c10ba4f2-paragraph_group-c0cbab4ca054"
+      ],
+      "requirements": [
+        {
+          "subject": "KR5174420011",
+          "field": "위험등급",
+          "value_or_condition": "5등급(낮은 위험)",
+          "scope": "동일 상품"
+        },
+        {
+          "subject": "KR5174420011",
+          "field": "자산유형·전략",
+          "value_or_condition": "국내 채권 중심 운용",
+          "scope": "동일 상품"
+        },
+        {
+          "subject": "KR5174420011",
+          "field": "원금손실 가능성",
+          "value_or_condition": "실적배당·예금자보호 비대상 및 손실 가능",
+          "scope": "동일 상품"
+        }
+      ]
+    },
+    {
+      "question_id": "P33-013",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "745f9a08e811b6b1-paragraph_group-15c23c59c85c",
+        "745f9a08e811b6b1-table-392c216e0efe",
+        "ec6207f6286e8df1-paragraph_group-5de913394d3c",
+        "ec6207f6286e8df1-table-8819bf6f75c8"
+      ],
+      "required_selected_chunks": [
+        "ec6207f6286e8df1-table-8819bf6f75c8",
+        "ec6207f6286e8df1-paragraph_group-5de913394d3c",
+        "745f9a08e811b6b1-table-392c216e0efe"
+      ],
+      "requirements": [
+        {
+          "subject": "KR515302022M",
+          "field": "위험등급·주된 투자대상",
+          "value_or_condition": "2등급 및 국내 주식 60% 이상",
+          "scope": "동일 상품"
+        },
+        {
+          "subject": "KR5129420025",
+          "field": "위험등급·주된 투자대상",
+          "value_or_condition": "6등급 및 국내 국공채 중심",
+          "scope": "동일 상품"
+        }
+      ]
+    },
+    {
+      "question_id": "P33-014",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "a7eb7560c10ba4f2-paragraph_group-7150e1c9103a",
+        "a7eb7560c10ba4f2-table-48201921a8eb"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-015",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-5a648283c89a",
+        "d8a6e37c05c58b07-paragraph_group-86c50106a472",
+        "d8a6e37c05c58b07-paragraph_group-a5b80f2b7c74"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P33-023",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "745f9a08e811b6b1-paragraph_group-b8cb0320120d",
+        "745f9a08e811b6b1-table-392c216e0efe"
+      ],
+      "required_selected_chunks": [
+        "745f9a08e811b6b1-table-392c216e0efe",
+        "745f9a08e811b6b1-paragraph_group-b8cb0320120d"
+      ],
+      "requirements": [
+        {
+          "subject": "6등급 채권형 펀드",
+          "field": "예금자보호·원금보장 여부",
+          "value_or_condition": "실적배당상품으로 예금자보호 대상이 아니며 원금손실 가능",
+          "scope": "동일 채권형 상품"
+        }
+      ]
+    },
+    {
+      "question_id": "P33-024",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "d8a6e37c05c58b07-paragraph_group-0f4eb69b3eb4",
+        "d8a6e37c05c58b07-paragraph_group-a97233816116"
+      ],
+      "required_selected_chunks": [
+        "d8a6e37c05c58b07-paragraph_group-0f4eb69b3eb4",
+        "d8a6e37c05c58b07-paragraph_group-a97233816116"
+      ],
+      "requirements": [
+        {
+          "subject": "KCGI 목표전환형 펀드",
+          "field": "전환 후 전략·가격 하락 가능성",
+          "value_or_condition": "국내 채권 중심으로 전환해도 전환 과정·원금 손실 가능",
+          "scope": "동일 목표전환형 상품"
+        }
+      ]
+    },
+    {
+      "question_id": "P33-025",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "71758d888c643ea0-table-660e77513fdd",
+        "ac97d050d2b39ec2-table-3c3be297fdb7"
+      ],
+      "required_selected_chunks": [
+        "71758d888c643ea0-table-660e77513fdd",
+        "ac97d050d2b39ec2-table-3c3be297fdb7"
+      ],
+      "requirements": [
+        {
+          "subject": "일반 펀드 투자 판단",
+          "field": "과거성과의 장래 보장·적합성 판단",
+          "value_or_condition": "과거 실적은 장래 성과를 보장하지 않으며 투자성향 적합성을 확인해야 함",
+          "scope": "특정 상품을 지정하지 않은 일반 안전 전제"
+        }
+      ]
+    }
+  ]
+}

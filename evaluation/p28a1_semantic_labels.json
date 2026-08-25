@@ -1,0 +1,126 @@
+{
+  "dataset": "P28-A1 frozen evidence workflow 재실행의 수동 의미 품질 라벨",
+  "source_execution_file": "data/diagnostics/p28a1_contract_alignment_12cases.json",
+  "labels": [
+    {
+      "question_id": "R-006",
+      "answer_hash": "fc16f0bdf46c45ee2e96155467cae6a0bfbbacee4788c1dd6246111a8a953189",
+      "semantic_correctness": "partial",
+      "requirement_coverage": "partial",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "requirement_omission"
+    },
+    {
+      "question_id": "R-010",
+      "answer_hash": "994516113575c4e2a7dacf68c6735b56e655a2af6bd961af288f98f987dfcb13",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "correct",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-019",
+      "answer_hash": "3b753a0d924dd757398e3d018e7d2c7cb2b11acabce67129427fb441292392e1",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "partial",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "requirement_omission"
+    },
+    {
+      "question_id": "R-034",
+      "answer_hash": "9898376b2db46028d52c9a1a7fb2fbcb7ea7ca5ed491dc5d202254b6b8784ff7",
+      "semantic_correctness": "partial",
+      "requirement_coverage": "partial",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "numeric_confusion"
+    },
+    {
+      "question_id": "R-011",
+      "answer_hash": "e3bdf6aedff460138981a1bec73085d33dc251c5048d69b359adf3ab5b5c8176",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "answer_irrelevance"
+    },
+    {
+      "question_id": "R-033",
+      "answer_hash": "1a6d56418b1d33744b86585d43c6ffc7045345f13c1fd7f08a607b5ba506443e",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "unsupported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "product_field_confusion"
+    },
+    {
+      "question_id": "R-035",
+      "answer_hash": "a27e40e0baaa5b79d3d8867967d3b8241d34a4334742c1d56506eb86d33b5743",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "partially_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "product_field_confusion"
+    },
+    {
+      "question_id": "R-038",
+      "answer_hash": "8fbd33f30f2a4309baed00be2333b3983ffc9ba1e501e8b1b608d5bd358d729d",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "answer_irrelevance"
+    },
+    {
+      "question_id": "R-001",
+      "answer_hash": "198add7e07e9c2f8f3aa84d9a03618c8751bdc11102843a03c2da651bd4586f6",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-002",
+      "answer_hash": "873a941ecb778b601dc08c476a27d3db6687b5c5354e0d34fccbe5a55889f9ff",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-024",
+      "answer_hash": "042dee28617a6f675272d12ffe8cbee51e77a269d3f8b8ed7135d236d791e5ca",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-037",
+      "answer_hash": "c2051998b51f3df2462b877761618043347e9e32d02fc2e10187e570cfcb2c8e",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    }
+  ]
+}

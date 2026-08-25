@@ -1,0 +1,1190 @@
+{
+  "experiment": "P39-1 direct selector rescore after P38-2-009 gold-contract review",
+  "live_hcx_calls": 0,
+  "frozen_raw_c_output_artifact": "evaluation/p39_1_direct_requirement_selector_ab.json",
+  "input": {
+    "manifest": "question_bank/development/p39_1_direct_requirement_selector_gold.jsonl",
+    "manifest_sha256": "880ee8db9cec1ea8e04d11c2806322da6f81b56a5b09dae5ddc0974b9bb41697",
+    "question_count": 18
+  },
+  "contract_review": {
+    "source_question_id": "P38-2-009",
+    "required_requirement_removed": "retirement_pension.in_kind_transfer.definition",
+    "reason": "The question requires application routes; transfer definition is optional supporting context."
+  },
+  "methods": {
+    "A_existing_production_planner": {
+      "question_count": 18,
+      "requirement_precision": 0.9231,
+      "requirement_recall": 0.2927,
+      "requirement_exact": {
+        "exact": 3,
+        "total": 18,
+        "accuracy": 0.1667
+      },
+      "multi_requirement_recall": {
+        "matched": 12,
+        "gold": 39,
+        "recall": 0.3077
+      },
+      "unsupported_extra_requirement_count": 1,
+      "false_missing_requirement_count": 29,
+      "details": [
+        {
+          "source_question_id": "P38-2-001",
+          "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+          "gold_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "matched_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-002",
+          "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+          "gold_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-003",
+          "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+          "gold_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-004",
+          "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+          "gold_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-005",
+          "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+          "gold_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-006",
+          "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+          "gold_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "predicted_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "matched_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-007",
+          "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+          "gold_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-008",
+          "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+          "gold_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-009",
+          "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+          "gold_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-010",
+          "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+          "gold_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "matched_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-011",
+          "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+          "gold_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.risk_grade.change_possibility"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-012",
+          "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+          "gold_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "predicted_requirements": [
+            "product.equity_allocation_limit"
+          ],
+          "matched_requirements": [
+            "product.equity_allocation_limit"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.tracking_index"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-013",
+          "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+          "gold_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-014",
+          "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+          "gold_requirements": [
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.risk_grade.current"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-015",
+          "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+          "gold_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.risk_grade.historical"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-016",
+          "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+          "gold_requirements": [
+            "DC.employer_contribution",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.operation_party",
+            "DC.operation_party"
+          ],
+          "matched_requirements": [
+            "DC.operation_party"
+          ],
+          "unsupported_extra_requirements": [
+            "DB.operation_party"
+          ],
+          "false_missing_requirements": [
+            "DC.employer_contribution"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-017",
+          "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+          "gold_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-018",
+          "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+          "gold_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        }
+      ],
+      "runtime": {
+        "live_hcx_calls": 0,
+        "provider_errors": 0
+      }
+    },
+    "B_frozen_p38_v21_atom_parser": {
+      "question_count": 18,
+      "requirement_precision": 0.9032,
+      "requirement_recall": 0.6829,
+      "requirement_exact": {
+        "exact": 11,
+        "total": 18,
+        "accuracy": 0.6111
+      },
+      "multi_requirement_recall": {
+        "matched": 26,
+        "gold": 39,
+        "recall": 0.6667
+      },
+      "unsupported_extra_requirement_count": 3,
+      "false_missing_requirement_count": 13,
+      "details": [
+        {
+          "source_question_id": "P38-2-001",
+          "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+          "gold_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.benefit_determination",
+            "DC.benefit_determination",
+            "DC.employer_contribution"
+          ],
+          "matched_requirements": [
+            "DB.benefit_determination",
+            "DC.benefit_determination"
+          ],
+          "unsupported_extra_requirements": [
+            "DC.employer_contribution"
+          ],
+          "false_missing_requirements": [
+            "DB.operation_party",
+            "DC.operation_party"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-002",
+          "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+          "gold_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "predicted_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "matched_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-003",
+          "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+          "gold_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "matched_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-004",
+          "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+          "gold_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "predicted_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "matched_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-005",
+          "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+          "gold_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-006",
+          "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+          "gold_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "predicted_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "matched_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-007",
+          "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+          "gold_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment"
+          ],
+          "matched_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-008",
+          "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+          "gold_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "predicted_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "matched_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-009",
+          "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+          "gold_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "false_missing_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-010",
+          "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+          "gold_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "matched_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-011",
+          "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+          "gold_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-012",
+          "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+          "gold_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "predicted_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "matched_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-013",
+          "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+          "gold_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "predicted_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "matched_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-014",
+          "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+          "gold_requirements": [
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-015",
+          "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+          "gold_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [
+            "product.risk_grade.change_possibility"
+          ],
+          "false_missing_requirements": [
+            "product.risk_grade.historical"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-016",
+          "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+          "gold_requirements": [
+            "DC.employer_contribution",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DC.employer_contribution"
+          ],
+          "matched_requirements": [
+            "DC.employer_contribution"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "DC.operation_party"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-017",
+          "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+          "gold_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "predicted_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "matched_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-018",
+          "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+          "gold_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.partial_withdrawal.condition"
+          ],
+          "matched_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.partial_withdrawal.condition"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        }
+      ],
+      "runtime": {
+        "live_hcx_calls": 0,
+        "provider_errors": 0
+      }
+    },
+    "C_p39_direct_requirement_selector": {
+      "question_count": 18,
+      "requirement_precision": 0.9756,
+      "requirement_recall": 0.9756,
+      "requirement_exact": {
+        "exact": 17,
+        "total": 18,
+        "accuracy": 0.9444
+      },
+      "multi_requirement_recall": {
+        "matched": 38,
+        "gold": 39,
+        "recall": 0.9744
+      },
+      "unsupported_extra_requirement_count": 1,
+      "false_missing_requirement_count": 1,
+      "details": [
+        {
+          "source_question_id": "P38-2-001",
+          "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+          "gold_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "matched_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-002",
+          "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+          "gold_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "predicted_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "matched_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-003",
+          "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+          "gold_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "matched_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-004",
+          "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+          "gold_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "predicted_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "matched_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-005",
+          "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+          "gold_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "predicted_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "matched_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-006",
+          "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+          "gold_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "predicted_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "matched_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-007",
+          "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+          "gold_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "matched_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-008",
+          "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+          "gold_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "predicted_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "matched_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-009",
+          "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+          "gold_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "matched_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-010",
+          "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+          "gold_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "matched_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-011",
+          "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+          "gold_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-012",
+          "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+          "gold_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "predicted_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "matched_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-013",
+          "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+          "gold_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "predicted_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "matched_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-014",
+          "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+          "gold_requirements": [
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-015",
+          "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+          "gold_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-016",
+          "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+          "gold_requirements": [
+            "DC.employer_contribution",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.operation_party",
+            "DC.employer_contribution"
+          ],
+          "matched_requirements": [
+            "DC.employer_contribution"
+          ],
+          "unsupported_extra_requirements": [
+            "DB.operation_party"
+          ],
+          "false_missing_requirements": [
+            "DC.operation_party"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-017",
+          "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+          "gold_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "predicted_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "matched_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-018",
+          "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+          "gold_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "matched_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        }
+      ],
+      "runtime": {
+        "schema_valid": {
+          "valid": 18,
+          "total": 18
+        },
+        "ontology_valid": {
+          "valid": 18,
+          "total": 18
+        },
+        "unknown_requirement_count": 0,
+        "provider_errors": 0,
+        "live_hcx_calls": 18
+      }
+    }
+  }
+}

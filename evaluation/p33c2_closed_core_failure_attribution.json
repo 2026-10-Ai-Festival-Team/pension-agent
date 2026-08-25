@@ -1,0 +1,16 @@
+{
+  "experiment": "P33-C2 Closed Core failure attribution",
+  "hcx_called": false,
+  "limitations": [
+    "Closed Core is a development regression set, not a fresh holdout.",
+    "DOC-ID to corpus-source provenance is not available in the current corpus metadata.",
+    "This does not adjudicate semantic-equivalent document evidence."
+  ],
+  "summary": {
+    "total": 46,
+    "insufficient": 0,
+    "owner_counts": {},
+    "unmapped_doc_id_rows": 0
+  },
+  "rows": []
+}

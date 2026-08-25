@@ -1,0 +1,405 @@
+{
+  "experiment": "P43-A Front-End Context Divergence Attribution",
+  "input": "evaluation/p43_frontend_preparation_shadow.json",
+  "hcx_calls": 0,
+  "summary": {
+    "prepared_rows": 14,
+    "product_scope_contamination_rows": 0,
+    "no_overlap_manual_field_review_rows": 4,
+    "expected_unresolved_rows": 4
+  },
+  "rows": [
+    {
+      "id": "P42-001",
+      "frontend_status": "prepared",
+      "active_subject": "product:KR5127450215",
+      "frontend_requirements": [
+        "product.tracking_index"
+      ],
+      "frontend_context_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c",
+        "8297231e70bc792a-paragraph_group-945cc5a3a4d7"
+      ],
+      "legacy_context_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c",
+        "8297231e70bc792a-paragraph_group-d2e006f7202a",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90",
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976"
+      ],
+      "overlap_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-002",
+      "frontend_status": "prepared",
+      "active_subject": "product:KR5114420022",
+      "frontend_requirements": [
+        "product.total_fee"
+      ],
+      "frontend_context_ids": [
+        "f24a347b7c7a170c-table-976297acc5c3",
+        "f24a347b7c7a170c-paragraph_group-b4dbdb7c37cd"
+      ],
+      "legacy_context_ids": [
+        "f24a347b7c7a170c-paragraph_group-55712934ceb5",
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "source_relevance_requires_manual_field_review"
+    },
+    {
+      "id": "P42-003",
+      "frontend_status": "prepared",
+      "active_subject": "product:KR5114450222",
+      "frontend_requirements": [
+        "product.risk_grade.change_possibility",
+        "product.risk_grade.current"
+      ],
+      "frontend_context_ids": [
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+        "545de7c663ff2726-table-0b26f6286e7d",
+        "545de7c663ff2726-paragraph_group-150e75283733"
+      ],
+      "legacy_context_ids": [
+        "8297231e70bc792a-table-2114705787fe",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+      ],
+      "overlap_ids": [
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-004",
+      "frontend_status": "prepared",
+      "active_subject": "DC",
+      "frontend_requirements": [
+        "DC.benefit_determination"
+      ],
+      "frontend_context_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83"
+      ],
+      "legacy_context_ids": [
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "overlap_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-005",
+      "frontend_status": "prepared",
+      "active_subject": "IRP",
+      "frontend_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment"
+      ],
+      "frontend_context_ids": [
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+        "e8d7e6a69504e042-table-05de077f1213"
+      ],
+      "legacy_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "overlap_ids": [
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-006",
+      "frontend_status": "prepared",
+      "active_subject": "pension_savings",
+      "frontend_requirements": [
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "frontend_context_ids": [
+        "a1e78e21d33dafed-table-e9ba0606db15",
+        "e8d7e6a69504e042-table-05de077f1213",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "legacy_context_ids": [
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "source_relevance_requires_manual_field_review"
+    },
+    {
+      "id": "P42-007",
+      "frontend_status": "prepared",
+      "active_subject": "DC",
+      "frontend_requirements": [
+        "DC.early_withdrawal.allowed_reasons",
+        "DC.early_withdrawal.required_documents"
+      ],
+      "frontend_context_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "04782a392f49293e-paragraph_group-4390ad8476e5",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "15fb5460a23aa10d-paragraph_group-9b55ec13ba82"
+      ],
+      "legacy_context_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "04782a392f49293e-paragraph_group-09adcb298a6f"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "source_relevance_requires_manual_field_review"
+    },
+    {
+      "id": "P42-008",
+      "frontend_status": "prepared",
+      "active_subject": "ISA",
+      "frontend_requirements": [
+        "ISA.transfer.additional_tax_credit",
+        "ISA.transfer.deadline"
+      ],
+      "frontend_context_ids": [
+        "ae22159be59440b6-table-433001f3f808",
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "ae22159be59440b6-paragraph_group-edb7af982168"
+      ],
+      "legacy_context_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d"
+      ],
+      "overlap_ids": [
+        "ae22159be59440b6-table-5897a6d84778"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-009",
+      "frontend_status": "prepared",
+      "active_subject": "DC",
+      "frontend_requirements": [
+        "DC.benefit_determination",
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "frontend_context_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ae713c70a631594f-table-800a3663c3f6",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83",
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "legacy_context_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ],
+      "overlap_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-010",
+      "frontend_status": "prepared",
+      "active_subject": "product:KR5114450222",
+      "frontend_requirements": [
+        "product.period_cost"
+      ],
+      "frontend_context_ids": [
+        "545de7c663ff2726-table-c23d15637943",
+        "545de7c663ff2726-paragraph_group-10110248f7f2"
+      ],
+      "legacy_context_ids": [
+        "545de7c663ff2726-paragraph_group-10110248f7f2",
+        "cf922cacac95fad9-paragraph_group-50171832b91f"
+      ],
+      "overlap_ids": [
+        "545de7c663ff2726-paragraph_group-10110248f7f2"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-011",
+      "frontend_status": "prepared",
+      "active_subject": "IRP",
+      "frontend_requirements": [
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "frontend_context_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+        "04782a392f49293e-paragraph_group-09adcb298a6f"
+      ],
+      "legacy_context_ids": [
+        "0df8c3cfaf3a3b5a-spreadsheet_rows-41aa8c2e4790",
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "overlap_ids": [
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-012",
+      "frontend_status": "prepared",
+      "active_subject": "DB",
+      "frontend_requirements": [
+        "DB.benefit_determination",
+        "DB.operation_party"
+      ],
+      "frontend_context_ids": [
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "fc71bcf7cc90f68d-table-fc470df2b580",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "legacy_context_ids": [
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "overlap_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-013",
+      "frontend_status": "prepared",
+      "active_subject": "product:KR5127450215",
+      "frontend_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.historical"
+      ],
+      "frontend_context_ids": [
+        "8297231e70bc792a-paragraph_group-462abaa9735c",
+        "8297231e70bc792a-paragraph_group-06a80bce2773",
+        "8297231e70bc792a-table-2114705787fe",
+        "8297231e70bc792a-table-7051b9a2f3e0"
+      ],
+      "legacy_context_ids": [
+        "8297231e70bc792a-table-2114705787fe"
+      ],
+      "overlap_ids": [
+        "8297231e70bc792a-table-2114705787fe"
+      ],
+      "wrong_product_context_ids": [],
+      "primary_owner": "no_structural_divergence"
+    },
+    {
+      "id": "P42-014",
+      "frontend_status": "prepared",
+      "active_subject": "IRP",
+      "frontend_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "frontend_context_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ],
+      "legacy_context_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "4607500e74afcdf8-paragraph_group-45b428961c7a",
+        "04782a392f49293e-paragraph_group-aa7d8f27995b",
+        "68ed4316f0a6a16e-paragraph_group-514fde38e182",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "source_relevance_requires_manual_field_review"
+    },
+    {
+      "id": "P42-015",
+      "frontend_status": "unresolved_scope",
+      "active_subject": null,
+      "frontend_requirements": [],
+      "frontend_context_ids": [],
+      "legacy_context_ids": [
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "expected_unresolved_scope"
+    },
+    {
+      "id": "P42-016",
+      "frontend_status": "unresolved_scope",
+      "active_subject": null,
+      "frontend_requirements": [],
+      "frontend_context_ids": [],
+      "legacy_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "expected_unresolved_scope"
+    },
+    {
+      "id": "P42-017",
+      "frontend_status": "unresolved_scope",
+      "active_subject": null,
+      "frontend_requirements": [],
+      "frontend_context_ids": [],
+      "legacy_context_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "expected_unresolved_scope"
+    },
+    {
+      "id": "P42-018",
+      "frontend_status": "unresolved_scope",
+      "active_subject": null,
+      "frontend_requirements": [],
+      "frontend_context_ids": [],
+      "legacy_context_ids": [
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287",
+        "8297231e70bc792a-paragraph_group-8ef4ada87a1a"
+      ],
+      "overlap_ids": [],
+      "wrong_product_context_ids": [],
+      "primary_owner": "expected_unresolved_scope"
+    }
+  ],
+  "decision": "Resolved-subject query construction removed product scope contamination. P43-C direct-field binding now selects direct total-fee and IRP-transfer-tax-timing evidence; this frozen preparation shadow is ready for read-only integration shadowing."
+}

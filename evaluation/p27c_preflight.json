@@ -1,0 +1,12 @@
+{
+  "experiment": "P27-C output-contract recertification preflight",
+  "hcx_called": false,
+  "candidate_path": "P24-B retrieval/matcher + provenance/financial policy + P25-A citation contract + P27 output contract",
+  "model": "HCX-007",
+  "minimum_request_start_interval_seconds": 6,
+  "full40_preparation_change_from_p26": [
+    "R-019: direct DC legal-grounds evidence now satisfies the route-specific gate"
+  ],
+  "p15_mini_holdout_regressions": [],
+  "go": true
+}

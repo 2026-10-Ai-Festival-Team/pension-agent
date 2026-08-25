@@ -53,6 +53,7 @@ class ConditionalRoutingShadowAgent:
             ),
             rate_limiter=self.generator.rate_limiter,
             sleeper=self.generator.sleeper,
+            response_capture=self.generator.response_capture,
         )
 
     @staticmethod
@@ -67,6 +68,38 @@ class ConditionalRoutingShadowAgent:
         if assessment.reason == "unsupported_or_personal_or_conditional":
             return "제공된 문서 범위 또는 개인 조건만으로는 이 요청에 답할 수 없습니다."
         return "제공된 문서에서 질문에 답할 충분한 근거를 확인하지 못했습니다."
+
+    @staticmethod
+    def _preparation_trace(plan) -> dict:
+        """P20 parity artifact용, HCX 호출 전 결정적 상태만 직렬화한다."""
+        entities = plan.analysis.extracted_entities
+        case = plan.requirement_case
+        return {
+            "extracted_entities": {
+                "accounts": list(entities.accounts),
+                "product_codes": list(entities.product_codes),
+                "comparison": entities.comparison,
+                "tax_intent": entities.tax_intent,
+                "requested_fields": list(entities.requested_fields),
+            },
+            "requirement_plan": {
+                "category": case.question_id.removeprefix("dynamic:") if case else None,
+                "slots": [
+                    {
+                        "name": slot.name,
+                        "key": slot.key,
+                        "terms": list(slot.terms),
+                        "min_matches": slot.min_matches,
+                        "retrieval_query": slot.retrieval_query,
+                        "canonical_terms": list(slot.canonical_terms),
+                    }
+                    for slot in (case.slots if case else ())
+                ],
+            },
+            "base_retrieved_chunk_ids": [item.chunk_id for item in plan.base_results],
+            "candidate_chunk_ids": [item.chunk_id for item in plan.candidate_results],
+            "selected_merged_evidence_ids": [item.chunk_id for item in plan.contexts],
+        }
 
     def answer(self, question: str, top_k: int = 5) -> dict:
         plan = self.prepare(question, top_k)
@@ -122,8 +155,6 @@ class ConditionalRoutingShadowAgent:
             "route": route.route,
             "route_reasons": route.reasons,
             "retrieved_chunk_ids": [item.chunk_id for item in contexts],
-            "base_retrieved_chunk_ids": [item.chunk_id for item in plan.base_results],
-            "candidate_chunk_ids": [item.chunk_id for item in candidate_results],
             "selected_requirement_slots": [slot.name for slot in requirement_case.slots] if requirement_case else [],
             "missing_requirement_slots": assessment.missing_requirements,
             "evidence_sufficient": assessment.sufficient,
@@ -135,6 +166,7 @@ class ConditionalRoutingShadowAgent:
             "generation_error": generation_error,
             "generation_diagnostic": generation_diagnostic,
         }
+        trace.update(self._preparation_trace(plan))
         if generated:
             trace.update(
                 {

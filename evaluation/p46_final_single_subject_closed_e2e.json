@@ -1,0 +1,1635 @@
+{
+  "experiment": "P46 Final Fresh Single-Subject Closed E2E",
+  "manifest": "question_bank/holdouts/p46_final_single_subject_closed_e2e.jsonl",
+  "manifest_sha256": "497826ea123e96a58bb6c60cbc1cf123cfce3f3e36afa428a35b12fcd0eea649",
+  "capability_boundary": "genuine multi-subject comparison; non_unique_active_subject remains unresolved",
+  "runtime": {
+    "hcx_model": "HCX-007",
+    "selector_and_answer_share_global_pacing_seconds": 6.0,
+    "candidate_or_browser_changed": false
+  },
+  "operational_summary": {
+    "question_count": 18,
+    "front_end_requirement_recall": 0.888889,
+    "front_end_requirement_precision": 0.87037,
+    "front_end_requirement_exact": 15,
+    "scope_reference_critical_error": 1,
+    "ambiguous_unsafe_resolution": 0,
+    "required_evidence_coverage": 16,
+    "wrong_scope_or_product_evidence": 0,
+    "generator_attempted": 16,
+    "generator_called": 16,
+    "provider_or_schema_failure": 0,
+    "citation_valid": 16,
+    "empty_answer": 0,
+    "answer_hashes_recorded": 18,
+    "answer_generation_latency_ms": {
+      "mean": 7169.814,
+      "max": 11594.974
+    },
+    "semantic_labeling": "pending; do not re-call HCX before manual labels attach to answer_hash"
+  },
+  "outputs": [
+    {
+      "id": "P46-001",
+      "question": "확정기여형 퇴직연금제도에서 사용자가 해마다 적립해야 하는 법정 부담금의 하한은 어떻게 정해지나요?",
+      "expected_active_subject": "DC",
+      "expected_requirements": [
+        "DC.employer_contribution"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DC",
+      "selected_requirements": [
+        "DC.employer_contribution"
+      ],
+      "requirement_candidate_ids": {
+        "DC.employer_contribution": [
+          "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+          "04782a392f49293e-table-bc16c5284b58"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+        "04782a392f49293e-table-bc16c5284b58"
+      ],
+      "cited_chunk_ids": [
+        "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+        "04782a392f49293e-table-bc16c5284b58"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nDC형 퇴직연금제도에서 사용자가 매년 적립해야 하는 법정 부담금의 하한은 연간 임금총액의 1/12 이상으로 정해집니다.\n\n[근거]\n- [출처: docs_renamed/doc15.pdf, 2페이지, fc71bcf7cc90f68d-table-c1ac92bf85cc]\n- [출처: docs_renamed/doc55.docx, 위치 정보 없음, 04782a392f49293e-table-bc16c5284b58]",
+      "answer_hash": "b2246017ddb97806592d5a378da26ae2ef2a6c4ec00491c96190ced16536dc8d",
+      "output_hash": "2faa7089536e81e1bbb8049197c215759244828c9e33e7d2eefd6af82334a111",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 7942.984,
+      "generation_latency_ms": 6937.489,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.04,
+        "request_payload_bytes": 3048,
+        "rate_limit_wait_ms": 5100.49,
+        "request_started_offset_ms": 5100.586,
+        "request_started_monotonic_ms": 8001.681,
+        "request_completed_offset_ms": 6937.252,
+        "request_completed_monotonic_ms": 9838.357,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 179,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxxxx xxxx xx xxxx xx xx xxxx xxx xx xxxxx xxxx xxxx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 706,
+          "completionTokens": 84,
+          "totalTokens": 790
+        },
+        "attempt_latency_ms": 6937.422,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.04,
+            "request_started_offset_ms": 5100.586,
+            "request_completed_offset_ms": 6937.252,
+            "request_started_monotonic_ms": 8001.681,
+            "request_completed_monotonic_ms": 9838.357,
+            "rate_limit_wait_ms": 5100.49,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6937.422,
+            "request_payload_bytes": 3048,
+            "message_content_length": 179,
+            "usage": {
+              "promptTokens": 706,
+              "completionTokens": 84,
+              "totalTokens": 790
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-002",
+      "question": "IRP를 제외한 연금저축 단독 납입분의 세액공제 한도는 연간 얼마인가요?",
+      "expected_active_subject": "pension_savings",
+      "expected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "pension_savings",
+      "selected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "requirement_candidate_ids": {
+        "pension_savings.tax_credit.limit": [
+          "7cce439d30d5a8b0-table-20114875d339",
+          "04782a392f49293e-table-d2d7171cef89"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "04782a392f49293e-table-d2d7171cef89"
+      ],
+      "cited_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "04782a392f49293e-table-d2d7171cef89"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n연간 세액공제 한도는 연금저축 단독으로 600만 원입니다.\n\n[근거]\n- [출처: docs_renamed/doc41.docx, 위치 정보 없음, 7cce439d30d5a8b0-table-20114875d339]\n- [출처: docs_renamed/doc55.docx, 위치 정보 없음, 04782a392f49293e-table-d2d7171cef89]\n\n[유의사항]\n- 제공 문서 기준의 일반 정보입니다. 실제 세금 적용은 소득, 계좌, 수령 방식, 적용 시점에 따라 달라질 수 있으므로 금융회사 또는 세무전문가에게 확인하세요.",
+      "answer_hash": "3855c243d717e77dd7726a340b2b1c5ddca41b327097576565fcdfa42983261d",
+      "output_hash": "52859762730c84ba1194239ebd3a0089b11a98a26e568da0028d712259fa2637",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12039.937,
+      "generation_latency_ms": 6544.502,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.034,
+        "request_payload_bytes": 2211,
+        "rate_limit_wait_ms": 4874.132,
+        "request_started_offset_ms": 4874.183,
+        "request_started_monotonic_ms": 20209.333,
+        "request_completed_offset_ms": 6544.338,
+        "request_completed_monotonic_ms": 21879.504,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 145,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xx xxxx xxx xxxx xxxx xxxx xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 588,
+          "completionTokens": 68,
+          "totalTokens": 656
+        },
+        "attempt_latency_ms": 6544.452,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.034,
+            "request_started_offset_ms": 4874.183,
+            "request_completed_offset_ms": 6544.338,
+            "request_started_monotonic_ms": 20209.333,
+            "request_completed_monotonic_ms": 21879.504,
+            "rate_limit_wait_ms": 4874.132,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6544.452,
+            "request_payload_bytes": 2211,
+            "message_content_length": 145,
+            "usage": {
+              "promptTokens": 588,
+              "completionTokens": 68,
+              "totalTokens": 656
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-003",
+      "question": "DB형 퇴직급여를 계산할 때 퇴직 직전 평균임금은 며칠분을 기준으로 계속근로기간과 곱하나요?",
+      "expected_active_subject": "DB",
+      "expected_requirements": [
+        "DB.benefit_determination"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DB",
+      "selected_requirements": [],
+      "requirement_candidate_ids": {},
+      "retrieved_chunk_ids": [],
+      "cited_chunk_ids": [],
+      "assessment_reason": "single_subject_frontend_unresolved",
+      "generator_attempted": false,
+      "generator_called": false,
+      "generation_error": null,
+      "answer": "제공된 원본 문서에서 질문에 답할 충분한 근거를 확인하지 못했습니다. 추측하여 답변하지 않겠습니다.",
+      "answer_hash": "1c0b60da9d51389abb6a6a440387bb9d9d20209381f27fa01d753b735deef16a",
+      "output_hash": "b5b73e0587d2805197eb22f5691dca87971864649f9e786e29ddc1a6e4ed4750",
+      "requirement_precision": 0.0,
+      "requirement_recall": 0.0,
+      "requirement_exact": false,
+      "scope_correct": true,
+      "latency_ms": 5238.429,
+      "generation_latency_ms": null,
+      "generation_diagnostic": null
+    },
+    {
+      "id": "P46-004",
+      "question": "DC형에서는 회사가 아닌 누구의 선택으로 적립금 운용방법이 결정되나요?",
+      "expected_active_subject": "DC",
+      "expected_requirements": [
+        "DC.operation_party"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DC",
+      "selected_requirements": [
+        "DC.operation_party"
+      ],
+      "requirement_candidate_ids": {
+        "DC.operation_party": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "cited_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nDC형 적립금 운용 주체는 근로자입니다.\n\n[근거]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-table-6f164502cbce]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-paragraph_group-fd0d4e7d80e6]",
+      "answer_hash": "34ea6259e379bbfe24d6d11faf6805793f320b00e1d1286dad7d83f940c4bb0c",
+      "output_hash": "6ce33e68960a387ace893d419a57b2651bea5df7fd8a3c810b5ccd0cd1e5ea87",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 13092.955,
+      "generation_latency_ms": 6999.279,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.043,
+        "request_payload_bytes": 4734,
+        "rate_limit_wait_ms": 5310.886,
+        "request_started_offset_ms": 5310.966,
+        "request_started_monotonic_ms": 38524.489,
+        "request_completed_offset_ms": 6999.11,
+        "request_completed_monotonic_ms": 40212.639,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 145,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xxx xxx xx xxx xxxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1192,
+          "completionTokens": 66,
+          "totalTokens": 1258
+        },
+        "attempt_latency_ms": 6999.221,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.043,
+            "request_started_offset_ms": 5310.966,
+            "request_completed_offset_ms": 6999.11,
+            "request_started_monotonic_ms": 38524.489,
+            "request_completed_monotonic_ms": 40212.639,
+            "rate_limit_wait_ms": 5310.886,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6999.221,
+            "request_payload_bytes": 4734,
+            "message_content_length": 145,
+            "usage": {
+              "promptTokens": 1192,
+              "completionTokens": 66,
+              "totalTokens": 1258
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-005",
+      "question": "개인형 IRP의 보유 상품을 매도하지 않고 다른 금융기관으로 옮길 때, 모바일에서도 실물이전 접수가 가능한가요?",
+      "expected_active_subject": "IRP",
+      "expected_requirements": [
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "IRP",
+      "selected_requirements": [
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "requirement_candidate_ids": {
+        "retirement_pension.in_kind_transfer.IRP.application_route": [
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "04782a392f49293e-paragraph_group-09adcb298a6f"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+        "04782a392f49293e-paragraph_group-09adcb298a6f"
+      ],
+      "cited_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n네, 개인형 IRP의 보유 상품을 매도하지 않고 다른 금융기관으로 옮길 때 모바일에서도 실물이전 접수가 가능합니다.\n\n[근거]\n- [출처: docs_renamed/doc35.docx, 위치 정보 없음, afc99f5bd68cc78b-paragraph_group-549eae06e466]",
+      "answer_hash": "d18fb109d7c257605933057a5c3327661f6e695eba047c08dffe35e17d1dc0d1",
+      "output_hash": "86d5f8dc618a9f20b9f5991347047241427f49828f5ccc33327358555ed04e8a",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12255.248,
+      "generation_latency_ms": 6803.778,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.044,
+        "request_payload_bytes": 5450,
+        "rate_limit_wait_ms": 5067.022,
+        "request_started_offset_ms": 5067.094,
+        "request_started_monotonic_ms": 50733.332,
+        "request_completed_offset_ms": 6803.555,
+        "request_completed_monotonic_ms": 52469.804,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 148,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"x, xxx xxxx xx xxx xxxx xx xx xxxxxx xx x xxxxxx xxxx xxx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1335,
+          "completionTokens": 61,
+          "totalTokens": 1396
+        },
+        "attempt_latency_ms": 6803.717,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.044,
+            "request_started_offset_ms": 5067.094,
+            "request_completed_offset_ms": 6803.555,
+            "request_started_monotonic_ms": 50733.332,
+            "request_completed_monotonic_ms": 52469.804,
+            "rate_limit_wait_ms": 5067.022,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6803.717,
+            "request_payload_bytes": 5450,
+            "message_content_length": 148,
+            "usage": {
+              "promptTokens": 1335,
+              "completionTokens": 61,
+              "totalTokens": 1396
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-006",
+      "question": "퇴직급여 일시금을 IRP로 이체해 연금으로 받는다면 퇴직소득세는 이체 즉시 내나요, 연금 받을 때 내나요?",
+      "expected_active_subject": "IRP",
+      "expected_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "IRP",
+      "selected_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "requirement_candidate_ids": {
+        "retirement_income.IRP_transfer.tax_timing": [
+          "55f36905c388adb6-table-aaec2abb0a55",
+          "7878a3be5806fef4-table-a3623398dbaa"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ],
+      "cited_chunk_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n퇴직급여 일시금을 IRP로 이체하여 연금으로 받는 경우, 퇴직소득세는 연금 수령 시점에 납부하게 됩니다.\n\n[근거]\n- [출처: docs_renamed/doc39.docx, 위치 정보 없음, 55f36905c388adb6-table-aaec2abb0a55]\n- [출처: docs_renamed/doc51.docx, 위치 정보 없음, 7878a3be5806fef4-table-a3623398dbaa]\n\n[유의사항]\n- 제공 문서 기준의 일반 정보입니다. 실제 세금 적용은 소득, 계좌, 수령 방식, 적용 시점에 따라 달라질 수 있으므로 금융회사 또는 세무전문가에게 확인하세요.",
+      "answer_hash": "5b8ce421443cd5620eb7c62980214111da8cc5f930be6a6cf29f775b24394c0f",
+      "output_hash": "5437f8bb664654193d04786e0289f2a262ae8b32c1145e03fbb86bb7badcdcee",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12264.734,
+      "generation_latency_ms": 6863.747,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.034,
+        "request_payload_bytes": 2789,
+        "rate_limit_wait_ms": 5070.73,
+        "request_started_offset_ms": 5070.805,
+        "request_started_monotonic_ms": 62943.457,
+        "request_completed_offset_ms": 6863.699,
+        "request_completed_monotonic_ms": 64736.351,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 171,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "\"xxxx xxxx xxxx xxxx xxxx xx xx, xxxxxx xx xx xxx xxxx xxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 741,
+          "completionTokens": 76,
+          "totalTokens": 817
+        },
+        "attempt_latency_ms": 6863.711,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.034,
+            "request_started_offset_ms": 5070.805,
+            "request_completed_offset_ms": 6863.699,
+            "request_started_monotonic_ms": 62943.457,
+            "request_completed_monotonic_ms": 64736.351,
+            "rate_limit_wait_ms": 5070.73,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6863.711,
+            "request_payload_bytes": 2789,
+            "message_content_length": 171,
+            "usage": {
+              "promptTokens": 741,
+              "completionTokens": 76,
+              "totalTokens": 817
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-007",
+      "question": "DC 가입자 대상 교육은 1년에 최소 몇 번 해야 하며, 퇴직연금사업자나 전문기관에 위탁할 수도 있나요?",
+      "expected_active_subject": "DC",
+      "expected_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DC",
+      "selected_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "requirement_candidate_ids": {
+        "retirement_pension.participant_education.frequency": [
+          "ae713c70a631594f-table-800a3663c3f6",
+          "ae713c70a631594f-paragraph_group-b665fce408b0"
+        ],
+        "retirement_pension.participant_education.outsourcing": [
+          "ae713c70a631594f-table-800a3663c3f6",
+          "ae713c70a631594f-paragraph_group-b665fce408b0"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "ae713c70a631594f-table-800a3663c3f6",
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "cited_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n퇴직연금 가입자 교육은 매년 1회 이상 실시해야 하며, 퇴직연금사업자나 전문기관에 위탁할 수도 있습니다.\n\n[근거]\n- [출처: docs_renamed/doc18.pdf, 1페이지, ae713c70a631594f-paragraph_group-b665fce408b0]",
+      "answer_hash": "7ef157780919f5f0c7e8f75b085ea997590ab5ea96d69dd75f9bd74b389ad9b4",
+      "output_hash": "9f8046cbb70b97b7775f797f6c68145dc2ad7c910aede3847df0300fe2b15436",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11956.047,
+      "generation_latency_ms": 6219.432,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.075,
+        "request_payload_bytes": 4170,
+        "rate_limit_wait_ms": 4680.336,
+        "request_started_offset_ms": 4680.452,
+        "request_started_monotonic_ms": 75153.619,
+        "request_completed_offset_ms": 6219.253,
+        "request_completed_monotonic_ms": 76692.427,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 142,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xxxx xxx xxx xx xx xx xxxx xx, xxxxxxxx xxxxx xxx xx xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 887,
+          "completionTokens": 60,
+          "totalTokens": 947
+        },
+        "attempt_latency_ms": 6219.338,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.075,
+            "request_started_offset_ms": 4680.452,
+            "request_completed_offset_ms": 6219.253,
+            "request_started_monotonic_ms": 75153.619,
+            "request_completed_monotonic_ms": 76692.427,
+            "rate_limit_wait_ms": 4680.336,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6219.338,
+            "request_payload_bytes": 4170,
+            "message_content_length": 142,
+            "usage": {
+              "promptTokens": 887,
+              "completionTokens": 60,
+              "totalTokens": 947
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-008",
+      "question": "KR5114420016 설명서에서 연간 총보수·비용률을 확인할 때 어떤 열을 판매수수료와 구분해 봐야 하나요?",
+      "expected_active_subject": "product:KR5114420016",
+      "expected_requirements": [
+        "product.total_fee"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5114420016",
+      "selected_requirements": [
+        "product.total_fee"
+      ],
+      "requirement_candidate_ids": {
+        "product.total_fee": [
+          "0a1c8fece530be69-table-90cb3c152bae",
+          "0a1c8fece530be69-paragraph_group-f7abe6a7ef93"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "0a1c8fece530be69-table-90cb3c152bae",
+        "0a1c8fece530be69-paragraph_group-f7abe6a7ef93"
+      ],
+      "cited_chunk_ids": [
+        "0a1c8fece530be69-table-90cb3c152bae",
+        "0a1c8fece530be69-paragraph_group-f7abe6a7ef93"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n연간 총보수·비용률을 확인할 때는 KR5114420016 설명서의 '투자신탁 관련 보수등' 테이블에서 '총 보수·비용' 열을 확인해야 합니다.\n\n[근거]\n- [출처: 투자설명서/KR5114420016/R2_KR5114420016.pdf, 36페이지, 0a1c8fece530be69-table-90cb3c152bae]\n- [출처: 투자설명서/KR5114420016/R2_KR5114420016.pdf, 36페이지, 0a1c8fece530be69-paragraph_group-f7abe6a7ef93]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "5414a759bb3181b35d60fe5b45d42929fb1af76740b4a5ffff4d4a225e90a59e",
+      "output_hash": "94e032eeb3ac7b09f355ee9ded39805db19d10618513ffd87fe5fe01b7016923",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12696.623,
+      "generation_latency_ms": 7201.668,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.071,
+        "request_payload_bytes": 4617,
+        "rate_limit_wait_ms": 5173.996,
+        "request_started_offset_ms": 5174.149,
+        "request_started_monotonic_ms": 87363.412,
+        "request_completed_offset_ms": 7201.401,
+        "request_completed_monotonic_ms": 89390.71,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 202,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "x xxxx xxxxx xx xxxx xxxxx xx xxxxxx xx xxxx xxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1324,
+          "completionTokens": 98,
+          "totalTokens": 1422
+        },
+        "attempt_latency_ms": 7201.573,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.071,
+            "request_started_offset_ms": 5174.149,
+            "request_completed_offset_ms": 7201.401,
+            "request_started_monotonic_ms": 87363.412,
+            "request_completed_monotonic_ms": 89390.71,
+            "rate_limit_wait_ms": 5173.996,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7201.573,
+            "request_payload_bytes": 4617,
+            "message_content_length": 202,
+            "usage": {
+              "promptTokens": 1324,
+              "completionTokens": 98,
+              "totalTokens": 1422
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-009",
+      "question": "KR5114420016을 1,000만원 매수했다고 가정한 비용 예시는 1년부터 어떤 보유기간 열로 나뉘어 있나요?",
+      "expected_active_subject": "product:KR5114420016",
+      "expected_requirements": [
+        "product.period_cost"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5114420016",
+      "selected_requirements": [
+        "product.period_cost"
+      ],
+      "requirement_candidate_ids": {
+        "product.period_cost": [
+          "0a1c8fece530be69-table-f26fac86b527",
+          "0a1c8fece530be69-table-f39ac8107041"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "0a1c8fece530be69-table-f26fac86b527",
+        "0a1c8fece530be69-table-f39ac8107041"
+      ],
+      "cited_chunk_ids": [
+        "0a1c8fece530be69-table-f26fac86b527"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nKR5114420016을 1,000만원 매수했다고 가정한 비용 예시는 1년부터 10년까지의 보유기간 열로 나뉘어 있습니다.\n\n[근거]\n- [출처: 투자설명서/KR5114420016/R2_KR5114420016.pdf, 41페이지, 0a1c8fece530be69-table-f26fac86b527]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "9d6456bd445e67f7ce1d8079270ba10a3b4cc7fbce833b086961f2100c6e348f",
+      "output_hash": "74516c372625624f1631e25df72e7f8ada63067086d43ca07cb29706b56110a1",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11756.222,
+      "generation_latency_ms": 6721.945,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.062,
+        "request_payload_bytes": 5090,
+        "rate_limit_wait_ms": 5145.775,
+        "request_started_offset_ms": 5145.874,
+        "request_started_monotonic_ms": 99572.685,
+        "request_completed_offset_ms": 6721.736,
+        "request_completed_monotonic_ms": 101148.556,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 142,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"xxxxxxxxxxxxx x,xxxxx xxxxx xxx xx xxx xxxx xxxxxx xxxx xx xxx xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1475,
+          "completionTokens": 65,
+          "totalTokens": 1540
+        },
+        "attempt_latency_ms": 6721.864,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.062,
+            "request_started_offset_ms": 5145.874,
+            "request_completed_offset_ms": 6721.736,
+            "request_started_monotonic_ms": 99572.685,
+            "request_completed_monotonic_ms": 101148.556,
+            "rate_limit_wait_ms": 5145.775,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6721.864,
+            "request_payload_bytes": 5090,
+            "message_content_length": 142,
+            "usage": {
+              "promptTokens": 1475,
+              "completionTokens": 65,
+              "totalTokens": 1540
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-010",
+      "question": "KR5127420045의 현재 위험등급은 몇 등급이며, 문서상 이 등급은 앞으로도 고정인가요?",
+      "expected_active_subject": "product:KR5127420045",
+      "expected_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.change_possibility"
+      ],
+      "frontend_status": "unresolved_scope",
+      "active_subject": null,
+      "selected_requirements": [],
+      "requirement_candidate_ids": {},
+      "retrieved_chunk_ids": [],
+      "cited_chunk_ids": [],
+      "assessment_reason": "single_subject_frontend_unresolved",
+      "generator_attempted": false,
+      "generator_called": false,
+      "generation_error": null,
+      "answer": "제공된 원본 문서에서 질문에 답할 충분한 근거를 확인하지 못했습니다. 추측하여 답변하지 않겠습니다.",
+      "answer_hash": "1c0b60da9d51389abb6a6a440387bb9d9d20209381f27fa01d753b735deef16a",
+      "output_hash": "9682df27bdec48d0e667b53912f1ba9ce3e371cc1f73c926cd115c47b367a548",
+      "requirement_precision": 0.0,
+      "requirement_recall": 0.0,
+      "requirement_exact": false,
+      "scope_correct": false,
+      "latency_ms": 0.611,
+      "generation_latency_ms": null,
+      "generation_diagnostic": null
+    },
+    {
+      "id": "P46-011",
+      "question": "KR5113450401의 위험등급 변경표에는 과거 등급이 어떤 식으로 조정된 것으로 나오나요?",
+      "expected_active_subject": "product:KR5113450401",
+      "expected_requirements": [
+        "product.risk_grade.historical"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5113450401",
+      "selected_requirements": [
+        "product.risk_grade.historical"
+      ],
+      "requirement_candidate_ids": {
+        "product.risk_grade.historical": [
+          "e59580b78c29d45b-table-e8fdfc6f5b53",
+          "e59580b78c29d45b-table-ac257192e6cc"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "e59580b78c29d45b-table-e8fdfc6f5b53",
+        "e59580b78c29d45b-table-ac257192e6cc"
+      ],
+      "cited_chunk_ids": [
+        "e59580b78c29d45b-table-e8fdfc6f5b53"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nKR5113450401의 위험등급 변경표는 다음과 같이 과거 등급이 조정되었습니다:\n\n1. 2016년 7월 2일: 1등급에서 3등급으로 변경됨. 이유는 투자위험등급 분류체계 개편 및 최근 결산일 기준 이전 3년간 주간수익률 변동성이 10% 초과 15% 이하였기 때문.\n\n2. 2020년 9월 17일: 3등급에서 2등급으로 변경됨. 이유는 최근 결산일 기준 이전 3년간 주간수익률 변동이 15% 초과 25% 이하였기 때문.\n\n3. 2023년 9월 22일: 2등급에서 3등급으로 변경됨. 이유는 최근 결산일 기준 이전 3년간 주간수익률 변동이 다시 10% 초과 15% 이하가 되었기 때문.\n\n4. 2024년 10월 2일: 3등급에서 2등급으로 변경됨. 이유는 투자위험등급 산정기준이 표준편차에서 VaR로 변경되었고, 최대손실예상액(VaR)에 따른 수익률변동성이 50% 이하이기 때문.\n\n5. 2025년 9월 30일: 2등급에서 3등급으로 변경됨. 이유는 최근 결산일 기준 이전 3년간 일간 수익률의 최대손실예상액(VaR)에 따른 수익률변동성이 20% 초과 30% 이하이기 때문.\n\n[근거]\n- [출처: 투자설명서/KR5113450401/R2_KR5113450401.pdf, 32페이지, e59580b78c29d45b-table-e8fdfc6f5b53]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "78caa986ed25d848a5b33f9a2af11d3ae6ac4930c12642679094b15322428c4f",
+      "output_hash": "e2916443e8f69f5336e656f9def4d7ed4ba592487cad95afc426e5e75f69b57c",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 17029.471,
+      "generation_latency_ms": 11594.974,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.038,
+        "request_payload_bytes": 3456,
+        "rate_limit_wait_ms": 5192.145,
+        "request_started_offset_ms": 5192.225,
+        "request_started_monotonic_ms": 111777.96,
+        "request_completed_offset_ms": 11594.604,
+        "request_completed_monotonic_ms": 118180.356,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 629,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xx xxx: xxxxx xxxxx xxx. xxx xx xxx xx xx xxx xx xxxx xxxxxxxxxxxxx xx xxxxxxx xxx xx xxx xxxx xx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1086,
+          "completionTokens": 369,
+          "totalTokens": 1455
+        },
+        "attempt_latency_ms": 11594.912,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.038,
+            "request_started_offset_ms": 5192.225,
+            "request_completed_offset_ms": 11594.604,
+            "request_started_monotonic_ms": 111777.96,
+            "request_completed_monotonic_ms": 118180.356,
+            "rate_limit_wait_ms": 5192.145,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 11594.912,
+            "request_payload_bytes": 3456,
+            "message_content_length": 629,
+            "usage": {
+              "promptTokens": 1086,
+              "completionTokens": 369,
+              "totalTokens": 1455
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-012",
+      "question": "KR5127420045를 먼저, KR5127420083을 나중에 적었습니다. 두 번째 상품의 현재 투자위험등급을 알려주세요.",
+      "expected_active_subject": "product:KR5127420083",
+      "expected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5127420083",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "requirement_candidate_ids": {
+        "product.risk_grade.current": [
+          "4cac628fab869b38-paragraph_group-7fb7f0951e89",
+          "4cac628fab869b38-table-02ce856d5363"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "4cac628fab869b38-paragraph_group-7fb7f0951e89",
+        "4cac628fab869b38-table-02ce856d5363"
+      ],
+      "cited_chunk_ids": [
+        "4cac628fab869b38-paragraph_group-7fb7f0951e89",
+        "4cac628fab869b38-table-02ce856d5363"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n두 번째 상품의 현재 투자위험등급은 '4등급(보통 위험)'입니다.\n\n[근거]\n- [출처: 투자설명서/KR5127420083/R2_KR5127420083.pdf, 1페이지, 4cac628fab869b38-paragraph_group-7fb7f0951e89]\n- [출처: 투자설명서/KR5127420083/R2_KR5127420083.pdf, 1페이지, 4cac628fab869b38-table-02ce856d5363]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "4e7e76020b5e2bba63561e11cc28215afa2934bc833325b5817946f2403281aa",
+      "output_hash": "724a8cef5e21fa5ee61361af84bd807c937628d43b910a4ad398ea077b2e02c4",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 7738.63,
+      "generation_latency_ms": 6604.348,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.04,
+        "request_payload_bytes": 4559,
+        "rate_limit_wait_ms": 4971.588,
+        "request_started_offset_ms": 4971.671,
+        "request_started_monotonic_ms": 124288.7,
+        "request_completed_offset_ms": 6604.171,
+        "request_completed_monotonic_ms": 125921.213,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 159,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"x xx xxx xx xxxxxxx xxxxxxx xxxxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1162,
+          "completionTokens": 70,
+          "totalTokens": 1232
+        },
+        "attempt_latency_ms": 6604.295,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.04,
+            "request_started_offset_ms": 4971.671,
+            "request_completed_offset_ms": 6604.171,
+            "request_started_monotonic_ms": 124288.7,
+            "request_completed_monotonic_ms": 125921.213,
+            "rate_limit_wait_ms": 4971.588,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6604.295,
+            "request_payload_bytes": 4559,
+            "message_content_length": 159,
+            "usage": {
+              "promptTokens": 1162,
+              "completionTokens": 70,
+              "totalTokens": 1232
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-013",
+      "question": "KR5127420083 다음 KR5127420045 중 후자로 적힌 상품의 연간 총보수·비용은 어느 표의 어떤 항목으로 확인하나요?",
+      "expected_active_subject": "product:KR5127420045",
+      "expected_requirements": [
+        "product.total_fee"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5127420045",
+      "selected_requirements": [
+        "product.total_fee"
+      ],
+      "requirement_candidate_ids": {
+        "product.total_fee": [
+          "a55a5901a9b344c6-table-08bcb0a8c4ea",
+          "a55a5901a9b344c6-paragraph_group-a5e58deb723a"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "a55a5901a9b344c6-table-08bcb0a8c4ea",
+        "a55a5901a9b344c6-paragraph_group-a5e58deb723a"
+      ],
+      "cited_chunk_ids": [
+        "a55a5901a9b344c6-table-08bcb0a8c4ea",
+        "a55a5901a9b344c6-paragraph_group-a5e58deb723a"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n후자로 적힌 상품의 연간 총보수·비용은 '총 보수·비용' 항목으로 확인합니다.\n\n[근거]\n- [출처: 투자설명서/KR5127420045/R2_KR5127420045.pdf, 27페이지, a55a5901a9b344c6-table-08bcb0a8c4ea]\n- [출처: 투자설명서/KR5127420045/R2_KR5127420045.pdf, 27페이지, a55a5901a9b344c6-paragraph_group-a5e58deb723a]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "e139f7c1edc7a041600deae47e32f38fb38d03634d41af1a498761228606e5cf",
+      "output_hash": "f0d69fabf0225231e18eae5abce3c211052341534984d9c95e6ee54369a0aa5f",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12624.169,
+      "generation_latency_ms": 7267.947,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.054,
+        "request_payload_bytes": 5629,
+        "rate_limit_wait_ms": 5220.006,
+        "request_started_offset_ms": 5220.097,
+        "request_started_monotonic_ms": 136498.688,
+        "request_completed_offset_ms": 7267.9,
+        "request_completed_monotonic_ms": 138546.491,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 166,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xx\": \"xxx xx xxx xx xxxxxxx xx xxxxxx xxxx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 2448,
+          "completionTokens": 82,
+          "totalTokens": 2530
+        },
+        "attempt_latency_ms": 7267.89,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.054,
+            "request_started_offset_ms": 5220.097,
+            "request_completed_offset_ms": 7267.9,
+            "request_started_monotonic_ms": 136498.688,
+            "request_completed_monotonic_ms": 138546.491,
+            "rate_limit_wait_ms": 5220.006,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7267.89,
+            "request_payload_bytes": 5629,
+            "message_content_length": 166,
+            "usage": {
+              "promptTokens": 2448,
+              "completionTokens": 82,
+              "totalTokens": 2530
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-014",
+      "question": "KR5113420012의 투자비용 표는 1,000만원 투자 가정에서 3년 뒤 비용도 보여주나요?",
+      "expected_active_subject": "product:KR5113420012",
+      "expected_requirements": [
+        "product.period_cost"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5113420012",
+      "selected_requirements": [
+        "product.period_cost"
+      ],
+      "requirement_candidate_ids": {
+        "product.period_cost": [
+          "c61c1c27df94646e-paragraph_group-79a80950b045",
+          "c61c1c27df94646e-paragraph_group-712ca76f3609"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "c61c1c27df94646e-paragraph_group-79a80950b045",
+        "c61c1c27df94646e-paragraph_group-712ca76f3609"
+      ],
+      "cited_chunk_ids": [
+        "c61c1c27df94646e-paragraph_group-79a80950b045"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n네, KR5113420012의 투자비용 표에서는 1,000만원 투자 가정 하에 3년 뒤 비용을 보여줍니다.\n\n[근거]\n- [출처: 투자설명서/KR5113420012/R2_KR5113420012.pdf, 6페이지, c61c1c27df94646e-paragraph_group-79a80950b045]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "70c35fc5a871c69bfd4dc8dc2fc0615acd7d469846c8a7ea57db4ee439dbe544",
+      "output_hash": "b8903d73020ff24432980a68f84fa457e4a0babee51552468bdbf6fdc2c7b8b8",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11710.168,
+      "generation_latency_ms": 6646.056,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.062,
+        "request_payload_bytes": 4957,
+        "rate_limit_wait_ms": 5094.481,
+        "request_started_offset_ms": 5094.637,
+        "request_started_monotonic_ms": 148705.235,
+        "request_completed_offset_ms": 6645.712,
+        "request_completed_monotonic_ms": 150256.316,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 143,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "{\"xxxxxx\": \"x, xxxxxxxxxxxxx xxxx xxxx x,xxxxx xx xx xx xx x xxx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1412,
+          "completionTokens": 61,
+          "totalTokens": 1473
+        },
+        "attempt_latency_ms": 6645.965,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.062,
+            "request_started_offset_ms": 5094.637,
+            "request_completed_offset_ms": 6645.712,
+            "request_started_monotonic_ms": 148705.235,
+            "request_completed_monotonic_ms": 150256.316,
+            "rate_limit_wait_ms": 5094.481,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6645.965,
+            "request_payload_bytes": 4957,
+            "message_content_length": 143,
+            "usage": {
+              "promptTokens": 1412,
+              "completionTokens": 61,
+              "totalTokens": 1473
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-015",
+      "question": "KR5127420083은 현재 투자위험등급 분류에서 어느 수준에 놓여 있나요?",
+      "expected_active_subject": "product:KR5127420083",
+      "expected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5127420083",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "requirement_candidate_ids": {
+        "product.risk_grade.current": [
+          "4cac628fab869b38-paragraph_group-7fb7f0951e89",
+          "4cac628fab869b38-table-02ce856d5363"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "4cac628fab869b38-paragraph_group-7fb7f0951e89",
+        "4cac628fab869b38-table-02ce856d5363"
+      ],
+      "cited_chunk_ids": [
+        "4cac628fab869b38-paragraph_group-7fb7f0951e89",
+        "4cac628fab869b38-table-02ce856d5363"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nKR5127420083은 현재 투자위험등급 분류에서 '4등급(보통 위험)'에 놓여 있습니다.\n\n[근거]\n- [출처: 투자설명서/KR5127420083/R2_KR5127420083.pdf, 1페이지, 4cac628fab869b38-paragraph_group-7fb7f0951e89]\n- [출처: 투자설명서/KR5127420083/R2_KR5127420083.pdf, 1페이지, 4cac628fab869b38-table-02ce856d5363]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "99372de5f6a1535c84951110d83fdb4f8068e1188a80324bd3887ec1c03befc3",
+      "output_hash": "f55dab179ae9506c65359782d8f5c4e1a95c872a9da6314a0d8dd6310b4041cc",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12312.289,
+      "generation_latency_ms": 6886.22,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.036,
+        "request_payload_bytes": 4515,
+        "rate_limit_wait_ms": 5228.438,
+        "request_started_offset_ms": 5228.516,
+        "request_started_monotonic_ms": 160912.281,
+        "request_completed_offset_ms": 6886.058,
+        "request_completed_monotonic_ms": 162569.833,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 174,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xxxxxxxxxxx xx xxxxxx xxxx xxxxxxx xxxxx xx xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1149,
+          "completionTokens": 76,
+          "totalTokens": 1225
+        },
+        "attempt_latency_ms": 6886.171,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.036,
+            "request_started_offset_ms": 5228.516,
+            "request_completed_offset_ms": 6886.058,
+            "request_started_monotonic_ms": 160912.281,
+            "request_completed_monotonic_ms": 162569.833,
+            "rate_limit_wait_ms": 5228.438,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6886.171,
+            "request_payload_bytes": 4515,
+            "message_content_length": 174,
+            "usage": {
+              "promptTokens": 1149,
+              "completionTokens": 76,
+              "totalTokens": 1225
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-016",
+      "question": "DB제도는 적립 재원을 누가 운용하고, 퇴직급여 계산에는 평균임금과 어떤 기간이 함께 반영되나요?",
+      "expected_active_subject": "DB",
+      "expected_requirements": [
+        "DB.operation_party",
+        "DB.benefit_determination"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "DB",
+      "selected_requirements": [
+        "DB.benefit_determination",
+        "DB.operation_party"
+      ],
+      "requirement_candidate_ids": {
+        "DB.benefit_determination": [
+          "49ed30e0f7b42e68-table-0910adeedcae",
+          "fc71bcf7cc90f68d-table-fc470df2b580"
+        ],
+        "DB.operation_party": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "fc71bcf7cc90f68d-table-fc470df2b580",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "cited_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "fc71bcf7cc90f68d-table-fc470df2b580",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nDB제도는 적립 재원을 회사가 운용하며, 퇴직급여 계산에는 평균임금과 계속근로기간이 함께 반영됩니다.\n\n[근거]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-table-6f164502cbce]\n- [출처: docs_renamed/doc15.pdf, 1페이지, fc71bcf7cc90f68d-table-fc470df2b580]\n- [출처: docs_renamed/doc11.pdf, 1페이지, 4607500e74afcdf8-paragraph_group-fd0d4e7d80e6]",
+      "answer_hash": "65c9bf4a3fbf18b7c24186a544c3c3f44753df417a56b20f755ddb6f355df79c",
+      "output_hash": "baf173662e8b118d68b65aa531b4e069393d9634f17a7f6e31e647e454aba63b",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 12676.34,
+      "generation_latency_ms": 7111.013,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.048,
+        "request_payload_bytes": 5377,
+        "rate_limit_wait_ms": 4983.835,
+        "request_started_offset_ms": 4983.916,
+        "request_started_monotonic_ms": 173119.914,
+        "request_completed_offset_ms": 7110.767,
+        "request_completed_monotonic_ms": 175246.777,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 218,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": " xx xxxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 1407,
+          "completionTokens": 99,
+          "totalTokens": 1506
+        },
+        "attempt_latency_ms": 7110.947,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.048,
+            "request_started_offset_ms": 4983.916,
+            "request_completed_offset_ms": 7110.767,
+            "request_started_monotonic_ms": 173119.914,
+            "request_completed_monotonic_ms": 175246.777,
+            "rate_limit_wait_ms": 4983.835,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7110.947,
+            "request_payload_bytes": 5377,
+            "message_content_length": 218,
+            "usage": {
+              "promptTokens": 1407,
+              "completionTokens": 99,
+              "totalTokens": 1506
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-017",
+      "question": "KR5127420045의 현재 위험등급과 연간 총보수·비용은 각각 어떤 항목에서 확인해야 하나요?",
+      "expected_active_subject": "product:KR5127420045",
+      "expected_requirements": [
+        "product.risk_grade.current",
+        "product.total_fee"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "product:KR5127420045",
+      "selected_requirements": [
+        "product.period_cost",
+        "product.risk_grade.current",
+        "product.total_fee"
+      ],
+      "requirement_candidate_ids": {
+        "product.period_cost": [
+          "a55a5901a9b344c6-paragraph_group-fb2d456a62cf",
+          "a55a5901a9b344c6-paragraph_group-4b8188ca9078"
+        ],
+        "product.risk_grade.current": [
+          "a55a5901a9b344c6-paragraph_group-10bc404780f8",
+          "a55a5901a9b344c6-table-a6034ef3f423"
+        ],
+        "product.total_fee": [
+          "a55a5901a9b344c6-table-08bcb0a8c4ea",
+          "a55a5901a9b344c6-paragraph_group-a5e58deb723a"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "a55a5901a9b344c6-paragraph_group-fb2d456a62cf",
+        "a55a5901a9b344c6-paragraph_group-10bc404780f8",
+        "a55a5901a9b344c6-table-08bcb0a8c4ea",
+        "a55a5901a9b344c6-paragraph_group-4b8188ca9078",
+        "a55a5901a9b344c6-table-a6034ef3f423"
+      ],
+      "cited_chunk_ids": [
+        "a55a5901a9b344c6-paragraph_group-10bc404780f8",
+        "a55a5901a9b344c6-table-08bcb0a8c4ea"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\n현재 위험등급은 '투자위험등급' 섹션에서 확인할 수 있으며, 이는 '6등급(매우 낮은 위험)'으로 명시되어 있습니다. 연간 총보수율은 테이블에서 각 종류별로 표시된 '지급비율(연간, %)'를 통해 확인할 수 있습니다.\n\n[근거]\n- [출처: 투자설명서/KR5127420045/R2_KR5127420045.pdf, 1페이지, a55a5901a9b344c6-paragraph_group-10bc404780f8]\n- [출처: 투자설명서/KR5127420045/R2_KR5127420045.pdf, 27페이지, a55a5901a9b344c6-table-08bcb0a8c4ea]\n\n[유의사항]\n- 문서에 기재된 위험등급·보수·투자대상 등 사실만 비교하며, 특정 상품의 매수·매도나 최선의 상품을 권유하지 않습니다. 최종 선택은 본인의 목적과 위험 감수 수준을 고려해 판단하세요.\n- 위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. 실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다.",
+      "answer_hash": "9e6fc9b161253a851433f89f233b74c05dccf6cd16367e0564fda7371349e498",
+      "output_hash": "f547ab001f7ae0f429c219153d19ecc3c35439aa94ac37f42b862381c16d2f23",
+      "requirement_precision": 0.666667,
+      "requirement_recall": 1.0,
+      "requirement_exact": false,
+      "scope_correct": true,
+      "latency_ms": 12753.483,
+      "generation_latency_ms": 7448.47,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.079,
+        "request_payload_bytes": 10888,
+        "rate_limit_wait_ms": 4773.445,
+        "request_started_offset_ms": 4773.552,
+        "request_started_monotonic_ms": 185327.746,
+        "request_completed_offset_ms": 7448.342,
+        "request_completed_monotonic_ms": 188002.542,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 244,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xx xxxxx x xxxx xxx xxxxxxxx, xxxx xx xxx x xxxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 3769,
+          "completionTokens": 122,
+          "totalTokens": 3891
+        },
+        "attempt_latency_ms": 7448.381,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.079,
+            "request_started_offset_ms": 4773.552,
+            "request_completed_offset_ms": 7448.342,
+            "request_started_monotonic_ms": 185327.746,
+            "request_completed_monotonic_ms": 188002.542,
+            "rate_limit_wait_ms": 4773.445,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 7448.381,
+            "request_payload_bytes": 10888,
+            "message_content_length": 244,
+            "usage": {
+              "promptTokens": 3769,
+              "completionTokens": 122,
+              "totalTokens": 3891
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    },
+    {
+      "id": "P46-018",
+      "question": "ISA 만기 자금을 연금계좌로 넘길 계획이면, 만기 후 며칠 안에 이전해야 하나요?",
+      "expected_active_subject": "ISA",
+      "expected_requirements": [
+        "ISA.transfer.deadline"
+      ],
+      "frontend_status": "selected",
+      "active_subject": "ISA",
+      "selected_requirements": [
+        "ISA.transfer.deadline"
+      ],
+      "requirement_candidate_ids": {
+        "ISA.transfer.deadline": [
+          "ae22159be59440b6-table-5897a6d84778",
+          "ae22159be59440b6-paragraph_group-edb7af982168"
+        ]
+      },
+      "retrieved_chunk_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-edb7af982168"
+      ],
+      "cited_chunk_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-edb7af982168"
+      ],
+      "assessment_reason": "direct_requirement_evidence_sufficient",
+      "generator_attempted": true,
+      "generator_called": true,
+      "generation_error": null,
+      "answer": "[답변]\nISA 만기 자금을 연금계좌로 이전하려면 만기 후 60일 이내에 해야 합니다.\n\n[근거]\n- [출처: docs_renamed/doc23.docx, 위치 정보 없음, ae22159be59440b6-table-5897a6d84778]\n- [출처: docs_renamed/doc23.docx, 위치 정보 없음, ae22159be59440b6-paragraph_group-edb7af982168]",
+      "answer_hash": "bab93361c3246e5c9ea86c9ce8e23b3af21432168678ea7ceedab93d50bc9c99",
+      "output_hash": "96280ea709ba30232b744f0a6292b9704ef3c12283c23d9aab8c3c597bad1aaa",
+      "requirement_precision": 1.0,
+      "requirement_recall": 1.0,
+      "requirement_exact": true,
+      "scope_correct": true,
+      "latency_ms": 11255.467,
+      "generation_latency_ms": 6866.16,
+      "generation_diagnostic": {
+        "attempt_count": 1,
+        "retry_used": false,
+        "attempt_started_offset_ms": 0.045,
+        "request_payload_bytes": 2179,
+        "rate_limit_wait_ms": 5144.762,
+        "request_started_offset_ms": 5144.923,
+        "request_started_monotonic_ms": 197538.025,
+        "request_completed_offset_ms": 6865.96,
+        "request_completed_monotonic_ms": 199259.064,
+        "http_status": 200,
+        "retry_after_seconds": null,
+        "response_envelope_present": true,
+        "response_has_result": true,
+        "message_content_present": true,
+        "content_length": 166,
+        "content_has_markdown_fence": false,
+        "content_tail_shape": "xx\": \"xxx xx xxx xxxxx xxxxx xx x xxx xxx xx xxx.\", \"xxxxxxxxxxxxxxx\": [\"xxxxxxxxxxxxxxxx-xxxxx-xxxxxxxxxxxx\", \"xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx-xxxxxxxxxxxx\"]}",
+        "finish_reason": "stop",
+        "markdown_fence_removed": false,
+        "json_parse_success": true,
+        "answer_present": true,
+        "answer_type": "str",
+        "cited_chunk_ids_present": true,
+        "cited_chunk_ids_type": "list",
+        "usage": {
+          "promptTokens": 525,
+          "completionTokens": 71,
+          "totalTokens": 596
+        },
+        "attempt_latency_ms": 6866.096,
+        "attempt_history": [
+          {
+            "attempt_count": 1,
+            "retry_used": false,
+            "attempt_started_offset_ms": 0.045,
+            "request_started_offset_ms": 5144.923,
+            "request_completed_offset_ms": 6865.96,
+            "request_started_monotonic_ms": 197538.025,
+            "request_completed_monotonic_ms": 199259.064,
+            "rate_limit_wait_ms": 5144.762,
+            "http_status": 200,
+            "retry_after_seconds": null,
+            "attempt_latency_ms": 6866.096,
+            "request_payload_bytes": 2179,
+            "message_content_length": 166,
+            "usage": {
+              "promptTokens": 525,
+              "completionTokens": 71,
+              "totalTokens": 596
+            },
+            "outcome": "success"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -65,3 +65,16 @@ def test_shadow_prepare_and_answer_share_same_compound_context():
     assert plan.assessment.sufficient
     assert [item.chunk_id for item in plan.contexts] == answer["think_trace"]["retrieved_chunk_ids"]
     assert [item.chunk_id for item in plan.candidate_results] == answer["think_trace"]["candidate_chunk_ids"]
+
+
+def test_shadow_trace_records_complete_pre_generation_state():
+    agent = ConditionalRoutingShadowAgent(_Retriever(), FakeGenerator())
+
+    answer = agent.answer("IRP 연금은 몇 살부터 받고, 지급은 최소 몇 년이어야 하나요?", top_k=10)
+    trace = answer["think_trace"]
+
+    assert trace["extracted_entities"]["accounts"] == ["IRP"]
+    assert trace["requirement_plan"]["category"] == "annuity_age_and_duration"
+    assert trace["base_retrieved_chunk_ids"] == ["base"]
+    assert trace["candidate_chunk_ids"] == ["base", "irp-law"]
+    assert trace["selected_merged_evidence_ids"] == ["irp-law"]

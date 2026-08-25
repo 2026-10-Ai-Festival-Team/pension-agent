@@ -1,0 +1,350 @@
+{
+  "experiment": "P38-7A Semantic Parser v2.1 Design",
+  "status": "design_only",
+  "frozen_boundary": {
+    "hcx_calls": 0,
+    "p38_6_source_result_modified": false,
+    "v2_parser_prompt_ontology_composer_modified": false,
+    "candidate_retrieval_policy_modified": false,
+    "gold_modified": false
+  },
+  "v21_contract": {
+    "hcx_output": [
+      "subjects",
+      "fields",
+      "essential_qualifiers",
+      "directional_transfer_relations"
+    ],
+    "not_hcx_output": [
+      "generic_comparison_relation",
+      "answer",
+      "retrieval_query",
+      "citation",
+      "factual_value"
+    ],
+    "deterministic_derivations": [
+      "lexical entity aliases before HCX",
+      "canonical subject-scope validation",
+      "generic comparison only when comparison intent and at least two subjects are both present",
+      "requirement composition from validated subject, field, qualifier, and directional transfer relation"
+    ],
+    "precision_contract": "Emit only factual distinctions explicitly or semantically requested by the user. Do not add related fields, qualifiers, scopes, products, events, or future-change concepts."
+  },
+  "reusable_rules": {
+    "canonical_subject_scope": {
+      "rule": "Account and system scopes remain distinct. A pension account is `account:pension`; it must not be broadened to `system:retirement_pension`.",
+      "parser_boundary": "HCX selects a canonical subject only; the validator rejects a scope substitute rather than treating it as an equivalent subject."
+    },
+    "derive_comparison": {
+      "rule": "Generic comparison is not an HCX relation output. When a deterministic comparison-intent predicate is true and the plan has at least two subjects, the composer derives comparison.",
+      "parser_boundary": "The v2.1 schema permits directional transfer relations only; it does not ask HCX to repeat comparison endpoints already represented by subjects."
+    },
+    "directional_transfer": {
+      "rule": "A transfer whose source and destination change the evidence scope remains explicit. Both endpoints belong only in a directional transfer relation, not duplicated as loose subjects.",
+      "parser_boundary": "HCX must emit source and destination for transfer; deterministic validation verifies both are canonical and directionally complete."
+    },
+    "retain_essential_qualifier": {
+      "rule": "A qualifier stays mandatory only when removing it changes the factual evidence or answer, including before-retirement and change possibility.",
+      "parser_boundary": "Prompt examples and the validator preserve only essential qualifiers; the composer continues to use them in requirement identity."
+    },
+    "field_and_qualifier_precision": {
+      "rule": "The parser emits the exact requested factual fields and evidence-changing qualifiers. Generic `procedure` cannot replace application route or transfer definition; partial withdrawal and account closure taxes stay separate fields.",
+      "parser_boundary": "No field is inferred merely because it is related to a selected field. The prompt explicitly instructs empty arrays for unasked distinctions."
+    },
+    "precision_only": {
+      "rule": "Do not emit a plausible but unasked subject, field, or qualifier. The parser is precision-first and must return no atom when the question does not require the distinction.",
+      "parser_boundary": "The prompt prohibits helpful additions and validator/composer preserve only emitted, ontology-valid atoms."
+    },
+    "no_change": {
+      "rule": "No contract defect was attributed for this frozen question.",
+      "parser_boundary": "Retain the v2 semantics; no question-specific behavior is introduced."
+    }
+  },
+  "frozen_mismatch_accounting": {
+    "contract_equivalent": 2,
+    "contract_granularity_mismatch": 1,
+    "real_semantic_miss": 17,
+    "relation_representation_mismatch": 9,
+    "unsupported_extra": 16
+  },
+  "question_design_mapping": [
+    {
+      "question_id": "P38-2-001",
+      "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+      "frozen_semantic_status": "fully_preserved",
+      "v21_control": "derive_comparison",
+      "must_preserve": [],
+      "must_not_add": [],
+      "frozen_owner_counts": {
+        "contract_equivalent": 1
+      }
+    },
+    {
+      "question_id": "P38-2-002",
+      "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "retain_essential_qualifier",
+      "must_preserve": [
+        "before_retirement"
+      ],
+      "must_not_add": [],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 1
+      }
+    },
+    {
+      "question_id": "P38-2-003",
+      "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "canonical_subject_scope",
+      "must_preserve": [
+        "system:retirement_pension"
+      ],
+      "must_not_add": [
+        "account:general"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 1,
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-004",
+      "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "derive_comparison",
+      "must_preserve": [
+        "combined_limit"
+      ],
+      "must_not_add": [
+        "in_kind"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 1,
+        "relation_representation_mismatch": 1,
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-005",
+      "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "canonical_subject_scope",
+      "must_preserve": [
+        "account:pension",
+        "not_tax_exempt"
+      ],
+      "must_not_add": [
+        "system:retirement_pension"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 2,
+        "relation_representation_mismatch": 1,
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-006",
+      "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "canonical_subject_scope",
+      "must_preserve": [
+        "account:pension"
+      ],
+      "must_not_add": [
+        "account:ISA"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 1,
+        "relation_representation_mismatch": 1,
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-007",
+      "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "canonical_subject_scope",
+      "must_preserve": [
+        "account:IRP"
+      ],
+      "must_not_add": [
+        "event:retirement_benefit"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 1,
+        "relation_representation_mismatch": 1,
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-008",
+      "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "directional_transfer",
+      "must_preserve": [
+        "account:pension",
+        "additional_credit",
+        "account:ISA->account:pension"
+      ],
+      "must_not_add": [
+        "system:retirement_pension",
+        "account:ISA->system:retirement_pension"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 3,
+        "unsupported_extra": 2
+      }
+    },
+    {
+      "question_id": "P38-2-009",
+      "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "field_and_qualifier_precision",
+      "must_preserve": [
+        "application_route",
+        "transfer_definition",
+        "in_kind"
+      ],
+      "must_not_add": [
+        "event:retirement_benefit",
+        "procedure",
+        "before_retirement"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 3,
+        "relation_representation_mismatch": 1,
+        "unsupported_extra": 4
+      }
+    },
+    {
+      "question_id": "P38-2-010",
+      "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+      "frozen_semantic_status": "partially_preserved",
+      "v21_control": "precision_only",
+      "must_preserve": [],
+      "must_not_add": [
+        "product:foreign_etf"
+      ],
+      "frozen_owner_counts": {
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-011",
+      "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "retain_essential_qualifier",
+      "must_preserve": [
+        "change_possibility"
+      ],
+      "must_not_add": [],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 1
+      }
+    },
+    {
+      "question_id": "P38-2-012",
+      "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+      "frozen_semantic_status": "fully_preserved",
+      "v21_control": "no_change",
+      "must_preserve": [],
+      "must_not_add": [],
+      "frozen_owner_counts": {}
+    },
+    {
+      "question_id": "P38-2-013",
+      "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+      "frozen_semantic_status": "partially_preserved",
+      "v21_control": "precision_only",
+      "must_preserve": [],
+      "must_not_add": [
+        "current"
+      ],
+      "frozen_owner_counts": {
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-014",
+      "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+      "frozen_semantic_status": "fully_preserved",
+      "v21_control": "derive_comparison",
+      "must_preserve": [],
+      "must_not_add": [],
+      "frozen_owner_counts": {
+        "relation_representation_mismatch": 2
+      }
+    },
+    {
+      "question_id": "P38-2-015",
+      "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+      "frozen_semantic_status": "partially_preserved",
+      "v21_control": "derive_comparison",
+      "must_preserve": [],
+      "must_not_add": [
+        "risk_grade_changeability"
+      ],
+      "frozen_owner_counts": {
+        "contract_equivalent": 1,
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-016",
+      "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+      "frozen_semantic_status": "fully_preserved",
+      "v21_control": "derive_comparison",
+      "must_preserve": [],
+      "must_not_add": [],
+      "frozen_owner_counts": {
+        "relation_representation_mismatch": 2
+      }
+    },
+    {
+      "question_id": "P38-2-017",
+      "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "directional_transfer",
+      "must_preserve": [
+        "tax_timing_on_transfer"
+      ],
+      "must_not_add": [
+        "event:retirement_benefit",
+        "current"
+      ],
+      "frozen_owner_counts": {
+        "contract_granularity_mismatch": 1,
+        "real_semantic_miss": 1,
+        "unsupported_extra": 1
+      }
+    },
+    {
+      "question_id": "P38-2-018",
+      "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+      "frozen_semantic_status": "meaning_lost",
+      "v21_control": "field_and_qualifier_precision",
+      "must_preserve": [
+        "partial_withdrawal_tax",
+        "account_closure_tax"
+      ],
+      "must_not_add": [
+        "event:retirement_benefit"
+      ],
+      "frozen_owner_counts": {
+        "real_semantic_miss": 2,
+        "unsupported_extra": 1
+      }
+    }
+  ],
+  "next_gate": {
+    "phase": "P38-7B",
+    "scope": "Frozen P38-2 dev subset only; isolated HCX semantic parser v2.1 A/B.",
+    "success_signals": [
+      "meaning_lost materially below 11/18",
+      "unsupported extras materially below 16 diagnostic mismatches",
+      "directional transfer endpoints retained",
+      "no candidate integration"
+    ]
+  }
+}

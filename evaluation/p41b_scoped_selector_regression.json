@@ -1,0 +1,222 @@
+{
+  "experiment": "P41-B Resolver-First Scoped Selector Regression",
+  "input": {
+    "holdout": "question_bank/holdouts/p41_scope_requirement_holdout.jsonl",
+    "target_ids": [
+      "P41-008",
+      "P41-010",
+      "P41-011"
+    ]
+  },
+  "contract": {
+    "full_catalog_enum_changed": false,
+    "precision_instruction_added": true,
+    "subject_filtered_schema_experiment": true,
+    "candidate_agent_changed": false,
+    "retrieval_used": false,
+    "hcx_calls": 2
+  },
+  "outputs": [
+    {
+      "id": "P41-008",
+      "status": "unresolved_scope",
+      "active_subject": null,
+      "allowed_requirements": [],
+      "selected_requirements": [],
+      "unresolved": true,
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 4,
+            "end": 6,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": null,
+      "reason": "non_unique_active_subject",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "output_hash": "6860656dde2a505fb6fc2b3c263737bb9f15ec10bed94d222c7a234aa49ffa5d"
+    },
+    {
+      "id": "P41-010",
+      "status": "selected",
+      "active_subject": "IRP",
+      "allowed_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment",
+        "retirement_pension.in_kind_transfer.IRP.application_route",
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "selected_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "IRP",
+            "order": 2,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "두 번째 계좌",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "IRP"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "IRP",
+            "requirement": "IRP.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "IRP",
+            "requirement": "IRP.withdrawal.tax_treatment",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reason": null,
+      "schema_valid": true,
+      "ontology_valid": true,
+      "output_hash": "2e331c62c7b3ef1632a74f2b268bc36bcf05049e555ab2586261ab92f5567fe2"
+    },
+    {
+      "id": "P41-011",
+      "status": "selected",
+      "active_subject": "DC",
+      "allowed_requirements": [
+        "DC.operation_party",
+        "DC.benefit_determination",
+        "DC.employer_contribution",
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing",
+        "DC.early_withdrawal.allowed_reasons",
+        "DC.early_withdrawal.required_documents",
+        "retirement_pension.in_kind_transfer.DB_DC.application_route",
+        "retirement_pension.ETF.direct_trade_scope",
+        "retirement_pension.ETF.leverage_inverse_restriction"
+      ],
+      "selected_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DC",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "이 제도",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.frequency",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.outsourcing",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reason": null,
+      "schema_valid": true,
+      "ontology_valid": true,
+      "output_hash": "6768737b927f8eeae79e2b4257c203e542ef65f2f1bb544e557621216cb42264"
+    }
+  ],
+  "checks": {
+    "p41_008_unresolved_without_hcx": true,
+    "p41_010_no_pension_savings_extra": true,
+    "p41_010_all_selected_in_filtered_catalog": true,
+    "p41_011_no_dc_operation_party_extra": true,
+    "binder_adds_no_requirement": true,
+    "provider_errors": 0,
+    "live_hcx_calls": 2,
+    "candidate_agent_changed": false
+  }
+}

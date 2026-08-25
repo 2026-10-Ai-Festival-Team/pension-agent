@@ -15,6 +15,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from dotenv import load_dotenv
 
 from src.ingestion.registry import build_default_registry
+from src.models.document import AuthorityLevel, SourceType
 from src.preprocessing.corpus_builder import CorpusBuilder
 
 
@@ -25,6 +26,9 @@ def main() -> None:
     parser.add_argument("--output", default="data/parsed/representative_chunks.jsonl")
     parser.add_argument("--report", default="docs/representative_corpus_report.md")
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--source-type", choices=[item.value for item in SourceType], default=SourceType.ORIGINAL.value)
+    parser.add_argument("--authority-level", choices=[item.value for item in AuthorityLevel], default=AuthorityLevel.PRIMARY.value)
+    parser.add_argument("--as-of-date", default=None, help="원천 전체에 적용할 기준일(YYYY-MM-DD)")
     args = parser.parse_args()
     load_dotenv()
     root = Path(args.source_root or os.environ["PENSION_DATA_ROOT"]).resolve()
@@ -32,7 +36,13 @@ def main() -> None:
     builder = CorpusBuilder(build_default_registry())
     chunks, empty_documents = [], []
     for path in paths:
-        built = builder.build_document(path, root)
+        built = builder.build_document(
+            path,
+            root,
+            source_type=SourceType(args.source_type),
+            authority_level=AuthorityLevel(args.authority_level),
+            as_of_date=args.as_of_date,
+        )
         if not built:
             empty_documents.append(path.relative_to(root).as_posix())
         chunks.extend(built)

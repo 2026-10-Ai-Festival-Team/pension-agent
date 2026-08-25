@@ -21,8 +21,13 @@ def test_global_limiter_reserves_minimum_interval_without_real_sleep():
     assert sleeps == [2.0]
 
 
-def test_global_limiter_reserves_distinct_slots_for_concurrent_callers():
-    limiter = GlobalMinIntervalLimiter(2.0, clock=lambda: 0.0, sleeper=lambda _: None)
+def test_global_limiter_serializes_actual_starts_for_concurrent_callers():
+    clock_value = [0.0]
+
+    def sleeper(seconds):
+        clock_value[0] += seconds
+
+    limiter = GlobalMinIntervalLimiter(2.0, clock=lambda: clock_value[0], sleeper=sleeper)
     barrier = threading.Barrier(3)
     waits = []
 
@@ -38,3 +43,21 @@ def test_global_limiter_reserves_distinct_slots_for_concurrent_callers():
         thread.join()
 
     assert sorted(waits) == [0.0, 2.0]
+
+
+def test_global_limiter_rechecks_after_an_early_wakeup():
+    clock_value = [0.0]
+    sleeps = []
+
+    def sleeper(seconds):
+        sleeps.append(seconds)
+        # Simulate a scheduler that returns before the requested sleep elapsed.
+        clock_value[0] += seconds / 2
+
+    limiter = GlobalMinIntervalLimiter(2.0, clock=lambda: clock_value[0], sleeper=sleeper)
+
+    assert limiter.acquire() == 0.0
+    assert limiter.acquire() == 2.0
+    assert clock_value[0] == 2.0
+    assert sleeps[0] == 2.0
+    assert len(sleeps) > 1

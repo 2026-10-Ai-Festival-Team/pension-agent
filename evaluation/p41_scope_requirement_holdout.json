@@ -1,0 +1,2639 @@
+{
+  "experiment": "P41 Fresh Scope/Requirement Holdout",
+  "input": {
+    "manifest": "question_bank/holdouts/p41_scope_requirement_holdout.jsonl",
+    "manifest_sha256": "b565e8b3b241880bb64a756fd1811e19dc6a8bbdb2742c1fdf07723194a13f83",
+    "question_count": 18
+  },
+  "contract": {
+    "model": "HCX-007",
+    "native_structured_outputs": true,
+    "thinking_effort": "none",
+    "min_request_start_interval_seconds": 6.0,
+    "selector_enum_prompt_changed": false,
+    "candidate_agent_changed": false,
+    "retrieval_used": false
+  },
+  "runtime": {
+    "schema_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "ontology_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "unknown_requirement_count": 0,
+    "provider_errors": 0,
+    "live_hcx_calls": 18
+  },
+  "requirement_metrics": {
+    "question_count": 18,
+    "requirement_precision": 0.875,
+    "requirement_recall": 1.0,
+    "requirement_exact": {
+      "exact": 15,
+      "total": 18,
+      "accuracy": 0.8333
+    },
+    "multi_requirement_recall": {
+      "matched": 20,
+      "gold": 20,
+      "recall": 1.0
+    },
+    "unsupported_extra_requirement_count": 4,
+    "false_missing_requirement_count": 0,
+    "details": [
+      {
+        "source_question_id": "P41-001",
+        "question": "KR5127450215와 KR510902773M 중 후자가 따르는 기준지수는 무엇인가요?",
+        "gold_requirements": [
+          "product.tracking_index"
+        ],
+        "predicted_requirements": [
+          "product.tracking_index"
+        ],
+        "matched_requirements": [
+          "product.tracking_index"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P41-002",
+        "question": "KR5114450222와 KR5114420022 가운데 전자를 3년 보유할 때의 비용 예시를 알려주세요.",
+        "gold_requirements": [
+          "product.period_cost"
+        ],
+        "predicted_requirements": [
+          "product.period_cost"
+        ],
+        "matched_requirements": [
+          "product.period_cost"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P41-003",
+        "question": "KR5114420022, KR5127450215, KR510902773M을 차례로 적었을 때 마지막 상품의 연간 총보수율은 얼마인가요?",
+        "gold_requirements": [
+          "product.total_fee"
+        ],
+        "predicted_requirements": [
+          "product.total_fee"
+        ],
+        "matched_requirements": [
+          "product.total_fee"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P41-004",
+        "question": "KR5114420022와 KR5114450222를 함께 본 뒤 해당 상품의 위험등급을 묻는다면 어느 상품 기준인가요?",
+        "gold_requirements": [
+          "product.risk_grade.current"
+        ],
+        "predicted_requirements": [
+          "product.risk_grade.current"
+        ],
+        "matched_requirements": [
+          "product.risk_grade.current"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P41-005",
+        "question": "연금저축과 IRP를 비교하면서 해당 계좌에서 돈을 인출할 때 세금 처리를 물으면 어느 계좌 기준으로 답해야 하나요?",
+        "gold_requirements": [
+          "IRP.withdrawal.tax_treatment",
+          "pension_savings.withdrawal.tax_treatment"
+        ],
+        "predicted_requirements": [
+          "IRP.withdrawal.tax_treatment",
+          "pension_savings.withdrawal.tax_treatment"
+        ],
+        "matched_requirements": [
+          "IRP.withdrawal.tax_treatment",
+          "pension_savings.withdrawal.tax_treatment"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-006",
+        "question": "DB와 DC를 나란히 언급한 뒤 이 제도의 퇴직급여 결정 방식을 물으면 어느 제도를 말하는 건가요?",
+        "gold_requirements": [
+          "DB.benefit_determination",
+          "DC.benefit_determination"
+        ],
+        "predicted_requirements": [
+          "DB.benefit_determination",
+          "DC.benefit_determination"
+        ],
+        "matched_requirements": [
+          "DB.benefit_determination",
+          "DC.benefit_determination"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-007",
+        "question": "DB와 달리 근로자가 운용 결과를 부담하는 쪽에서는 퇴직급여가 어떤 기준으로 결정되나요?",
+        "gold_requirements": [
+          "DC.benefit_determination"
+        ],
+        "predicted_requirements": [
+          "DC.benefit_determination"
+        ],
+        "matched_requirements": [
+          "DC.benefit_determination"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P41-008",
+        "question": "DB와 DC 가운데 가입자가 직접 운용방법을 정하는 쪽의 퇴직급여 금액은 무엇으로 정해지나요?",
+        "gold_requirements": [
+          "DC.benefit_determination"
+        ],
+        "predicted_requirements": [
+          "DB.benefit_determination",
+          "DC.benefit_determination"
+        ],
+        "matched_requirements": [
+          "DC.benefit_determination"
+        ],
+        "unsupported_extra_requirements": [
+          "DB.benefit_determination"
+        ],
+        "false_missing_requirements": [],
+        "requirement_exact": false,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P41-009",
+        "question": "DC 가입자가 재직 중 적립금을 빼려면 인정 사유와 준비 서류를 각각 확인해야 하나요?",
+        "gold_requirements": [
+          "DC.early_withdrawal.allowed_reasons",
+          "DC.early_withdrawal.required_documents"
+        ],
+        "predicted_requirements": [
+          "DC.early_withdrawal.allowed_reasons",
+          "DC.early_withdrawal.required_documents"
+        ],
+        "matched_requirements": [
+          "DC.early_withdrawal.allowed_reasons",
+          "DC.early_withdrawal.required_documents"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-010",
+        "question": "연금저축과 IRP를 순서대로 언급했을 때 두 번째 계좌의 중도인출 법정사유와 인출 과세는 어떻게 다른가요?",
+        "gold_requirements": [
+          "IRP.early_withdrawal.allowed_reasons",
+          "IRP.withdrawal.tax_treatment"
+        ],
+        "predicted_requirements": [
+          "IRP.early_withdrawal.allowed_reasons",
+          "IRP.withdrawal.tax_treatment",
+          "pension_savings.early_withdrawal.allowed_reasons",
+          "pension_savings.withdrawal.tax_treatment"
+        ],
+        "matched_requirements": [
+          "IRP.early_withdrawal.allowed_reasons",
+          "IRP.withdrawal.tax_treatment"
+        ],
+        "unsupported_extra_requirements": [
+          "pension_savings.early_withdrawal.allowed_reasons",
+          "pension_savings.withdrawal.tax_treatment"
+        ],
+        "false_missing_requirements": [],
+        "requirement_exact": false,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-011",
+        "question": "DC 제도에서 가입자 교육은 최소 얼마나 자주 해야 하고, 이 제도의 교육을 외부에 맡길 수 있나요?",
+        "gold_requirements": [
+          "retirement_pension.participant_education.frequency",
+          "retirement_pension.participant_education.outsourcing"
+        ],
+        "predicted_requirements": [
+          "DC.operation_party",
+          "retirement_pension.participant_education.frequency",
+          "retirement_pension.participant_education.outsourcing"
+        ],
+        "matched_requirements": [
+          "retirement_pension.participant_education.frequency",
+          "retirement_pension.participant_education.outsourcing"
+        ],
+        "unsupported_extra_requirements": [
+          "DC.operation_party"
+        ],
+        "false_missing_requirements": [],
+        "requirement_exact": false,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-012",
+        "question": "KR5127450215의 현재 위험등급과 이전 위험등급 이력을 함께 알려주세요.",
+        "gold_requirements": [
+          "product.risk_grade.current",
+          "product.risk_grade.historical"
+        ],
+        "predicted_requirements": [
+          "product.risk_grade.current",
+          "product.risk_grade.historical"
+        ],
+        "matched_requirements": [
+          "product.risk_grade.current",
+          "product.risk_grade.historical"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-013",
+        "question": "KR5114420022와 KR510902773M 중 두 번째 상품의 위험등급과 최대 주식 편입 비중을 알려주세요.",
+        "gold_requirements": [
+          "product.equity_allocation_limit",
+          "product.risk_grade.current"
+        ],
+        "predicted_requirements": [
+          "product.equity_allocation_limit",
+          "product.risk_grade.current"
+        ],
+        "matched_requirements": [
+          "product.equity_allocation_limit",
+          "product.risk_grade.current"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-014",
+        "question": "IRP 가입자는 이 계좌의 실물이전을 신청할 때 어떤 경로를 이용하나요?",
+        "gold_requirements": [
+          "retirement_pension.in_kind_transfer.IRP.application_route"
+        ],
+        "predicted_requirements": [
+          "retirement_pension.in_kind_transfer.IRP.application_route"
+        ],
+        "matched_requirements": [
+          "retirement_pension.in_kind_transfer.IRP.application_route"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P41-015",
+        "question": "DB와 DC 중 두 번째 제도는 회사 부담금을 어떤 기준으로 적립하고 운용방법은 누가 정하나요?",
+        "gold_requirements": [
+          "DC.employer_contribution",
+          "DC.operation_party"
+        ],
+        "predicted_requirements": [
+          "DC.employer_contribution",
+          "DC.operation_party"
+        ],
+        "matched_requirements": [
+          "DC.employer_contribution",
+          "DC.operation_party"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-016",
+        "question": "ISA 만기 자금을 연금계좌로 이전할 때 이 계좌 이전의 기한과 추가 세액공제 계산을 같이 설명해 주세요.",
+        "gold_requirements": [
+          "ISA.transfer.additional_tax_credit",
+          "ISA.transfer.deadline"
+        ],
+        "predicted_requirements": [
+          "ISA.transfer.additional_tax_credit",
+          "ISA.transfer.deadline"
+        ],
+        "matched_requirements": [
+          "ISA.transfer.additional_tax_credit",
+          "ISA.transfer.deadline"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-017",
+        "question": "연금저축과 IRP 중 후자에서 55세 전에 인출할 수 있는 사유와 세금 처리를 함께 알려주세요.",
+        "gold_requirements": [
+          "IRP.early_withdrawal.allowed_reasons",
+          "IRP.withdrawal.tax_treatment"
+        ],
+        "predicted_requirements": [
+          "IRP.early_withdrawal.allowed_reasons",
+          "IRP.withdrawal.tax_treatment"
+        ],
+        "matched_requirements": [
+          "IRP.early_withdrawal.allowed_reasons",
+          "IRP.withdrawal.tax_treatment"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P41-018",
+        "question": "KR5127450215와 KR510902773M을 말한 뒤 그 유형의 위험등급을 물으면 어느 상품 기준으로 답해야 하나요?",
+        "gold_requirements": [
+          "product.risk_grade.current"
+        ],
+        "predicted_requirements": [
+          "product.risk_grade.current"
+        ],
+        "matched_requirements": [
+          "product.risk_grade.current"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      }
+    ],
+    "runtime": {
+      "schema_valid": {
+        "valid": 18,
+        "total": 18
+      },
+      "ontology_valid": {
+        "valid": 18,
+        "total": 18
+      },
+      "unknown_requirement_count": 0,
+      "provider_errors": 0,
+      "live_hcx_calls": 18
+    }
+  },
+  "scope_metrics": {
+    "final_scope_resolution_accuracy": {
+      "correct": 12,
+      "total": 14,
+      "accuracy": 0.8571
+    },
+    "unresolved_reference_safety": {
+      "correct": 4,
+      "total": 4,
+      "accuracy": 1.0
+    },
+    "subject_requirement_binding_error_count": 2,
+    "ambiguous_reference_unsafe_resolution_count": 0,
+    "details": [
+      {
+        "id": "P41-001",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "product:KR510902773M"
+        ],
+        "raw_active_subjects": [
+          "product:KR510902773M"
+        ],
+        "effective_bound_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "product:KR510902773M"
+          ],
+          "bindings": [
+            {
+              "subject": "product:KR510902773M",
+              "requirement": "product.tracking_index",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-002",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "product:KR5114450222"
+        ],
+        "raw_active_subjects": [
+          "product:KR5114450222"
+        ],
+        "effective_bound_subjects": [
+          "product:KR5114450222"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "product:KR5114450222"
+          ],
+          "bindings": [
+            {
+              "subject": "product:KR5114450222",
+              "requirement": "product.period_cost",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-003",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "product:KR510902773M"
+        ],
+        "raw_active_subjects": [
+          "product:KR510902773M"
+        ],
+        "effective_bound_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "product:KR510902773M"
+          ],
+          "bindings": [
+            {
+              "subject": "product:KR510902773M",
+              "requirement": "product.total_fee",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-004",
+        "expected_reference_behavior": "unresolved",
+        "expected_active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "raw_active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "effective_bound_subjects": [],
+        "unresolved_references": [
+          "해당 상품"
+        ],
+        "binding": {
+          "active_subjects": [
+            "product:KR5114420022",
+            "product:KR5114450222"
+          ],
+          "bindings": [
+            {
+              "subject": null,
+              "requirement": "product.risk_grade.current",
+              "status": "unresolved_reference"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [
+            "해당 상품"
+          ],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-005",
+        "expected_reference_behavior": "unresolved",
+        "expected_active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "raw_active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "effective_bound_subjects": [],
+        "unresolved_references": [
+          "해당 계좌"
+        ],
+        "binding": {
+          "active_subjects": [
+            "pension_savings",
+            "IRP"
+          ],
+          "bindings": [
+            {
+              "subject": null,
+              "requirement": "IRP.withdrawal.tax_treatment",
+              "status": "unresolved_reference"
+            },
+            {
+              "subject": null,
+              "requirement": "pension_savings.withdrawal.tax_treatment",
+              "status": "unresolved_reference"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [
+            "해당 계좌"
+          ],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-006",
+        "expected_reference_behavior": "unresolved",
+        "expected_active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "raw_active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "effective_bound_subjects": [],
+        "unresolved_references": [
+          "이 제도"
+        ],
+        "binding": {
+          "active_subjects": [
+            "DB",
+            "DC"
+          ],
+          "bindings": [
+            {
+              "subject": null,
+              "requirement": "DB.benefit_determination",
+              "status": "unresolved_reference"
+            },
+            {
+              "subject": null,
+              "requirement": "DC.benefit_determination",
+              "status": "unresolved_reference"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [
+            "이 제도"
+          ],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-007",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "DC"
+        ],
+        "raw_active_subjects": [
+          "DC"
+        ],
+        "effective_bound_subjects": [
+          "DC"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "DC"
+          ],
+          "bindings": [
+            {
+              "subject": "DC",
+              "requirement": "DC.benefit_determination",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-008",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "DC"
+        ],
+        "raw_active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "effective_bound_subjects": [
+          "DB",
+          "DC"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "DB",
+            "DC"
+          ],
+          "bindings": [
+            {
+              "subject": "DB",
+              "requirement": "DB.benefit_determination",
+              "status": "bound"
+            },
+            {
+              "subject": "DC",
+              "requirement": "DC.benefit_determination",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": false,
+        "binding_error": true
+      },
+      {
+        "id": "P41-009",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "DC"
+        ],
+        "raw_active_subjects": [
+          "DC"
+        ],
+        "effective_bound_subjects": [
+          "DC"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "DC"
+          ],
+          "bindings": [
+            {
+              "subject": "DC",
+              "requirement": "DC.early_withdrawal.allowed_reasons",
+              "status": "bound"
+            },
+            {
+              "subject": "DC",
+              "requirement": "DC.early_withdrawal.required_documents",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-010",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "IRP"
+        ],
+        "raw_active_subjects": [
+          "IRP"
+        ],
+        "effective_bound_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "IRP"
+          ],
+          "bindings": [
+            {
+              "subject": "IRP",
+              "requirement": "IRP.early_withdrawal.allowed_reasons",
+              "status": "bound"
+            },
+            {
+              "subject": "IRP",
+              "requirement": "IRP.withdrawal.tax_treatment",
+              "status": "bound"
+            },
+            {
+              "subject": "pension_savings",
+              "requirement": "pension_savings.early_withdrawal.allowed_reasons",
+              "status": "conflict"
+            },
+            {
+              "subject": "pension_savings",
+              "requirement": "pension_savings.withdrawal.tax_treatment",
+              "status": "conflict"
+            }
+          ],
+          "scope_conflicts": [
+            "subject_requirement_conflict:pension_savings:pension_savings.early_withdrawal.allowed_reasons",
+            "subject_requirement_conflict:pension_savings:pension_savings.withdrawal.tax_treatment"
+          ],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": false,
+        "binding_error": true
+      },
+      {
+        "id": "P41-011",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "DC"
+        ],
+        "raw_active_subjects": [
+          "DC"
+        ],
+        "effective_bound_subjects": [
+          "DC"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "DC"
+          ],
+          "bindings": [
+            {
+              "subject": "DC",
+              "requirement": "DC.operation_party",
+              "status": "bound"
+            },
+            {
+              "subject": null,
+              "requirement": "retirement_pension.participant_education.frequency",
+              "status": "bound"
+            },
+            {
+              "subject": null,
+              "requirement": "retirement_pension.participant_education.outsourcing",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-012",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "product:KR5127450215"
+        ],
+        "raw_active_subjects": [
+          "product:KR5127450215"
+        ],
+        "effective_bound_subjects": [
+          "product:KR5127450215"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "product:KR5127450215"
+          ],
+          "bindings": [
+            {
+              "subject": "product:KR5127450215",
+              "requirement": "product.risk_grade.current",
+              "status": "bound"
+            },
+            {
+              "subject": "product:KR5127450215",
+              "requirement": "product.risk_grade.historical",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-013",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "product:KR510902773M"
+        ],
+        "raw_active_subjects": [
+          "product:KR510902773M"
+        ],
+        "effective_bound_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "product:KR510902773M"
+          ],
+          "bindings": [
+            {
+              "subject": "product:KR510902773M",
+              "requirement": "product.equity_allocation_limit",
+              "status": "bound"
+            },
+            {
+              "subject": "product:KR510902773M",
+              "requirement": "product.risk_grade.current",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-014",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "IRP"
+        ],
+        "raw_active_subjects": [
+          "IRP"
+        ],
+        "effective_bound_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "IRP"
+          ],
+          "bindings": [
+            {
+              "subject": null,
+              "requirement": "retirement_pension.in_kind_transfer.IRP.application_route",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-015",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "DC"
+        ],
+        "raw_active_subjects": [
+          "DC"
+        ],
+        "effective_bound_subjects": [
+          "DC"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "DC"
+          ],
+          "bindings": [
+            {
+              "subject": "DC",
+              "requirement": "DC.employer_contribution",
+              "status": "bound"
+            },
+            {
+              "subject": "DC",
+              "requirement": "DC.operation_party",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-016",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "ISA"
+        ],
+        "raw_active_subjects": [
+          "ISA"
+        ],
+        "effective_bound_subjects": [
+          "ISA"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "ISA"
+          ],
+          "bindings": [
+            {
+              "subject": "ISA",
+              "requirement": "ISA.transfer.additional_tax_credit",
+              "status": "bound"
+            },
+            {
+              "subject": "ISA",
+              "requirement": "ISA.transfer.deadline",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-017",
+        "expected_reference_behavior": "resolved",
+        "expected_active_subjects": [
+          "IRP"
+        ],
+        "raw_active_subjects": [
+          "IRP"
+        ],
+        "effective_bound_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": [],
+        "binding": {
+          "active_subjects": [
+            "IRP"
+          ],
+          "bindings": [
+            {
+              "subject": "IRP",
+              "requirement": "IRP.early_withdrawal.allowed_reasons",
+              "status": "bound"
+            },
+            {
+              "subject": "IRP",
+              "requirement": "IRP.withdrawal.tax_treatment",
+              "status": "bound"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      },
+      {
+        "id": "P41-018",
+        "expected_reference_behavior": "unresolved",
+        "expected_active_subjects": [
+          "product:KR5127450215",
+          "product:KR510902773M"
+        ],
+        "raw_active_subjects": [
+          "product:KR5127450215",
+          "product:KR510902773M"
+        ],
+        "effective_bound_subjects": [],
+        "unresolved_references": [
+          "그 유형"
+        ],
+        "binding": {
+          "active_subjects": [
+            "product:KR5127450215",
+            "product:KR510902773M"
+          ],
+          "bindings": [
+            {
+              "subject": null,
+              "requirement": "product.risk_grade.current",
+              "status": "unresolved_reference"
+            }
+          ],
+          "scope_conflicts": [],
+          "unresolved_references": [
+            "그 유형"
+          ],
+          "incomplete_reasons": []
+        },
+        "scope_correct": true,
+        "binding_error": false
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "id": "P41-001",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.tracking_index"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5127450215",
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5127450215",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "후자",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "product:KR510902773M"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.tracking_index",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "5695198c15753a0a812c97ea776043c03f731e11ca76e999ec98ad1154fb69db",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6413,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 0.0,
+        "request_started_offset_ms": 0.032,
+        "http_status": 200,
+        "request_completed_offset_ms": 760.157,
+        "raw_content_sha256": "8ce51652921029a2cf055ebd31370fd0c12794ad193fb47ba2a6530c1ab50807",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6413,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 0.0,
+            "request_started_offset_ms": 0.032,
+            "http_status": 200,
+            "request_completed_offset_ms": 760.157,
+            "raw_content_sha256": "8ce51652921029a2cf055ebd31370fd0c12794ad193fb47ba2a6530c1ab50807",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-002",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.period_cost"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114450222",
+          "product:KR5114420022"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114450222",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114420022",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "전자",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "product:KR5114450222"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR5114450222"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5114450222"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5114450222",
+            "requirement": "product.period_cost",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "cf5cc040eddef9b71a679ca93550166fd67f46508d080f74ec8ee116cea009eb",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6432,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5340.596,
+        "request_started_offset_ms": 5340.684,
+        "http_status": 200,
+        "request_completed_offset_ms": 6109.27,
+        "raw_content_sha256": "466e4730c2a55ae48cd5a837accb2b656c91c62c12559c822febe7b9919ef156",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6432,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5340.596,
+            "request_started_offset_ms": 5340.684,
+            "http_status": 200,
+            "request_completed_offset_ms": 6109.27,
+            "raw_content_sha256": "466e4730c2a55ae48cd5a837accb2b656c91c62c12559c822febe7b9919ef156",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-003",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.total_fee"
+      ],
+      "unresolved": true,
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5127450215",
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5127450215",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "order": 3,
+            "start": 28,
+            "end": 40,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "마지막 상품",
+            "kind": "ordinal_product_reference",
+            "resolved_to": [
+              "product:KR510902773M"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.total_fee",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "55e9091716b5226172402762aee8730e99e48ff6d85cd771d7759b3fbf78ced5",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6455,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5330.613,
+        "request_started_offset_ms": 5330.727,
+        "http_status": 200,
+        "request_completed_offset_ms": 6053.447,
+        "raw_content_sha256": "20dd25fb8d15a8b770c4d13cf42f375eb8d403a93cbfa4aed6365083edd398f8",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6455,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5330.613,
+            "request_started_offset_ms": 5330.727,
+            "http_status": 200,
+            "request_completed_offset_ms": 6053.447,
+            "raw_content_sha256": "20dd25fb8d15a8b770c4d13cf42f375eb8d403a93cbfa4aed6365083edd398f8",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-004",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "unresolved_references": [
+          "해당 상품"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "product.risk_grade.current",
+            "status": "unresolved_reference"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [
+          "해당 상품"
+        ],
+        "incomplete_reasons": []
+      },
+      "output_hash": "dd6733be8d9590c747347e9b4768d533db193666f61e18751bbbab44cb5775b7",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6451,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5380.236,
+        "request_started_offset_ms": 5380.449,
+        "http_status": 200,
+        "request_completed_offset_ms": 6249.986,
+        "raw_content_sha256": "66130e4ff135bbef51e6a74881364e99300de4e611fbf174c8cb88a76e88f0c6",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6451,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5380.236,
+            "request_started_offset_ms": 5380.449,
+            "http_status": 200,
+            "request_completed_offset_ms": 6249.986,
+            "raw_content_sha256": "66130e4ff135bbef51e6a74881364e99300de4e611fbf174c8cb88a76e88f0c6",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-005",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "IRP.withdrawal.tax_treatment",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "IRP",
+            "order": 2,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "unresolved_references": [
+          "해당 계좌"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "IRP.withdrawal.tax_treatment",
+            "status": "unresolved_reference"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_savings.withdrawal.tax_treatment",
+            "status": "unresolved_reference"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [
+          "해당 계좌"
+        ],
+        "incomplete_reasons": []
+      },
+      "output_hash": "b29e33a10eebb8e206ff92b512ec863069460a2428b6aedc61049a403f41c552",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6482,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5233.07,
+        "request_started_offset_ms": 5233.16,
+        "http_status": 200,
+        "request_completed_offset_ms": 6295.543,
+        "raw_content_sha256": "47bf4560d0c2d82b7453d527cde291d05b65d5f4e8bb30b0f2de21de446a10c6",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6482,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5233.07,
+            "request_started_offset_ms": 5233.16,
+            "http_status": 200,
+            "request_completed_offset_ms": 6295.543,
+            "raw_content_sha256": "47bf4560d0c2d82b7453d527cde291d05b65d5f4e8bb30b0f2de21de446a10c6",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-006",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DB.benefit_determination",
+        "DC.benefit_determination"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 4,
+            "end": 6,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "unresolved_references": [
+          "이 제도"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "DB.benefit_determination",
+            "status": "unresolved_reference"
+          },
+          {
+            "subject": null,
+            "requirement": "DC.benefit_determination",
+            "status": "unresolved_reference"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [
+          "이 제도"
+        ],
+        "incomplete_reasons": []
+      },
+      "output_hash": "43896e03661223addd117d918d5044a10aa550f8a9df8f8ac80641051f49f788",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6455,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5040.52,
+        "request_started_offset_ms": 5040.647,
+        "http_status": 200,
+        "request_completed_offset_ms": 6015.25,
+        "raw_content_sha256": "8d9d5e5d48c864bdd2ebf4def8fdd6f34b8da32fe350217a6072f4ffa80323a5",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6455,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5040.52,
+            "request_started_offset_ms": 5040.647,
+            "http_status": 200,
+            "request_completed_offset_ms": 6015.25,
+            "raw_content_sha256": "8d9d5e5d48c864bdd2ebf4def8fdd6f34b8da32fe350217a6072f4ffa80323a5",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-007",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DC.benefit_determination"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "DB"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "DB와 달리",
+            "kind": "closed_pair_contrast",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "inferred_closed_pair"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.benefit_determination",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "5b09adeeff1f3f16b21ab71ca7550e8c9a4fd049cae4dfc3d69141d6ae3913b7",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6449,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5125.934,
+        "request_started_offset_ms": 5126.051,
+        "http_status": 200,
+        "request_completed_offset_ms": 5828.238,
+        "raw_content_sha256": "bb3d933e9fde740f96ad61e03945b1f854cfe70a3c202f76cffed6f47587fed9",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6449,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5125.934,
+            "request_started_offset_ms": 5126.051,
+            "http_status": 200,
+            "request_completed_offset_ms": 5828.238,
+            "raw_content_sha256": "bb3d933e9fde740f96ad61e03945b1f854cfe70a3c202f76cffed6f47587fed9",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-008",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DB.benefit_determination",
+        "DC.benefit_determination"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 4,
+            "end": 6,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DB",
+            "requirement": "DB.benefit_determination",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.benefit_determination",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "6de9c5080d6f0c859454239f7de5c47862ce996604926d7ae40cb5bfdeef19f4",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6452,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5398.173,
+        "request_started_offset_ms": 5398.277,
+        "http_status": 200,
+        "request_completed_offset_ms": 6342.736,
+        "raw_content_sha256": "b9b7f2158d442ecf354fd39ad53837955e412767f0b8383f2185ad22f125c136",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6452,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5398.173,
+            "request_started_offset_ms": 5398.277,
+            "http_status": 200,
+            "request_completed_offset_ms": 6342.736,
+            "raw_content_sha256": "b9b7f2158d442ecf354fd39ad53837955e412767f0b8383f2185ad22f125c136",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-009",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DC.early_withdrawal.allowed_reasons",
+        "DC.early_withdrawal.required_documents"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DC",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.early_withdrawal.required_documents",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "2e7246310ff9649168eaf31acd777906714696adb408e6ccc7039b61c7de03fa",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6442,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5155.711,
+        "request_started_offset_ms": 5155.874,
+        "http_status": 200,
+        "request_completed_offset_ms": 6188.805,
+        "raw_content_sha256": "541a507dcb81cfd42d2c927f529c2c5fa8c4a543601c972cfc816145d1c1d63f",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6442,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5155.711,
+            "request_started_offset_ms": 5155.874,
+            "http_status": 200,
+            "request_completed_offset_ms": 6188.805,
+            "raw_content_sha256": "541a507dcb81cfd42d2c927f529c2c5fa8c4a543601c972cfc816145d1c1d63f",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-010",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment",
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "IRP",
+            "order": 2,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "두 번째 계좌",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "IRP"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "IRP",
+            "requirement": "IRP.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "IRP",
+            "requirement": "IRP.withdrawal.tax_treatment",
+            "status": "bound"
+          },
+          {
+            "subject": "pension_savings",
+            "requirement": "pension_savings.early_withdrawal.allowed_reasons",
+            "status": "conflict"
+          },
+          {
+            "subject": "pension_savings",
+            "requirement": "pension_savings.withdrawal.tax_treatment",
+            "status": "conflict"
+          }
+        ],
+        "scope_conflicts": [
+          "subject_requirement_conflict:pension_savings:pension_savings.early_withdrawal.allowed_reasons",
+          "subject_requirement_conflict:pension_savings:pension_savings.withdrawal.tax_treatment"
+        ],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "060dfc84f5845e87c0f5cf69f6bcbd363019ebc9ae351150bc2b32510becd34d",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6471,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5071.346,
+        "request_started_offset_ms": 5071.443,
+        "http_status": 200,
+        "request_completed_offset_ms": 6413.072,
+        "raw_content_sha256": "faf6ef78200252bd17486f6ebab7c33a56eae058578717fcd392753f15e3b0db",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6471,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5071.346,
+            "request_started_offset_ms": 5071.443,
+            "http_status": 200,
+            "request_completed_offset_ms": 6413.072,
+            "raw_content_sha256": "faf6ef78200252bd17486f6ebab7c33a56eae058578717fcd392753f15e3b0db",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-011",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DC.operation_party",
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DC",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "이 제도",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.operation_party",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.frequency",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.outsourcing",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "8109b96e0f637e640f72e284154a56256a7d68b17f6a3104cca44e03a8ac13a0",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6458,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4762.004,
+        "request_started_offset_ms": 4762.083,
+        "http_status": 200,
+        "request_completed_offset_ms": 5813.028,
+        "raw_content_sha256": "23a7f90a91a3b4b54a4ac28cda0d74acc6d35cbfd556185b7090860e9bab4450",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6458,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4762.004,
+            "request_started_offset_ms": 4762.083,
+            "http_status": 200,
+            "request_completed_offset_ms": 5813.028,
+            "raw_content_sha256": "23a7f90a91a3b4b54a4ac28cda0d74acc6d35cbfd556185b7090860e9bab4450",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-012",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.historical"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5127450215"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5127450215",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR5127450215"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5127450215"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5127450215",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          },
+          {
+            "subject": "product:KR5127450215",
+            "requirement": "product.risk_grade.historical",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "b31ec40021f2341ba8f9a989da1f5b77388e3acca2fcaf7eeea214571ed7b396",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6420,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5051.961,
+        "request_started_offset_ms": 5052.067,
+        "http_status": 200,
+        "request_completed_offset_ms": 5913.168,
+        "raw_content_sha256": "473bd4eae1b01eeba827d92a879566323ea074de2583b535af56de0bc4cd24a4",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6420,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5051.961,
+            "request_started_offset_ms": 5052.067,
+            "http_status": 200,
+            "request_completed_offset_ms": 5913.168,
+            "raw_content_sha256": "473bd4eae1b01eeba827d92a879566323ea074de2583b535af56de0bc4cd24a4",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-013",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.equity_allocation_limit",
+        "product.risk_grade.current"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "두 번째 상품",
+            "kind": "ordinal_product_reference",
+            "resolved_to": [
+              "product:KR510902773M"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.equity_allocation_limit",
+            "status": "bound"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "e6eb50f36922b0fa026f9cf0980754cc73a62aeb2eb2f0d8ba59440936b91108",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6445,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5241.332,
+        "request_started_offset_ms": 5241.804,
+        "http_status": 200,
+        "request_completed_offset_ms": 6029.877,
+        "raw_content_sha256": "7f1eee9844494c9aee7e90c907064af500024a363917e7fd074691706b9aeb9b",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6445,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5241.332,
+            "request_started_offset_ms": 5241.804,
+            "http_status": 200,
+            "request_completed_offset_ms": 6029.877,
+            "raw_content_sha256": "7f1eee9844494c9aee7e90c907064af500024a363917e7fd074691706b9aeb9b",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-014",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "IRP",
+            "order": 1,
+            "start": 0,
+            "end": 3,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "이 계좌",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "IRP"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "retirement_pension.in_kind_transfer.IRP.application_route",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "4e9531e4beb9b3a8b82ee09ba4812b6fe9fe9b20d5c684341468bb995e043b3b",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6422,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5310.433,
+        "request_started_offset_ms": 5310.488,
+        "http_status": 200,
+        "request_completed_offset_ms": 6325.45,
+        "raw_content_sha256": "bff6ed0fcf20f2b24a0dcbfa9ea788bd2199b8a74f1b10f49a1b4ea0d6453ec3",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6422,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5310.433,
+            "request_started_offset_ms": 5310.488,
+            "http_status": 200,
+            "request_completed_offset_ms": 6325.45,
+            "raw_content_sha256": "bff6ed0fcf20f2b24a0dcbfa9ea788bd2199b8a74f1b10f49a1b4ea0d6453ec3",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-015",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DC.employer_contribution",
+        "DC.operation_party"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 4,
+            "end": 6,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "두 번째 제도",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.employer_contribution",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.operation_party",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "858c3972cbb25991b9db334107b03a4b40dea9be98f666b1cc1aa6340473a642",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6451,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5086.816,
+        "request_started_offset_ms": 5086.943,
+        "http_status": 200,
+        "request_completed_offset_ms": 5881.985,
+        "raw_content_sha256": "d9ea1a68a22efc66c20feb8d8b7b634637980188fc57caa5c933a70c205bce2b",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6451,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5086.816,
+            "request_started_offset_ms": 5086.943,
+            "http_status": 200,
+            "request_completed_offset_ms": 5881.985,
+            "raw_content_sha256": "d9ea1a68a22efc66c20feb8d8b7b634637980188fc57caa5c933a70c205bce2b",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-016",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "ISA.transfer.additional_tax_credit",
+        "ISA.transfer.deadline"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "ISA"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "ISA",
+            "order": 1,
+            "start": 0,
+            "end": 3,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "이 계좌",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "ISA"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "ISA"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "ISA"
+        ],
+        "bindings": [
+          {
+            "subject": "ISA",
+            "requirement": "ISA.transfer.additional_tax_credit",
+            "status": "bound"
+          },
+          {
+            "subject": "ISA",
+            "requirement": "ISA.transfer.deadline",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "f72c518136d8a534314263823c368f20626a3881d45456041162e157a7b0f62d",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6467,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5308.4,
+        "request_started_offset_ms": 5308.522,
+        "http_status": 200,
+        "request_completed_offset_ms": 6112.284,
+        "raw_content_sha256": "8f47111c83eee8a195231dffcb53ae582a34fb6839984d74db5a48a6d4c340fc",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6467,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5308.4,
+            "request_started_offset_ms": 5308.522,
+            "http_status": 200,
+            "request_completed_offset_ms": 6112.284,
+            "raw_content_sha256": "8f47111c83eee8a195231dffcb53ae582a34fb6839984d74db5a48a6d4c340fc",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-017",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "IRP",
+            "order": 2,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "후자",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "IRP"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "IRP",
+            "requirement": "IRP.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "IRP",
+            "requirement": "IRP.withdrawal.tax_treatment",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "output_hash": "7f2b0b24d17b54fdc69ef63ae3fd1c05cd6b3ff20aba2e6e7ea1a39f61a9cbc2",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6449,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5299.504,
+        "request_started_offset_ms": 5299.618,
+        "http_status": 200,
+        "request_completed_offset_ms": 6404.29,
+        "raw_content_sha256": "26c7b93f9f0c4b0645a57d7106fa8945c83d59f26d4c26ab7f8407809e7305dd",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6449,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5299.504,
+            "request_started_offset_ms": 5299.618,
+            "http_status": 200,
+            "request_completed_offset_ms": 6404.29,
+            "raw_content_sha256": "26c7b93f9f0c4b0645a57d7106fa8945c83d59f26d4c26ab7f8407809e7305dd",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P41-018",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "unresolved": false,
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5127450215",
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5127450215",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR5127450215",
+          "product:KR510902773M"
+        ],
+        "unresolved_references": [
+          "그 유형"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5127450215",
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "product.risk_grade.current",
+            "status": "unresolved_reference"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [
+          "그 유형"
+        ],
+        "incomplete_reasons": []
+      },
+      "output_hash": "9f8563331593e8c8bef35f788c2e39647476fc50fb02e205bf82a96fb217a28f",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6458,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4997.282,
+        "request_started_offset_ms": 4997.405,
+        "http_status": 200,
+        "request_completed_offset_ms": 5700.382,
+        "raw_content_sha256": "0799cbbffb6c30c6a6ffac0fd91cdba3f08a4f9512d3945a68db4673b035b1ff",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6458,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4997.282,
+            "request_started_offset_ms": 4997.405,
+            "http_status": 200,
+            "request_completed_offset_ms": 5700.382,
+            "raw_content_sha256": "0799cbbffb6c30c6a6ffac0fd91cdba3f08a4f9512d3945a68db4673b035b1ff",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    }
+  ]
+}

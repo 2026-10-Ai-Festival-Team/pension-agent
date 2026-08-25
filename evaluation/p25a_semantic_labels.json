@@ -1,0 +1,44 @@
+[
+  {
+    "question_id": "R-002",
+    "run_no": 1,
+    "answer_sha256": "3e49a48d493b323e0cad6128d7e5abbcac931eac11e726322c9b900b3f7ea511",
+    "semantic_answer_ok": "pass",
+    "note": "DB·DC 산정 방식의 비교를 직접 설명"
+  },
+  {
+    "question_id": "R-002",
+    "run_no": 2,
+    "answer_sha256": "9639486462ee0ba9213092111e1da1bad9c9f71ef5e9ca9e59e49385965e616a",
+    "semantic_answer_ok": "pass",
+    "note": "DB·DC 산정 방식의 비교를 직접 설명"
+  },
+  {
+    "question_id": "R-002",
+    "run_no": 3,
+    "answer_sha256": "3e49a48d493b323e0cad6128d7e5abbcac931eac11e726322c9b900b3f7ea511",
+    "semantic_answer_ok": "pass",
+    "note": "DB·DC 산정 방식의 비교를 직접 설명"
+  },
+  {
+    "question_id": "R-006",
+    "run_no": 1,
+    "answer_sha256": "2159048ee83591aa25c6a361cab214d1565c884379c92ce29d859bb76bd25ab9",
+    "semantic_answer_ok": "pass",
+    "note": "DB→DC 전환 절차와 근로자 대표 고지·동의 조건을 설명"
+  },
+  {
+    "question_id": "R-006",
+    "run_no": 2,
+    "answer_sha256": "cc15e51fa49a14830b8c7a2df20835dc84531df0054277e6d27364e0b7131ae1",
+    "semantic_answer_ok": "partial",
+    "note": "일반 규약 변경 사유가 중심이라 DB→DC 전환 조건의 직접성이 약함"
+  },
+  {
+    "question_id": "R-006",
+    "run_no": 3,
+    "answer_sha256": "106e7d1a70ee7590f0830bab366544dcdf039c34fba39bf9db1351c983c3e50a",
+    "semantic_answer_ok": "partial",
+    "note": "일반 규약 변경 사유가 중심이라 DB→DC 전환 조건의 직접성이 약함"
+  }
+]

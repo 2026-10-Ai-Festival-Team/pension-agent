@@ -1,0 +1,2235 @@
+{
+  "phase": "P35-A",
+  "experiment": "P35 Closed Pre-HCX Failure Attribution",
+  "manifest_sha256": "bb8eda3bd2f76bf8798b2ab6b531fc0ce6856a656a7f6fcd046363650fd03ad7",
+  "hcx_calls": 0,
+  "candidate_code_modified": false,
+  "frozen_execution_modified": false,
+  "summary": {
+    "total_questions": 18,
+    "frozen_requirement_failures": 5,
+    "semantic_requirement_failures": 6,
+    "frozen_requirement_plan_coverage": 13,
+    "semantic_requirement_coverage": 12,
+    "evidence_insufficient": 2,
+    "evidence_sufficient": 16,
+    "primary_original": 18,
+    "primary_owner_counts": {
+      "normalization_alias_miss": 1,
+      "normalization_semantic_miss": 5,
+      "planner_intent_miss": 0,
+      "planner_slot_miss": 0,
+      "planner_multi_requirement_miss": 0,
+      "planner_schema_variant": 0,
+      "subject_resolution": 0,
+      "retrieval_missing": 1,
+      "matcher_field_miss": 1,
+      "evidence_selection_miss": 1
+    },
+    "source_relevance": {
+      "exact_gold": 11,
+      "semantic_equivalent": 2,
+      "partial": 4,
+      "wrong_scope": 1
+    },
+    "replay_selected_evidence_parity": 18
+  },
+  "cases": [
+    {
+      "question_id": "P35-001",
+      "question": "DB/DC에서 회사가 돈을 굴려주는 쪽과 퇴직급여를 계산하는 방식, 그리고 DC 회사 부담금 기준을 한 번에 구분해 주세요.",
+      "gold_requirements": [
+        "DB·DC 급여 결정 방식",
+        "DB·DC 운용 주체",
+        "DC 회사 부담금 기준"
+      ],
+      "gold_evidence_chunk_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+      ],
+      "normalization": {
+        "raw_question": "DB/DC에서 회사가 돈을 굴려주는 쪽과 퇴직급여를 계산하는 방식, 그리고 DC 회사 부담금 기준을 한 번에 구분해 주세요.",
+        "raw_terms": [
+          "회사가 돈을 굴려주는 쪽"
+        ],
+        "canonical_terms": [
+          "DB·DC operation_party"
+        ],
+        "missing_normalization": [
+          "굴려주는 쪽 → 적립금 운용 주체"
+        ],
+        "extracted_accounts": [
+          "DB",
+          "DC"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "db_benefit",
+          "name": "DB 급여 산정",
+          "chunk_id": "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "matched_terms": [
+            "DB",
+            "퇴직급여",
+            "평균임금"
+          ]
+        },
+        {
+          "key": "dc_benefit",
+          "name": "DC 급여 산정",
+          "chunk_id": "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "matched_terms": [
+            "DC",
+            "부담금",
+            "운용"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": false,
+        "frozen_coverage_status": "missing",
+        "covered_slot_keys": [
+          "db_benefit",
+          "dc_benefit"
+        ],
+        "missing": [
+          "DB·DC 운용 주체"
+        ],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "46551bfa35d467ed-table-869b91f75225",
+          "46551bfa35d467ed-table-9de02b1b9416",
+          "46551bfa35d467ed-paragraph_group-8b734b27f449",
+          "46551bfa35d467ed-table-2949fe56b6ba",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "ef05c9c97fbadd27-table-6cb74dcb5e83",
+          "04782a392f49293e-paragraph_group-f6d10875adfc",
+          "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+          "4607500e74afcdf8-paragraph_group-45b428961c7a"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ],
+        "slot_matches": [
+          {
+            "key": "db_benefit",
+            "name": "DB 급여 산정",
+            "chunk_id": "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+            "matched_terms": [
+              "DB",
+              "퇴직급여",
+              "평균임금"
+            ]
+          },
+          {
+            "key": "dc_benefit",
+            "name": "DC 급여 산정",
+            "chunk_id": "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+            "matched_terms": [
+              "DC",
+              "부담금",
+              "운용"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": "normalization_semantic_miss",
+      "secondary_effects": [
+        "planner_multi_requirement_miss: benefit slots만 생성되어 operation slot이 빠짐"
+      ],
+      "reason": "DB/DC와 급여 계산은 인식해 benefit plan을 만들었지만, 구어체 ‘돈을 굴려주는 쪽’이 operation_party로 정규화되지 않아 운용 주체 requirement가 생성되지 않았다."
+    },
+    {
+      "question_id": "P35-002",
+      "question": "퇴직연금 가입자 교육을 회사가 매번 직접 해야 하나요? 외부 기관에 맡길 수 있는지와 최소 연간 횟수도 알려주세요.",
+      "gold_requirements": [
+        "교육 실시 주체",
+        "최소 실시 주기",
+        "위탁 가능 여부"
+      ],
+      "gold_evidence_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ],
+      "normalization": {
+        "raw_question": "퇴직연금 가입자 교육을 회사가 매번 직접 해야 하나요? 외부 기관에 맡길 수 있는지와 최소 연간 횟수도 알려주세요.",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "education_provider",
+          "name": "가입자 교육 실시 주체",
+          "chunk_id": "ae713c70a631594f-paragraph_group-3f366b654f2b",
+          "matched_terms": [
+            "사용자",
+            "가입자",
+            "교육"
+          ]
+        },
+        {
+          "key": "education_frequency",
+          "name": "가입자 교육 최소 실시 주기",
+          "chunk_id": "ae713c70a631594f-paragraph_group-b665fce408b0",
+          "matched_terms": [
+            "매년",
+            "1 회",
+            "교육"
+          ]
+        },
+        {
+          "key": "education_outsourcing",
+          "name": "가입자 교육 위탁 가능 여부",
+          "chunk_id": "ae713c70a631594f-paragraph_group-acf255b8eff3",
+          "matched_terms": [
+            "위탁",
+            "퇴직연금사업자",
+            "전문기관"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "education_provider",
+          "education_frequency",
+          "education_outsourcing"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "ae713c70a631594f-paragraph_group-b665fce408b0",
+          "ae713c70a631594f-paragraph_group-3f366b654f2b",
+          "ae713c70a631594f-paragraph_group-74768cb22e60",
+          "ae713c70a631594f-paragraph_group-fd1124e92346",
+          "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+          "ae713c70a631594f-table-a298329937af",
+          "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+          "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+          "ae713c70a631594f-table-800a3663c3f6",
+          "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+          "d9ee75020670276d-table-9d25e9d4f6d0",
+          "ae713c70a631594f-paragraph_group-acf255b8eff3",
+          "626288f474b6aa74-table-9af39b8481a1",
+          "d9ee75020670276d-table-62a8ce20359e",
+          "7420af8b47f3ff43-table-8c6999dcb969",
+          "ae713c70a631594f-paragraph_group-f1e9cc30f5a8",
+          "f02d4ff049aa3a92-paragraph_group-3efd4b49aaae",
+          "512e78400561b9f0-paragraph_group-775cbc9157e0",
+          "fecffc9866eb7cca-table-f6d4c91ee3f7"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "ae713c70a631594f-paragraph_group-b665fce408b0",
+          "ae713c70a631594f-paragraph_group-fd1124e92346"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "ae713c70a631594f-paragraph_group-3f366b654f2b",
+          "ae713c70a631594f-paragraph_group-b665fce408b0",
+          "ae713c70a631594f-paragraph_group-acf255b8eff3"
+        ],
+        "slot_matches": [
+          {
+            "key": "education_provider",
+            "name": "가입자 교육 실시 주체",
+            "chunk_id": "ae713c70a631594f-paragraph_group-3f366b654f2b",
+            "matched_terms": [
+              "사용자",
+              "가입자",
+              "교육"
+            ]
+          },
+          {
+            "key": "education_frequency",
+            "name": "가입자 교육 최소 실시 주기",
+            "chunk_id": "ae713c70a631594f-paragraph_group-b665fce408b0",
+            "matched_terms": [
+              "매년",
+              "1 회",
+              "교육"
+            ]
+          },
+          {
+            "key": "education_outsourcing",
+            "name": "가입자 교육 위탁 가능 여부",
+            "chunk_id": "ae713c70a631594f-paragraph_group-acf255b8eff3",
+            "matched_terms": [
+              "위탁",
+              "퇴직연금사업자",
+              "전문기관"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": [
+          "ae713c70a631594f-paragraph_group-fd1124e92346"
+        ]
+      },
+      "selected_evidence": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-003",
+      "question": "IRP에서 ETF를 직접 고를 수 있다면 레버리지 ETF나 인버스 ETF도 똑같이 살 수 있다는 뜻인가요?",
+      "gold_requirements": [
+        "퇴직연금 ETF 직접매매 범위",
+        "레버리지·인버스 제한"
+      ],
+      "gold_evidence_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "normalization": {
+        "raw_question": "IRP에서 ETF를 직접 고를 수 있다면 레버리지 ETF나 인버스 ETF도 똑같이 살 수 있다는 뜻인가요?",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [
+          "IRP"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "retirement_etf_direct_trade",
+          "name": "DC·IRP ETF 직접매매 범위",
+          "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "matched_terms": [
+            "DC",
+            "IRP",
+            "ETF",
+            "직접"
+          ]
+        },
+        {
+          "key": "retirement_etf_leverage_inverse_restriction",
+          "name": "레버리지·인버스 ETF 제한",
+          "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "matched_terms": [
+            "레버리지",
+            "인버스",
+            "금지"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "retirement_etf_direct_trade",
+          "retirement_etf_leverage_inverse_restriction"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "37c0cd9b61ebeb19-paragraph_group-93dbd9198be5",
+          "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "204e759f6e34eba2-table-e187143cf309",
+          "82c9f1e8e7f8c736-table-dde90c260d92",
+          "37c0cd9b61ebeb19-table-b0b25328c849",
+          "f24a347b7c7a170c-table-8d22c6b04c9f",
+          "545de7c663ff2726-table-3a476f233fcf",
+          "0a1c8fece530be69-table-9989200818d1",
+          "ea8b1476d7598766-table-f1d52b3cd9a6",
+          "0235557ce8059551-paragraph_group-25918897fde4",
+          "de4f8448134189df-paragraph_group-56c3e7dd9332",
+          "570a48e8debe22bd-paragraph_group-341ebe2d24b4",
+          "7878a3be5806fef4-table-2685af18f544",
+          "2ce564b5ddde4f21-table-df602195ef06",
+          "ef05c9c97fbadd27-paragraph_group-c169d907b699"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "570a48e8debe22bd-paragraph_group-e79299cb589a"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "570a48e8debe22bd-paragraph_group-e79299cb589a"
+        ],
+        "slot_matches": [
+          {
+            "key": "retirement_etf_direct_trade",
+            "name": "DC·IRP ETF 직접매매 범위",
+            "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+            "matched_terms": [
+              "DC",
+              "IRP",
+              "ETF",
+              "직접"
+            ]
+          },
+          {
+            "key": "retirement_etf_leverage_inverse_restriction",
+            "name": "레버리지·인버스 ETF 제한",
+            "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+            "matched_terms": [
+              "레버리지",
+              "인버스",
+              "금지"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-004",
+      "question": "연저만 납입할 때와 연저+IRP로 넣을 때 세액 공제한도는 왜 따로 계산하며 각각 얼마인가요?",
+      "gold_requirements": [
+        "연금저축 단독 세액공제 대상 한도",
+        "IRP 포함 합산 세액공제 대상 한도"
+      ],
+      "gold_evidence_chunk_ids": [
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "7cce439d30d5a8b0-table-20114875d339"
+      ],
+      "normalization": {
+        "raw_question": "연저만 납입할 때와 연저+IRP로 넣을 때 세액 공제한도는 왜 따로 계산하며 각각 얼마인가요?",
+        "raw_terms": [
+          "연저"
+        ],
+        "canonical_terms": [
+          "연금저축"
+        ],
+        "missing_normalization": [
+          "연저 → 연금저축"
+        ],
+        "extracted_accounts": [
+          "IRP"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": false,
+        "frozen_coverage_status": "missing",
+        "covered_slot_keys": [],
+        "missing": [
+          "연금저축 단독 세액공제 대상 한도",
+          "IRP 포함 합산 세액공제 대상 한도"
+        ],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "5a8516a0215f8754-slide-bbf8ab17ae0d",
+          "5a8516a0215f8754-slide-c1523d81c161",
+          "ef05c9c97fbadd27-table-6cb74dcb5e83",
+          "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+          "2578707c6323de46-paragraph_group-1daf64189064",
+          "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+          "2578707c6323de46-table-0f2ea0cfdcac",
+          "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+          "cb50751d7ccd46bf-paragraph_group-c345b8d0ff3a",
+          "eef705af2a7c3c57-paragraph_group-c3bde8f09076"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "7cce439d30d5a8b0-paragraph_group-f2f6ed313014"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [],
+        "slot_matches": [],
+        "rejected_relevant_chunk_ids": [
+          "7cce439d30d5a8b0-paragraph_group-f2f6ed313014"
+        ]
+      },
+      "selected_evidence": [
+        "5a8516a0215f8754-slide-bbf8ab17ae0d",
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "2578707c6323de46-paragraph_group-1daf64189064",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "2578707c6323de46-table-0f2ea0cfdcac",
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "cb50751d7ccd46bf-paragraph_group-c345b8d0ff3a",
+        "eef705af2a7c3c57-paragraph_group-c3bde8f09076"
+      ],
+      "evidence_sufficient": false,
+      "assessment_reason": "compound_requirements_not_defined",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": "normalization_alias_miss",
+      "secondary_effects": [
+        "planner_intent_miss: 연금저축+IRP 비교 predicate가 충족되지 않음",
+        "gate_false_reject"
+      ],
+      "reason": "현재 entity extraction은 ‘연금저축’만 account로 인식한다. IRP만 추출된 상태에서는 연금저축·IRP 한도 비교 schema의 두 account predicate가 성립하지 않는다."
+    },
+    {
+      "question_id": "P35-005",
+      "question": "일반 계좌보다 연금계좌에서 세금을 나중에 낸다는 말은 세금이 없어지는 것인가요, 아니면 내는 시점만 미뤄지는 것인가요?",
+      "gold_requirements": [
+        "일반계좌 과세 시점",
+        "연금계좌 과세이연의 조건·시점"
+      ],
+      "gold_evidence_chunk_ids": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ],
+      "normalization": {
+        "raw_question": "일반 계좌보다 연금계좌에서 세금을 나중에 낸다는 말은 세금이 없어지는 것인가요, 아니면 내는 시점만 미뤄지는 것인가요?",
+        "raw_terms": [
+          "세금을 나중에 낸다",
+          "세금이 없어지는 것인가요"
+        ],
+        "canonical_terms": [
+          "tax_deferral",
+          "일반계좌 대비 연금계좌 과세 시점"
+        ],
+        "missing_normalization": [
+          "세금을 나중에 낸다 → 과세이연"
+        ],
+        "extracted_accounts": [],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": false,
+        "frozen_coverage_status": "missing",
+        "covered_slot_keys": [],
+        "missing": [
+          "일반계좌 과세 시점",
+          "연금계좌 과세이연의 조건·시점"
+        ],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": false,
+        "candidate_chunk_ids": [
+          "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+          "eec10989c7067926-paragraph_group-72065e97ce5d",
+          "ae22159be59440b6-paragraph_group-8d64cc53348b",
+          "13621d38202e2fc3-table-5431011b44b5",
+          "13621d38202e2fc3-table-c64398404ba4",
+          "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+          "5a8516a0215f8754-slide-bbf8ab17ae0d",
+          "eec10989c7067926-paragraph_group-15cf127eb9b9",
+          "5a8516a0215f8754-slide-c1523d81c161",
+          "4d6edde4fa5b925d-paragraph_group-000adad54805"
+        ],
+        "relevant_candidate_chunk_ids": []
+      },
+      "matcher": {
+        "accepted_chunk_ids": [],
+        "slot_matches": [],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "eec10989c7067926-paragraph_group-72065e97ce5d",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "13621d38202e2fc3-table-5431011b44b5",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d",
+        "eec10989c7067926-paragraph_group-15cf127eb9b9",
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "4d6edde4fa5b925d-paragraph_group-000adad54805"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "source_relevance": "partial",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "연금계좌에서 세금 납부 시점을 늦추는 일반 설명만 있어 일반계좌 과세 시점과 면제 아님을 함께 직접 비교하지 못한다.",
+      "primary_owner": "normalization_semantic_miss",
+      "secondary_effects": [
+        "planner_intent_miss: tax_deferral comparison plan 미생성"
+      ],
+      "reason": "질문은 면제와 과세시점 이연을 구분하지만 현재 canonical form은 ‘과세이연’ intent로 바꾸지 못해 simple retrieval 경로로 남았다."
+    },
+    {
+      "question_id": "P35-006",
+      "question": "국내 상장 해외 ETF의 매매차익·분배금은 일반계좌와 연금저축/IRP에서 세금이 붙는 때가 어떻게 달라요?",
+      "gold_requirements": [
+        "일반계좌 매매차익·분배금 과세",
+        "연금계좌 과세 시점",
+        "문서의 조건·유의사항"
+      ],
+      "gold_evidence_chunk_ids": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-table-ce8fee5b43be"
+      ],
+      "normalization": {
+        "raw_question": "국내 상장 해외 ETF의 매매차익·분배금은 일반계좌와 연금저축/IRP에서 세금이 붙는 때가 어떻게 달라요?",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [
+          "IRP",
+          "연금저축"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "foreign_etf_general_account_tax",
+          "name": "해외 ETF 일반계좌 과세 기준",
+          "chunk_id": "13621d38202e2fc3-table-5431011b44b5",
+          "matched_terms": [
+            "해외",
+            "ETF",
+            "매매차익"
+          ]
+        },
+        {
+          "key": "foreign_etf_pension_account_tax",
+          "name": "해외 ETF 연금계좌 과세 시점",
+          "chunk_id": "de4f8448134189df-table-ce8fee5b43be",
+          "matched_terms": [
+            "연금저축",
+            "IRP",
+            "과세"
+          ]
+        },
+        {
+          "key": "foreign_etf_tax_condition",
+          "name": "해외 ETF 계좌별 과세 예외·유의조건",
+          "chunk_id": "de4f8448134189df-paragraph_group-4394f7247e77",
+          "matched_terms": [
+            "ETF",
+            "과세",
+            "2025"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "foreign_etf_general_account_tax",
+          "foreign_etf_pension_account_tax",
+          "foreign_etf_tax_condition"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "de4f8448134189df-table-3b9ac10c94d4",
+          "13621d38202e2fc3-table-5431011b44b5",
+          "13621d38202e2fc3-table-c64398404ba4",
+          "de4f8448134189df-table-ce8fee5b43be",
+          "13621d38202e2fc3-paragraph_group-41027eb1c16a",
+          "13621d38202e2fc3-paragraph_group-81d30048d288",
+          "de4f8448134189df-paragraph_group-2a4335a2587e",
+          "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+          "de4f8448134189df-paragraph_group-56c3e7dd9332",
+          "de4f8448134189df-paragraph_group-4394f7247e77",
+          "7878a3be5806fef4-table-a3623398dbaa",
+          "5aaf722ed4b3bf7b-paragraph_group-94480dff1541",
+          "eec10989c7067926-table-4aaaff23d3c0",
+          "eec10989c7067926-table-24f58c8a85a0",
+          "eec10989c7067926-paragraph_group-d7d393007f9c"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "de4f8448134189df-table-ce8fee5b43be",
+          "de4f8448134189df-paragraph_group-2a4335a2587e",
+          "de4f8448134189df-paragraph_group-4394f7247e77"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "13621d38202e2fc3-table-5431011b44b5",
+          "de4f8448134189df-table-ce8fee5b43be",
+          "de4f8448134189df-paragraph_group-4394f7247e77"
+        ],
+        "slot_matches": [
+          {
+            "key": "foreign_etf_general_account_tax",
+            "name": "해외 ETF 일반계좌 과세 기준",
+            "chunk_id": "13621d38202e2fc3-table-5431011b44b5",
+            "matched_terms": [
+              "해외",
+              "ETF",
+              "매매차익"
+            ]
+          },
+          {
+            "key": "foreign_etf_pension_account_tax",
+            "name": "해외 ETF 연금계좌 과세 시점",
+            "chunk_id": "de4f8448134189df-table-ce8fee5b43be",
+            "matched_terms": [
+              "연금저축",
+              "IRP",
+              "과세"
+            ]
+          },
+          {
+            "key": "foreign_etf_tax_condition",
+            "name": "해외 ETF 계좌별 과세 예외·유의조건",
+            "chunk_id": "de4f8448134189df-paragraph_group-4394f7247e77",
+            "matched_terms": [
+              "ETF",
+              "과세",
+              "2025"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": [
+          "de4f8448134189df-paragraph_group-2a4335a2587e"
+        ]
+      },
+      "selected_evidence": [
+        "13621d38202e2fc3-table-5431011b44b5",
+        "de4f8448134189df-table-ce8fee5b43be",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-007",
+      "question": "연금저축처럼 IRP도 필요한 금액만 중간에 찾을 수 있나요? 중도 인출사유와 세금 처리의 차이도 같이 알려주세요.",
+      "gold_requirements": [
+        "연금저축 인출 범위",
+        "IRP 법정 중도인출 사유",
+        "인출 과세 처리"
+      ],
+      "gold_evidence_chunk_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-05de077f1213",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "normalization": {
+        "raw_question": "연금저축처럼 IRP도 필요한 금액만 중간에 찾을 수 있나요? 중도 인출사유와 세금 처리의 차이도 같이 알려주세요.",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [
+          "IRP",
+          "연금저축"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "pension_savings_withdrawal_scope",
+          "name": "연금저축 인출 범위·조건",
+          "chunk_id": "de4f8448134189df-paragraph_group-56c3e7dd9332",
+          "matched_terms": [
+            "연금저축",
+            "인출"
+          ]
+        },
+        {
+          "key": "irp_withdrawal_legal_grounds_comparison",
+          "name": "IRP 중도인출 법정사유",
+          "chunk_id": "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "matched_terms": [
+            "IRP",
+            "중도인출",
+            "법정사유"
+          ]
+        },
+        {
+          "key": "account_withdrawal_tax_treatment",
+          "name": "계좌별 인출 과세 처리",
+          "chunk_id": "de4f8448134189df-paragraph_group-56c3e7dd9332",
+          "matched_terms": [
+            "인출",
+            "과세"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "pension_savings_withdrawal_scope",
+          "irp_withdrawal_legal_grounds_comparison",
+          "account_withdrawal_tax_treatment"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "5a8516a0215f8754-slide-c1523d81c161",
+          "e8d7e6a69504e042-paragraph_group-35993691d717",
+          "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+          "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+          "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+          "5a8516a0215f8754-slide-d1c93150f64c",
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+          "e8d7e6a69504e042-table-a66d6a005835",
+          "04782a392f49293e-paragraph_group-37b3740ca9e9",
+          "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+          "de4f8448134189df-paragraph_group-56c3e7dd9332",
+          "4607500e74afcdf8-paragraph_group-b94d2daff285",
+          "e8d7e6a69504e042-table-e07c4f8c5781",
+          "818af50c343884e5-paragraph_group-4defb29e57b2",
+          "818af50c343884e5-paragraph_group-08d25b691837",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "4607500e74afcdf8-paragraph_group-45b428961c7a",
+          "818af50c343884e5-paragraph_group-42e1f4e30304",
+          "a1e78e21d33dafed-table-e9ba0606db15"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "e8d7e6a69504e042-paragraph_group-35993691d717",
+          "e8d7e6a69504e042-table-e07c4f8c5781"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "de4f8448134189df-paragraph_group-56c3e7dd9332",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "de4f8448134189df-paragraph_group-56c3e7dd9332"
+        ],
+        "slot_matches": [
+          {
+            "key": "pension_savings_withdrawal_scope",
+            "name": "연금저축 인출 범위·조건",
+            "chunk_id": "de4f8448134189df-paragraph_group-56c3e7dd9332",
+            "matched_terms": [
+              "연금저축",
+              "인출"
+            ]
+          },
+          {
+            "key": "irp_withdrawal_legal_grounds_comparison",
+            "name": "IRP 중도인출 법정사유",
+            "chunk_id": "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+            "matched_terms": [
+              "IRP",
+              "중도인출",
+              "법정사유"
+            ]
+          },
+          {
+            "key": "account_withdrawal_tax_treatment",
+            "name": "계좌별 인출 과세 처리",
+            "chunk_id": "de4f8448134189df-paragraph_group-56c3e7dd9332",
+            "matched_terms": [
+              "인출",
+              "과세"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": [
+          "e8d7e6a69504e042-paragraph_group-35993691d717",
+          "e8d7e6a69504e042-table-e07c4f8c5781"
+        ]
+      },
+      "selected_evidence": [
+        "de4f8448134189df-paragraph_group-56c3e7dd9332",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "wrong_scope",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택된 DC 해외 ETF 과세 문장과 일반 DB/DC 설명은 연금저축·IRP 인출조건/법정사유 비교의 account scope를 직접 지지하지 않는다.",
+      "primary_owner": "matcher_field_miss",
+      "secondary_effects": [
+        "source_relevance_wrong_scope",
+        "evidence_selection_contains_wrong_scope_context"
+      ],
+      "reason": "연금저축·IRP 인출 비교 plan과 gold withdrawal chunks는 모두 candidate에 있다. 그러나 matcher의 넓은 인출/과세 term이 DC 해외 ETF 과세 문장과 일반 DB/DC 문단을 선택해 IRP 법정사유·계좌별 과세 requirement를 잘못 충족으로 판단했다."
+    },
+    {
+      "question_id": "P35-008",
+      "question": "DC에 쌓인 돈을 중간에 찾기 전에는 법정 사유만 확인하면 되나요, 신청서와 증명 서류도 챙겨야 하나요?",
+      "gold_requirements": [
+        "DC 중도인출 가능 사유",
+        "신청 절차·증빙"
+      ],
+      "gold_evidence_chunk_ids": [
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+      ],
+      "normalization": {
+        "raw_question": "DC에 쌓인 돈을 중간에 찾기 전에는 법정 사유만 확인하면 되나요, 신청서와 증명 서류도 챙겨야 하나요?",
+        "raw_terms": [
+          "중간에 찾기",
+          "증명 서류"
+        ],
+        "canonical_terms": [
+          "중도인출",
+          "중도인출 신청·증빙"
+        ],
+        "missing_normalization": [
+          "중간에 찾기 → 중도인출",
+          "증명 서류 → 증빙서류"
+        ],
+        "extracted_accounts": [
+          "DC"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": false,
+        "frozen_coverage_status": "missing",
+        "covered_slot_keys": [],
+        "missing": [
+          "DC 중도인출 가능 사유",
+          "신청 절차·증빙"
+        ],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+          "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+          "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+          "dde0fd3c595c051a-table-1678c28588e6",
+          "ee3b84ad68394b49-table-df729eabdb92",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "04782a392f49293e-paragraph_group-37b3740ca9e9",
+          "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+          "dc5f01c34172a900-table-e57a45f01a30",
+          "e8d7e6a69504e042-paragraph_group-f8a143ed15a7"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "04782a392f49293e-paragraph_group-37b3740ca9e9"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [],
+        "slot_matches": [],
+        "rejected_relevant_chunk_ids": [
+          "04782a392f49293e-paragraph_group-37b3740ca9e9"
+        ]
+      },
+      "selected_evidence": [
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+        "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "dde0fd3c595c051a-table-1678c28588e6",
+        "ee3b84ad68394b49-table-df729eabdb92",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "dc5f01c34172a900-table-e57a45f01a30",
+        "e8d7e6a69504e042-paragraph_group-f8a143ed15a7"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": "normalization_semantic_miss",
+      "secondary_effects": [
+        "planner_multi_requirement_miss: withdrawal procedure schema 미생성"
+      ],
+      "reason": "현재 normalization은 ‘중간에 꺼내/빼’만 중도인출로 바꾸며 ‘중간에 찾기’와 ‘증명 서류’를 canonical withdrawal-procedure 표현으로 바꾸지 못한다."
+    },
+    {
+      "question_id": "P35-009",
+      "question": "ISA 만기 돈을 연저나 IRP로 넘길 때 며칠 안에 해야 하고, 세액공제는 어떤 계산으로 더 인정되나요?",
+      "gold_requirements": [
+        "ISA 만기자금 이전 기한",
+        "추가 세액공제 계산 기준·한도"
+      ],
+      "gold_evidence_chunk_ids": [
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "ae22159be59440b6-table-433001f3f808"
+      ],
+      "normalization": {
+        "raw_question": "ISA 만기 돈을 연저나 IRP로 넘길 때 며칠 안에 해야 하고, 세액공제는 어떤 계산으로 더 인정되나요?",
+        "raw_terms": [
+          "넘길"
+        ],
+        "canonical_terms": [
+          "ISA 만기 이전/전환"
+        ],
+        "missing_normalization": [
+          "넘길 → 이전 또는 전환"
+        ],
+        "extracted_accounts": [
+          "IRP"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": false,
+        "frozen_coverage_status": "missing",
+        "covered_slot_keys": [],
+        "missing": [
+          "ISA 만기자금 이전 기한",
+          "추가 세액공제 계산 기준·한도"
+        ],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "5a8516a0215f8754-slide-bbf8ab17ae0d",
+          "5a8516a0215f8754-slide-d1c93150f64c",
+          "2578707c6323de46-table-0f2ea0cfdcac",
+          "ae22159be59440b6-table-433001f3f808",
+          "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+          "5a8516a0215f8754-slide-c1523d81c161",
+          "2578707c6323de46-paragraph_group-c9eaeb3944b5",
+          "ae22159be59440b6-paragraph_group-8afcfabdd378",
+          "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+          "daee1e8f1b1753ed-paragraph_group-937bad550701"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "ae22159be59440b6-table-433001f3f808"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [],
+        "slot_matches": [],
+        "rejected_relevant_chunk_ids": [
+          "ae22159be59440b6-table-433001f3f808"
+        ]
+      },
+      "selected_evidence": [
+        "5a8516a0215f8754-slide-bbf8ab17ae0d",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "2578707c6323de46-table-0f2ea0cfdcac",
+        "ae22159be59440b6-table-433001f3f808",
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "2578707c6323de46-paragraph_group-c9eaeb3944b5",
+        "ae22159be59440b6-paragraph_group-8afcfabdd378",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "daee1e8f1b1753ed-paragraph_group-937bad550701"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": "normalization_semantic_miss",
+      "secondary_effects": [
+        "planner_intent_miss: ISA maturity transfer plan 미생성",
+        "normalization_alias_miss: 연저 미정규화는 존재하지만 IRP entity가 있어 최초 차단 원인은 아님"
+      ],
+      "reason": "IRP entity가 이미 추출되어 account scope는 충족한다. 하지만 ISA rule의 transfer verb 집합에 ‘넘길’이 없어 ISA 만기 이전 intent 자체가 만들어지지 않았다."
+    },
+    {
+      "question_id": "P35-010",
+      "question": "퇴직연금 상품을 팔지 않고 금융회사만 바꾸는 실물이전은 DB/DC와 IRP에서 신청하는 길이 어떻게 다른가요?",
+      "gold_requirements": [
+        "실물이전 정의·적용 범위",
+        "DB·DC 신청 경로",
+        "IRP 신청 경로"
+      ],
+      "gold_evidence_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "normalization": {
+        "raw_question": "퇴직연금 상품을 팔지 않고 금융회사만 바꾸는 실물이전은 DB/DC와 IRP에서 신청하는 길이 어떻게 다른가요?",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [
+          "DB",
+          "DC",
+          "IRP"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "in_kind_transfer_meaning",
+          "name": "실물이전 의미",
+          "chunk_id": "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "matched_terms": [
+            "실물이전",
+            "매도"
+          ]
+        },
+        {
+          "key": "db_dc_in_kind_transfer_application",
+          "name": "DB·DC 실물이전 신청 경로",
+          "chunk_id": "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "matched_terms": [
+            "DB",
+            "DC",
+            "회사",
+            "신청"
+          ]
+        },
+        {
+          "key": "irp_in_kind_transfer_application",
+          "name": "IRP 실물이전 신청 경로",
+          "chunk_id": "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "matched_terms": [
+            "IRP",
+            "영업점",
+            "모바일"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "in_kind_transfer_meaning",
+          "db_dc_in_kind_transfer_application",
+          "irp_in_kind_transfer_application"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+          "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+          "04782a392f49293e-paragraph_group-09adcb298a6f",
+          "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+          "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+          "04782a392f49293e-paragraph_group-b263be8e0a1c",
+          "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+          "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+          "98556b19ed28c070-paragraph_group-f30bebda49f2",
+          "0df8c3cfaf3a3b5a-spreadsheet_rows-a52d04e9c48f",
+          "04782a392f49293e-paragraph_group-de9e63dff867",
+          "e1a68f328f83897f-paragraph_group-644e08cbb92a",
+          "cc93cafcc3e3f553-paragraph_group-d5e01e1d76cd",
+          "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "04782a392f49293e-paragraph_group-098b76e24032"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+        ],
+        "slot_matches": [
+          {
+            "key": "in_kind_transfer_meaning",
+            "name": "실물이전 의미",
+            "chunk_id": "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+            "matched_terms": [
+              "실물이전",
+              "매도"
+            ]
+          },
+          {
+            "key": "db_dc_in_kind_transfer_application",
+            "name": "DB·DC 실물이전 신청 경로",
+            "chunk_id": "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+            "matched_terms": [
+              "DB",
+              "DC",
+              "회사",
+              "신청"
+            ]
+          },
+          {
+            "key": "irp_in_kind_transfer_application",
+            "name": "IRP 실물이전 신청 경로",
+            "chunk_id": "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+            "matched_terms": [
+              "IRP",
+              "영업점",
+              "모바일"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-011",
+      "question": "DB/DC나 IRP 계좌에서 ETF를 고를 때 직접 매매가 된다고 해서 인버스·레버리지도 허용된다고 보면 안 되나요?",
+      "gold_requirements": [
+        "DC·IRP ETF 직접매매 범위",
+        "레버리지·인버스 ETF 제한"
+      ],
+      "gold_evidence_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "normalization": {
+        "raw_question": "DB/DC나 IRP 계좌에서 ETF를 고를 때 직접 매매가 된다고 해서 인버스·레버리지도 허용된다고 보면 안 되나요?",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [
+          "DB",
+          "DC",
+          "IRP"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "retirement_etf_direct_trade",
+          "name": "DC·IRP ETF 직접매매 범위",
+          "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "matched_terms": [
+            "DC",
+            "IRP",
+            "ETF",
+            "직접"
+          ]
+        },
+        {
+          "key": "retirement_etf_leverage_inverse_restriction",
+          "name": "레버리지·인버스 ETF 제한",
+          "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "matched_terms": [
+            "레버리지",
+            "인버스",
+            "금지"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "retirement_etf_direct_trade",
+          "retirement_etf_leverage_inverse_restriction"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "de4f8448134189df-paragraph_group-56c3e7dd9332",
+          "37c0cd9b61ebeb19-paragraph_group-93dbd9198be5",
+          "82c9f1e8e7f8c736-table-dde90c260d92",
+          "37c0cd9b61ebeb19-table-b0b25328c849",
+          "204e759f6e34eba2-table-e187143cf309",
+          "f24a347b7c7a170c-table-8d22c6b04c9f",
+          "0a1c8fece530be69-table-9989200818d1",
+          "545de7c663ff2726-table-3a476f233fcf",
+          "0235557ce8059551-paragraph_group-25918897fde4",
+          "570a48e8debe22bd-paragraph_group-341ebe2d24b4",
+          "7878a3be5806fef4-table-2685af18f544",
+          "2ce564b5ddde4f21-table-df602195ef06",
+          "ef05c9c97fbadd27-paragraph_group-c169d907b699"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "570a48e8debe22bd-paragraph_group-e79299cb589a"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "570a48e8debe22bd-paragraph_group-e79299cb589a",
+          "570a48e8debe22bd-paragraph_group-e79299cb589a"
+        ],
+        "slot_matches": [
+          {
+            "key": "retirement_etf_direct_trade",
+            "name": "DC·IRP ETF 직접매매 범위",
+            "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+            "matched_terms": [
+              "DC",
+              "IRP",
+              "ETF",
+              "직접"
+            ]
+          },
+          {
+            "key": "retirement_etf_leverage_inverse_restriction",
+            "name": "레버리지·인버스 ETF 제한",
+            "chunk_id": "570a48e8debe22bd-paragraph_group-e79299cb589a",
+            "matched_terms": [
+              "레버리지",
+              "인버스",
+              "금지"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-012",
+      "question": "DB와 DC는 누가 적립금을 운용하고, 퇴직급여는 어떤 기준으로 정해지는지 두 가지를 같이 비교해 주세요.",
+      "gold_requirements": [
+        "DB·DC 운용 주체",
+        "DB·DC 급여 결정 방식",
+        "DC 부담금 구조"
+      ],
+      "gold_evidence_chunk_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+      ],
+      "normalization": {
+        "raw_question": "DB와 DC는 누가 적립금을 운용하고, 퇴직급여는 어떤 기준으로 정해지는지 두 가지를 같이 비교해 주세요.",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [
+          "DB",
+          "DC"
+        ],
+        "product_codes": [],
+        "requested_fields": []
+      },
+      "generated_requirements": [
+        {
+          "key": "db_benefit",
+          "name": "DB 급여 산정",
+          "chunk_id": "4607500e74afcdf8-table-6f164502cbce",
+          "matched_terms": [
+            "DB",
+            "퇴직급여",
+            "평균임금"
+          ]
+        },
+        {
+          "key": "dc_benefit",
+          "name": "DC 급여 산정",
+          "chunk_id": "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+          "matched_terms": [
+            "DC",
+            "부담금",
+            "운용"
+          ]
+        },
+        {
+          "key": "db_operation",
+          "name": "DB 적립금 운용",
+          "chunk_id": "4607500e74afcdf8-table-6f164502cbce",
+          "matched_terms": [
+            "DB",
+            "회사",
+            "적립금 운용"
+          ]
+        },
+        {
+          "key": "dc_operation",
+          "name": "DC 적립금 운용",
+          "chunk_id": "4607500e74afcdf8-table-6f164502cbce",
+          "matched_terms": [
+            "DC",
+            "근로자",
+            "적립금 운용"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "schema_equivalent",
+        "covered_slot_keys": [
+          "db_benefit",
+          "dc_benefit",
+          "db_operation",
+          "dc_operation"
+        ],
+        "missing": [],
+        "schema_equivalent": [
+          "db_dc_benefit_calculation + operation slots are semantically equivalent to db_dc_general_comparison"
+        ]
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+          "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+          "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+          "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+          "570a48e8debe22bd-paragraph_group-341ebe2d24b4",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "0a1c8fece530be69-paragraph_group-e55ae3e51f5f",
+          "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+          "fc71bcf7cc90f68d-paragraph_group-fa61de5a0ee2",
+          "04782a392f49293e-paragraph_group-f6d10875adfc",
+          "ae713c70a631594f-paragraph_group-acf255b8eff3",
+          "49ed30e0f7b42e68-paragraph_group-6f15fb4edc6b"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-table-6f164502cbce"
+        ],
+        "slot_matches": [
+          {
+            "key": "db_benefit",
+            "name": "DB 급여 산정",
+            "chunk_id": "4607500e74afcdf8-table-6f164502cbce",
+            "matched_terms": [
+              "DB",
+              "퇴직급여",
+              "평균임금"
+            ]
+          },
+          {
+            "key": "dc_benefit",
+            "name": "DC 급여 산정",
+            "chunk_id": "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+            "matched_terms": [
+              "DC",
+              "부담금",
+              "운용"
+            ]
+          },
+          {
+            "key": "db_operation",
+            "name": "DB 적립금 운용",
+            "chunk_id": "4607500e74afcdf8-table-6f164502cbce",
+            "matched_terms": [
+              "DB",
+              "회사",
+              "적립금 운용"
+            ]
+          },
+          {
+            "key": "dc_operation",
+            "name": "DC 적립금 운용",
+            "chunk_id": "4607500e74afcdf8-table-6f164502cbce",
+            "matched_terms": [
+              "DC",
+              "근로자",
+              "적립금 운용"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": [
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "selected_evidence": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "semantic_equivalent",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "현재 DB/DC 비교표는 DB 회사·DC 근로자 운용 및 평균임금 대 부담금+운용손익 구조를 직접 지지하고, DC 지급 문단은 부담금 구조를 보강한다. gold와 chunk는 다르지만 subject·field·value·scope가 같다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-013",
+      "question": "KR510902773M 위험등급몇등급인가요? 시장 상황이 바뀌어도 이 등급은 계속 고정인가요?",
+      "gold_requirements": [
+        "KR510902773M 위험등급",
+        "위험등급 변경 가능성"
+      ],
+      "gold_evidence_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "normalization": {
+        "raw_question": "KR510902773M 위험등급몇등급인가요? 시장 상황이 바뀌어도 이 등급은 계속 고정인가요?",
+        "raw_terms": [
+          "계속 고정"
+        ],
+        "canonical_terms": [
+          "risk_grade_changeability"
+        ],
+        "missing_normalization": [
+          "계속 고정 → 위험등급 변경 가능성"
+        ],
+        "extracted_accounts": [],
+        "product_codes": [
+          "KR510902773M"
+        ],
+        "requested_fields": [
+          "risk_grade"
+        ]
+      },
+      "generated_requirements": [
+        {
+          "key": "KR510902773M:risk_grade",
+          "name": "KR510902773M risk_grade",
+          "chunk_id": "cf922cacac95fad9-table-8d0be7d0b37c",
+          "matched_terms": [
+            "KR510902773M",
+            "위험등급"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "KR510902773M:risk_grade"
+        ],
+        "missing": [
+          "위험등급 변경 가능성"
+        ],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "cf922cacac95fad9-paragraph_group-7b9975d0bd57",
+          "cf922cacac95fad9-paragraph_group-942ce1752979",
+          "cf922cacac95fad9-paragraph_group-f50f16731871",
+          "cf922cacac95fad9-paragraph_group-e41017fbeca2",
+          "cf922cacac95fad9-paragraph_group-21449ed2b1dc",
+          "cf922cacac95fad9-paragraph_group-d8e8530f8c6e",
+          "cf922cacac95fad9-table-fa6826bdd0e9",
+          "cf922cacac95fad9-table-130ee9f64179",
+          "cf922cacac95fad9-table-1e49f60ea848",
+          "cf922cacac95fad9-table-9d03a154a16b",
+          "cf922cacac95fad9-table-61041d62fac0",
+          "cf922cacac95fad9-table-8d0be7d0b37c",
+          "cf922cacac95fad9-paragraph_group-12041fb7af90",
+          "cf922cacac95fad9-table-dfa5a3e6cf0d",
+          "cf922cacac95fad9-table-646499d7eea8"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "cf922cacac95fad9-table-8d0be7d0b37c"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "cf922cacac95fad9-table-8d0be7d0b37c"
+        ],
+        "slot_matches": [
+          {
+            "key": "KR510902773M:risk_grade",
+            "name": "KR510902773M risk_grade",
+            "chunk_id": "cf922cacac95fad9-table-8d0be7d0b37c",
+            "matched_terms": [
+              "KR510902773M",
+              "위험등급"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [
+        "cf922cacac95fad9-table-8d0be7d0b37c"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_requirements_complete",
+      "source_relevance": "partial",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "현재 표는 KR510902773M의 3등급 값을 직접 지지하지만, 운용실적·시장 상황에 따라 등급이 변경될 수 있다는 두 번째 requirement를 담지 않는다.",
+      "primary_owner": "normalization_semantic_miss",
+      "secondary_effects": [
+        "planner_slot_miss",
+        "evaluator_slot_observability_gap: frozen expected_slot_keys에는 changeability가 없음"
+      ],
+      "reason": "위험등급 값 slot은 생성됐지만 ‘시장 상황이 바뀌어도 계속 고정’이라는 반대 표현이 변경 가능성 field로 정규화되지 않았다. 따라서 frozen slot-key metric의 pass와 달리 manifest의 두 번째 factual requirement는 빠져 있다."
+    },
+    {
+      "question_id": "P35-014",
+      "question": "KR5127450215는 지수를 따라가는 상품인가요? 주식 관련 자산은 최대 어느 비중까지 담을 수 있나요?",
+      "gold_requirements": [
+        "KR5127450215 투자전략",
+        "KR5127450215 주식 관련 자산 투자비율"
+      ],
+      "gold_evidence_chunk_ids": [
+        "8297231e70bc792a-paragraph_group-3455eeb10f78",
+        "8297231e70bc792a-table-c3567ecc05be"
+      ],
+      "normalization": {
+        "raw_question": "KR5127450215는 지수를 따라가는 상품인가요? 주식 관련 자산은 최대 어느 비중까지 담을 수 있나요?",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [],
+        "product_codes": [
+          "KR5127450215"
+        ],
+        "requested_fields": [
+          "investment_strategy"
+        ]
+      },
+      "generated_requirements": [
+        {
+          "key": "KR5127450215:investment_strategy",
+          "name": "KR5127450215 investment_strategy",
+          "chunk_id": "8297231e70bc792a-table-c3567ecc05be",
+          "matched_terms": [
+            "KR5127450215",
+            "투자전략"
+          ]
+        },
+        {
+          "key": "KR5127450215:investment_target",
+          "name": "KR5127450215 investment_target",
+          "chunk_id": "8297231e70bc792a-table-332d5aafe603",
+          "matched_terms": [
+            "KR5127450215",
+            "투자대상"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "KR5127450215:investment_strategy",
+          "KR5127450215:investment_target"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "8297231e70bc792a-paragraph_group-91287621f8fa",
+          "8297231e70bc792a-table-0eb46fe7aa16",
+          "8297231e70bc792a-paragraph_group-7ecf4273221c",
+          "8297231e70bc792a-table-2d117d43fda4",
+          "8297231e70bc792a-paragraph_group-d2e006f7202a",
+          "8297231e70bc792a-table-aba78a8fa1e6",
+          "8297231e70bc792a-paragraph_group-7877167ac4d7",
+          "8297231e70bc792a-table-535577e1d8dc",
+          "8297231e70bc792a-paragraph_group-c505afafdcd4",
+          "8297231e70bc792a-paragraph_group-3455eeb10f78",
+          "8297231e70bc792a-paragraph_group-9fddd63412b9",
+          "8297231e70bc792a-paragraph_group-8d07b4189372",
+          "8297231e70bc792a-paragraph_group-1608de77ce75",
+          "8297231e70bc792a-table-9ff6c8be8bf6",
+          "8297231e70bc792a-table-627e8f95aca2",
+          "8297231e70bc792a-paragraph_group-74c1d35c71ea",
+          "8297231e70bc792a-table-332d5aafe603",
+          "8297231e70bc792a-paragraph_group-21d0508fca60",
+          "8297231e70bc792a-table-c3567ecc05be"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "8297231e70bc792a-paragraph_group-3455eeb10f78",
+          "8297231e70bc792a-table-c3567ecc05be"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "8297231e70bc792a-table-c3567ecc05be",
+          "8297231e70bc792a-table-332d5aafe603"
+        ],
+        "slot_matches": [
+          {
+            "key": "KR5127450215:investment_strategy",
+            "name": "KR5127450215 investment_strategy",
+            "chunk_id": "8297231e70bc792a-table-c3567ecc05be",
+            "matched_terms": [
+              "KR5127450215",
+              "투자전략"
+            ]
+          },
+          {
+            "key": "KR5127450215:investment_target",
+            "name": "KR5127450215 investment_target",
+            "chunk_id": "8297231e70bc792a-table-332d5aafe603",
+            "matched_terms": [
+              "KR5127450215",
+              "투자대상"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": [
+          "8297231e70bc792a-paragraph_group-3455eeb10f78"
+        ]
+      },
+      "selected_evidence": [
+        "8297231e70bc792a-table-c3567ecc05be",
+        "8297231e70bc792a-table-332d5aafe603"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-015",
+      "question": "KR510902773M C-e의 연간 총보수와 3년 비용 예시는 같은 숫자라고 보면 되나요?",
+      "gold_requirements": [
+        "KR510902773M C-e 총보수·비용",
+        "KR510902773M 기간별 비용 예시",
+        "연간 비율과 기간별 예시의 차이"
+      ],
+      "gold_evidence_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-50171832b91f",
+        "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+        "cf922cacac95fad9-table-27acbea49e02"
+      ],
+      "normalization": {
+        "raw_question": "KR510902773M C-e의 연간 총보수와 3년 비용 예시는 같은 숫자라고 보면 되나요?",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [],
+        "product_codes": [
+          "KR510902773M"
+        ],
+        "requested_fields": [
+          "total_fee",
+          "example_cost"
+        ]
+      },
+      "generated_requirements": [
+        {
+          "key": "KR510902773M:total_fee",
+          "name": "KR510902773M total_fee",
+          "chunk_id": "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+          "matched_terms": [
+            "KR510902773M",
+            "총보수",
+            "총 보수",
+            "총보수·비용"
+          ]
+        },
+        {
+          "key": "KR510902773M:example_cost",
+          "name": "KR510902773M example_cost",
+          "chunk_id": "cf922cacac95fad9-paragraph_group-50171832b91f",
+          "matched_terms": [
+            "KR510902773M",
+            "1,000만원 투자시",
+            "총비용 예시"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "KR510902773M:total_fee",
+          "KR510902773M:example_cost"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "cf922cacac95fad9-paragraph_group-50171832b91f",
+          "cf922cacac95fad9-table-541b36cb1b32",
+          "cf922cacac95fad9-table-27acbea49e02",
+          "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+          "cf922cacac95fad9-table-29d9d83f7944",
+          "cf922cacac95fad9-paragraph_group-75720b4ae12a",
+          "cf922cacac95fad9-table-c1c7b501b7b9",
+          "cf922cacac95fad9-table-a6cc94f6e6a8",
+          "cf922cacac95fad9-paragraph_group-8d6544a2069d",
+          "cf922cacac95fad9-table-f5df3d502b6c"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "cf922cacac95fad9-paragraph_group-50171832b91f",
+          "cf922cacac95fad9-table-27acbea49e02",
+          "cf922cacac95fad9-paragraph_group-c9052c282f1a"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+          "cf922cacac95fad9-paragraph_group-50171832b91f"
+        ],
+        "slot_matches": [
+          {
+            "key": "KR510902773M:total_fee",
+            "name": "KR510902773M total_fee",
+            "chunk_id": "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+            "matched_terms": [
+              "KR510902773M",
+              "총보수",
+              "총 보수",
+              "총보수·비용"
+            ]
+          },
+          {
+            "key": "KR510902773M:example_cost",
+            "name": "KR510902773M example_cost",
+            "chunk_id": "cf922cacac95fad9-paragraph_group-50171832b91f",
+            "matched_terms": [
+              "KR510902773M",
+              "1,000만원 투자시",
+              "총비용 예시"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": [
+          "cf922cacac95fad9-table-27acbea49e02"
+        ]
+      },
+      "selected_evidence": [
+        "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+        "cf922cacac95fad9-paragraph_group-50171832b91f"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "exact_gold",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "선택 evidence에 manifest gold chunk가 있으며 frozen run 기준 factual coverage를 직접 지지한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-016",
+      "question": "KR510902773M이랑 KR510902777M 중 위험등급 숫자가 더 작은 쪽이 더 위험한 상품인지, 두 등급을 함께 확인해 주세요.",
+      "gold_requirements": [
+        "KR510902773M 위험등급",
+        "KR510902777M 위험등급",
+        "위험등급 비교"
+      ],
+      "gold_evidence_chunk_ids": [
+        "c787719b514f51da-paragraph_group-f00a2b356930",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "normalization": {
+        "raw_question": "KR510902773M이랑 KR510902777M 중 위험등급 숫자가 더 작은 쪽이 더 위험한 상품인지, 두 등급을 함께 확인해 주세요.",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [],
+        "product_codes": [
+          "KR510902773M",
+          "KR510902777M"
+        ],
+        "requested_fields": [
+          "risk_grade"
+        ]
+      },
+      "generated_requirements": [
+        {
+          "key": "KR510902773M:risk_grade",
+          "name": "KR510902773M risk_grade",
+          "chunk_id": "cf922cacac95fad9-table-8d0be7d0b37c",
+          "matched_terms": [
+            "KR510902773M",
+            "위험등급"
+          ]
+        },
+        {
+          "key": "KR510902777M:risk_grade",
+          "name": "KR510902777M risk_grade",
+          "chunk_id": "c787719b514f51da-table-94fdc4ab85f6",
+          "matched_terms": [
+            "KR510902777M",
+            "위험등급"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "KR510902773M:risk_grade",
+          "KR510902777M:risk_grade"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "cf922cacac95fad9-table-5deffa0f9a83",
+          "c787719b514f51da-table-9a9aa90a4a42",
+          "cf922cacac95fad9-paragraph_group-f700948bd654",
+          "c787719b514f51da-paragraph_group-29cec219009e",
+          "cf922cacac95fad9-table-8a2cf8c37d67",
+          "cf922cacac95fad9-table-e27a218178a6",
+          "c787719b514f51da-table-2cea7fe20545",
+          "cf922cacac95fad9-paragraph_group-2ce46b89260a",
+          "cf922cacac95fad9-paragraph_group-b502b8e1f1c2",
+          "c787719b514f51da-table-d004652c7abb",
+          "cf922cacac95fad9-table-61041d62fac0",
+          "cf922cacac95fad9-table-8d0be7d0b37c",
+          "cf922cacac95fad9-paragraph_group-12041fb7af90",
+          "cf922cacac95fad9-table-dfa5a3e6cf0d",
+          "cf922cacac95fad9-table-646499d7eea8",
+          "c787719b514f51da-table-dc895f567607",
+          "c787719b514f51da-table-94fdc4ab85f6",
+          "c787719b514f51da-table-acedf001f8ee",
+          "c787719b514f51da-table-08209651ab7f",
+          "c787719b514f51da-table-b3249e6f79ff"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "cf922cacac95fad9-table-8d0be7d0b37c",
+          "c787719b514f51da-table-94fdc4ab85f6"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "cf922cacac95fad9-table-8d0be7d0b37c",
+          "c787719b514f51da-table-94fdc4ab85f6"
+        ],
+        "slot_matches": [
+          {
+            "key": "KR510902773M:risk_grade",
+            "name": "KR510902773M risk_grade",
+            "chunk_id": "cf922cacac95fad9-table-8d0be7d0b37c",
+            "matched_terms": [
+              "KR510902773M",
+              "위험등급"
+            ]
+          },
+          {
+            "key": "KR510902777M:risk_grade",
+            "name": "KR510902777M risk_grade",
+            "chunk_id": "c787719b514f51da-table-94fdc4ab85f6",
+            "matched_terms": [
+              "KR510902777M",
+              "위험등급"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [
+        "cf922cacac95fad9-table-8d0be7d0b37c",
+        "c787719b514f51da-table-94fdc4ab85f6"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "semantic_equivalent",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "각 source product의 3등급·2등급 위험등급을 직접 제시한다. gold paragraph와 달라도 두 subject, field, value와 비교 scope를 모두 충족한다.",
+      "primary_owner": null,
+      "secondary_effects": [],
+      "reason": "Requirement plan, candidate evidence, gate, and selected source meet the frozen pre-HCX closed factual contract."
+    },
+    {
+      "question_id": "P35-017",
+      "question": "KR5114420022보다 KR5114450222가 더 비싼 위험등급인가요? 두 상품의 등급 표시를 근거로 비교해 주세요.",
+      "gold_requirements": [
+        "KR5114420022 위험등급",
+        "KR5114450222 위험등급",
+        "낮은 위험 비교"
+      ],
+      "gold_evidence_chunk_ids": [
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c"
+      ],
+      "normalization": {
+        "raw_question": "KR5114420022보다 KR5114450222가 더 비싼 위험등급인가요? 두 상품의 등급 표시를 근거로 비교해 주세요.",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [],
+        "product_codes": [
+          "KR5114420022",
+          "KR5114450222"
+        ],
+        "requested_fields": [
+          "risk_grade"
+        ]
+      },
+      "generated_requirements": [
+        {
+          "key": "KR5114420022:risk_grade",
+          "name": "KR5114420022 risk_grade",
+          "chunk_id": null,
+          "matched_terms": []
+        },
+        {
+          "key": "KR5114450222:risk_grade",
+          "name": "KR5114450222 risk_grade",
+          "chunk_id": null,
+          "matched_terms": []
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "KR5114420022:risk_grade",
+          "KR5114450222:risk_grade"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": false,
+        "candidate_chunk_ids": [
+          "f24a347b7c7a170c-paragraph_group-0fd98d67587f",
+          "f24a347b7c7a170c-paragraph_group-b9386391843e",
+          "545de7c663ff2726-paragraph_group-911bbd5e58e0",
+          "f24a347b7c7a170c-table-cfaf885d3e8e",
+          "f24a347b7c7a170c-paragraph_group-5224b204aa79",
+          "545de7c663ff2726-table-b28fffb55cd2",
+          "f24a347b7c7a170c-table-e85f7ee0a02b",
+          "545de7c663ff2726-table-4c9e8bc00748",
+          "f24a347b7c7a170c-paragraph_group-79cde2ffabc3",
+          "f24a347b7c7a170c-table-485279e51655",
+          "f24a347b7c7a170c-table-b4a6396361ab",
+          "f24a347b7c7a170c-table-35aee7630dc9",
+          "f24a347b7c7a170c-table-f060909e60b8",
+          "f24a347b7c7a170c-table-35c1e676de3a",
+          "f24a347b7c7a170c-table-6e82813b1c02",
+          "545de7c663ff2726-table-ddf49c4148b2",
+          "545de7c663ff2726-paragraph_group-d4ecea17ec39",
+          "545de7c663ff2726-table-866e24f87ea2",
+          "545de7c663ff2726-table-2247586aa54c",
+          "545de7c663ff2726-table-75351cd58213"
+        ],
+        "relevant_candidate_chunk_ids": []
+      },
+      "matcher": {
+        "accepted_chunk_ids": [],
+        "slot_matches": [
+          {
+            "key": "KR5114420022:risk_grade",
+            "name": "KR5114420022 risk_grade",
+            "chunk_id": null,
+            "matched_terms": []
+          },
+          {
+            "key": "KR5114450222:risk_grade",
+            "name": "KR5114450222 risk_grade",
+            "chunk_id": null,
+            "matched_terms": []
+          }
+        ],
+        "rejected_relevant_chunk_ids": []
+      },
+      "selected_evidence": [],
+      "evidence_sufficient": false,
+      "assessment_reason": "compound_requirements_incomplete",
+      "source_relevance": "partial",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "final selected evidence가 없으므로 두 상품 위험등급 requirement를 하나도 지지하지 못한다. 다른 account/product를 잘못 선택한 wrong-scope가 아니라 selection 부재다.",
+      "primary_owner": "retrieval_missing",
+      "secondary_effects": [
+        "matcher_field_miss_not_reached: risk-grade chunk가 candidate에 없음",
+        "gate_false_reject"
+      ],
+      "reason": "두 product code 결속과 각 risk_grade slot 생성은 성공했다. 그러나 candidate 20개는 두 source의 성과·법률·관리 문단만 포함하고, 어느 product의 위험등급 direct/equivalent chunk도 포함하지 않아 matcher와 final selection 단계에 도달하지 못했다."
+    },
+    {
+      "question_id": "P35-018",
+      "question": "KR5120420039와 KR5120420091 중 설명서 기준으로 더 안전 쪽 등급으로 적힌 것은 무엇이며 각각 몇 등급인가요?",
+      "gold_requirements": [
+        "KR5120420039 위험등급",
+        "KR5120420091 위험등급",
+        "상대적 위험 비교"
+      ],
+      "gold_evidence_chunk_ids": [
+        "eefb7f7b407d91de-paragraph_group-07cc1c409cef",
+        "fc3cd93441450fa8-paragraph_group-a91cddf920fd"
+      ],
+      "normalization": {
+        "raw_question": "KR5120420039와 KR5120420091 중 설명서 기준으로 더 안전 쪽 등급으로 적힌 것은 무엇이며 각각 몇 등급인가요?",
+        "raw_terms": [],
+        "canonical_terms": [],
+        "missing_normalization": [],
+        "extracted_accounts": [],
+        "product_codes": [
+          "KR5120420039",
+          "KR5120420091"
+        ],
+        "requested_fields": [
+          "risk_grade"
+        ]
+      },
+      "generated_requirements": [
+        {
+          "key": "KR5120420039:risk_grade",
+          "name": "KR5120420039 risk_grade",
+          "chunk_id": "fc3cd93441450fa8-table-3c68497fd9d9",
+          "matched_terms": [
+            "KR5120420039",
+            "위험등급",
+            "위험 등급"
+          ]
+        },
+        {
+          "key": "KR5120420091:risk_grade",
+          "name": "KR5120420091 risk_grade",
+          "chunk_id": "eefb7f7b407d91de-paragraph_group-e41211088478",
+          "matched_terms": [
+            "KR5120420091",
+            "위험등급",
+            "위험 등급"
+          ]
+        }
+      ],
+      "requirement_comparison": {
+        "frozen_requirement_plan_coverage": true,
+        "frozen_coverage_status": "exact",
+        "covered_slot_keys": [
+          "KR5120420039:risk_grade",
+          "KR5120420091:risk_grade"
+        ],
+        "missing": [],
+        "schema_equivalent": []
+      },
+      "retrieval": {
+        "gold_or_equivalent_in_candidates": true,
+        "candidate_chunk_ids": [
+          "fc3cd93441450fa8-table-0f507789a744",
+          "eefb7f7b407d91de-table-b3cdf4fe0023",
+          "eefb7f7b407d91de-paragraph_group-760f6008f003",
+          "fc3cd93441450fa8-paragraph_group-2f9302cd9919",
+          "eefb7f7b407d91de-paragraph_group-91525ec65bce",
+          "eefb7f7b407d91de-paragraph_group-50df7d12d12d",
+          "fc3cd93441450fa8-paragraph_group-67aa90993870",
+          "fc3cd93441450fa8-paragraph_group-89767788d6db",
+          "fc3cd93441450fa8-paragraph_group-b7577655be37",
+          "fc3cd93441450fa8-paragraph_group-6f747d4caf42",
+          "fc3cd93441450fa8-paragraph_group-27c2ff3fe590",
+          "fc3cd93441450fa8-table-fe140d718bda",
+          "fc3cd93441450fa8-table-3c68497fd9d9",
+          "fc3cd93441450fa8-paragraph_group-784d1e2202e3",
+          "fc3cd93441450fa8-paragraph_group-6c48e7036a5f",
+          "eefb7f7b407d91de-paragraph_group-e41211088478",
+          "eefb7f7b407d91de-table-facc45b159ec",
+          "eefb7f7b407d91de-table-c92fc5af7157",
+          "eefb7f7b407d91de-table-7b043b88d07e",
+          "eefb7f7b407d91de-paragraph_group-f19f8ece9ca3"
+        ],
+        "relevant_candidate_chunk_ids": [
+          "fc3cd93441450fa8-table-0f507789a744",
+          "eefb7f7b407d91de-table-b3cdf4fe0023"
+        ]
+      },
+      "matcher": {
+        "accepted_chunk_ids": [
+          "fc3cd93441450fa8-table-3c68497fd9d9",
+          "eefb7f7b407d91de-paragraph_group-e41211088478"
+        ],
+        "slot_matches": [
+          {
+            "key": "KR5120420039:risk_grade",
+            "name": "KR5120420039 risk_grade",
+            "chunk_id": "fc3cd93441450fa8-table-3c68497fd9d9",
+            "matched_terms": [
+              "KR5120420039",
+              "위험등급",
+              "위험 등급"
+            ]
+          },
+          {
+            "key": "KR5120420091:risk_grade",
+            "name": "KR5120420091 risk_grade",
+            "chunk_id": "eefb7f7b407d91de-paragraph_group-e41211088478",
+            "matched_terms": [
+              "KR5120420091",
+              "위험등급",
+              "위험 등급"
+            ]
+          }
+        ],
+        "rejected_relevant_chunk_ids": [
+          "fc3cd93441450fa8-table-0f507789a744",
+          "eefb7f7b407d91de-table-b3cdf4fe0023"
+        ]
+      },
+      "selected_evidence": [
+        "fc3cd93441450fa8-table-3c68497fd9d9",
+        "eefb7f7b407d91de-paragraph_group-e41211088478"
+      ],
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "source_relevance": "partial",
+      "source_relevance_current_selected_ids_confirmed": true,
+      "source_relevance_reason": "KR5120420091의 현재 6등급은 직접 지지하지만 KR5120420039 선택 표의 5등급은 과거 변경 내역이다. 질문의 설명서 기준 현재 등급 requirement를 direct/equivalent하게 확정하지 못한다.",
+      "primary_owner": "evidence_selection_miss",
+      "secondary_effects": [
+        "source_relevance_partial: KR5120420039의 선택 표는 과거 위험등급 변경 내역만 제시"
+      ],
+      "reason": "두 상품 subject와 risk_grade slots는 정확하며 candidate에는 KR5120420039의 현재 5등급 direct chunks도 있다. 하지만 final selection은 더 높은 lexical score의 과거 변경내역 표를 골라, 설명서 기준 현재 등급 requirement를 충족하지 못했다."
+    }
+  ]
+}

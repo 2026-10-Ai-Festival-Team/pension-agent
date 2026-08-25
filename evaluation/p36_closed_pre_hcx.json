@@ -1,0 +1,1228 @@
+{
+  "experiment": "P36 fresh Closed factual pre-HCX holdout",
+  "manifest_sha256": "6ee433b5fbe323be49889c2c13690d5fb96874a5069ac5e7b40ce6a5621913a8",
+  "hcx_called": false,
+  "criteria": {
+    "semantic_requirement_coverage": 1.0,
+    "evidence_sufficiency": 1.0,
+    "original_primary": 1.0,
+    "source_relevance_exact_or_semantic_equivalent": 1.0,
+    "partial": 0,
+    "wrong_scope": 0
+  },
+  "summary": {
+    "total": 18,
+    "category_counts": {
+      "compound_closed": 3,
+      "institution_closed": 3,
+      "procedure_closed": 3,
+      "product_fact": 3,
+      "product_fact_comparison": 3,
+      "tax_closed": 3
+    },
+    "requirement_plan_coverage": 5,
+    "evidence_sufficient": 13,
+    "primary_original": 18,
+    "exact_gold": 6,
+    "manual_relevance_review_required": 9,
+    "wrong_scope": 0,
+    "hcx_calls": 0
+  },
+  "rows": [
+    {
+      "question_id": "P36-001",
+      "category": "institution_closed",
+      "question": "DB와 DC에서 적립금 관리는 각각 누가 맡고, 퇴직 뒤 받는 금액은 어떤 기준으로 정해지나요? DC에 회사가 넣어야 하는 최소 금액도 함께 알려주세요.",
+      "route": "compound",
+      "requirement_category_expected": "db_dc_general_comparison",
+      "requirement_category_actual": "db_dc_general_comparison",
+      "requirement_category_correct": true,
+      "expected_slot_keys": [
+        "db_dc_operation_party",
+        "db_dc_benefit_determination",
+        "db_dc_contribution_structure"
+      ],
+      "actual_slot_keys": [
+        "db_dc_operation_party",
+        "db_dc_benefit_determination",
+        "db_dc_contribution_structure"
+      ],
+      "requirement_plan_coverage": true,
+      "requirement_plan_coverage_status": "exact",
+      "base_retrieved_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+      ],
+      "candidate_chunk_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "04782a392f49293e-paragraph_group-b263be8e0a1c",
+        "ef05c9c97fbadd27-table-8e56553263f7",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "fc71bcf7cc90f68d-table-fc470df2b580",
+        "fc71bcf7cc90f68d-table-9f489ff25e45",
+        "04782a392f49293e-table-105a39e7df5c",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83",
+        "46551bfa35d467ed-table-869b91f75225",
+        "ae713c70a631594f-table-f624cc2aa2a2"
+      ],
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-002",
+      "category": "institution_closed",
+      "question": "가입자 교육은 누가 책임지고 시행하나요? 1년에 최소 몇 번인지와 교육 업무를 전문기관에 위임할 수 있는지도 궁금합니다.",
+      "route": "simple",
+      "requirement_category_expected": "participant_education",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "education_provider",
+        "education_frequency",
+        "education_outsourcing"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-74768cb22e60",
+        "ae713c70a631594f-paragraph_group-fd1124e92346",
+        "ae713c70a631594f-table-a298329937af",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "dcadae976b4a52e5-paragraph_group-e422bd973379",
+        "ae713c70a631594f-paragraph_group-f1e9cc30f5a8"
+      ],
+      "candidate_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-74768cb22e60",
+        "ae713c70a631594f-paragraph_group-fd1124e92346",
+        "ae713c70a631594f-table-a298329937af",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "dcadae976b4a52e5-paragraph_group-e422bd973379",
+        "ae713c70a631594f-paragraph_group-f1e9cc30f5a8"
+      ],
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-74768cb22e60",
+        "ae713c70a631594f-paragraph_group-fd1124e92346",
+        "ae713c70a631594f-table-a298329937af",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "dcadae976b4a52e5-paragraph_group-e422bd973379",
+        "ae713c70a631594f-paragraph_group-f1e9cc30f5a8"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ],
+      "exact_gold_chunk_ids_selected": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ],
+      "source_relevance_status": "exact_gold",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-003",
+      "category": "institution_closed",
+      "question": "DC나 IRP에서 일반 ETF 주문을 직접 낼 수 있다면, 두 배로 움직이거나 반대로 움직이는 ETF도 제한 없이 살 수 있나요?",
+      "route": "compound",
+      "requirement_category_expected": "retirement_etf_restriction",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "retirement_etf_direct_trade",
+        "retirement_etf_leverage_inverse_restriction"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "55f36905c388adb6-paragraph_group-ec73e8644b04",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c"
+      ],
+      "candidate_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "55f36905c388adb6-paragraph_group-ec73e8644b04",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c"
+      ],
+      "selected_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "55f36905c388adb6-paragraph_group-ec73e8644b04",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": false,
+      "assessment_reason": "compound_requirements_not_defined",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "not_evaluable_before_sufficiency",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-004",
+      "category": "tax_closed",
+      "question": "개인연금 저축계좌에만 납입한 경우와 개인형퇴직연금까지 보탠 경우를 비교하면, 세액공제 대상으로 잡히는 납입액 한도는 각각 어디까지인가요?",
+      "route": "compound",
+      "requirement_category_expected": "pension_savings_irp_tax_limit_comparison",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "pension_savings_only_deduction_limit",
+        "pension_savings_irp_combined_deduction_limit"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "0a1c8fece530be69-paragraph_group-24118dd71bd9",
+        "4ae16261de11da35-table-cae3223cb315",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-bdf681407cec",
+        "0a1c8fece530be69-table-28c362628f03",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "5a8516a0215f8754-table-c9040203457a",
+        "745f9a08e811b6b1-paragraph_group-338b912547fc"
+      ],
+      "candidate_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "0a1c8fece530be69-paragraph_group-24118dd71bd9",
+        "4ae16261de11da35-table-cae3223cb315",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-bdf681407cec",
+        "0a1c8fece530be69-table-28c362628f03",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "5a8516a0215f8754-table-c9040203457a",
+        "745f9a08e811b6b1-paragraph_group-338b912547fc"
+      ],
+      "selected_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "0a1c8fece530be69-paragraph_group-24118dd71bd9",
+        "4ae16261de11da35-table-cae3223cb315",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-bdf681407cec",
+        "0a1c8fece530be69-table-28c362628f03",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "5a8516a0215f8754-table-c9040203457a",
+        "745f9a08e811b6b1-paragraph_group-338b912547fc"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": false,
+      "assessment_reason": "compound_requirements_not_defined",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "7cce439d30d5a8b0-table-20114875d339"
+      ],
+      "exact_gold_chunk_ids_selected": [
+        "7cce439d30d5a8b0-table-20114875d339"
+      ],
+      "source_relevance_status": "exact_gold",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-005",
+      "category": "tax_closed",
+      "question": "연금계좌에서 운용수익에 세금을 바로 떼지 않는다고 하면 영영 안 낸다는 뜻인가요? 일반계좌와 비교해 실제 과세되는 때를 설명해 주세요.",
+      "route": "compound",
+      "requirement_category_expected": "pension_account_tax_deferral_comparison",
+      "requirement_category_actual": "pension_account_tax_deferral_comparison",
+      "requirement_category_correct": true,
+      "expected_slot_keys": [
+        "general_account_tax_timing",
+        "pension_account_tax_deferral"
+      ],
+      "actual_slot_keys": [
+        "general_account_tax_timing",
+        "pension_account_tax_deferral"
+      ],
+      "requirement_plan_coverage": true,
+      "requirement_plan_coverage_status": "exact",
+      "base_retrieved_chunk_ids": [
+        "eec10989c7067926-paragraph_group-15cf127eb9b9",
+        "eec10989c7067926-paragraph_group-d7d393007f9c",
+        "13621d38202e2fc3-table-5431011b44b5",
+        "eef705af2a7c3c57-paragraph_group-c3bde8f09076",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "4d6edde4fa5b925d-paragraph_group-000adad54805",
+        "de4f8448134189df-paragraph_group-56c3e7dd9332",
+        "eec10989c7067926-paragraph_group-e97c02c352de",
+        "13621d38202e2fc3-paragraph_group-b16130931557",
+        "5a8516a0215f8754-slide-c1523d81c161"
+      ],
+      "candidate_chunk_ids": [
+        "eec10989c7067926-paragraph_group-15cf127eb9b9",
+        "eec10989c7067926-paragraph_group-d7d393007f9c",
+        "13621d38202e2fc3-table-5431011b44b5",
+        "eef705af2a7c3c57-paragraph_group-c3bde8f09076",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "4d6edde4fa5b925d-paragraph_group-000adad54805",
+        "de4f8448134189df-paragraph_group-56c3e7dd9332",
+        "eec10989c7067926-paragraph_group-e97c02c352de",
+        "13621d38202e2fc3-paragraph_group-b16130931557",
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "de4f8448134189df-table-ce8fee5b43be",
+        "de4f8448134189df-table-3b9ac10c94d4",
+        "eec10989c7067926-table-4aaaff23d3c0",
+        "eec10989c7067926-table-24f58c8a85a0"
+      ],
+      "selected_chunk_ids": [
+        "de4f8448134189df-table-ce8fee5b43be",
+        "eec10989c7067926-paragraph_group-15cf127eb9b9"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-006",
+      "category": "tax_closed",
+      "question": "국내 거래소에 상장된 해외 ETF의 이익과 분배금을 계좌 밖에서 보유할 때와 연금계좌에 담을 때, 과세 시점이 어떻게 달라지나요?",
+      "route": "simple",
+      "requirement_category_expected": "foreign_etf_account_tax_comparison",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "foreign_etf_general_account_tax",
+        "foreign_etf_pension_account_tax",
+        "foreign_etf_tax_condition"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "13621d38202e2fc3-table-5431011b44b5",
+        "13621d38202e2fc3-paragraph_group-41027eb1c16a",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "de4f8448134189df-table-3b9ac10c94d4",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "13621d38202e2fc3-paragraph_group-81d30048d288"
+      ],
+      "candidate_chunk_ids": [
+        "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "13621d38202e2fc3-table-5431011b44b5",
+        "13621d38202e2fc3-paragraph_group-41027eb1c16a",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "de4f8448134189df-table-3b9ac10c94d4",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "13621d38202e2fc3-paragraph_group-81d30048d288"
+      ],
+      "selected_chunk_ids": [
+        "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "13621d38202e2fc3-table-5431011b44b5",
+        "13621d38202e2fc3-paragraph_group-41027eb1c16a",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "de4f8448134189df-table-3b9ac10c94d4",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "13621d38202e2fc3-paragraph_group-81d30048d288"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-table-ce8fee5b43be"
+      ],
+      "exact_gold_chunk_ids_selected": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ],
+      "source_relevance_status": "exact_gold",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-007",
+      "category": "procedure_closed",
+      "question": "퇴직 전에 연금저축 돈은 일부 인출할 수 있다는데 IRP도 가능한가요? 두 계좌의 허용 사유와 인출 때 세금 기준을 나눠 알려주세요.",
+      "route": "compound",
+      "requirement_category_expected": "pension_savings_irp_withdrawal_comparison",
+      "requirement_category_actual": "pension_savings_irp_withdrawal_comparison",
+      "requirement_category_correct": true,
+      "expected_slot_keys": [
+        "pension_savings_withdrawal_scope",
+        "irp_withdrawal_legal_grounds_comparison",
+        "account_withdrawal_tax_treatment"
+      ],
+      "actual_slot_keys": [
+        "pension_savings_withdrawal_scope",
+        "irp_withdrawal_legal_grounds_comparison",
+        "account_withdrawal_tax_treatment"
+      ],
+      "requirement_plan_coverage": true,
+      "requirement_plan_coverage_status": "exact",
+      "base_retrieved_chunk_ids": [
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "5a8516a0215f8754-slide-30fa544ed87e",
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1"
+      ],
+      "candidate_chunk_ids": [
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "5a8516a0215f8754-slide-30fa544ed87e",
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "de4f8448134189df-paragraph_group-56c3e7dd9332",
+        "4607500e74afcdf8-paragraph_group-b94d2daff285",
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "818af50c343884e5-paragraph_group-4defb29e57b2",
+        "818af50c343884e5-paragraph_group-08d25b691837",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-paragraph_group-45b428961c7a",
+        "818af50c343884e5-paragraph_group-42e1f4e30304",
+        "e8d7e6a69504e042-table-a66d6a005835",
+        "a1e78e21d33dafed-table-e9ba0606db15"
+      ],
+      "selected_chunk_ids": [
+        "5a8516a0215f8754-slide-30fa544ed87e",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-05de077f1213",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-008",
+      "category": "procedure_closed",
+      "question": "DC 적립금을 퇴직 전에 꺼내려면 어떤 법정 요건을 봐야 하나요? 사유가 있더라도 제출 절차와 입증자료가 필요한지도 알려주세요.",
+      "route": "simple",
+      "requirement_category_expected": "withdrawal_condition_and_procedure",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "dc_withdrawal_conditions",
+        "withdrawal_procedure"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-749cb23d1504",
+        "ef05c9c97fbadd27-paragraph_group-98497575ff11",
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f"
+      ],
+      "candidate_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-749cb23d1504",
+        "ef05c9c97fbadd27-paragraph_group-98497575ff11",
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f"
+      ],
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-749cb23d1504",
+        "ef05c9c97fbadd27-paragraph_group-98497575ff11",
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-009",
+      "category": "procedure_closed",
+      "question": "ISA가 끝난 뒤 그 자금을 연금계좌로 이전 납입하려면 마감일이 언제이고, 추가 세액공제 금액은 어떤 산식과 한도로 정해지나요?",
+      "route": "compound",
+      "requirement_category_expected": "isa_maturity_transfer",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "isa_transfer_deadline",
+        "isa_transfer_additional_tax_credit"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "ae22159be59440b6-table-433001f3f808",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-cae3223cb315",
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "44402680fa9fc2b0-table-e34484dc33e8",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "eefb7f7b407d91de-table-b7687945a0bb"
+      ],
+      "candidate_chunk_ids": [
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "ae22159be59440b6-table-433001f3f808",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-cae3223cb315",
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "44402680fa9fc2b0-table-e34484dc33e8",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "eefb7f7b407d91de-table-b7687945a0bb"
+      ],
+      "selected_chunk_ids": [
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "ae22159be59440b6-table-433001f3f808",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-cae3223cb315",
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "44402680fa9fc2b0-table-e34484dc33e8",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "eefb7f7b407d91de-table-b7687945a0bb"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": false,
+      "assessment_reason": "compound_requirements_not_defined",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "ae22159be59440b6-table-433001f3f808"
+      ],
+      "exact_gold_chunk_ids_selected": [
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "ae22159be59440b6-table-433001f3f808"
+      ],
+      "source_relevance_status": "exact_gold",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-010",
+      "category": "compound_closed",
+      "question": "보유 중인 펀드를 환매하지 않은 채 퇴직연금 사업자만 바꾸는 경우, 재직 중인 DB·DC와 IRP는 신청 경로가 어떻게 구분되나요?",
+      "route": "simple",
+      "requirement_category_expected": "in_kind_transfer_application",
+      "requirement_category_actual": "db_dc_conversion",
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "in_kind_transfer_meaning",
+        "db_dc_in_kind_transfer_application",
+        "irp_in_kind_transfer_application"
+      ],
+      "actual_slot_keys": [
+        "conversion_eligibility"
+      ],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+        "46551bfa35d467ed-paragraph_group-ef7c4c45d935",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157"
+      ],
+      "candidate_chunk_ids": [
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+        "46551bfa35d467ed-paragraph_group-ef7c4c45d935",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "49ed30e0f7b42e68-table-90e8e416ec4e",
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83",
+        "fc71bcf7cc90f68d-paragraph_group-c4a1181ed95c"
+      ],
+      "selected_chunk_ids": [
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+        "46551bfa35d467ed-paragraph_group-ef7c4c45d935",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-011",
+      "category": "compound_closed",
+      "question": "퇴직연금 안의 ETF는 직접 거래가 가능하다고 들었습니다. 그렇다면 상승·하락 배수를 추종하는 ETF도 같은 대상에 포함되나요?",
+      "route": "simple",
+      "requirement_category_expected": "retirement_etf_restriction",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "retirement_etf_direct_trade",
+        "retirement_etf_leverage_inverse_restriction"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "204e759f6e34eba2-table-7c4ee6d4c782",
+        "61e1be50db4b0854-paragraph_group-6fd8e7e1fafa",
+        "204e759f6e34eba2-table-2f5f9607907c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "82c9f1e8e7f8c736-table-c3543ae69754",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "204e759f6e34eba2-table-e7be04cca42f",
+        "0a1c8fece530be69-table-6387628364fe",
+        "82c9f1e8e7f8c736-table-751ee67d86e5",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1"
+      ],
+      "candidate_chunk_ids": [
+        "204e759f6e34eba2-table-7c4ee6d4c782",
+        "61e1be50db4b0854-paragraph_group-6fd8e7e1fafa",
+        "204e759f6e34eba2-table-2f5f9607907c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "82c9f1e8e7f8c736-table-c3543ae69754",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "204e759f6e34eba2-table-e7be04cca42f",
+        "0a1c8fece530be69-table-6387628364fe",
+        "82c9f1e8e7f8c736-table-751ee67d86e5",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1"
+      ],
+      "selected_chunk_ids": [
+        "204e759f6e34eba2-table-7c4ee6d4c782",
+        "61e1be50db4b0854-paragraph_group-6fd8e7e1fafa",
+        "204e759f6e34eba2-table-2f5f9607907c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "82c9f1e8e7f8c736-table-c3543ae69754",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "204e759f6e34eba2-table-e7be04cca42f",
+        "0a1c8fece530be69-table-6387628364fe",
+        "82c9f1e8e7f8c736-table-751ee67d86e5",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-012",
+      "category": "compound_closed",
+      "question": "DB에서는 회사와 가입자 중 누가 적립금을 운용하고, DC에서는 누가 운용방법을 정하나요? 두 제도의 퇴직급여 계산 기준도 같이 비교해 주세요.",
+      "route": "compound",
+      "requirement_category_expected": "db_dc_general_comparison",
+      "requirement_category_actual": "db_dc_benefit_calculation",
+      "requirement_category_correct": true,
+      "expected_slot_keys": [
+        "db_dc_operation_party",
+        "db_dc_benefit_determination",
+        "db_dc_contribution_structure"
+      ],
+      "actual_slot_keys": [
+        "db_benefit",
+        "dc_benefit",
+        "db_operation",
+        "dc_operation"
+      ],
+      "requirement_plan_coverage": true,
+      "requirement_plan_coverage_status": "schema_equivalent",
+      "base_retrieved_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "ef05c9c97fbadd27-table-8e56553263f7",
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b"
+      ],
+      "candidate_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "ef05c9c97fbadd27-table-8e56553263f7",
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "04782a392f49293e-paragraph_group-f6d10875adfc",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3",
+        "49ed30e0f7b42e68-paragraph_group-6f15fb4edc6b"
+      ],
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-013",
+      "category": "product_fact",
+      "question": "KR510902773M의 현재 투자위험 분류는 몇 단계인가요? 운용 실적이나 시장 조건에 따라 나중에 다시 조정될 수 있는지도 확인해 주세요.",
+      "route": "compound",
+      "requirement_category_expected": "product_fields",
+      "requirement_category_actual": "product_fields",
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "KR510902773M:risk_grade"
+      ],
+      "actual_slot_keys": [
+        "KR510902773M:investment_risk",
+        "KR510902773M:principal_loss_possible"
+      ],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "cf922cacac95fad9-table-e94513437f39",
+        "cf922cacac95fad9-table-09229c3d0805",
+        "cf922cacac95fad9-table-6bb0ed85db4f",
+        "cf922cacac95fad9-table-4079cdadc572",
+        "cf922cacac95fad9-paragraph_group-540dc51c658b",
+        "cf922cacac95fad9-table-9619c15af3bb",
+        "cf922cacac95fad9-paragraph_group-614605e6cc0e",
+        "cf922cacac95fad9-table-fc5fe56f6718",
+        "cf922cacac95fad9-table-044b57de2c82",
+        "cf922cacac95fad9-table-ab262e6e7547"
+      ],
+      "candidate_chunk_ids": [
+        "cf922cacac95fad9-table-e94513437f39",
+        "cf922cacac95fad9-table-09229c3d0805",
+        "cf922cacac95fad9-table-6bb0ed85db4f",
+        "cf922cacac95fad9-table-4079cdadc572",
+        "cf922cacac95fad9-paragraph_group-540dc51c658b",
+        "cf922cacac95fad9-table-9619c15af3bb",
+        "cf922cacac95fad9-paragraph_group-614605e6cc0e",
+        "cf922cacac95fad9-table-fc5fe56f6718",
+        "cf922cacac95fad9-table-044b57de2c82",
+        "cf922cacac95fad9-table-ab262e6e7547",
+        "cf922cacac95fad9-table-d82c3ed2dc8d",
+        "cf922cacac95fad9-paragraph_group-fc4f725c41d6",
+        "cf922cacac95fad9-paragraph_group-f50f16731871",
+        "cf922cacac95fad9-paragraph_group-942ce1752979",
+        "cf922cacac95fad9-table-ba2c8b89791c",
+        "cf922cacac95fad9-paragraph_group-8942dee048de",
+        "cf922cacac95fad9-table-09f39d24deb3"
+      ],
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-8942dee048de"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-014",
+      "category": "product_fact",
+      "question": "KR5127450215는 특정 지수 성과를 반영하도록 설계된 상품인가요? 주식 관련 자산 편입 비율의 상한도 제시해 주세요.",
+      "route": "simple",
+      "requirement_category_expected": "product_fields",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "KR5127450215:investment_strategy",
+        "KR5127450215:investment_target"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "8297231e70bc792a-table-535577e1d8dc",
+        "8297231e70bc792a-table-aba78a8fa1e6",
+        "8297231e70bc792a-paragraph_group-bf845e88d414",
+        "8297231e70bc792a-table-c3567ecc05be",
+        "8297231e70bc792a-paragraph_group-74c1d35c71ea",
+        "8297231e70bc792a-paragraph_group-d5457a67cf0f",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90",
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976",
+        "8297231e70bc792a-paragraph_group-b118a750668b"
+      ],
+      "candidate_chunk_ids": [
+        "8297231e70bc792a-table-535577e1d8dc",
+        "8297231e70bc792a-table-aba78a8fa1e6",
+        "8297231e70bc792a-paragraph_group-bf845e88d414",
+        "8297231e70bc792a-table-c3567ecc05be",
+        "8297231e70bc792a-paragraph_group-74c1d35c71ea",
+        "8297231e70bc792a-paragraph_group-d5457a67cf0f",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90",
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976",
+        "8297231e70bc792a-paragraph_group-b118a750668b"
+      ],
+      "selected_chunk_ids": [
+        "8297231e70bc792a-table-535577e1d8dc",
+        "8297231e70bc792a-table-aba78a8fa1e6",
+        "8297231e70bc792a-paragraph_group-bf845e88d414",
+        "8297231e70bc792a-table-c3567ecc05be",
+        "8297231e70bc792a-paragraph_group-74c1d35c71ea",
+        "8297231e70bc792a-paragraph_group-d5457a67cf0f",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90",
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976",
+        "8297231e70bc792a-paragraph_group-b118a750668b"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_evidence_present",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "8297231e70bc792a-paragraph_group-3455eeb10f78",
+        "8297231e70bc792a-table-c3567ecc05be"
+      ],
+      "exact_gold_chunk_ids_selected": [
+        "8297231e70bc792a-table-c3567ecc05be"
+      ],
+      "source_relevance_status": "exact_gold",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-015",
+      "category": "product_fact",
+      "question": "KR510902773M C-e 문서의 매년 적용되는 총보수율과 3년 보유를 가정한 비용 금액은 왜 같은 단위로 읽으면 안 되나요?",
+      "route": "simple",
+      "requirement_category_expected": "product_fields",
+      "requirement_category_actual": "product_fields",
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "KR510902773M:total_fee",
+        "KR510902773M:example_cost"
+      ],
+      "actual_slot_keys": [
+        "KR510902773M:total_fee"
+      ],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "cf922cacac95fad9-table-541b36cb1b32",
+        "cf922cacac95fad9-paragraph_group-50171832b91f",
+        "cf922cacac95fad9-table-a8e040ecc4d3",
+        "cf922cacac95fad9-table-27acbea49e02",
+        "cf922cacac95fad9-table-29d9d83f7944",
+        "cf922cacac95fad9-table-c1c7b501b7b9",
+        "cf922cacac95fad9-paragraph_group-23a65f46231a",
+        "cf922cacac95fad9-paragraph_group-f2ab2a51d7b7",
+        "cf922cacac95fad9-paragraph_group-25ec52572e43",
+        "cf922cacac95fad9-table-faa6e8513549"
+      ],
+      "candidate_chunk_ids": [
+        "cf922cacac95fad9-table-541b36cb1b32",
+        "cf922cacac95fad9-paragraph_group-50171832b91f",
+        "cf922cacac95fad9-table-a8e040ecc4d3",
+        "cf922cacac95fad9-table-27acbea49e02",
+        "cf922cacac95fad9-table-29d9d83f7944",
+        "cf922cacac95fad9-table-c1c7b501b7b9",
+        "cf922cacac95fad9-paragraph_group-23a65f46231a",
+        "cf922cacac95fad9-paragraph_group-f2ab2a51d7b7",
+        "cf922cacac95fad9-paragraph_group-25ec52572e43",
+        "cf922cacac95fad9-table-faa6e8513549",
+        "cf922cacac95fad9-paragraph_group-75720b4ae12a",
+        "cf922cacac95fad9-paragraph_group-c9052c282f1a"
+      ],
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-table-29d9d83f7944"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "simple_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-50171832b91f",
+        "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+        "cf922cacac95fad9-table-27acbea49e02"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "manual_relevance_review_required",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-016",
+      "category": "product_fact_comparison",
+      "question": "KR510902773M과 KR510902777M의 위험 분류 숫자를 각각 확인하고, 숫자가 낮은 쪽이 더 높은 위험을 뜻하는지도 비교해 주세요.",
+      "route": "compound",
+      "requirement_category_expected": "product_fields",
+      "requirement_category_actual": "product_fields",
+      "requirement_category_correct": true,
+      "expected_slot_keys": [
+        "KR510902773M:risk_grade",
+        "KR510902777M:risk_grade"
+      ],
+      "actual_slot_keys": [
+        "KR510902773M:risk_grade",
+        "KR510902777M:risk_grade"
+      ],
+      "requirement_plan_coverage": true,
+      "requirement_plan_coverage_status": "exact",
+      "base_retrieved_chunk_ids": [
+        "c787719b514f51da-paragraph_group-2bb0d0693f08",
+        "cf922cacac95fad9-table-fc5fe56f6718",
+        "cf922cacac95fad9-table-fa6826bdd0e9",
+        "cf922cacac95fad9-paragraph_group-fc4f725c41d6",
+        "c787719b514f51da-table-7485fb6a4a09",
+        "cf922cacac95fad9-table-bfafecb7cb9b",
+        "c787719b514f51da-paragraph_group-4beb763adcb0",
+        "cf922cacac95fad9-paragraph_group-15d8f321a77b",
+        "cf922cacac95fad9-table-09f39d24deb3",
+        "c787719b514f51da-table-832490b56720"
+      ],
+      "candidate_chunk_ids": [
+        "c787719b514f51da-paragraph_group-2bb0d0693f08",
+        "cf922cacac95fad9-table-fc5fe56f6718",
+        "cf922cacac95fad9-table-fa6826bdd0e9",
+        "cf922cacac95fad9-paragraph_group-fc4f725c41d6",
+        "c787719b514f51da-table-7485fb6a4a09",
+        "cf922cacac95fad9-table-bfafecb7cb9b",
+        "c787719b514f51da-paragraph_group-4beb763adcb0",
+        "cf922cacac95fad9-paragraph_group-15d8f321a77b",
+        "cf922cacac95fad9-table-09f39d24deb3",
+        "c787719b514f51da-table-832490b56720",
+        "cf922cacac95fad9-table-61041d62fac0",
+        "cf922cacac95fad9-table-8d0be7d0b37c",
+        "cf922cacac95fad9-paragraph_group-12041fb7af90",
+        "cf922cacac95fad9-table-dfa5a3e6cf0d",
+        "cf922cacac95fad9-table-646499d7eea8",
+        "c787719b514f51da-table-dc895f567607",
+        "c787719b514f51da-table-94fdc4ab85f6",
+        "c787719b514f51da-table-acedf001f8ee",
+        "c787719b514f51da-table-08209651ab7f",
+        "c787719b514f51da-table-b3249e6f79ff",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "cf922cacac95fad9-paragraph_group-b2adf122a64c",
+        "c787719b514f51da-paragraph_group-f00a2b356930",
+        "c787719b514f51da-paragraph_group-b0ca952804e3"
+      ],
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "c787719b514f51da-paragraph_group-f00a2b356930"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": true,
+      "assessment_reason": "compound_requirements_complete",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "c787719b514f51da-paragraph_group-f00a2b356930",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "exact_gold_chunk_ids_selected": [
+        "c787719b514f51da-paragraph_group-f00a2b356930",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "source_relevance_status": "exact_gold",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-017",
+      "category": "product_fact_comparison",
+      "question": "KR5114420022와 KR5114450222는 각각 몇 단계 위험으로 표시돼 있나요? 그중 보수적으로 분류된 쪽이 어느 상품인지 근거와 함께 비교해 주세요.",
+      "route": "compound",
+      "requirement_category_expected": "product_fields",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "KR5114420022:risk_grade",
+        "KR5114450222:risk_grade"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "f24a347b7c7a170c-paragraph_group-b9386391843e",
+        "545de7c663ff2726-paragraph_group-911bbd5e58e0",
+        "f24a347b7c7a170c-table-8d22c6b04c9f",
+        "545de7c663ff2726-table-3a476f233fcf",
+        "f24a347b7c7a170c-paragraph_group-653a82011391",
+        "545de7c663ff2726-paragraph_group-4095b58eed49",
+        "f24a347b7c7a170c-table-25ec4140c4ed",
+        "545de7c663ff2726-table-d27a629d857d",
+        "545de7c663ff2726-paragraph_group-e121ec0b7077",
+        "f24a347b7c7a170c-paragraph_group-b9c5e9faf2a1"
+      ],
+      "candidate_chunk_ids": [
+        "f24a347b7c7a170c-paragraph_group-b9386391843e",
+        "545de7c663ff2726-paragraph_group-911bbd5e58e0",
+        "f24a347b7c7a170c-table-8d22c6b04c9f",
+        "545de7c663ff2726-table-3a476f233fcf",
+        "f24a347b7c7a170c-paragraph_group-653a82011391",
+        "545de7c663ff2726-paragraph_group-4095b58eed49",
+        "f24a347b7c7a170c-table-25ec4140c4ed",
+        "545de7c663ff2726-table-d27a629d857d",
+        "545de7c663ff2726-paragraph_group-e121ec0b7077",
+        "f24a347b7c7a170c-paragraph_group-b9c5e9faf2a1"
+      ],
+      "selected_chunk_ids": [
+        "f24a347b7c7a170c-paragraph_group-b9386391843e",
+        "545de7c663ff2726-paragraph_group-911bbd5e58e0",
+        "f24a347b7c7a170c-table-8d22c6b04c9f",
+        "545de7c663ff2726-table-3a476f233fcf",
+        "f24a347b7c7a170c-paragraph_group-653a82011391",
+        "545de7c663ff2726-paragraph_group-4095b58eed49",
+        "f24a347b7c7a170c-table-25ec4140c4ed",
+        "545de7c663ff2726-table-d27a629d857d",
+        "545de7c663ff2726-paragraph_group-e121ec0b7077",
+        "f24a347b7c7a170c-paragraph_group-b9c5e9faf2a1"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": false,
+      "assessment_reason": "compound_requirements_not_defined",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "not_evaluable_before_sufficiency",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    },
+    {
+      "question_id": "P36-018",
+      "category": "product_fact_comparison",
+      "question": "KR5120420039와 KR5120420091의 투자위험 분류를 각각 제시하고, 더 낮은 위험 단계로 적힌 상품을 골라 주세요.",
+      "route": "unsupported",
+      "requirement_category_expected": "product_fields",
+      "requirement_category_actual": null,
+      "requirement_category_correct": false,
+      "expected_slot_keys": [
+        "KR5120420039:risk_grade",
+        "KR5120420091:risk_grade"
+      ],
+      "actual_slot_keys": [],
+      "requirement_plan_coverage": false,
+      "requirement_plan_coverage_status": "missing",
+      "base_retrieved_chunk_ids": [
+        "eefb7f7b407d91de-paragraph_group-e41211088478",
+        "fc3cd93441450fa8-paragraph_group-784d1e2202e3",
+        "fc3cd93441450fa8-paragraph_group-8eeffec71236",
+        "fc3cd93441450fa8-paragraph_group-a67611d52901",
+        "eefb7f7b407d91de-table-f86945b02582",
+        "eefb7f7b407d91de-paragraph_group-3cea7c1d7c7f",
+        "fc3cd93441450fa8-paragraph_group-67aa90993870",
+        "fc3cd93441450fa8-paragraph_group-eef1cc423622",
+        "eefb7f7b407d91de-table-a3a9e6ad4f57",
+        "eefb7f7b407d91de-paragraph_group-053c6d5a8639"
+      ],
+      "candidate_chunk_ids": [
+        "eefb7f7b407d91de-paragraph_group-e41211088478",
+        "fc3cd93441450fa8-paragraph_group-784d1e2202e3",
+        "fc3cd93441450fa8-paragraph_group-8eeffec71236",
+        "fc3cd93441450fa8-paragraph_group-a67611d52901",
+        "eefb7f7b407d91de-table-f86945b02582",
+        "eefb7f7b407d91de-paragraph_group-3cea7c1d7c7f",
+        "fc3cd93441450fa8-paragraph_group-67aa90993870",
+        "fc3cd93441450fa8-paragraph_group-eef1cc423622",
+        "eefb7f7b407d91de-table-a3a9e6ad4f57",
+        "eefb7f7b407d91de-paragraph_group-053c6d5a8639"
+      ],
+      "selected_chunk_ids": [
+        "eefb7f7b407d91de-paragraph_group-e41211088478",
+        "fc3cd93441450fa8-paragraph_group-784d1e2202e3",
+        "fc3cd93441450fa8-paragraph_group-8eeffec71236",
+        "fc3cd93441450fa8-paragraph_group-a67611d52901",
+        "eefb7f7b407d91de-table-f86945b02582",
+        "eefb7f7b407d91de-paragraph_group-3cea7c1d7c7f",
+        "fc3cd93441450fa8-paragraph_group-67aa90993870",
+        "fc3cd93441450fa8-paragraph_group-eef1cc423622",
+        "eefb7f7b407d91de-table-a3a9e6ad4f57",
+        "eefb7f7b407d91de-paragraph_group-053c6d5a8639"
+      ],
+      "selected_primary_original": true,
+      "evidence_sufficient": false,
+      "assessment_reason": "unsupported_or_personal_or_conditional",
+      "missing_slots": [],
+      "declared_gold_chunk_ids": [
+        "eefb7f7b407d91de-paragraph_group-07cc1c409cef",
+        "fc3cd93441450fa8-paragraph_group-a91cddf920fd"
+      ],
+      "exact_gold_chunk_ids_selected": [],
+      "source_relevance_status": "not_evaluable_before_sufficiency",
+      "wrong_scope_detected": false,
+      "hcx_invoked": false
+    }
+  ]
+}

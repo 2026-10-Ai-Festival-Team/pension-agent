@@ -1,0 +1,74 @@
+{
+  "branch": "origin/feature/yw-pension-agent",
+  "commit": "ee2e42cc8ca5895190f6a064630df9d671af3289",
+  "reviewed_files": [
+    "evaluation/retrieval_questions.jsonl",
+    "docs/retrieval_failure_analysis_normalized.md",
+    "docs/retrieval_final_evaluation.md",
+    "src/retrieval/query_normalizer.py",
+    "src/orchestration/query_analyzer.py",
+    "src/retrieval/fielded_bm25_retriever.py",
+    "src/orchestration/evidence_assessor.py",
+    "src/orchestration/context_builder.py"
+  ],
+  "assets": [
+    {
+      "path": "evaluation/retrieval_questions.jsonl",
+      "role": "dev_fixture",
+      "recommended_action": "integrate",
+      "reason": "40-question evidence fixture with relevant chunks, source IDs, terms, and any/all contract."
+    },
+    {
+      "path": "docs/retrieval_failure_analysis_normalized.md",
+      "role": "reference_only",
+      "recommended_action": "copy_as_reference",
+      "reason": "Provides retrieval failure taxonomy without changing current ownership labels."
+    },
+    {
+      "path": "docs/retrieval_final_evaluation.md",
+      "role": "reference_only",
+      "recommended_action": "copy_as_reference",
+      "reason": "Records dev/test retrieval generalization gap for future comparison design."
+    },
+    {
+      "path": "src/retrieval/query_normalizer.py",
+      "role": "lexical_baseline",
+      "recommended_action": "copy_as_reference",
+      "reason": "Observed-dev phrase expansion baseline only; prohibited from candidate import."
+    },
+    {
+      "path": "src/orchestration/query_analyzer.py",
+      "role": "reference_only",
+      "recommended_action": "do_not_merge",
+      "reason": "Coarse one-intent keyword analyzer; baseline, not a compositional parser."
+    },
+    {
+      "path": "src/retrieval/fielded_bm25_retriever.py",
+      "role": "retrieval_experiment",
+      "recommended_action": "defer",
+      "reason": "Potential table-row-key retrieval A/B after P38 parsing is evaluated."
+    },
+    {
+      "path": "src/orchestration/evidence_assessor.py",
+      "role": "reference_only",
+      "recommended_action": "do_not_merge",
+      "reason": "Its context-presence checks are weaker than current subject-field-value-scope contract."
+    },
+    {
+      "path": "src/orchestration/context_builder.py",
+      "role": "reference_only",
+      "recommended_action": "do_not_merge",
+      "reason": "Top-k deduplication alone is not a factual evidence sufficiency contract."
+    }
+  ],
+  "fixture_snapshot": {
+    "path": "evaluation/retrieval_questions.jsonl",
+    "question_count": 40,
+    "sha256": "8f9cea03985a12d3511f60b3596d431494158cc7d32d35a18b008d3c8406d8a6",
+    "source_commit": "ee2e42cc8ca5895190f6a064630df9d671af3289",
+    "matches_reviewed_branch": true,
+    "fresh_holdout": false
+  },
+  "production_merge": false,
+  "hcx_calls": 0
+}

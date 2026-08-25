@@ -19,12 +19,17 @@ class UrllibTransport:
 
 
 class HyperClovaXGenerator:
-    def __init__(self, *, config, transport=None, prompt_builder=None, rate_limiter=None, sleeper=time.sleep):
+    def __init__(self, *, config, transport=None, prompt_builder=None, rate_limiter=None, sleeper=time.sleep, response_capture=None):
         self.config = config
         self.transport = transport or UrllibTransport()
         self.prompt_builder = prompt_builder or PromptBuilder()
-        self.rate_limiter = rate_limiter or GlobalMinIntervalLimiter(config.hcx_min_interval_seconds)
+        self.rate_limiter = rate_limiter or GlobalMinIntervalLimiter(
+            config.hcx_min_interval_seconds,
+            guard_seconds=config.hcx_pacing_guard_seconds,
+        )
         self.sleeper = sleeper
+        # 기본 로그에는 원문 응답을 남기지 않는다. 제한된 진단 실험에서만 콜백으로 보관한다.
+        self.response_capture = response_capture
 
     @staticmethod
     def _retry_after_seconds(headers):
@@ -56,16 +61,46 @@ class HyperClovaXGenerator:
             or data.get("finishReason")
         )
 
+    @staticmethod
+    def _attempt_record(diagnostic, **extra):
+        """Keep per-attempt timing; the final diagnostic alone is insufficient."""
+        record = {
+            "attempt_count": diagnostic.get("attempt_count"),
+            "retry_used": diagnostic.get("retry_used", False),
+            "attempt_started_offset_ms": diagnostic.get("attempt_started_offset_ms"),
+            "request_started_offset_ms": diagnostic.get("request_started_offset_ms"),
+            "request_completed_offset_ms": diagnostic.get("request_completed_offset_ms"),
+            "request_started_monotonic_ms": diagnostic.get("request_started_monotonic_ms"),
+            "request_completed_monotonic_ms": diagnostic.get("request_completed_monotonic_ms"),
+            "rate_limit_wait_ms": diagnostic.get("rate_limit_wait_ms"),
+            "http_status": diagnostic.get("http_status"),
+            "retry_after_seconds": diagnostic.get("retry_after_seconds"),
+            "attempt_latency_ms": diagnostic.get("attempt_latency_ms"),
+            "request_payload_bytes": diagnostic.get("request_payload_bytes"),
+            "message_content_length": diagnostic.get("content_length"),
+            "usage": diagnostic.get("usage"),
+        }
+        record.update(extra)
+        return record
+
     def generate(self, *, question, contexts, query_analysis):
         started = time.perf_counter()
         payload = self.prompt_builder.payload(question, contexts, self.config.hcx_model)
+        payload_bytes = len(json.dumps(payload, ensure_ascii=False).encode("utf-8"))
         headers = {"Authorization": f"Bearer {self.config.hcx_api_key}", "Content-Type": "application/json"}
         attempt_history = []
         for attempt in range(self.config.max_retries + 1):
             attempt_started = time.perf_counter()
-            diagnostic = {"attempt_count": attempt + 1, "retry_used": attempt > 0}
+            diagnostic = {
+                "attempt_count": attempt + 1,
+                "retry_used": attempt > 0,
+                "attempt_started_offset_ms": round((attempt_started - started) * 1000, 3),
+                "request_payload_bytes": payload_bytes,
+            }
             try:
                 diagnostic["rate_limit_wait_ms"] = round(self.rate_limiter.acquire() * 1000, 3)
+                diagnostic["request_started_offset_ms"] = round((time.perf_counter() - started) * 1000, 3)
+                diagnostic["request_started_monotonic_ms"] = round(time.perf_counter() * 1000, 3)
                 response_headers = {}
                 try:
                     status, body = self.transport.post(
@@ -75,6 +110,10 @@ class HyperClovaXGenerator:
                     status = error.code
                     body = error.read().decode(errors="replace")
                     response_headers = error.headers or {}
+                if self.response_capture is not None:
+                    self.response_capture(status, body)
+                diagnostic["request_completed_offset_ms"] = round((time.perf_counter() - started) * 1000, 3)
+                diagnostic["request_completed_monotonic_ms"] = round(time.perf_counter() * 1000, 3)
                 diagnostic["http_status"] = status
                 diagnostic["retry_after_seconds"] = self._retry_after_seconds(response_headers)
                 if status in {401, 403}:
@@ -84,7 +123,13 @@ class HyperClovaXGenerator:
                         retry_delay = max(0.1 * (attempt + 1), diagnostic["retry_after_seconds"] or 0)
                         diagnostic["retry_delay_ms"] = round(retry_delay * 1000, 3)
                         diagnostic["attempt_latency_ms"] = round((time.perf_counter() - attempt_started) * 1000, 3)
-                        attempt_history.append({"http_status": status, "attempt_latency_ms": diagnostic["attempt_latency_ms"], "retry_delay_ms": diagnostic["retry_delay_ms"], "outcome": "retry"})
+                        attempt_history.append(
+                            self._attempt_record(
+                                diagnostic,
+                                retry_delay_ms=diagnostic["retry_delay_ms"],
+                                outcome="retry",
+                            )
+                        )
                         self.sleeper(retry_delay)
                         continue
                     raise GenerationError("HCX service unavailable", diagnostic=diagnostic)
@@ -125,11 +170,28 @@ class HyperClovaXGenerator:
                         "cited_chunk_ids_type": type(cited).__name__,
                     }
                 )
-                if not answer or not isinstance(cited, list):
+                contract_failures = []
+                if not answer:
+                    contract_failures.append("empty_answer")
+                if not isinstance(cited, list):
+                    contract_failures.append("cited_chunk_ids_not_list")
+                elif not cited:
+                    contract_failures.append("empty_cited_chunk_ids")
+                if contract_failures:
+                    diagnostic["response_contract_failures"] = contract_failures
+                    if "cited_chunk_ids_not_list" in contract_failures:
+                        diagnostic["citation_validation_reason"] = "citation_field_schema_violation"
+                    elif "empty_cited_chunk_ids" in contract_failures:
+                        # 기존 CitationValidationError 경로와 같은 외부 계약을
+                        # 유지한다. 다만 세부 원인은 response_contract_failures에
+                        # 별도로 남긴다.
+                        diagnostic["citation_validation_reason"] = "missing_citation"
+                        diagnostic["returned_cited_chunk_ids"] = []
                     raise GenerationResponseError("Invalid HCX response", diagnostic=diagnostic)
                 usage = result.get("usage") if isinstance(result.get("usage"), dict) else None
+                diagnostic["usage"] = usage
                 diagnostic["attempt_latency_ms"] = round((time.perf_counter() - attempt_started) * 1000, 3)
-                attempt_history.append({"http_status": status, "attempt_latency_ms": diagnostic["attempt_latency_ms"], "outcome": "success"})
+                attempt_history.append(self._attempt_record(diagnostic, outcome="success"))
                 diagnostic["attempt_history"] = attempt_history
                 return GenerationResult(
                     answer,
@@ -143,7 +205,13 @@ class HyperClovaXGenerator:
             except GenerationError as error:
                 diagnostic = error.diagnostic or diagnostic
                 diagnostic["attempt_latency_ms"] = round((time.perf_counter() - attempt_started) * 1000, 3)
-                attempt_history.append({"http_status": diagnostic.get("http_status"), "attempt_latency_ms": diagnostic["attempt_latency_ms"], "exception_type": type(error).__name__, "outcome": "failed"})
+                attempt_history.append(
+                    self._attempt_record(
+                        diagnostic,
+                        exception_type=type(error).__name__,
+                        outcome="failed",
+                    )
+                )
                 diagnostic["attempt_history"] = attempt_history
                 error.diagnostic = diagnostic
                 raise
@@ -163,8 +231,19 @@ class HyperClovaXGenerator:
                             "json_error_message": exc.msg,
                         }
                     )
+                diagnostic.setdefault(
+                    "request_completed_offset_ms",
+                    round((time.perf_counter() - started) * 1000, 3),
+                )
+                diagnostic.setdefault("request_completed_monotonic_ms", round(time.perf_counter() * 1000, 3))
                 diagnostic["attempt_latency_ms"] = round((time.perf_counter() - attempt_started) * 1000, 3)
-                attempt_history.append({"http_status": diagnostic.get("http_status"), "attempt_latency_ms": diagnostic["attempt_latency_ms"], "exception_type": type(exc).__name__, "outcome": "failed"})
+                attempt_history.append(
+                    self._attempt_record(
+                        diagnostic,
+                        exception_type=type(exc).__name__,
+                        outcome="failed",
+                    )
+                )
                 diagnostic["attempt_history"] = attempt_history
                 if attempt < self.config.max_retries:
                     self.sleeper(0.1 * (attempt + 1))

@@ -14,6 +14,6 @@ class Bm25Retriever:
             if scores[int(idx)]<=0: continue
             if document_types and c.document_type not in document_types: continue
             if product_codes and not product_codes.intersection({x.upper() for x in c.product_codes}): continue
-            out.append(SearchResult(rank=len(out)+1,chunk_id=c.chunk_id,score=float(scores[int(idx)]),text=c.text,source_id=c.source_id,source_path=c.source_path,source_format=c.source_format,document_type=c.document_type,title=c.title,section=c.section,locator=c.locator,product_codes=c.product_codes,element_ids=c.element_ids,metadata={"retriever":"bm25"}))
+            out.append(SearchResult(rank=len(out)+1,chunk_id=c.chunk_id,score=float(scores[int(idx)]),text=c.text,source_id=c.source_id,source_path=c.source_path,source_format=c.source_format,document_type=c.document_type,title=c.title,section=c.section,locator=c.locator,source_type=c.source_type,authority_level=c.authority_level,as_of_date=c.as_of_date,product_codes=c.product_codes,element_ids=c.element_ids,metadata={"retriever":"bm25"}))
             if len(out)>=top_k: break
         return SearchResponse(query=query,tokenizer=self.index.tokenizer.name,total_candidates=len(self.index.chunks),results=out)

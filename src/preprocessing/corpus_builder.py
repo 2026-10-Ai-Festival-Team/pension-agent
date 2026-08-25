@@ -1,9 +1,15 @@
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from src.ingestion.registry import ParserRegistry
 from src.models.chunk import SearchChunk
-from src.models.document import ElementType, ParsedDocument, SourceFormat
+from src.models.document import (
+    AuthorityLevel,
+    ElementType,
+    ParsedDocument,
+    SourceFormat,
+    SourceType,
+)
 from src.preprocessing.config import ChunkingConfig
 from src.preprocessing.paragraph_chunker import ParagraphChunker
 from src.preprocessing.slide_chunker import SlideChunker
@@ -19,8 +25,23 @@ class CorpusBuilder:
         self.slide_chunker = SlideChunker(config)
         self.spreadsheet_chunker = SpreadsheetChunker(config)
 
-    def build_document(self, path: Path, source_root: Path) -> List[SearchChunk]:
+    def build_document(
+        self,
+        path: Path,
+        source_root: Path,
+        *,
+        source_type: SourceType = SourceType.ORIGINAL,
+        authority_level: AuthorityLevel = AuthorityLevel.PRIMARY,
+        as_of_date: Optional[str] = None,
+    ) -> List[SearchChunk]:
         document = self.registry.get_parser(path).parse(path, source_root)
+        document = document.model_copy(
+            update={
+                "source_type": source_type,
+                "authority_level": authority_level,
+                "as_of_date": as_of_date or document.as_of_date or document.effective_date,
+            }
+        )
         if document.source_format == SourceFormat.PPTX:
             return self.slide_chunker.chunk(document)
         if document.source_format == SourceFormat.XLSX:

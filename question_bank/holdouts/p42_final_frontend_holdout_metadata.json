@@ -1,0 +1,9 @@
+{
+  "experiment": "P42 Final Fresh Front-End Holdout",
+  "question_count": 18,
+  "selector_evaluable_count": 14,
+  "safety_only_count": 4,
+  "manifest_sha256": "b96103ed9a6588017e19dfd5e2ba27609280d4e3eb0bb5fce9169894893eca58",
+  "frozen_before_hcx": true,
+  "hcx_calls": 0
+}

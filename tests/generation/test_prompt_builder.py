@@ -1,4 +1,6 @@
-from src.generation.prompt_builder import PromptBuilder
+import pytest
+
+from src.generation.prompt_builder import NativeStructuredOutputPromptBuilder, PromptBuilder
 from src.models.chunk import ChunkLocator
 from src.models.retrieval import SearchResult
 
@@ -41,3 +43,19 @@ def test_hcx_007_uses_the_inference_request_contract():
     assert "maxTokens" not in payload
     assert payload["thinking"] == {"effort": "none"}
     assert payload["messages"][0]["content"] == [{"type": "text", "text": payload["messages"][0]["content"][0]["text"]}]
+
+
+def test_native_structured_output_payload_uses_hcx007_schema_with_thinking_disabled():
+    payload = NativeStructuredOutputPromptBuilder().payload("질문", [], "HCX-007")
+
+    assert payload["messages"][0]["content"] == NativeStructuredOutputPromptBuilder().build("질문", [])
+    assert payload["thinking"] == {"effort": "none"}
+    assert payload["maxCompletionTokens"] == 800
+    assert payload["responseFormat"]["type"] == "json"
+    assert payload["responseFormat"]["schema"]["required"] == ["answer", "cited_chunk_ids"]
+    assert payload["responseFormat"]["schema"]["properties"]["cited_chunk_ids"]["minItems"] == 1
+
+
+def test_native_structured_output_rejects_non_hcx007_model():
+    with pytest.raises(ValueError, match="HCX-007"):
+        NativeStructuredOutputPromptBuilder().payload("질문", [], "HCX-DASH-002")

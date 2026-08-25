@@ -1,0 +1,66 @@
+{
+  "experiment": "P46-A Failure Attribution",
+  "source_result": "evaluation/p46_final_single_subject_closed_e2e.json",
+  "source_result_sha256": "3c7d72efbfa1730de4dd30e90345375c8c4d620116958c1a7d07e7ff8a5d9c97",
+  "method": "No HCX recall. Frozen answer hashes, resolver/selector trace, selected contexts, and the manually frozen gold evidence were compared.",
+  "failures": [
+    {
+      "id": "P46-003",
+      "primary_owner": "selector_requirement_miss",
+      "stage": "direct_requirement_selector",
+      "finding": "The resolver correctly fixed active_subject=DB, but the selector returned no requirement for the indirect 30-day average-wage calculation question. The exact DB.benefit_determination gold chunk was available but never requested.",
+      "gold_evidence_available": true,
+      "hcx_answer_called": false
+    },
+    {
+      "id": "P46-010",
+      "primary_owner": "subject_resolution_miss",
+      "stage": "resolver",
+      "finding": "The explicit product code KR5127420045 was not retained as one active product in the current/change-possibility wording. The single-subject front end returned unresolved before selector, retrieval, or answer generation.",
+      "gold_evidence_available": true,
+      "hcx_answer_called": false
+    },
+    {
+      "id": "P46-009",
+      "primary_owner": "generation_omission",
+      "stage": "answer_generation",
+      "finding": "The exact period-cost table was supplied and cited. HCX compressed the requested columns to a 1-to-10-year range, omitting the required 2·3·5-year columns.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    },
+    {
+      "id": "P46-013",
+      "primary_owner": "generation_omission",
+      "stage": "answer_generation",
+      "finding": "The resolved latter product and direct annual fee table were correct and cited. HCX named only the 총 보수·비용 item, omitting the requested 지급비율(연간, %) table identity.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    },
+    {
+      "id": "P46-016",
+      "primary_owner": "generation_omission",
+      "stage": "answer_generation",
+      "finding": "Both DB requirements and their direct chunks were supplied. HCX retained 평균임금 and 계속근로기간 but omitted the decisive 퇴직 전 평균임금 30일분 detail.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    }
+  ],
+  "front_end_nonsemantic_regression": {
+    "id": "P46-017",
+    "owner": "selector_extra_requirement",
+    "finding": "The selector added product.period_cost to the correct current-risk-grade and total-fee requirements. The answer did not use the extra context and remains semantically useful, but the extra requirement causes front-end precision to fall below the P46 gate."
+  },
+  "owner_summary": {
+    "subject_or_scope": 1,
+    "selector_requirement": 1,
+    "retrieval_or_evidence": 0,
+    "generation_omission": 3,
+    "generation_field_confusion": 0,
+    "generation_misread": 0,
+    "selector_extra_requirement_nonsemantic": 1
+  },
+  "conclusion": "P46 is No-Go. Three substantive failures are genuine generation omissions with direct gold evidence already in context, but two structural false rejections and one selector precision regression remain. Fine-tuning must not start until those front-end failures are removed and revalidated on a new fresh E2E holdout."
+}

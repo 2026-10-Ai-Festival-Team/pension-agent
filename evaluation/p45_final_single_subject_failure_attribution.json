@@ -1,0 +1,87 @@
+{
+  "experiment": "P45-A Failure Attribution",
+  "source_result": "evaluation/p45_final_single_subject_closed_e2e.json",
+  "method": "No HCX recall. Frozen answer_hash, resolver/selector trace, selected context, and manually fixed gold evidence were compared.",
+  "failures": [
+    {
+      "id": "P45-003",
+      "primary_owner": "subject_resolution",
+      "stage": "resolver",
+      "finding": "The question uses 확정기여형 without the DC acronym. The resolver has no canonical alias from 확정기여형/확정기여형퇴직연금 to DC, so it stops before selector/retrieval.",
+      "gold_evidence_available": true,
+      "hcx_answer_called": false
+    },
+    {
+      "id": "P45-004",
+      "primary_owner": "negative_scope_resolution",
+      "stage": "resolver",
+      "finding": "IRP를 함께 쓰지 않고 연금저축만 contains both explicit entities. The resolver preserves both and has no exclusion/only operator, so it returns non_unique_active_subject although the requested scope is pension_savings only.",
+      "gold_evidence_available": true,
+      "hcx_answer_called": false
+    },
+    {
+      "id": "P45-010",
+      "primary_owner": "generation_omission",
+      "stage": "answer_generation",
+      "finding": "product.total_fee was selected and the exact annual total-fee table was in context. HCX named only the generic 지급비율 table and omitted the decisive 총보수·비용/합성총보수·비용 field.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    },
+    {
+      "id": "P45-011",
+      "primary_owner": "generation_omission",
+      "stage": "answer_generation",
+      "finding": "product.period_cost was selected and the exact period-cost table was in context. HCX mentioned class rows but omitted the factual table identity and requested 3-year column distinction.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    },
+    {
+      "id": "P45-013",
+      "primary_owner": "generation_field_confusion",
+      "stage": "answer_generation",
+      "finding": "The resolved second product and product.total_fee were correct, and the direct annual fee table was present. HCX substituted a class row for the requested total-fee field.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    },
+    {
+      "id": "P45-015",
+      "primary_owner": "generation_misread",
+      "stage": "answer_generation",
+      "finding": "The exact period-cost table explicitly lists 1·2·3·5·10-year columns. HCX answered only 몇 년 단위 and lost every requested value.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    },
+    {
+      "id": "P45-016",
+      "primary_owner": "generation_field_confusion",
+      "stage": "answer_generation",
+      "finding": "The direct annual total-fee table was present. HCX listed component fees instead of identifying the 총보수·비용 field that must be distinguished from 판매수수료.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    },
+    {
+      "id": "P45-018",
+      "primary_owner": "generation_omission",
+      "stage": "answer_generation",
+      "finding": "Both DB.operation_party and DB.benefit_determination were selected. The direct 30-day average-wage formula chunk was in context, but HCX shortened it to 평균임금 × 계속근로기간.",
+      "selected_requirement_matches_gold": true,
+      "exact_gold_context_present": true,
+      "hcx_answer_called": true
+    }
+  ],
+  "owner_summary": {
+    "subject_resolution": 1,
+    "negative_scope_resolution": 1,
+    "direct_field_evidence": 0,
+    "evidence_incomplete": 0,
+    "generation_omission": 3,
+    "generation_field_confusion": 2,
+    "generation_misread": 1
+  },
+  "conclusion": "The tested fee/cost cases are not retrieval or direct-field-binding failures: their exact gold chunks were supplied to HCX. Fine-tuning candidates may be collected from the six answer-generation failures, but P45 remains No-Go because two resolver failures are still structural."
+}

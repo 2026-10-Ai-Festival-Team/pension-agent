@@ -1,0 +1,8 @@
+{
+  "experiment": "P40 Fresh Scope/Reference Holdout",
+  "question_count": 18,
+  "manifest_sha256": "b3e0dfd27e29516262b1b943c240614d2ed55941ca5cae4c0267407972cd2536",
+  "unknown_enum_values": [],
+  "frozen_before_hcx": true,
+  "hcx_calls": 0
+}

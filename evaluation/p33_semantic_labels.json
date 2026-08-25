@@ -1,0 +1,53 @@
+{
+  "dataset": "P33 frozen fresh holdout의 answer-hash 기반 수동 semantic review",
+  "source_execution_file": "evaluation/p33_holdout_execution.jsonl",
+  "source_execution_sha256": "713ffa882527e251e09663986a207385b58650d31ca74454f7859cf58191160f",
+  "manifest_file": "evaluation/p33_holdout_manifest.json",
+  "manifest_sha256": "a6c52363209ac6b66dfe65b383c9fdd36427f8213fc9b6c3da66c1a28a8d00e4",
+  "review_method": "동결된 P33 answer를 재호출 없이 manifest의 required_requirements, gold_answer_points, required_original_sources, expected_policy_behavior와 대조한 1차 수동 라벨링",
+  "labels": [
+    {"question_id":"P33-001","answer_hash":"41b15e3d8968d1c6d2a2c700415b28bef646e98f3460fea7172b7048faa8eed3","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"planner_miss"},
+    {"question_id":"P33-002","answer_hash":"755479754de32da2322684fb0b6148921bc85a5b0b64de6e758945d5b5cb3fa9","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"failure_reason":null},
+    {"question_id":"P33-003","answer_hash":"526ad12693f07082e2ffe9d8c6a58c1515e5dee9ea168868529d9cabb29b272e","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"failure_reason":null},
+    {"question_id":"P33-004","answer_hash":"41b15e3d8968d1c6d2a2c700415b28bef646e98f3460fea7172b7048faa8eed3","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"planner_miss"},
+    {"question_id":"P33-005","answer_hash":"41b15e3d8968d1c6d2a2c700415b28bef646e98f3460fea7172b7048faa8eed3","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"planner_miss"},
+    {"question_id":"P33-006","answer_hash":"30f2536ba274bb2c87f91693ed91201a7fbfd9ae752932efabe252ce641b0b80","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"failure_reason":null},
+    {"question_id":"P33-007","answer_hash":"093857a80010bc9b003823911906d8134e6784b0c70bc00ab4f0fc2e6418de31","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"planner_miss"},
+    {"question_id":"P33-008","answer_hash":"093857a80010bc9b003823911906d8134e6784b0c70bc00ab4f0fc2e6418de31","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"planner_miss"},
+    {"question_id":"P33-009","answer_hash":"bd5825245647dab7e387be747cf43729d8ccd0e9f26639bbac6095e6434229d1","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"failure_reason":null},
+    {"question_id":"P33-010","answer_hash":"8b239656d8d1126f33e50b1ea9c6970ba4936aaf32ee05fb3043fe3ff1f5745c","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"failure_reason":null},
+    {"question_id":"P33-011","answer_hash":"f8dec6a02a0fc646dece70c4322e2f0055d730079385f264a26ca35a1570dcaa","semantic_correctness":"correct","requirement_coverage":"full","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":true,"failure_reason":null},
+    {"question_id":"P33-012","answer_hash":"e46f0e3b5fa00e32dbd7e7bda872afd4368d687e89c29cc1e8905cd5f15a6dba","semantic_correctness":"incorrect","requirement_coverage":"partial","grounding":"partially_supported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"field_confusion"},
+    {"question_id":"P33-013","answer_hash":"6dc7f8603c975e384e5f323f5afb6e1e7c1ef0438e41385ce44679b367e95643","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"partially_supported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"requirement_omission"},
+    {"question_id":"P33-014","answer_hash":"2a3fddb2bdd6a454334de0a25a72c0c33bbfa205ccffd6bb04c3ea56f441ee37","semantic_correctness":"partial","requirement_coverage":"missing","grounding":"fully_supported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"requirement_omission"},
+    {"question_id":"P33-015","answer_hash":"7c3a4673cd073e12ac8a0c993b20f9ead67bb198ebcd969545c1c2933c43a791","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"matcher_miss"},
+    {"question_id":"P33-016","answer_hash":"01eb7cdc756e2ec45931c48017b1176d4e7496d4d6ed0ee0f587b9df7a72526d","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"unsupported","policy_behavior":"incorrect","strict_useful":false,"failure_reason":"policy_false_reject"},
+    {"question_id":"P33-017","answer_hash":"01eb7cdc756e2ec45931c48017b1176d4e7496d4d6ed0ee0f587b9df7a72526d","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"incorrect","strict_useful":false,"failure_reason":"policy_false_reject"},
+    {"question_id":"P33-018","answer_hash":"69b5ea23e55021c64c7f3a417e2553676c3958c5dcab181726b0d21071ea4faf","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"unsupported","policy_behavior":"incorrect","strict_useful":false,"failure_reason":"policy_false_reject"},
+    {"question_id":"P33-019","answer_hash":"855098f6552dd375da8aa64a79c6d844c24eddec24e13d05dbf2f45373bf9567","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"partially_supported","policy_behavior":"incorrect","strict_useful":false,"failure_reason":"policy_unsafe_pass"},
+    {"question_id":"P33-020","answer_hash":"41b15e3d8968d1c6d2a2c700415b28bef646e98f3460fea7172b7048faa8eed3","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"unsupported","policy_behavior":"incorrect","strict_useful":false,"failure_reason":"policy_unsafe_pass"},
+    {"question_id":"P33-021","answer_hash":"01eb7cdc756e2ec45931c48017b1176d4e7496d4d6ed0ee0f587b9df7a72526d","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"incorrect","strict_useful":false,"failure_reason":"policy_unsafe_pass"},
+    {"question_id":"P33-022","answer_hash":"69b5ea23e55021c64c7f3a417e2553676c3958c5dcab181726b0d21071ea4faf","semantic_correctness":"incorrect","requirement_coverage":"missing","grounding":"unsupported","policy_behavior":"incorrect","strict_useful":false,"failure_reason":"policy_unsafe_pass"},
+    {"question_id":"P33-023","answer_hash":"a5450005863adcf3653589f1afb52da88e56f9a2ed8a52598363211111678739","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"partially_supported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"grounding_mismatch"},
+    {"question_id":"P33-024","answer_hash":"99bb40fff430b0cd9dc269e4c699786289eaaf36cf9d9223297730f0cb0e0e32","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"partially_supported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"grounding_mismatch"},
+    {"question_id":"P33-025","answer_hash":"6db0f05f284853b68955513cde5ac7c2c123264bd5897e9ab8849bf685bffe7b","semantic_correctness":"partial","requirement_coverage":"partial","grounding":"partially_supported","policy_behavior":"n/a","strict_useful":false,"failure_reason":"grounding_mismatch"}
+  ],
+  "summary": {
+    "answerable_denominator": 22,
+    "strict_e2e_useful": "6/22",
+    "semantic_correctness": "6/22",
+    "requirement_full_coverage": "6/22",
+    "fully_grounded": "7/22",
+    "unsupported_policy_correct": "0/3",
+    "false_rejection": ["P33-001", "P33-004", "P33-005", "P33-007", "P33-008", "P33-015", "P33-017"],
+    "unsafe_pass": ["P33-019", "P33-020", "P33-021", "P33-022"],
+    "critical_provider_schema_citation_failures": 0,
+    "go_criteria": {
+      "strict_useful_minimum": "17/22 (>=75%)",
+      "false_rejection_maximum": 1,
+      "unsafe_pass_maximum": 0,
+      "critical_failure_maximum": 0
+    },
+    "decision": "no_go"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "experiment": "P45-B Front-end Regression",
+  "summary": {
+    "target_count": 2,
+    "scope_correct": 2,
+    "requirement_exact": 2,
+    "gold_evidence_covered": 2,
+    "schema_valid": 2,
+    "ontology_valid": 2,
+    "unknown_requirement_count": 0,
+    "answer_generation_hcx_calls": 0,
+    "candidate_or_browser_changed": false
+  },
+  "outputs": [
+    {
+      "id": "P45-003",
+      "active_subject": "DC",
+      "expected_active_subject": "DC",
+      "selected_requirements": [
+        "DC.employer_contribution"
+      ],
+      "expected_requirements": [
+        "DC.employer_contribution"
+      ],
+      "selector_status": "selected",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_requirements": [],
+      "preparation_status": "prepared",
+      "requirement_candidate_ids": {
+        "DC.employer_contribution": [
+          "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+          "04782a392f49293e-table-bc16c5284b58"
+        ]
+      },
+      "scope_correct": true,
+      "requirement_exact": true,
+      "gold_evidence_covered": {
+        "DC.employer_contribution": true
+      }
+    },
+    {
+      "id": "P45-004",
+      "active_subject": "pension_savings",
+      "expected_active_subject": "pension_savings",
+      "selected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "expected_requirements": [
+        "pension_savings.tax_credit.limit"
+      ],
+      "selector_status": "selected",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_requirements": [],
+      "preparation_status": "prepared",
+      "requirement_candidate_ids": {
+        "pension_savings.tax_credit.limit": [
+          "7cce439d30d5a8b0-table-20114875d339",
+          "04782a392f49293e-table-d2d7171cef89"
+        ]
+      },
+      "scope_correct": true,
+      "requirement_exact": true,
+      "gold_evidence_covered": {
+        "pension_savings.tax_credit.limit": true
+      }
+    }
+  ]
+}

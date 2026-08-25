@@ -1,0 +1,85 @@
+{
+  "experiment": "P46-B Front-end Regression",
+  "summary": {
+    "target_count": 3,
+    "scope_correct": 3,
+    "requirement_exact": 3,
+    "gold_evidence_covered": 3,
+    "schema_valid": 3,
+    "ontology_valid": 3,
+    "unknown_requirement_count": 0,
+    "answer_generation_hcx_calls": 0,
+    "candidate_or_browser_changed": false
+  },
+  "outputs": [
+    {
+      "id": "P46-003",
+      "active_subject": "DB",
+      "expected_active_subject": "DB",
+      "selector_status": "selected",
+      "selected_requirements": [
+        "DB.benefit_determination"
+      ],
+      "expected_requirements": [
+        "DB.benefit_determination"
+      ],
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_requirements": [],
+      "scope_correct": true,
+      "requirement_exact": true,
+      "gold_evidence_covered": {
+        "DB.benefit_determination": true
+      },
+      "preparation_status": "prepared"
+    },
+    {
+      "id": "P46-010",
+      "active_subject": "product:KR5127420045",
+      "expected_active_subject": "product:KR5127420045",
+      "selector_status": "selected",
+      "selected_requirements": [
+        "product.risk_grade.change_possibility",
+        "product.risk_grade.current"
+      ],
+      "expected_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.change_possibility"
+      ],
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_requirements": [],
+      "scope_correct": true,
+      "requirement_exact": true,
+      "gold_evidence_covered": {
+        "product.risk_grade.current": true,
+        "product.risk_grade.change_possibility": true
+      },
+      "preparation_status": "prepared"
+    },
+    {
+      "id": "P46-017",
+      "active_subject": "product:KR5127420045",
+      "expected_active_subject": "product:KR5127420045",
+      "selector_status": "selected",
+      "selected_requirements": [
+        "product.risk_grade.current",
+        "product.total_fee"
+      ],
+      "expected_requirements": [
+        "product.risk_grade.current",
+        "product.total_fee"
+      ],
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_requirements": [],
+      "scope_correct": true,
+      "requirement_exact": true,
+      "gold_evidence_covered": {
+        "product.risk_grade.current": true,
+        "product.total_fee": true
+      },
+      "preparation_status": "prepared"
+    }
+  ]
+}

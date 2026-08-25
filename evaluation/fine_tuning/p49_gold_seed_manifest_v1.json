@@ -1,0 +1,24 @@
+{
+  "dataset_status": "frozen_gold_seed_v1",
+  "record_count": 38,
+  "human_approved": 38,
+  "human_pending": 0,
+  "reviewer": "project_owner",
+  "approved_at": "2026-08-25T08:46:45Z",
+  "outcome_distribution": {
+    "supported_answer": 38
+  },
+  "evidence_status_distribution": {
+    "full": 38
+  },
+  "required_fact_coverage": "38/38",
+  "evidence_grounding": "38/38",
+  "citation_context_match": "38/38",
+  "wrong_field_claims": 0,
+  "source_v4_positive_sha256": "5d129253b4f4a6bf598c6188ec05d4f28f0e2c2edf275ad788462f7a10aa7eab",
+  "source_v4_contrastive_sha256": "58dd7d33423a2e9d9a06d026c9752268c3cf2d9c22beb437b65330d02ba7e1a9",
+  "canonical_dataset_sha256": "6eac692f4f4e1199c26e352f31ae9ded065b0147491a3402e1e36eec68b61e64",
+  "tuning_api_calls": 0,
+  "ncp_resource_changes": 0,
+  "next_allowed_stage": "P49-2H domain-grounded augmentation design"
+}

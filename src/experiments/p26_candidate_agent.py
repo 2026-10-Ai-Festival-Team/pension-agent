@@ -11,6 +11,8 @@ from dataclasses import dataclass, field
 
 from src.experiments.conditional_shadow_agent import ConditionalRoutingShadowAgent
 from src.generation.errors import CitationValidationError, GenerationError
+from src.generation.bounded_evidence_prompt_builder import BoundedEvidencePromptBuilder
+from src.generation.hcx import HyperClovaXGenerator
 from src.orchestration.evidence_assessor import EvidenceAssessment
 from src.orchestration.financial_answer_policy import FinancialAnswerPolicy
 
@@ -20,6 +22,22 @@ class P26CandidateAgent(ConditionalRoutingShadowAgent):
     """P24-B candidate preparation에 원본 provenance·금융 표현 정책을 적용한다."""
 
     financial_policy: FinancialAnswerPolicy = field(default_factory=FinancialAnswerPolicy)
+
+    def _bounded_generator(self, assessment: EvidenceAssessment):
+        """Keep HCX inside the matcher-confirmed partial-evidence boundary."""
+        if not isinstance(self.generator, HyperClovaXGenerator):
+            return self.generator
+        return HyperClovaXGenerator(
+            config=self.generator.config,
+            transport=self.generator.transport,
+            prompt_builder=BoundedEvidencePromptBuilder(
+                supported_requirements=assessment.supported_requirements,
+                unsupported_requirements=assessment.missing_requirements,
+            ),
+            rate_limiter=self.generator.rate_limiter,
+            sleeper=self.generator.sleeper,
+            response_capture=self.generator.response_capture,
+        )
 
     def answer(self, question: str, top_k: int = 5) -> dict:
         analysis = self.analyzer.analyze(question)
@@ -67,12 +85,22 @@ class P26CandidateAgent(ConditionalRoutingShadowAgent):
         analysis = plan.analysis
         contexts = list(plan.contexts)
         assessment = plan.assessment
-        if assessment.sufficient and not any(
+        # For a partial plan the selector contexts, rather than the legacy
+        # Top-k context, are the only evidence that can be shown to HCX.
+        if assessment.is_bounded and plan.selection is not None:
+            contexts = list(plan.selection.contexts)
+        if (assessment.sufficient or assessment.is_bounded) and not any(
             self.financial_policy.is_primary_original(context) for context in contexts
         ):
-            assessment = EvidenceAssessment(False, "primary_original_evidence_missing")
+            assessment = EvidenceAssessment(
+                False,
+                "primary_original_evidence_missing",
+                assessment.missing_requirements,
+                assessment.selected_chunk_ids,
+                evidence_status="none",
+            )
 
-        generator_attempted = assessment.sufficient
+        generator_attempted = assessment.sufficient or assessment.is_bounded
         generator_called = generator_attempted
         generated = None
         generation_error = None
@@ -80,7 +108,13 @@ class P26CandidateAgent(ConditionalRoutingShadowAgent):
         cited = []
         try:
             if generator_called:
-                active_generator = self._compound_generator(plan.selection) if plan.selection is not None else self.generator
+                active_generator = (
+                    self._bounded_generator(assessment)
+                    if assessment.is_bounded
+                    else self._compound_generator(plan.selection)
+                    if plan.selection is not None
+                    else self.generator
+                )
                 generated = active_generator.generate(
                     question=analysis.question,
                     contexts=contexts,
@@ -114,9 +148,18 @@ class P26CandidateAgent(ConditionalRoutingShadowAgent):
                             "non_primary_cited_chunk_ids": non_primary_ids,
                         },
                     )
-                answer = self.financial_policy.format_answer(generated.answer, analysis, cited)
+                answer = (
+                    self.financial_policy.format_bounded_answer(
+                        generated.answer,
+                        analysis,
+                        cited,
+                        unsupported_requirements=assessment.missing_requirements,
+                    )
+                    if assessment.is_bounded
+                    else self.financial_policy.format_answer(generated.answer, analysis, cited)
+                )
             else:
-                answer = self.financial_policy.format_insufficient(assessment, analysis)
+                answer = self.financial_policy.format_no_evidence_boundary(assessment, analysis)
         except GenerationError as error:
             answer = self.financial_policy.format_generation_failure(analysis)
             generator_called = False
@@ -134,6 +177,9 @@ class P26CandidateAgent(ConditionalRoutingShadowAgent):
             if plan.requirement_case
             else [],
             "missing_requirement_slots": assessment.missing_requirements,
+            "supported_requirement_slots": assessment.supported_requirements,
+            "evidence_status": assessment.evidence_status,
+            "outcome": "supported_answer" if assessment.sufficient else "bounded_answer" if assessment.is_bounded else "no_evidence_boundary",
             "evidence_sufficient": assessment.sufficient,
             "assessment_reason": assessment.reason,
             "generator": type(self.generator).__name__,

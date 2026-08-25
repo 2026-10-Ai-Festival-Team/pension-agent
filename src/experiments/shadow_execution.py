@@ -62,11 +62,25 @@ def prepare_shadow_execution(
     else:
         contexts = tuple(context_builder.build(list(base_results), top_k))
 
+    supported_slots = (
+        [match.slot.name for match in selection.matches if match.covered]
+        if selection is not None
+        else []
+    )
+    evidence_status = (
+        "full"
+        if decision.sufficient
+        else "partial"
+        if supported_slots
+        else "none"
+    )
     assessment = EvidenceAssessment(
         decision.sufficient,
         decision.reason,
         decision.missing_slots,
         decision.selected_chunk_ids,
+        supported_slots,
+        evidence_status,
     )
     return ShadowExecutionPlan(
         analysis=analysis,

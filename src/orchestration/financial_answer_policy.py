@@ -49,6 +49,65 @@ class FinancialAnswerPolicy:
             sections.extend(f"- {notice}" for notice in notices)
         return "\n".join(sections)
 
+    def format_bounded_answer(
+        self,
+        answer: str,
+        analysis: QueryAnalysis,
+        cited_contexts: Iterable[SearchResult],
+        *,
+        unsupported_requirements: Iterable[str],
+    ) -> str:
+        """Format a partial-evidence answer without silently filling a gap.
+
+        ``unsupported_requirements`` is supplied by a deterministic
+        requirement matcher, not guessed from the model response.  Keeping the
+        limitation outside the generated text guarantees that a concise model
+        answer cannot hide the evidence boundary.
+        """
+        missing = [item for item in unsupported_requirements if item]
+        limitation = (
+            "제공된 원본 자료에서는 " + ", ".join(missing) + "을(를) 직접 확인할 수 없습니다. "
+            "아래는 확인된 근거 범위에서만 안내합니다."
+            if missing
+            else "제공된 원본 자료에서 확인된 범위에서만 안내합니다."
+        )
+        cited = list(cited_contexts)
+        answer = self._complete_source_bound_document_request(answer, analysis, cited)
+        sections = ["[답변]", limitation, "", answer.strip(), "", "[근거]"]
+        sections.extend(self._citation(item) for item in cited)
+        notices = self._notices(analysis, insufficient=True)
+        sections.extend(["", "[유의사항]"])
+        sections.append("- 확인되지 않은 항목은 추측하지 않았습니다.")
+        sections.extend(f"- {notice}" for notice in notices)
+        return "\n".join(sections)
+
+    def format_no_evidence_boundary(
+        self,
+        assessment: EvidenceAssessment,
+        analysis: QueryAnalysis,
+    ) -> str:
+        """Explain a factual evidence gap while preserving policy distinctions.
+
+        This branch deliberately does not invent a 'closest fact'.  A closest
+        fact is only shown through :meth:`format_bounded_answer` after it has
+        passed a direct requirement match and citation validation.
+        """
+        if assessment.reason in {
+            "unsupported_or_personal_information",
+            "conditional_recommendation_requires_user_conditions",
+            "primary_original_evidence_missing",
+        }:
+            return self.format_insufficient(assessment, analysis)
+        missing = ", ".join(assessment.missing_requirements)
+        message = "제공된 원본 문서에서 질문의 핵심 정보를 직접 확인하지 못했습니다."
+        if missing:
+            message += f" 확인되지 않은 항목: {missing}."
+        message += " 근거가 없는 내용은 추측하지 않겠습니다."
+        sections = ["[답변]", message, "", "[유의사항]"]
+        sections.append("- 관련 있어 보이는 일반 안내문을 질문의 직접 근거로 대신 사용하지 않습니다.")
+        sections.extend(f"- {notice}" for notice in self._notices(analysis, insufficient=True))
+        return "\n".join(sections)
+
     @staticmethod
     def _complete_source_bound_document_request(
         answer: str,

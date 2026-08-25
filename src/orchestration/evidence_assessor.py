@@ -10,6 +10,25 @@ class EvidenceAssessment:
     reason: str
     missing_requirements: list[str] = field(default_factory=list)
     selected_chunk_ids: list[str] = field(default_factory=list)
+    # ``full`` is the existing generation contract.  ``partial`` is allowed
+    # only when a requirement-aware selector has identified at least one
+    # direct, supported factual unit; it is never inferred from merely related
+    # retrieval text.  This preserves the fail-closed evidence boundary while
+    # allowing the writer to disclose a missing unit and answer the rest.
+    supported_requirements: list[str] = field(default_factory=list)
+    evidence_status: str = ""
+
+    def __post_init__(self) -> None:
+        if self.evidence_status:
+            return
+        status = "full" if self.sufficient else (
+            "partial" if self.supported_requirements else "none"
+        )
+        object.__setattr__(self, "evidence_status", status)
+
+    @property
+    def is_bounded(self) -> bool:
+        return self.evidence_status == "partial"
 
 
 class EvidenceAssessor:

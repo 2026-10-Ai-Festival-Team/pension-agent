@@ -53,6 +53,40 @@ def test_read_only_shadow_exception_does_not_change_candidate_response():
     assert response.json()["answer"]
 
 
+def test_optional_trace_writer_observes_pipeline_without_changing_response():
+    class CollectingTraceWriter:
+        def __init__(self):
+            self.records = []
+
+        def record(self, **record):
+            self.records.append(record)
+
+    writer = CollectingTraceWriter()
+    response = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator()), trace_writer=writer)).post(
+        "/answer",
+        headers={"X-Request-ID": "request-123"},
+        json={"question": "DB형 운용 주체는?"},
+    )
+
+    assert response.status_code == 200
+    assert len(writer.records) == 1
+    assert writer.records[0]["request_id"] == "request-123"
+    assert writer.records[0]["think_trace"]["displayed_evidence_chunk_ids"] == ["c1"]
+
+
+def test_trace_writer_exception_does_not_change_candidate_response():
+    class ExplodingTraceWriter:
+        def record(self, **_):
+            raise RuntimeError("trace failure")
+
+    response = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator()), trace_writer=ExplodingTraceWriter())).post(
+        "/answer", json={"question": "DB형 운용 주체는?"}
+    )
+
+    assert response.status_code == 200
+    assert response.json()["answer"]
+
+
 def test_get_answer_uses_evaluation_contract():
     client = TestClient(create_app(PensionAgent(StubRetriever(), FakeGenerator())))
     response = client.get("/answer", params={"question_id": "Q-001", "question": "DB형 운용 주체는?"})

@@ -1,0 +1,45 @@
+{
+  "artifact": "ncp_api_gateway_final_smoke_v1",
+  "decision": "GO",
+  "gateway_route": "API Gateway -> public candidate gateway -> candidate core",
+  "generator_model": "HCX-007",
+  "generator_prompt_version": "generator_prompt_final_v2_1",
+  "generator_prompt_sha256": "05763afaa082af98832a04d29001a9d2ee1f353308cd4cc8e651e3b15b9c83a8",
+  "records": [
+    {
+      "question_id": "APIGW-SMOKE-002",
+      "expected_outcome": "clarification_required",
+      "actual_outcome": "clarification_required",
+      "http_status": 200,
+      "gateway_origin": "ENDPOINT",
+      "response_schema_strings": true,
+      "raw_internal_id_exposed_in_answer": false,
+      "cla_trace": "PASS"
+    },
+    {
+      "question_id": "APIGW-SMOKE-003",
+      "expected_outcome": "bounded_answer",
+      "actual_outcome": "bounded_answer",
+      "http_status": 200,
+      "gateway_origin": "ENDPOINT",
+      "response_schema_strings": true,
+      "raw_internal_id_exposed_in_answer": false,
+      "cla_trace": "PASS"
+    },
+    {
+      "question_id": "APIGW-SMOKE-004",
+      "expected_outcome": "supported_answer",
+      "actual_outcome": "supported_answer",
+      "http_status": 200,
+      "gateway_origin": "ENDPOINT",
+      "response_schema_strings": true,
+      "citation_document_display": "PASS",
+      "raw_internal_id_exposed_in_answer": false,
+      "cla_trace": "PASS"
+    }
+  ],
+  "filebeat": {
+    "active": true,
+    "enabled": true
+  }
+}

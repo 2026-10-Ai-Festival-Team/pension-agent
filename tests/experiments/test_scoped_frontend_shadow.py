@@ -84,6 +84,39 @@ class _TaxTimingRetriever(_Retriever):
         )
 
 
+class _IrpLegalGroundsRetriever(_Retriever):
+    def search(self, query, top_k):
+        self.queries.append(query)
+        return SearchResponse(
+            query=query,
+            tokenizer="simple",
+            total_candidates=3,
+            results=[
+                SearchResult(
+                    rank=1, chunk_id="reason-table", score=3.0,
+                    text="IRP 중도인출 사유(근퇴법 적용) | 주택 구입 | 요양",
+                    source_id="source-1", source_path="guide.docx", source_format="docx", document_type="guide",
+                    locator=ChunkLocator(page_start=1, page_end=1), source_type=SourceType.ORIGINAL,
+                    authority_level=AuthorityLevel.PRIMARY,
+                ),
+                SearchResult(
+                    rank=2, chunk_id="legal-rule", score=2.0,
+                    text="IRP는 근퇴법의 적용을 받으며 중도인출 사유를 법으로 열거하고 있습니다.",
+                    source_id="source-1", source_path="guide.docx", source_format="docx", document_type="guide",
+                    locator=ChunkLocator(page_start=2, page_end=2), source_type=SourceType.ORIGINAL,
+                    authority_level=AuthorityLevel.PRIMARY,
+                ),
+                SearchResult(
+                    rank=3, chunk_id="unrelated", score=1.0,
+                    text="IRP 계좌의 세액공제 한도입니다.",
+                    source_id="source-1", source_path="guide.docx", source_format="docx", document_type="guide",
+                    locator=ChunkLocator(page_start=3, page_end=3), source_type=SourceType.ORIGINAL,
+                    authority_level=AuthorityLevel.PRIMARY,
+                ),
+            ],
+        )
+
+
 def test_shadow_prepares_requirement_scoped_context_without_calling_a_candidate_agent():
     retriever = _Retriever()
     plan = ScopedFrontendPreparationShadow(retriever).prepare(
@@ -150,6 +183,20 @@ def test_tax_timing_direct_field_signal_excludes_transfer_route_only_evidence():
     )
 
     assert plan.requirement_candidates == {"retirement_income.IRP_transfer.tax_timing": ("tax-timing",)}
+
+
+def test_irp_early_withdrawal_binds_legal_rule_with_reason_table():
+    plan = ScopedFrontendPreparationShadow(_IrpLegalGroundsRetriever()).prepare(
+        "IRP 수령 개시 전 법정 요건", {
+            "status": "selected", "active_subject": "IRP",
+            "allowed_requirements": ["IRP.early_withdrawal.allowed_reasons"],
+            "selected_requirements": ["IRP.early_withdrawal.allowed_reasons"],
+        },
+    )
+
+    assert plan.requirement_candidates == {
+        "IRP.early_withdrawal.allowed_reasons": ("reason-table", "legal-rule"),
+    }
 
 
 def test_shadow_preserves_unresolved_as_no_retrieval():

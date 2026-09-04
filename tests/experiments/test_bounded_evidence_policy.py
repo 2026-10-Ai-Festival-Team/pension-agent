@@ -26,6 +26,7 @@ def _primary() -> SearchResult:
         locator=ChunkLocator(page_start=3, page_end=3),
         source_type=SourceType.ORIGINAL,
         authority_level=AuthorityLevel.PRIMARY,
+        metadata={"document_id": "DOC-TEST00000006"},
     )
 
 
@@ -67,7 +68,8 @@ def test_partial_requirement_evidence_calls_generator_with_bounded_outcome():
     assert response["think_trace"]["generator_called"] is True
     assert "사유별 증빙서류" in response["answer"]
     assert "확인된 근거 범위" in response["answer"]
-    assert "dc-reason" in response["answer"]
+    assert "[DOC-TEST00000006, p.3]" in response["answer"]
+    assert "dc-reason" not in response["answer"]
 
 
 def test_none_evidence_does_not_substitute_a_generic_fact():

@@ -21,6 +21,7 @@ def result(*, source_type=SourceType.ORIGINAL, authority_level=AuthorityLevel.PR
         element_ids=["element-1"],
         score=1.0,
         text="세액공제 관련 일반 안내입니다.",
+        metadata={"document_id": "DOC-TEST00000001"},
         source_type=source_type,
         authority_level=authority_level,
         as_of_date=as_of_date,
@@ -49,7 +50,8 @@ def test_tax_answer_has_evidence_and_contextual_notice():
 
     assert "[답변]" in answer
     assert "[근거]" in answer
-    assert "[출처: guide.pdf, 2페이지, 기준일 2026-01-01, original-1]" in answer
+    assert "[DOC-TEST00000001, p.2]" in answer
+    assert "original-1" not in answer
     assert "[유의사항]" in answer
     assert "세무전문가" in answer
 
@@ -186,6 +188,14 @@ def test_recommendation_policy_uses_complete_profile_and_expanded_single_turn_co
     assert "투자 기간" not in complete.missing_conditions
 
 
+def test_recommendation_policy_does_not_treat_legal_withdrawal_judgment_as_product_advice():
+    decision = FinancialAnswerPolicy().recommendation_decision(
+        QueryAnalyzer().analyze("연금저축에서 연금수령 전에 돈을 꺼내는 판단은 어떤 예외 사정을 기준으로 하나요?")
+    )
+
+    assert not decision.is_recommendation_context
+
+
 def test_personal_tax_and_unsupported_blocks_are_specific_to_the_first_turn():
     policy = FinancialAnswerPolicy()
     tax = QueryAnalyzer().analyze("퇴직금을 연금으로 받을 때 세금을 가장 적게 내게 제게 맞는 방법을 정해 주세요.")
@@ -194,3 +204,25 @@ def test_personal_tax_and_unsupported_blocks_are_specific_to_the_first_turn():
     assert "개인 식별정보" in policy.format_unsupported_safety_block("personal_account_lookup")
     assert "미래 시장" in policy.format_unsupported_safety_block("unavailable_external_information")
     assert "내부 지시" in policy.format_unsupported_safety_block("prompt_injection")
+
+
+def test_future_boundary_covers_forecast_wording_but_not_a_documented_future_effective_date():
+    policy = FinancialAnswerPolicy()
+
+    assert policy.requires_future_value_boundary(QueryAnalyzer().analyze("2030년 위험등급이 지금과 같을지 결론낼 수 있나요?"))
+    assert policy.requires_future_value_boundary(QueryAnalyzer().analyze("IRP 연금수령의 미래 세율을 확정해 주세요."))
+    assert not policy.requires_future_value_boundary(QueryAnalyzer().analyze("문서에 기재된 2028년 시행일은 언제인가요?"))
+
+
+def test_future_boundary_accepts_risk_classification_and_future_guarantee_variants():
+    policy = FinancialAnswerPolicy()
+
+    assert policy.requires_future_value_boundary(QueryAnalyzer().analyze("투자설명서만 보고 2031년의 위험 분류를 지금 확정할 수 있나요?"))
+    assert policy.requires_future_value_boundary(QueryAnalyzer().analyze("ISA 전환 세액공제 한도가 다음 해에도 같다고 보장할 수 있나요?"))
+
+
+def test_personal_tax_clarification_covers_income_dependent_credit_question():
+    policy = FinancialAnswerPolicy()
+
+    assert policy.requires_personal_tax_clarification(QueryAnalyzer().analyze("개인 소득을 고려하면 연금계좌 공제를 얼마나 받아야 할까요?"))
+    assert policy.requires_personal_tax_clarification(QueryAnalyzer().analyze("내 상황에서 세금 부담이 가장 적은 연금 수령 방법을 정해 주세요."))

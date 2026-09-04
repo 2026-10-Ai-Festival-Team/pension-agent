@@ -97,6 +97,111 @@ def test_confirmation_uncertainty_keeps_db_operation_requirement_even_if_hcx_sel
     assert result.diagnostic["deterministic_confirmation_requirements"] == ["DB.operation_party"]
 
 
+def test_dc_contribution_floor_alias_resolves_a_contradictory_unresolved_selector_response():
+    allowed = requirements_for_active_subject("DC")
+    selector = HCXDirectRequirementSelector(
+        config=_config(), transport=Transport({"selected_requirements": [], "unresolved": True}),
+    )
+    for question in (
+        "DC형 사용자의 연간 부담금 하한을 숫자로 알려주세요.",
+        "DC 부담금의 최소 기준은 얼마인가요?",
+        "DC형 사용자 부담금은 연간 임금의 12분의 1 이상인가요?",
+    ):
+        result = selector.select(question, allowed_requirements=allowed, active_subjects=("DC",))
+        assert result.selected_requirements == ("DC.employer_contribution",)
+        assert result.unresolved is False
+        assert result.diagnostic["deterministic_alias_requirements"] == ["DC.employer_contribution"]
+
+
+def test_dc_alias_does_not_turn_an_unrelated_query_into_a_requirement():
+    result = HCXDirectRequirementSelector(
+        config=_config(), transport=Transport({"selected_requirements": [], "unresolved": True}),
+    ).select(
+        "DC형 가입자 교육은 누가 하나요?",
+        allowed_requirements=requirements_for_active_subject("DC"), active_subjects=("DC",),
+    )
+
+    assert result.selected_requirements == ()
+    assert result.unresolved is True
+    assert result.diagnostic["deterministic_alias_requirements"] == []
+
+
+def test_explicit_field_locks_remove_related_selector_fields_without_widening_scope():
+    selector = HCXDirectRequirementSelector(
+        config=_config(),
+        transport=Transport({"selected_requirements": ["DC.operation_party", "DC.early_withdrawal.allowed_reasons"], "unresolved": False}),
+    )
+    cases = (
+        ("DC형 퇴직급여에 부담금과 운용성과가 함께 반영되나요?", ("DC.benefit_determination",)),
+        ("DC 가입자 교육을 외부에 맡길 수 있나요?", ("retirement_pension.participant_education.outsourcing",)),
+        ("DC 가입자 교육을 교육기관이나 금융회사에 맡겨도 되는지 궁금합니다.", ("retirement_pension.participant_education.outsourcing",)),
+        ("DC 중도인출 때 증빙서류가 필요한가요?", ("DC.early_withdrawal.required_documents",)),
+    )
+    for question, expected in cases:
+        result = selector.select(question, allowed_requirements=requirements_for_active_subject("DC"), active_subjects=("DC",))
+        assert result.selected_requirements == expected
+        assert result.diagnostic["deterministic_field_lock_requirements"] == list(expected)
+
+
+def test_field_locks_cover_isa_rate_cap_and_irp_tax_deferral_without_broadening_scope():
+    isa = HCXDirectRequirementSelector(
+        config=_config(), transport=Transport({"selected_requirements": [], "unresolved": True}),
+    ).select(
+        "ISA 만기자금 전환 추가 세액공제의 공제율과 최대 금액을 알려주세요.",
+        allowed_requirements=requirements_for_active_subject("ISA"), active_subjects=("ISA",),
+    )
+    irp = HCXDirectRequirementSelector(
+        config=_config(), transport=Transport({"selected_requirements": ["pension_account.investment_income.tax_timing"], "unresolved": False}),
+    ).select(
+        "IRP 운용수익은 비과세가 아니라 과세를 뒤로 미루는 구조인가요?",
+        allowed_requirements=requirements_for_active_subject("IRP"), active_subjects=("IRP",),
+    )
+
+    assert isa.selected_requirements == ("ISA.transfer.additional_tax_credit",)
+    assert irp.selected_requirements == (
+        "pension_account.investment_income.tax_timing", "pension_account.investment_income.not_tax_exempt",
+    )
+    assert "IRP.early_withdrawal.allowed_reasons" not in irp.selected_requirements
+
+
+def test_irp_catalog_allows_canonical_pension_account_fields_but_not_pension_savings_fields():
+    allowed = requirements_for_active_subject("IRP")
+
+    assert "pension_account.partial_withdrawal.condition" in allowed
+    assert "pension_account.investment_income.tax_timing" in allowed
+    assert "retirement_pension.in_kind_transfer.definition" in allowed
+    assert "pension_savings.withdrawal.tax_treatment" not in allowed
+
+
+def test_irp_in_kind_transfer_definition_lock_overrides_application_route():
+    result = HCXDirectRequirementSelector(
+        config=_config(),
+        transport=Transport({
+            "selected_requirements": ["retirement_pension.in_kind_transfer.IRP.application_route"],
+            "unresolved": False,
+        }),
+    ).select(
+        "IRP 실물이전은 보유상품을 매도하지 않고 금융회사를 바꾸는 절차인가요?",
+        allowed_requirements=requirements_for_active_subject("IRP"),
+        active_subjects=("IRP",),
+    )
+
+    assert result.selected_requirements == ("retirement_pension.in_kind_transfer.definition",)
+    assert result.diagnostic["deterministic_field_lock_requirements"] == ["retirement_pension.in_kind_transfer.definition"]
+
+
+def test_resolver_first_dc_contribution_floor_reaches_a_selected_frontend_contract():
+    result = ResolverFirstScopedSelector(
+        HCXDirectRequirementSelector(
+            config=_config(), transport=Transport({"selected_requirements": [], "unresolved": True}),
+        )
+    ).select("DC형 사용자의 연간 부담금 하한을 숫자로 알려주세요.")
+
+    assert result.status == "selected"
+    assert result.active_subject == "DC"
+    assert result.selection.selected_requirements == ("DC.employer_contribution",)
+
+
 def test_direct_requirement_evaluator_exposes_multi_requirement_recall_and_extra_requirements():
     rows = [{"source_question_id": "Q-1", "question": "q", "selected_requirements": ["A", "B"]}]
     result = score_requirement_predictions(rows, {"Q-1": ("A", "C")})

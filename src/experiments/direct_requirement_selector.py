@@ -77,7 +77,7 @@ _PRODUCT_CODE = re.compile(r"KR[A-Z0-9]{10}", re.IGNORECASE)
 _SCOPE_PREFIXES: dict[str, tuple[str, ...]] = {
     "DB": ("DB.", "retirement_pension.participant_education.", "retirement_pension.in_kind_transfer.DB_DC."),
     "DC": ("DC.", "retirement_pension.participant_education.", "retirement_pension.in_kind_transfer.DB_DC.", "retirement_pension.ETF."),
-    "IRP": ("IRP.", "retirement_income.IRP", "retirement_pension.in_kind_transfer.IRP."),
+    "IRP": ("IRP.", "pension_account.", "general_account.", "retirement_income.IRP", "retirement_pension.in_kind_transfer."),
     "pension_savings": ("pension_savings.",),
     "ISA": ("ISA.",),
 }
@@ -100,6 +100,72 @@ def requirements_for_active_subject(subject: str) -> tuple[str, ...]:
     if not prefixes:
         raise ValueError(f"no subject-filtered requirement catalog for {subject!r}")
     return tuple(key for key in DIRECT_REQUIREMENTS if key.startswith(prefixes))
+
+
+def _deterministic_alias_requirements(
+    question: str,
+    *,
+    active_subjects: tuple[str, ...],
+    allowed_requirements: tuple[str, ...],
+) -> tuple[str, ...]:
+    """Resolve a closed canonical alias only when its factual predicate is explicit.
+
+    This is not a confidence fallback: the model's contradictory
+    ``unresolved=true`` cannot suppress a requirement that the uniquely
+    scoped question names directly.  The rule is deliberately limited to the
+    DC contribution-floor phrasing and has no retrieval or outcome behavior.
+    """
+    normalized = lexically_normalize(question).replace(" ", "")
+    if active_subjects != ("DC",):
+        return ()
+    if "DC.employer_contribution" not in allowed_requirements:
+        return ()
+    has_contribution = "부담금" in normalized
+    has_floor = any(marker in normalized for marker in ("하한", "최소", "최저", "12분의1", "1/12"))
+    return ("DC.employer_contribution",) if has_contribution and has_floor else ()
+
+
+def _deterministic_field_lock_requirements(
+    question: str,
+    *,
+    active_subjects: tuple[str, ...],
+    allowed_requirements: tuple[str, ...],
+) -> tuple[str, ...]:
+    """Lock an explicit, single factual field against related-field bleed.
+
+    These are canonical predicate families (not evaluation-question strings).
+    A lock only applies when the subject and the requested factual dimension
+    are both explicit.  It never lowers selection confidence or fills a
+    missing subject.
+    """
+    normalized = lexically_normalize(question).replace(" ", "")
+    allowed = set(allowed_requirements)
+    def locked(requirements: tuple[str, ...]) -> tuple[str, ...]:
+        return requirements if set(requirements) <= allowed else ()
+    if active_subjects == ("DC",):
+        if "퇴직급여" in normalized and any(term in normalized for term in ("부담금", "운용성과", "운용결과")):
+            return locked(("DC.benefit_determination",))
+        if "ETF" in normalized and any(term in normalized for term in ("레버리지", "인버스")):
+            return locked(("retirement_pension.ETF.leverage_inverse_restriction",))
+        if "가입자교육" in normalized and any(term in normalized for term in ("위탁", "맡기", "맡길", "맡겨")):
+            return locked(("retirement_pension.participant_education.outsourcing",))
+        if "중도인출" in normalized and any(term in normalized for term in ("증빙", "서류", "구비")):
+            return locked(("DC.early_withdrawal.required_documents",))
+    if active_subjects == ("ISA",):
+        if "추가세액공제" in normalized and any(term in normalized for term in ("공제율", "비율", "한도", "최대금액", "최대")):
+            return locked(("ISA.transfer.additional_tax_credit",))
+    if active_subjects == ("IRP",):
+        if "실물이전" in normalized and any(term in normalized for term in ("매도", "금융회사", "바꾸")):
+            return locked(("retirement_pension.in_kind_transfer.definition",))
+        if "퇴직급여" in normalized and "연금" in normalized and any(term in normalized for term in ("운용중", "연금수령", "수령시")):
+            return locked(("retirement_income.IRP_transfer.tax_timing",))
+        if "일반계좌" in normalized and any(term in normalized for term in ("과세시점", "언제과세", "과세")):
+            return locked(("general_account.investment_income.tax_timing",))
+        if "운용수익" in normalized and any(term in normalized for term in ("면세", "과세이연", "세금을이연", "과세를뒤")):
+            return locked(("pension_account.investment_income.tax_timing", "pension_account.investment_income.not_tax_exempt"))
+        if "일부" in normalized and any(term in normalized for term in ("인출", "꺼내", "빼")):
+            return locked(("pension_account.partial_withdrawal.condition",))
+    return ()
 
 
 @dataclass(frozen=True)
@@ -300,15 +366,27 @@ class HCXDirectRequirementSelector:
                     active_subjects=active_subjects,
                     allowed_requirements=allowed_requirements or DIRECT_REQUIREMENTS,
                 )
-                selected = tuple(sorted(set(validated.selected_requirements) | set(forced)))
+                aliases = _deterministic_alias_requirements(
+                    question,
+                    active_subjects=active_subjects,
+                    allowed_requirements=allowed_requirements or DIRECT_REQUIREMENTS,
+                )
+                field_lock = _deterministic_field_lock_requirements(
+                    question,
+                    active_subjects=active_subjects,
+                    allowed_requirements=allowed_requirements or DIRECT_REQUIREMENTS,
+                )
+                selected = field_lock or tuple(sorted(set(validated.selected_requirements) | set(forced) | set(aliases)))
                 return replace(
                     validated,
                     selected_requirements=selected,
-                    unresolved=False if forced else validated.unresolved,
+                    unresolved=False if forced or aliases or field_lock else validated.unresolved,
                     diagnostic={
                         **validated.diagnostic,
                         "confirmation_normalization": confirmation.as_dict(),
                         "deterministic_confirmation_requirements": list(forced),
+                        "deterministic_alias_requirements": list(aliases),
+                        "deterministic_field_lock_requirements": list(field_lock),
                     },
                 )
             except GenerationError:

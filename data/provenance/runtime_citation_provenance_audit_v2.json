@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "registry": "data/provenance/runtime_citation_provenance_v2.json",
+  "inputs": {
+    "corpus": "data/parsed/chunks.jsonl",
+    "corpus_sha256": "c61ac0d54dc9af5ee339460b8b810076f6df998c76f54983d667660a1e8eaead",
+    "manifest": "data/manifest.csv",
+    "manifest_sha256": "db0ffb11fa6957feab202f7b789ff66532155480be6f5aa2ce385f97af4995aa",
+    "authoritative_bridge": "data/provenance/document_id_bridge_v1.json",
+    "authoritative_bridge_sha256": "1dde2f2c5e8e904e16c11c56cb65b4d78755e3bfff3961ae969f8e03f9ad499d"
+  },
+  "inventory": {
+    "manifest_source_count": 158,
+    "runtime_source_count": 155,
+    "excluded_from_runtime_count": 3,
+    "excluded_from_runtime": [
+      {
+        "file_id": "6a9fc4484a34f8ed",
+        "source_path": "docs_renamed/doc31.pdf",
+        "reason": "no runtime chunks; parser reported no extractable native text"
+      },
+      {
+        "file_id": "00db21ed21cfa0e0",
+        "source_path": "docs_renamed/doc37.pdf",
+        "reason": "no runtime chunks; parser reported no extractable native text"
+      },
+      {
+        "file_id": "e52c8986fc1c3cf6",
+        "source_path": "docs_renamed/doc56.pdf",
+        "reason": "no runtime chunks; parser reported no extractable native text"
+      }
+    ]
+  },
+  "mapping": {
+    "source_identity_count": 155,
+    "mapped_source_count": 3,
+    "unmapped_source_count": 152,
+    "duplicate_document_id": [],
+    "duplicate_source_path": [],
+    "path_mismatch": [],
+    "unknown_source": [],
+    "invalid_document_id": [],
+    "sources_without_page_slide_sheet": [
+      {
+        "source_id": "04782a392f49293e",
+        "source_path": "docs_renamed/doc55.docx"
+      },
+      {
+        "source_id": "13621d38202e2fc3",
+        "source_path": "docs_renamed/doc43.docx"
+      },
+      {
+        "source_id": "2578707c6323de46",
+        "source_path": "docs_renamed/doc6.docx"
+      },
+      {
+        "source_id": "4d6edde4fa5b925d",
+        "source_path": "docs_renamed/doc26.docx"
+      },
+      {
+        "source_id": "55f36905c388adb6",
+        "source_path": "docs_renamed/doc39.docx"
+      },
+      {
+        "source_id": "7878a3be5806fef4",
+        "source_path": "docs_renamed/doc51.docx"
+      },
+      {
+        "source_id": "7cce439d30d5a8b0",
+        "source_path": "docs_renamed/doc41.docx"
+      },
+      {
+        "source_id": "98556b19ed28c070",
+        "source_path": "docs_renamed/doc40.docx"
+      },
+      {
+        "source_id": "a1e78e21d33dafed",
+        "source_path": "docs_renamed/doc25.docx"
+      },
+      {
+        "source_id": "ae129529aa810970",
+        "source_path": "docs_renamed/doc45.docx"
+      },
+      {
+        "source_id": "ae22159be59440b6",
+        "source_path": "docs_renamed/doc23.docx"
+      },
+      {
+        "source_id": "afc99f5bd68cc78b",
+        "source_path": "docs_renamed/doc35.docx"
+      },
+      {
+        "source_id": "cb50751d7ccd46bf",
+        "source_path": "docs_renamed/doc52.docx"
+      },
+      {
+        "source_id": "d675532c6fdce7d2",
+        "source_path": "docs_renamed/doc38.docx"
+      },
+      {
+        "source_id": "de4f8448134189df",
+        "source_path": "docs_renamed/doc42.docx"
+      },
+      {
+        "source_id": "e8d7e6a69504e042",
+        "source_path": "docs_renamed/doc20.docx"
+      },
+      {
+        "source_id": "eec10989c7067926",
+        "source_path": "docs_renamed/doc36.docx"
+      },
+      {
+        "source_id": "eef705af2a7c3c57",
+        "source_path": "docs_renamed/doc44.docx"
+      }
+    ],
+    "locator_available_source_count": 137,
+    "document_scope_fallback_source_count": 18,
+    "citation_renderable_source_count": 155,
+    "raw_chunk_id_user_facing_exposure": 0
+  },
+  "gate": {
+    "decision": "PASS",
+    "reasons": [],
+    "citation_contract": {
+      "priority": [
+        "verified document_id + locator",
+        "authoritative original source filename + locator",
+        "authoritative original source filename document-level"
+      ],
+      "document_id_absence_is_failure": false,
+      "locator_absence_is_failure_when_source_identity_exists": false
+    }
+  },
+  "registry_sha256": "b694820d657af07bde80474b8e2e85080378359c852e5484499fdd9ac7c1ad46"
+}

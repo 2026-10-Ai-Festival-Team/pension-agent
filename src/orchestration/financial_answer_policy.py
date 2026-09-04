@@ -8,6 +8,12 @@ from typing import Iterable
 
 from src.models.document import AuthorityLevel, SourceType
 from src.models.retrieval import SearchResult
+from src.orchestration.citation_renderer import (
+    DocumentCitationRenderer,
+    RenderedCitation,
+    assert_no_raw_chunk_ids,
+    strip_model_citation_block,
+)
 from src.orchestration.evidence_assessor import EvidenceAssessment
 from src.orchestration.query_analyzer import QueryAnalysis
 
@@ -33,16 +39,27 @@ class ProductReferenceDecision:
 class FinancialAnswerPolicy:
     """원문 근거·정보 한계·상품 추천 원칙을 사용자 응답에 일관되게 적용한다."""
 
+    def __init__(self, citation_renderer: DocumentCitationRenderer | None = None) -> None:
+        self.citation_renderer = citation_renderer or DocumentCitationRenderer()
+
+    def render_citations(self, cited_contexts: Iterable[SearchResult]) -> tuple[RenderedCitation, ...]:
+        return self.citation_renderer.render(cited_contexts)
+
     def format_answer(
         self,
         answer: str,
         analysis: QueryAnalysis,
         cited_contexts: Iterable[SearchResult],
+        *,
+        rendered_citations: Iterable[RenderedCitation] | None = None,
     ) -> str:
         cited = list(cited_contexts)
+        answer = strip_model_citation_block(answer)
+        assert_no_raw_chunk_ids(answer, cited)
         answer = self._complete_source_bound_document_request(answer, analysis, cited)
+        citations = tuple(rendered_citations) if rendered_citations is not None else self.render_citations(cited)
         sections = ["[답변]", answer.strip(), "", "[근거]"]
-        sections.extend(self._citation(item) for item in cited)
+        sections.extend(item.display() for item in citations)
         notices = self._notices(analysis)
         if notices:
             sections.extend(["", "[유의사항]"])
@@ -56,6 +73,7 @@ class FinancialAnswerPolicy:
         cited_contexts: Iterable[SearchResult],
         *,
         unsupported_requirements: Iterable[str],
+        rendered_citations: Iterable[RenderedCitation] | None = None,
     ) -> str:
         """Format a partial-evidence answer without silently filling a gap.
 
@@ -72,9 +90,12 @@ class FinancialAnswerPolicy:
             else "제공된 원본 자료에서 확인된 범위에서만 안내합니다."
         )
         cited = list(cited_contexts)
+        answer = strip_model_citation_block(answer)
+        assert_no_raw_chunk_ids(answer, cited)
         answer = self._complete_source_bound_document_request(answer, analysis, cited)
+        citations = tuple(rendered_citations) if rendered_citations is not None else self.render_citations(cited)
         sections = ["[답변]", limitation, "", answer.strip(), "", "[근거]"]
-        sections.extend(self._citation(item) for item in cited)
+        sections.extend(item.display() for item in citations)
         notices = self._notices(analysis, insufficient=True)
         sections.extend(["", "[유의사항]"])
         sections.append("- 확인되지 않은 항목은 추측하지 않았습니다.")
@@ -156,13 +177,29 @@ class FinancialAnswerPolicy:
 
         question = analysis.question.replace(" ", "")
         safety_premise = self._is_past_performance_safety_premise(question)
-        explicit_recommendation = not safety_premise and any(
+        direct_recommendation = any(marker in question for marker in (
+            "추천", "골라", "선정", "최고", "가장좋은", "제일나아", "좋은상품", "좋은 상품",
+            "수익률제일높", "수익률높은", "무조건", "나을까", "어디에더넣", "어떤비율",
+        ))
+        # ``판단`` can ask for a factual legal/tax criterion (for example,
+        # an early-withdrawal exception).  Treat it as recommendation language
+        # only when its surrounding object is an investment/product choice;
+        # an account name alone is not enough.
+        choice_context = any(
             marker in question
-            for marker in (
-                "추천", "골라", "선정", "최고", "가장좋은",
-                "수익률제일높", "수익률높은", "무조건",
-            )
+            for marker in ("상품", "펀드", "ETF", "매수", "매입", "사도", "골라", "비중", "투자비중", "내게맞", "나에게")
         )
+        account_or_investment_context = any(
+            marker in question for marker in ("상품", "펀드", "ETF", "IRP", "연금저축", "퇴직연금", "투자")
+        )
+        conditional_recommendation = (
+            "비중을정" in question or "비중을몇" in question
+            or "결론" in question and choice_context
+            or "판단" in question and choice_context
+        ) and account_or_investment_context or (
+            "내상황" in question and "맞는" in question and "DB" in question and "DC" in question
+        )
+        explicit_recommendation = not safety_premise and (direct_recommendation or conditional_recommendation)
         has_period = bool(re.search(r"\d+\s*년", question)) or "투자기간" in question
         has_risk_profile = bool(re.search(r"변동.{0,2}감수", question)) or any(
             marker in question
@@ -225,12 +262,44 @@ class FinancialAnswerPolicy:
         """개인 조건 없이 최저 세금을 단정해 달라는 요청을 생성 전에 막는다."""
         question = analysis.question.replace(" ", "")
         tax_optimization = any(marker in question for marker in (
-            "세금을가장적게", "최저세금", "세금을줄이는방법", "절세방법", "세금이적은",
+            "세금을가장적게", "세금을가장줄", "세금부담이가장적", "최저세금", "세금을줄이는방법", "절세방법", "세금이적은", "공제를얼마나",
         ))
         personal_conclusion = any(marker in question for marker in (
-            "하나만정", "제상황", "제게맞", "나에게", "무조건",
+            "하나만정", "방법을정", "제상황", "내상황", "제게맞", "나에게", "무조건", "개인소득", "소득을고려",
         ))
         return tax_optimization and personal_conclusion
+
+    @staticmethod
+    def requires_future_value_boundary(analysis: QueryAnalysis) -> bool:
+        """Recognise an unsupported *specific* future value without guessing it.
+
+        This is deliberately narrower than an ordinary question about whether
+        a risk grade may change.  It only covers a concrete future value/date
+        requested for a field whose current documentation cannot determine
+        that future fact.
+        """
+        question = analysis.question.replace(" ", "")
+        future = bool(re.search(r"20\d{2}년|\d+년(?:뒤|후)|내년|내후년|다음해|향후|앞으로|장래|미래", question))
+        concrete = any(marker in question for marker in (
+            "몇등급", "얼마", "몇퍼센트", "몇%", "언제", "확정", "수치", "숫자", "약속", "단정",
+            "확약", "확언", "고정", "같을지", "같을까", "같다고", "바뀌지", "늘어난", "결론", "금액", "적용될", "예측", "결정",
+        ))
+        field = any(marker in question for marker in (
+            "위험등급", "위험분류", "수익률", "총보수", "총비용", "기간별비용", "가입자교육", "교육의무", "법정사유", "중도인출사유", "금리", "세율", "세금", "공제한도", "부담금", "기한",
+        ))
+        documented_future = any(marker in question for marker in ("문서에기재", "시행예정", "시행일", "고시", "공고"))
+        return future and concrete and field and not documented_future
+
+    @staticmethod
+    def format_future_value_boundary() -> str:
+        return "\n".join((
+            "[답변]",
+            "제공된 원본 문서만으로는 장래 시점의 구체적인 수치·등급·변경 시점을 확정할 수 없습니다. "
+            "확인되지 않은 미래값을 만들거나 현재 값이 그대로 적용된다고 단정하지 않겠습니다.",
+            "",
+            "[유의사항]",
+            "- 현재 문서에 기재된 사실과 장래의 확정값은 구분해서 확인해야 합니다.",
+        ))
 
     @staticmethod
     def format_unsupported_safety_block(category: str) -> str:
@@ -262,13 +331,18 @@ class FinancialAnswerPolicy:
         """대화 상태를 저장하지 않는 현재 API에서 임의 상품 추론을 막는다."""
 
         question = analysis.question
-        generic_reference = any(marker in question for marker in ("이 상품", "해당 상품", "이 펀드", "이것"))
+        generic_reference = any(marker in question for marker in ("이 상품", "그 상품", "해당 상품", "이 펀드", "그 펀드", "이것"))
         risk_or_product_field = any(
-            marker in question for marker in ("안전", "위험", "위험등급", "수익", "보수", "투자대상")
+            marker in question for marker in ("안전", "위험", "위험등급", "수익", "보수", "수수료", "비용", "투자대상")
         )
+        # A bare product/fund noun paired with a product-specific field is
+        # still not an identity in this stateless API.  It cannot select a
+        # product and must ask for its name/code.  Generic financial concepts
+        # without that noun are unaffected.
+        unnamed_product_field = any(marker in question for marker in ("상품", "펀드")) and risk_or_product_field
         return ProductReferenceDecision(
             requires_product_identification=(
-                generic_reference and risk_or_product_field and not analysis.product_codes
+                (generic_reference or unnamed_product_field) and risk_or_product_field and not analysis.product_codes
             )
         )
 
@@ -430,16 +504,3 @@ class FinancialAnswerPolicy:
             "위험등급·투자대상·총보수와 원금보장 여부는 해당 상품의 원본 설명서에서 확인해야 합니다. "
             "실적배당형 상품을 원금보장 또는 손실이 없다고 단정하지 않습니다."
         )
-
-    @staticmethod
-    def _citation(item: SearchResult) -> str:
-        if item.locator.page_start:
-            location = f"{item.locator.page_start}페이지"
-        elif item.locator.slide_start:
-            location = f"{item.locator.slide_start}슬라이드"
-        elif item.locator.sheet:
-            location = f"{item.locator.sheet} 시트"
-        else:
-            location = "위치 정보 없음"
-        as_of = f", 기준일 {item.as_of_date}" if item.as_of_date else ""
-        return f"- [출처: {item.source_path}, {location}{as_of}, {item.chunk_id}]"

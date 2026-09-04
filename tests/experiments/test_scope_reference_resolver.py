@@ -104,6 +104,7 @@ def test_exclusive_scope_connector_family_retains_include_and_exclude_roles():
         ("IRP를 빼고 연금저축 한도만 확인", "pension_savings", "IRP"),
         ("IRP 말고 연금저축 한도를 알려주세요", "pension_savings", "IRP"),
         ("IRP가 아닌 연금저축만 공제 한도를 확인", "pension_savings", "IRP"),
+        ("IRP가 아니라 연금저축만 공제 한도를 확인", "pension_savings", "IRP"),
     )
 
     for question, included, excluded in cases:

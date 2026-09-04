@@ -25,12 +25,14 @@ def _enabled(value: str | None) -> bool:
 class JsonlTraceSettings:
     path: str = ""
     include_question: bool = False
+    agent_version: str = "unknown"
 
     @classmethod
     def from_env(cls) -> "JsonlTraceSettings":
         return cls(
             path=os.getenv("PENSION_TRACE_PATH", "").strip(),
             include_question=_enabled(os.getenv("PENSION_TRACE_INCLUDE_QUESTION")),
+            agent_version=os.getenv("PENSION_AGENT_VERSION", "unknown").strip() or "unknown",
         )
 
 
@@ -59,6 +61,14 @@ class JsonlTraceWriter:
         value = trace.get(key, [])
         return list(value) if isinstance(value, (list, tuple)) else []
 
+    @staticmethod
+    def _stance(trace: dict[str, Any]) -> str | None:
+        """Keep stance classification, never the raw claim/fact text."""
+        value = trace.get("claim_stance")
+        if isinstance(value, dict):
+            return value.get("stance") if isinstance(value.get("stance"), str) else None
+        return value if isinstance(value, str) else None
+
     def record(
         self,
         *,
@@ -67,6 +77,7 @@ class JsonlTraceWriter:
         request_id: str | None,
         endpoint: str,
         question_id: str | None = None,
+        request_latency_ms: float | None = None,
     ) -> None:
         """Write one trace line.
 
@@ -77,24 +88,34 @@ class JsonlTraceWriter:
         record: dict[str, Any] = {
             "schema_version": self.schema_version,
             "timestamp": datetime.now(timezone.utc).isoformat(),
+            "agent_version": self.settings.agent_version,
             "request_id": request_id,
             "question_id": question_id,
             "endpoint": endpoint,
             "question_sha256": self._question_hash(question),
             "route": trace.get("route"),
             "active_subject": trace.get("active_subject"),
+            "resolved_subject": trace.get("active_subject"),
             "frontend_status": trace.get("frontend_status"),
             "frontend_reason": trace.get("frontend_reason"),
             "selected_requirements": self._list(trace, "selected_requirements"),
             "retrieved_chunk_ids": self._list(trace, "retrieved_chunk_ids"),
             "selected_evidence_chunk_ids": self._list(trace, "selected_evidence_chunk_ids"),
+            "selected_evidence_ids": self._list(trace, "selected_evidence_chunk_ids"),
             "cited_chunk_ids": self._list(trace, "cited_chunk_ids"),
+            "query_modality": trace.get("query_modality"),
+            "claim_stance": self._stance(trace),
             "evidence_status": trace.get("evidence_status"),
             "outcome": trace.get("outcome"),
             "assessment_reason": trace.get("assessment_reason"),
             "generation_model": trace.get("generation_model"),
+            # Deployment identity only: no prompt text or credentials.
+            "generator_model": trace.get("generator_model"),
+            "generator_prompt_version": trace.get("generator_prompt_version"),
+            "generator_prompt_sha256": trace.get("generator_prompt_sha256"),
             "generator_called": trace.get("generator_called"),
             "generation_latency_ms": trace.get("generation_latency_ms"),
+            "latency_ms": request_latency_ms,
             "generation_error": trace.get("generation_error"),
         }
         if self.settings.include_question:

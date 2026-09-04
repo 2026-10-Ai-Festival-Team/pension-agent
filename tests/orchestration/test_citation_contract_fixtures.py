@@ -35,6 +35,7 @@ class FixtureRetriever:
                 element_ids=[f"element-{index}"],
                 score=1.0,
                 text="검증 근거",
+                metadata={"document_id": "DOC-TEST00000004"},
             )
             for index, chunk_id in enumerate(chunk_ids)
         ]

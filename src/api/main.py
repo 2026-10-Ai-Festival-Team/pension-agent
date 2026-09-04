@@ -1,3 +1,5 @@
+import time
+
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from src.api.chat_page import CHAT_PAGE
@@ -25,6 +27,7 @@ def create_app(agent=None, shadow_observer=None, trace_writer=None) -> FastAPI:
     app.state.trace_writer = trace_writer
 
     def answer_with_optional_shadow(question: str, top_k: int, *, request_id=None, endpoint="/answer", question_id=None):
+        request_started = time.perf_counter()
         result = app.state.agent.answer(question, top_k)
         # The browser must render exactly the contexts that were selected for
         # answer generation, never a second raw-BM25 candidate list.
@@ -48,6 +51,7 @@ def create_app(agent=None, shadow_observer=None, trace_writer=None) -> FastAPI:
                     request_id=request_id,
                     endpoint=endpoint,
                     question_id=question_id,
+                    request_latency_ms=round((time.perf_counter() - request_started) * 1000, 3),
                 )
             except Exception:
                 # Observability is strictly read-only from the request's view.

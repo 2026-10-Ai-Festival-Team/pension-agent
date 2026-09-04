@@ -9,7 +9,7 @@ from src.orchestration.agent import PensionAgent
 
 class StubRetriever:
     def search(self, query, top_k=5):
-        result = SearchResult(rank=1, chunk_id="c1", source_id="s1", source_path="guide.pdf", source_format="pdf", document_type="pension_guide", locator=ChunkLocator(page_start=2, page_end=2), element_ids=["e1"], score=1.2, text="DB형은 회사가 운용합니다.")
+        result = SearchResult(rank=1, chunk_id="c1", source_id="s1", source_path="guide.pdf", source_format="pdf", document_type="pension_guide", locator=ChunkLocator(page_start=2, page_end=2), element_ids=["e1"], score=1.2, text="DB형은 회사가 운용합니다.", metadata={"document_id": "DOC-TEST00000003"})
         return SearchResponse(query=query, tokenizer="simple-ko-v1", total_candidates=1, results=[result])
 
 
@@ -33,6 +33,7 @@ def test_root_serves_a_browser_question_ui():
     assert "연금 Agent" in response.text
     assert "fetch('/answer'" in response.text
     assert "답변에 사용한 근거" in response.text
+    assert "${item.chunk_id}" not in response.text
 
 
 def test_answer_rejects_blank_question():
@@ -71,6 +72,7 @@ def test_optional_trace_writer_observes_pipeline_without_changing_response():
     assert response.status_code == 200
     assert len(writer.records) == 1
     assert writer.records[0]["request_id"] == "request-123"
+    assert writer.records[0]["request_latency_ms"] is not None
     assert writer.records[0]["think_trace"]["displayed_evidence_chunk_ids"] == ["c1"]
 
 
@@ -97,7 +99,8 @@ def test_get_answer_uses_evaluation_contract():
     assert body["think_trace"]["evidence_sufficient"] is True
     assert body["think_trace"]["cited_chunk_ids"] == ["c1"]
     assert body["think_trace"]["generator_attempted"] is True
-    assert "[출처: guide.pdf" in body["answer"]
+    assert "[DOC-TEST00000003, p.2]" in body["answer"]
+    assert "c1" not in body["answer"]
 
 
 def test_unknown_citation_is_rejected_with_structured_reason():

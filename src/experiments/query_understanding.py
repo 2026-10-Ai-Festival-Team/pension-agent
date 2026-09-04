@@ -36,16 +36,24 @@ class SupportClassifier:
 
     @staticmethod
     def _is_personal_account_lookup(question: str) -> bool:
-        """한국어 조사 경계를 보존해 제도·공제의 ``제`` 오탐을 막는다."""
+        """Block an account-state lookup without blocking personal advice.
+
+        A phrase such as ``내 개인 IRP에서 ETF 비중을 정해줘`` asks for
+        suitability clarification, not private account access.  Conversely,
+        an explicit balance/history/lookup request is unavailable personal
+        data even if the possessive is written as ``내 개인`` rather than
+        the standalone pronoun form.
+        """
         possessive = bool(
             re.search(r"(?:^|[\s,])제(?:[\s]|$)", question)
             or re.search(r"제가(?:[\s]|$)", question)
             or re.search(r"(?:^|[\s,])내(?:[\s]|$)", question)
             or re.search(r"(?:^|[\s,])우리(?:[\s]|$)", question)
+            or re.search(r"내\s*개인", question)
         )
         account_state = any(
             marker in question
-            for marker in ("계좌", "적립금", "잔액", "운용수익률", "수익률", "보유상품")
+            for marker in ("계좌", "적립금", "잔고", "잔액", "조회", "내역", "운용수익률", "수익률", "보유상품")
         )
         return possessive and account_state
 
@@ -63,8 +71,8 @@ class SupportClassifier:
         ))
         if explicit_products and factual_field:
             return False
-        product_selection = any(marker in question for marker in ("추천", "골라", "선정", "가장수익"))
-        product_context = any(marker in question for marker in ("상품", "펀드", "수익률", "수익"))
+        product_selection = any(marker in question for marker in ("추천", "골라", "선정", "가장수익", "좋은상품", "좋은 상품", "결론"))
+        product_context = any(marker in question for marker in ("상품", "펀드", "ETF", "수익률", "수익"))
         return product_selection and product_context
 
     @staticmethod
@@ -81,7 +89,12 @@ class SupportClassifier:
         )
         internal_disclosure = any(
             marker in normalized_question
-            for marker in ("내부프롬프트", "시스템프롬프트", "내부지시", "숨은지시")
+            for marker in (
+                "내부프롬프트", "시스템프롬프트", "시스템지시문", "시스템지시",
+                "내부지시", "내부지시문", "숨은지시", "내부검색식별자", "내부식별자",
+                "원문컨텍스트", "검색컨텍스트", "내부컨텍스트", "개발자규칙", "api키", "apikey", "숨은시스템규칙", "시스템규칙",
+                "보이지않는시스템지침", "시스템지침", "검색id", "chunk_id", "내부검색결과원문",
+            )
         )
         return ignore_instruction or internal_disclosure
 

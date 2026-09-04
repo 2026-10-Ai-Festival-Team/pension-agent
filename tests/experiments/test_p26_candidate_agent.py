@@ -24,6 +24,7 @@ class _Retriever:
                     locator=ChunkLocator(page_start=2, page_end=2),
                     source_type=SourceType.ORIGINAL,
                     authority_level=AuthorityLevel.PRIMARY,
+                    metadata={"document_id": "DOC-TEST00000007"},
                 )
             ],
         )
@@ -35,7 +36,8 @@ def test_p26_candidate_keeps_financial_policy_output_format():
     assert response["think_trace"]["generator_called"]
     assert "[답변]" in response["answer"]
     assert "[근거]" in response["answer"]
-    assert "primary-1" in response["answer"]
+    assert "[DOC-TEST00000007, p.2]" in response["answer"]
+    assert "primary-1" not in response["answer"]
 
 
 def test_p26_candidate_returns_single_turn_recommendation_clarification_without_hcx_call():

@@ -1,0 +1,20 @@
+{
+  "artifact": "ncp_public_runtime_smoke_v1",
+  "decision": "GO",
+  "public_route": ":80 -> pension-agent-gateway-public-candidate -> pension-agent-core-candidate",
+  "generator_model": "HCX-007",
+  "generator_prompt_version": "generator_prompt_final_v2_1",
+  "generator_prompt_sha256": "05763afaa082af98832a04d29001a9d2ee1f353308cd4cc8e651e3b15b9c83a8",
+  "smoke": {
+    "supported": "PASS",
+    "clarification_required": "PASS",
+    "bounded_answer": "PASS",
+    "citation": "PASS",
+    "public_evaluator_get": "PASS",
+    "schema_all_public_fields_strings": true,
+    "raw_internal_id_exposure": false,
+    "cla_trace_record": "PASS",
+    "filebeat_active_and_enabled": true
+  },
+  "trace_record_id": "NCP-CLA-CANDIDATE-FINAL-001"
+}

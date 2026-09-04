@@ -1,0 +1,38 @@
+{
+  "artifact": "generator_prompt_final_v2_1 freeze manifest",
+  "version": 1,
+  "decision": "FROZEN_GO",
+  "prompt": {
+    "id": "generator_prompt_final_v2_1",
+    "runtime_prompt_sha256": "05763afaa082af98832a04d29001a9d2ee1f353308cd4cc8e651e3b15b9c83a8",
+    "declared_prompt_sha256": "05763afaa082af98832a04d29001a9d2ee1f353308cd4cc8e651e3b15b9c83a8",
+    "artifact": "evaluation/fine_tuning/generator_prompt_final_v2_1.json",
+    "artifact_sha256": "45e12c1e6f8f59a2678481550f3f110d18672992ed89f99ab57907b1544d1655"
+  },
+  "evidence": {
+    "runtime_artifact_parity": {
+      "path": "evaluation/fine_tuning/generator_prompt_final_v2_runtime_parity_audit_v6.json",
+      "sha256": "ccb5522f294d64c9901ff9e9f911f103d937eea915b2e152b3aa9b351fb51107"
+    },
+    "targeted_style_smoke": {
+      "path": "evaluation/generator_prompt_v2_style_smoke_v6.json",
+      "sha256": "bc9ea2dca0e0e69719e2d612550745d37804972007aba38ab15ee385cfed74b7"
+    },
+    "p50_v3_regression": {
+      "path": "evaluation/fresh_p50_v2_regression_execution_v6.json",
+      "sha256": "070f2c022431a0c3210da1039943e3bca941560b83dfbd5874da7bc9867dcf4c"
+    }
+  },
+  "frozen_contract": [
+    "style-only v2.1 supported-answer structure",
+    "factual/evidence/outcome/safety/citation contract unchanged from v2",
+    "host-owned evidence-scoped completeness contract"
+  ],
+  "immutable_after_freeze": [
+    "generator prompt artifact",
+    "runtime prompt resolution",
+    "semantic guards",
+    "output contract"
+  ],
+  "next_unlocked_phase": "Fresh P50 v4 static preflight and one E2E execution"
+}

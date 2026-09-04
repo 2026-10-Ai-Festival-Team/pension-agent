@@ -39,7 +39,7 @@ _OPERATION_PARTY_CUE = re.compile(r"(?:운용(?:방법|결정)?|적립금\s*선�
 # two explicit candidate subjects.  A bare negative such as ``IRP가 아닌``
 # must not silently choose the other entity.
 _EXCLUSIVE_CONNECTOR = re.compile(
-    r"(?:없이|제외(?:하고|한)?|빼고|말고|(?:사용|쓰|넣)(?:지)?\s*않(?:고|는)|(?:이|가)\s*아닌)"
+    r"(?:없이|제외(?:하고|한)?|빼고|말고|(?:사용|쓰|넣)(?:지)?\s*않(?:고|는)|(?:이|가)\s*(?:아닌|아니라))"
 )
 _ONLY_OR_STANDALONE = re.compile(r"^\s*(?:만(?=$|[\s,은는이가를에의])|단독(?:으로)?(?=$|[\s,은는이가를에의]))")
 # ``B 말고 A도 가능한가`` asks whether A is an additional option.  It is

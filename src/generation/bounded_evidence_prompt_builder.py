@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 
 from src.generation.prompt_builder import NativeStructuredOutputPromptBuilder
+from src.generation.versioned_generator_prompt import VersionedGeneratorPrompt, load_generator_prompt
 
 
 class BoundedEvidencePromptBuilder(NativeStructuredOutputPromptBuilder):
@@ -21,9 +22,11 @@ class BoundedEvidencePromptBuilder(NativeStructuredOutputPromptBuilder):
         *,
         supported_requirements: Iterable[str],
         unsupported_requirements: Iterable[str],
+        prompt_contract: VersionedGeneratorPrompt | None = None,
     ) -> None:
         self.supported_requirements = tuple(supported_requirements)
         self.unsupported_requirements = tuple(unsupported_requirements)
+        self.prompt_contract = prompt_contract or load_generator_prompt()
 
     def build(self, question, contexts):
         allowed = ", ".join(context.chunk_id for context in contexts)
@@ -34,7 +37,8 @@ class BoundedEvidencePromptBuilder(NativeStructuredOutputPromptBuilder):
         supported = "\n".join(f"- {label}" for label in self.supported_requirements) or "- 없음"
         unsupported = "\n".join(f"- {label}" for label in self.unsupported_requirements) or "- 없음"
         return (
-            "제공된 원본 evidence만 사용해 한국어로 답하세요. 질문의 일부만 직접 근거가 확인됐습니다. "
+            f"{self.prompt_contract.runtime_instruction()}\n\n"
+            "질문의 일부만 직접 근거가 확인됐습니다. "
             "[확인 불가 항목]의 값·조건·미래 결과를 추측하거나 일반 지식으로 보완하지 마세요. "
             "답변 첫 부분에서 해당 항목은 제공된 자료로 확인할 수 없다고 짧게 밝히고, "
             "[확인 가능한 항목]은 evidence에 있는 사실을 빠뜨리지 말고 답하세요. "

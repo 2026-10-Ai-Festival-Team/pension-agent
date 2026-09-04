@@ -148,15 +148,19 @@ class P26CandidateAgent(ConditionalRoutingShadowAgent):
                             "non_primary_cited_chunk_ids": non_primary_ids,
                         },
                     )
+                rendered_citations = self.financial_policy.render_citations(cited)
                 answer = (
                     self.financial_policy.format_bounded_answer(
                         generated.answer,
                         analysis,
                         cited,
                         unsupported_requirements=assessment.missing_requirements,
+                        rendered_citations=rendered_citations,
                     )
                     if assessment.is_bounded
-                    else self.financial_policy.format_answer(generated.answer, analysis, cited)
+                    else self.financial_policy.format_answer(
+                        generated.answer, analysis, cited, rendered_citations=rendered_citations,
+                    )
                 )
             else:
                 answer = self.financial_policy.format_no_evidence_boundary(assessment, analysis)
@@ -186,6 +190,9 @@ class P26CandidateAgent(ConditionalRoutingShadowAgent):
             "generator_attempted": generator_attempted,
             "generator_called": generator_called,
             "cited_chunk_ids": [item.chunk_id for item in cited],
+            "cited_documents": [item.trace_dict() for item in rendered_citations]
+            if generator_called and generated
+            else [],
             "generation_error": generation_error,
             "generation_diagnostic": generation_diagnostic,
         }

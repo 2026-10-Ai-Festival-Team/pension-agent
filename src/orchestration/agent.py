@@ -124,8 +124,11 @@ class PensionAgent:
                         "non_primary_cited_chunk_ids": non_primary_ids,
                     },
                 )
+            rendered_citations = self.financial_policy.render_citations(cited) if generated else ()
             answer = (
-                self.financial_policy.format_answer(generated.answer, analysis, cited)
+                self.financial_policy.format_answer(
+                    generated.answer, analysis, cited, rendered_citations=rendered_citations,
+                )
                 if generated
                 else self.financial_policy.format_insufficient(assessment, analysis)
             )
@@ -135,7 +138,8 @@ class PensionAgent:
             cited = []
             generation_error = type(error).__name__
             generation_diagnostic = error.diagnostic or generation_diagnostic
-        trace = {"query_type": analysis.intent, "normalization": "pension-v1", "retrieved_chunk_ids": [item.chunk_id for item in contexts], "evidence_sufficient": assessment.sufficient, "assessment_reason": assessment.reason, "generator": type(self.generator).__name__, "generator_attempted": generator_attempted, "generator_called": generator_called, "cited_chunk_ids": [item.chunk_id for item in cited], "generation_error": generation_error, "generation_diagnostic": generation_diagnostic, "financial_policy": {"recommendation_context": False, "profile_complete": False, "reasons": []}}
+        cited_documents = [item.trace_dict() for item in rendered_citations] if generator_called and generated else []
+        trace = {"query_type": analysis.intent, "normalization": "pension-v1", "retrieved_chunk_ids": [item.chunk_id for item in contexts], "selected_evidence_ids": [item.chunk_id for item in contexts], "evidence_sufficient": assessment.sufficient, "assessment_reason": assessment.reason, "generator": type(self.generator).__name__, "generator_attempted": generator_attempted, "generator_called": generator_called, "cited_chunk_ids": [item.chunk_id for item in cited], "cited_documents": cited_documents, "generation_error": generation_error, "generation_diagnostic": generation_diagnostic, "financial_policy": {"recommendation_context": False, "profile_complete": False, "reasons": []}}
         if generated:
             trace.update({"generation_model": generated.model, "generation_latency_ms": round(generated.latency_ms, 3), "generation_finish_reason": generated.finish_reason, "generation_usage": generated.usage})
         return {"question": analysis.question, "retrieved_context": contexts, "think_trace": trace, "answer": answer}

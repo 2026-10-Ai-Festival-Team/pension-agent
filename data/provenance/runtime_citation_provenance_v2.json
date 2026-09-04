@@ -1,0 +1,2503 @@
+{
+  "schema_version": "2.0",
+  "purpose": "Runtime user-facing citation registry. Source identity failure is fail-closed; DOC IDs are optional and never inferred.",
+  "inputs": {
+    "corpus": "data/parsed/chunks.jsonl",
+    "corpus_sha256": "c61ac0d54dc9af5ee339460b8b810076f6df998c76f54983d667660a1e8eaead",
+    "manifest": "data/manifest.csv",
+    "manifest_sha256": "db0ffb11fa6957feab202f7b789ff66532155480be6f5aa2ce385f97af4995aa",
+    "authoritative_bridge": "data/provenance/document_id_bridge_v1.json",
+    "authoritative_bridge_sha256": "1dde2f2c5e8e904e16c11c56cb65b4d78755e3bfff3961ae969f8e03f9ad499d"
+  },
+  "records": [
+    {
+      "source_id": "0235557ce8059551",
+      "source_path": "투자설명서/KR5125450070/R2_KR5125450070.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 208,
+      "location_chunk_counts": {
+        "page": 208,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "0461208e4a0a3a8e",
+      "source_path": "투자설명서/KR5153420063/R2_KR5153420063.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 231,
+      "location_chunk_counts": {
+        "page": 231,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "04782a392f49293e",
+      "source_path": "docs_renamed/doc55.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 37,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 37
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "04ef7a87ca9ba103",
+      "source_path": "투자설명서/KR5111450067/R2_KR5111450067.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 265,
+      "location_chunk_counts": {
+        "page": 265,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "0560089cdcdedbad",
+      "source_path": "투자설명서/KR5127450473/R2_KR5127450473.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 184,
+      "location_chunk_counts": {
+        "page": 184,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "07f976e170d46627",
+      "source_path": "투자설명서/KR5153450785/R2_KR5153450785.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 252,
+      "location_chunk_counts": {
+        "page": 252,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "0a1c8fece530be69",
+      "source_path": "투자설명서/KR5114420016/R2_KR5114420016.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 422,
+      "location_chunk_counts": {
+        "page": 422,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "0df8c3cfaf3a3b5a",
+      "source_path": "docs_renamed/doc34.xlsx",
+      "source_format": "xlsx",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 2,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "0eb680b95f7bfa78",
+      "source_path": "docs_renamed/doc4.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 2,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "0f1e4e73c319e87b",
+      "source_path": "docs_renamed/doc54.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 2,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "1294013a2a74e0a4",
+      "source_path": "투자설명서/KR5110501016/R2_KR5110501016.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 245,
+      "location_chunk_counts": {
+        "page": 245,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": "DOC-34D1B016008A",
+      "mapping_status": "verified",
+      "verification_basis": "single-product question-bank evidence plus canonical name/code in original prospectus"
+    },
+    {
+      "source_id": "13621d38202e2fc3",
+      "source_path": "docs_renamed/doc43.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 6,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 6
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "158fe24cfe635d61",
+      "source_path": "투자설명서/KR5153450791/R2_KR5153450791.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 203,
+      "location_chunk_counts": {
+        "page": 203,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "15fb5460a23aa10d",
+      "source_path": "docs_renamed/doc46.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 4,
+      "location_chunk_counts": {
+        "page": 4,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "1892c6a58f2f816f",
+      "source_path": "투자설명서/KR5113420015/R2_KR5113420015.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 233,
+      "location_chunk_counts": {
+        "page": 233,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "196f909548daade7",
+      "source_path": "투자설명서/KR5153450009/R2_KR5153450009.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 207,
+      "location_chunk_counts": {
+        "page": 207,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "1a566e32ad45144c",
+      "source_path": "투자설명서/KR5160420009/R2_KR5160420009.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 213,
+      "location_chunk_counts": {
+        "page": 213,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "1bfc399c9b3d6a67",
+      "source_path": "투자설명서/KR5111420047/R2_KR5111420047.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 232,
+      "location_chunk_counts": {
+        "page": 232,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": "DOC-61711D13FCFE",
+      "mapping_status": "verified",
+      "verification_basis": "single-product question-bank evidence plus canonical name/code in original prospectus"
+    },
+    {
+      "source_id": "1f2d7608c1af3bf8",
+      "source_path": "투자설명서/KR5113420069/R2_KR5113420069.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 258,
+      "location_chunk_counts": {
+        "page": 258,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "2040f262e360632f",
+      "source_path": "투자설명서/KR5153450250/R2_KR5153450250.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 203,
+      "location_chunk_counts": {
+        "page": 203,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "204e759f6e34eba2",
+      "source_path": "투자설명서/KR5114450270/R2_KR5114450270.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 279,
+      "location_chunk_counts": {
+        "page": 279,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "223f5d0bcdb213e3",
+      "source_path": "투자설명서/KR5153450209/R2_KR5153450209.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 207,
+      "location_chunk_counts": {
+        "page": 207,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "25319bbe5144138e",
+      "source_path": "투자설명서/KR5127450217/R2_KR5127450217.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 188,
+      "location_chunk_counts": {
+        "page": 188,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "2578707c6323de46",
+      "source_path": "docs_renamed/doc6.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 6,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 6
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "29024b63801e9358",
+      "source_path": "투자설명서/KR516702010M/R2_KR516702010M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 177,
+      "location_chunk_counts": {
+        "page": 177,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "294f339df82ebba6",
+      "source_path": "투자설명서/KR5153420318/R2_KR5153420318.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 264,
+      "location_chunk_counts": {
+        "page": 264,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "2ce564b5ddde4f21",
+      "source_path": "docs_renamed/doc16.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 9,
+      "location_chunk_counts": {
+        "page": 9,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "32a9019d096c10a2",
+      "source_path": "docs_renamed/doc30.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 1,
+      "location_chunk_counts": {
+        "page": 1,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "345881509a13afee",
+      "source_path": "투자설명서/KR518102001M/R2_KR518102001M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 207,
+      "location_chunk_counts": {
+        "page": 207,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "379bc9f53c58895a",
+      "source_path": "투자설명서/KR5131420007/R2_KR5131420007.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 198,
+      "location_chunk_counts": {
+        "page": 198,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "37adcdadd2f3f902",
+      "source_path": "투자설명서/KR555202013M/R2_KR555202013M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 172,
+      "location_chunk_counts": {
+        "page": 172,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "37c0cd9b61ebeb19",
+      "source_path": "투자설명서/KR5114420027/R2_KR5114420027.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 373,
+      "location_chunk_counts": {
+        "page": 373,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "3b82d1b0fede8161",
+      "source_path": "투자설명서/KR5119501001/R2_KR5119501001.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 193,
+      "location_chunk_counts": {
+        "page": 193,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "3fc985166726ffd7",
+      "source_path": "투자설명서/KR5113470031/R2_KR5113470031.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 229,
+      "location_chunk_counts": {
+        "page": 229,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "401aa15b0e898e9b",
+      "source_path": "투자설명서/KR5120450015/R2_KR5120450015.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 263,
+      "location_chunk_counts": {
+        "page": 263,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "42226bacb5f3829a",
+      "source_path": "투자설명서/KR5144420081/R2_KR5144420081.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 261,
+      "location_chunk_counts": {
+        "page": 261,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "42c2f480ffb689a8",
+      "source_path": "docs_renamed/doc5.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 2,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "44402680fa9fc2b0",
+      "source_path": "투자설명서/KR5123420015/R2_KR5123420015.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 201,
+      "location_chunk_counts": {
+        "page": 201,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "4607500e74afcdf8",
+      "source_path": "docs_renamed/doc11.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 4,
+      "location_chunk_counts": {
+        "page": 4,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "46551bfa35d467ed",
+      "source_path": "docs_renamed/doc17.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 12,
+      "location_chunk_counts": {
+        "page": 12,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "49ed30e0f7b42e68",
+      "source_path": "docs_renamed/doc13.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 8,
+      "location_chunk_counts": {
+        "page": 8,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "4ae16261de11da35",
+      "source_path": "투자설명서/KR5172450019/R2_KR5172450019.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 174,
+      "location_chunk_counts": {
+        "page": 174,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "4cac628fab869b38",
+      "source_path": "투자설명서/KR5127420083/R2_KR5127420083.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 174,
+      "location_chunk_counts": {
+        "page": 174,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "4d496d9597d62856",
+      "source_path": "투자설명서/KR5144420091/R2_KR5144420091.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 231,
+      "location_chunk_counts": {
+        "page": 231,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "4d6edde4fa5b925d",
+      "source_path": "docs_renamed/doc26.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 2
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "4d7057c01edd9ab3",
+      "source_path": "docs_renamed/doc28.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 2,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "512e78400561b9f0",
+      "source_path": "투자설명서/KR5153450772/R2_KR5153450772.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 258,
+      "location_chunk_counts": {
+        "page": 258,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "5289f302b8a3000b",
+      "source_path": "투자설명서/KR5153450112/R2_KR5153450112.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 325,
+      "location_chunk_counts": {
+        "page": 325,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "52e63bd25a4a03bb",
+      "source_path": "투자설명서/KR5127420039/R2_KR5127420039.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 183,
+      "location_chunk_counts": {
+        "page": 183,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "53c695917a964bd2",
+      "source_path": "투자설명서/KR5125450023/R2_KR5125450023.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 228,
+      "location_chunk_counts": {
+        "page": 228,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "545de7c663ff2726",
+      "source_path": "투자설명서/KR5114450222/R2_KR5114450222.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 356,
+      "location_chunk_counts": {
+        "page": 356,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "55f36905c388adb6",
+      "source_path": "docs_renamed/doc39.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 6,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 6
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "570a48e8debe22bd",
+      "source_path": "docs_renamed/doc53.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 2,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "596bd4c8b26884e1",
+      "source_path": "docs_renamed/doc3.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 11,
+      "location_chunk_counts": {
+        "page": 11,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "5a8516a0215f8754",
+      "source_path": "docs_renamed/doc33.pptx",
+      "source_format": "pptx",
+      "document_type": "pension_guide",
+      "chunk_count": 10,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 10,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "5aaf722ed4b3bf7b",
+      "source_path": "투자설명서/KR5153451009/R2_KR5153451009.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 264,
+      "location_chunk_counts": {
+        "page": 264,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "5f35ca17211a73fc",
+      "source_path": "docs_renamed/doc8.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 1,
+      "location_chunk_counts": {
+        "page": 1,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "61c5315b1e7c0f25",
+      "source_path": "docs_renamed/doc10.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 7,
+      "location_chunk_counts": {
+        "page": 7,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "61e1be50db4b0854",
+      "source_path": "투자설명서/KR5119520012/R2_KR5119520012.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 245,
+      "location_chunk_counts": {
+        "page": 245,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "626288f474b6aa74",
+      "source_path": "투자설명서/KR5139420015/R2_KR5139420015.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 215,
+      "location_chunk_counts": {
+        "page": 215,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "65d234015ed51578",
+      "source_path": "docs_renamed/doc9.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 2,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "68ed4316f0a6a16e",
+      "source_path": "투자설명서/KR5116501001/R2_KR5116501001.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 188,
+      "location_chunk_counts": {
+        "page": 188,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "69f2f29169453f73",
+      "source_path": "투자설명서/KR5153420022/R2_KR5153420022.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 237,
+      "location_chunk_counts": {
+        "page": 237,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "6afa158da778afa9",
+      "source_path": "투자설명서/KR5153420079/R2_KR5153420079.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 248,
+      "location_chunk_counts": {
+        "page": 248,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "6ba9b0f4026525fd",
+      "source_path": "투자설명서/KR518101002M/R2_KR518101002M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 220,
+      "location_chunk_counts": {
+        "page": 220,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "6cf691c50b1e1ce9",
+      "source_path": "투자설명서/KR5120450018/R2_KR5120450018.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 263,
+      "location_chunk_counts": {
+        "page": 263,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "71758d888c643ea0",
+      "source_path": "투자설명서/KR5153450431/R2_KR5153450431.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 238,
+      "location_chunk_counts": {
+        "page": 238,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "72b1abf25d465065",
+      "source_path": "docs_renamed/doc21.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 1,
+      "location_chunk_counts": {
+        "page": 1,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "7420af8b47f3ff43",
+      "source_path": "투자설명서/KR5153520012/R2_KR5153520012.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 220,
+      "location_chunk_counts": {
+        "page": 220,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "745f9a08e811b6b1",
+      "source_path": "투자설명서/KR5129420025/R2_KR5129420025.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 297,
+      "location_chunk_counts": {
+        "page": 297,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "7675a0a1756d4824",
+      "source_path": "docs_renamed/doc32.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 9,
+      "location_chunk_counts": {
+        "page": 9,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "7875bce4243126a0",
+      "source_path": "투자설명서/KR5120451001/R2_KR5120451001.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 234,
+      "location_chunk_counts": {
+        "page": 234,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "7878a3be5806fef4",
+      "source_path": "docs_renamed/doc51.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 5,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 5
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "7cce439d30d5a8b0",
+      "source_path": "docs_renamed/doc41.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 3,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 3
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "7eb5bbeb09e9bc73",
+      "source_path": "docs_renamed/doc50.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 3,
+      "location_chunk_counts": {
+        "page": 3,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "818af50c343884e5",
+      "source_path": "docs_renamed/doc22.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 6,
+      "location_chunk_counts": {
+        "page": 6,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "8297231e70bc792a",
+      "source_path": "투자설명서/KR5127450215/R2_KR5127450215.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 188,
+      "location_chunk_counts": {
+        "page": 188,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "82c9f1e8e7f8c736",
+      "source_path": "투자설명서/KR5114420046/R2_KR5114420046.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 279,
+      "location_chunk_counts": {
+        "page": 279,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "82d595af410beb2b",
+      "source_path": "docs_renamed/doc24.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 15,
+      "location_chunk_counts": {
+        "page": 15,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "8743383ada56b594",
+      "source_path": "투자설명서/KR5152420028/R2_KR5152420028.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 175,
+      "location_chunk_counts": {
+        "page": 175,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "8a2fb4c4c60ea0a8",
+      "source_path": "투자설명서/KR5157420003/R2_KR5157420003.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 222,
+      "location_chunk_counts": {
+        "page": 222,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "9175b4d6847de4c3",
+      "source_path": "투자설명서/KR5113450111/R2_KR5113450111.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 204,
+      "location_chunk_counts": {
+        "page": 204,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "93b9b09c57458c3b",
+      "source_path": "docs_renamed/doc12.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 8,
+      "location_chunk_counts": {
+        "page": 8,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "95d697b52ffbe5f4",
+      "source_path": "투자설명서/KR5127450117/R2_KR5127450117.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 195,
+      "location_chunk_counts": {
+        "page": 195,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "96ed24394cd022ab",
+      "source_path": "투자설명서/KR5113420013/R2_KR5113420013.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 233,
+      "location_chunk_counts": {
+        "page": 233,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "98556b19ed28c070",
+      "source_path": "docs_renamed/doc40.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 4,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 4
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "98d7c213f218d04f",
+      "source_path": "docs_renamed/doc2.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 3,
+      "location_chunk_counts": {
+        "page": 3,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "9cdbd9d725f7a2e9",
+      "source_path": "투자설명서/KR5144420020/R2_KR5144420020.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 319,
+      "location_chunk_counts": {
+        "page": 319,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "9fd1c894a3530639",
+      "source_path": "투자설명서/KR5153450268/R2_KR5153450268.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 260,
+      "location_chunk_counts": {
+        "page": 260,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "a10fda69e6b3de88",
+      "source_path": "투자설명서/KR5185450009/R2_KR5185450009.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 214,
+      "location_chunk_counts": {
+        "page": 214,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "a1e78e21d33dafed",
+      "source_path": "docs_renamed/doc25.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 3,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 3
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "a309c7b5da099695",
+      "source_path": "docs_renamed/doc7.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 11,
+      "location_chunk_counts": {
+        "page": 11,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "a30a18cb28a80488",
+      "source_path": "투자설명서/KR5157450017/R2_KR5157450017.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 226,
+      "location_chunk_counts": {
+        "page": 226,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "a55a5901a9b344c6",
+      "source_path": "투자설명서/KR5127420045/R2_KR5127420045.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 189,
+      "location_chunk_counts": {
+        "page": 189,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "a7eb7560c10ba4f2",
+      "source_path": "투자설명서/KR5174420011/R2_KR5174420011.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 188,
+      "location_chunk_counts": {
+        "page": 188,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ac97d050d2b39ec2",
+      "source_path": "투자설명서/KR510902511M/R2_KR510902511M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 246,
+      "location_chunk_counts": {
+        "page": 246,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": "DOC-7FB4C074DD06",
+      "mapping_status": "verified",
+      "verification_basis": "single-product question-bank evidence plus canonical name/code in original prospectus"
+    },
+    {
+      "source_id": "accb50f9c19cde28",
+      "source_path": "투자설명서/KR5118420006/R2_KR5118420006.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 213,
+      "location_chunk_counts": {
+        "page": 213,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ae129529aa810970",
+      "source_path": "docs_renamed/doc45.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 3,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 3
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ae22159be59440b6",
+      "source_path": "docs_renamed/doc23.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 7,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 7
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ae713c70a631594f",
+      "source_path": "docs_renamed/doc18.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 9,
+      "location_chunk_counts": {
+        "page": 9,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "afc99f5bd68cc78b",
+      "source_path": "docs_renamed/doc35.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 1,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 1
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "b12f5c55a69c9337",
+      "source_path": "투자설명서/KR5118201004/R2_KR5118201004.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 228,
+      "location_chunk_counts": {
+        "page": 228,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "b3c6b61f1b1dec37",
+      "source_path": "투자설명서/KR5153420105/R2_KR5153420105.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 252,
+      "location_chunk_counts": {
+        "page": 252,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "b595cc0db0aa64b8",
+      "source_path": "docs_renamed/doc19.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 1,
+      "location_chunk_counts": {
+        "page": 1,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ba6a16d32bb0a081",
+      "source_path": "투자설명서/KR5118420062/R2_KR5118420062.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 212,
+      "location_chunk_counts": {
+        "page": 212,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "bd44345a2ccbac1a",
+      "source_path": "투자설명서/KR518101012M/R2_KR518101012M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 198,
+      "location_chunk_counts": {
+        "page": 198,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "c249bf0050445a4a",
+      "source_path": "투자설명서/KR5123490016/R2_KR5123490016.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 229,
+      "location_chunk_counts": {
+        "page": 229,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "c44aea99e08117cf",
+      "source_path": "투자설명서/KR5169950018/R2_KR5169950018.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 242,
+      "location_chunk_counts": {
+        "page": 242,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "c61c1c27df94646e",
+      "source_path": "투자설명서/KR5113420012/R2_KR5113420012.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 208,
+      "location_chunk_counts": {
+        "page": 208,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "c6c1adb23144de7c",
+      "source_path": "투자설명서/KR5113470030/R2_KR5113470030.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 229,
+      "location_chunk_counts": {
+        "page": 229,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "c787719b514f51da",
+      "source_path": "투자설명서/KR510902777M/R2_KR510902777M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 250,
+      "location_chunk_counts": {
+        "page": 250,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "cb50751d7ccd46bf",
+      "source_path": "docs_renamed/doc52.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 9,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 9
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "cc93cafcc3e3f553",
+      "source_path": "투자설명서/KR5129420031/R2_KR5129420031.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 235,
+      "location_chunk_counts": {
+        "page": 235,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ce1ad510383fb454",
+      "source_path": "투자설명서/KR5110601022/R2_KR5110601022.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 258,
+      "location_chunk_counts": {
+        "page": 258,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "cea6e5d8effe1699",
+      "source_path": "투자설명서/KR5122420005/R2_KR5122420005.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 270,
+      "location_chunk_counts": {
+        "page": 270,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "cf922cacac95fad9",
+      "source_path": "투자설명서/KR510902773M/R2_KR510902773M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 241,
+      "location_chunk_counts": {
+        "page": 241,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "d1118ff26efd3d24",
+      "source_path": "투자설명서/KR514X450008/R2_KR514X450008.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 192,
+      "location_chunk_counts": {
+        "page": 192,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "d1728c489e13ad51",
+      "source_path": "docs_renamed/doc58.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 4,
+      "location_chunk_counts": {
+        "page": 4,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "d675532c6fdce7d2",
+      "source_path": "docs_renamed/doc38.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 3,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 3
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "d8a6e37c05c58b07",
+      "source_path": "투자설명서/KR5147430065/R2_KR5147430065.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 180,
+      "location_chunk_counts": {
+        "page": 180,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "d9ee75020670276d",
+      "source_path": "투자설명서/KR5139420020/R2_KR5139420020.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 187,
+      "location_chunk_counts": {
+        "page": 187,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "daee1e8f1b1753ed",
+      "source_path": "투자설명서/KR5157450090/R2_KR5157450090.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 273,
+      "location_chunk_counts": {
+        "page": 273,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "dbf5c74748e751a9",
+      "source_path": "투자설명서/KR5123490017/R2_KR5123490017.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 229,
+      "location_chunk_counts": {
+        "page": 229,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "dc5f01c34172a900",
+      "source_path": "docs_renamed/doc49.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 5,
+      "location_chunk_counts": {
+        "page": 5,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "dcadae976b4a52e5",
+      "source_path": "투자설명서/KR5144450095/R2_KR5144450095.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 241,
+      "location_chunk_counts": {
+        "page": 241,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "dde0fd3c595c051a",
+      "source_path": "docs_renamed/doc48.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 4,
+      "location_chunk_counts": {
+        "page": 4,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "de4f8448134189df",
+      "source_path": "docs_renamed/doc42.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 5,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 5
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "df53afbeea3c89ed",
+      "source_path": "투자설명서/KR5127420034/R2_KR5127420034.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 183,
+      "location_chunk_counts": {
+        "page": 183,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "df858a02af69f9fb",
+      "source_path": "docs_renamed/doc1.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 6,
+      "location_chunk_counts": {
+        "page": 6,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "e1a68f328f83897f",
+      "source_path": "docs_renamed/doc57.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 1,
+      "location_chunk_counts": {
+        "page": 1,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "e286fa9df2aebefa",
+      "source_path": "투자설명서/KR5123420039/R2_KR5123420039.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 178,
+      "location_chunk_counts": {
+        "page": 178,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "e3fe1ae69d6e1577",
+      "source_path": "투자설명서/KR5194450018/R2_KR5194450018.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 193,
+      "location_chunk_counts": {
+        "page": 193,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "e5926e3e3ff2677f",
+      "source_path": "투자설명서/KR5118420036/R2_KR5118420036.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 230,
+      "location_chunk_counts": {
+        "page": 230,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "e59580b78c29d45b",
+      "source_path": "투자설명서/KR5113450401/R2_KR5113450401.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 253,
+      "location_chunk_counts": {
+        "page": 253,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "e8d7e6a69504e042",
+      "source_path": "docs_renamed/doc20.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 7,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 7
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ea8b1476d7598766",
+      "source_path": "투자설명서/KR5119450058/R2_KR5119450058.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 253,
+      "location_chunk_counts": {
+        "page": 253,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ec6207f6286e8df1",
+      "source_path": "투자설명서/KR515302022M/R2_KR515302022M.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 255,
+      "location_chunk_counts": {
+        "page": 255,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ed9a44f422ed81cc",
+      "source_path": "투자설명서/KR5131420025/R2_KR5131420025.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 185,
+      "location_chunk_counts": {
+        "page": 185,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ee3b84ad68394b49",
+      "source_path": "docs_renamed/doc47.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 2,
+      "location_chunk_counts": {
+        "page": 2,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ee456f94444d0030",
+      "source_path": "투자설명서/KR5153420339/R2_KR5153420339.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 206,
+      "location_chunk_counts": {
+        "page": 206,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "eec10989c7067926",
+      "source_path": "docs_renamed/doc36.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 6,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 6
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "eef705af2a7c3c57",
+      "source_path": "docs_renamed/doc44.docx",
+      "source_format": "docx",
+      "document_type": "pension_guide",
+      "chunk_count": 1,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 1
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "eefb7f7b407d91de",
+      "source_path": "투자설명서/KR5120420091/R2_KR5120420091.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 230,
+      "location_chunk_counts": {
+        "page": 230,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "ef05c9c97fbadd27",
+      "source_path": "docs_renamed/doc14.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 10,
+      "location_chunk_counts": {
+        "page": 10,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "f02d4ff049aa3a92",
+      "source_path": "투자설명서/KR5123420049/R2_KR5123420049.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 201,
+      "location_chunk_counts": {
+        "page": 201,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "f138f60435a4eed7",
+      "source_path": "투자설명서/KR5117420097/R2_KR5117420097.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 204,
+      "location_chunk_counts": {
+        "page": 204,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "f24a347b7c7a170c",
+      "source_path": "투자설명서/KR5114420022/R2_KR5114420022.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 331,
+      "location_chunk_counts": {
+        "page": 331,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "f92b864a4414004c",
+      "source_path": "투자설명서/KR5153450658/R2_KR5153450658.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 263,
+      "location_chunk_counts": {
+        "page": 263,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "f973e4f0b2fb3c5a",
+      "source_path": "docs_renamed/doc29.xlsx",
+      "source_format": "xlsx",
+      "document_type": "pension_guide",
+      "chunk_count": 7,
+      "location_chunk_counts": {
+        "page": 0,
+        "slide": 0,
+        "sheet": 7,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "fae5aba3f7de4393",
+      "source_path": "docs_renamed/doc27.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 8,
+      "location_chunk_counts": {
+        "page": 8,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "fba2a2502fc335a4",
+      "source_path": "투자설명서/KR5123490013/R2_KR5123490013.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 229,
+      "location_chunk_counts": {
+        "page": 229,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "fbb048f306fb8904",
+      "source_path": "투자설명서/KR5123365001/R2_KR5123365001.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 150,
+      "location_chunk_counts": {
+        "page": 150,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "fc3cd93441450fa8",
+      "source_path": "투자설명서/KR5120420039/R2_KR5120420039.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 267,
+      "location_chunk_counts": {
+        "page": 267,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "fc71bcf7cc90f68d",
+      "source_path": "docs_renamed/doc15.pdf",
+      "source_format": "pdf",
+      "document_type": "pension_guide",
+      "chunk_count": 9,
+      "location_chunk_counts": {
+        "page": 9,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    },
+    {
+      "source_id": "fecffc9866eb7cca",
+      "source_path": "투자설명서/KR5156450026/R2_KR5156450026.pdf",
+      "source_format": "pdf",
+      "document_type": "investment_product",
+      "chunk_count": 222,
+      "location_chunk_counts": {
+        "page": 222,
+        "slide": 0,
+        "sheet": 0,
+        "missing": 0
+      },
+      "document_id": null,
+      "mapping_status": "unresolved_authoritative_mapping_absent",
+      "verification_basis": "no authoritative document_id ↔ source_path mapping supplied by corpus or evaluation metadata"
+    }
+  ],
+  "summary": {
+    "runtime_source_count": 155,
+    "source_identity_count": 155,
+    "mapped_source_count": 3,
+    "unmapped_source_count": 152,
+    "locator_available_source_count": 137,
+    "document_scope_fallback_source_count": 18,
+    "citation_renderable_source_count": 155
+  }
+}

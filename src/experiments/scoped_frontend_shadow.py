@@ -20,7 +20,7 @@ _RETRIEVAL_TERMS = {
     "DC.early_withdrawal.required_documents": "DC형 중도인출 증빙서류",
     "pension_savings.early_withdrawal.allowed_reasons": "연금저축 중도인출 부득이한 사유",
     "pension_savings.withdrawal.tax_treatment": "연금저축 중도인출 기타소득세 부득이한 사유",
-    "IRP.early_withdrawal.allowed_reasons": "IRP 중도인출 주택 구입 전세보증금 요양 개인회생 파산",
+    "IRP.early_withdrawal.allowed_reasons": "IRP 중도인출 근퇴법 법으로 열거 주택 구입 전세보증금 요양 개인회생 파산",
     "IRP.withdrawal.tax_treatment": "연금계좌 IRP 연금저축 중도인출 기타소득세 부득이한 사유",
     "ISA.transfer.deadline": "ISA 만기 연금계좌 이전 60일 기한",
     "ISA.transfer.additional_tax_credit": "ISA 만기 연금계좌 이전 추가 세액공제 10% 300만원",
@@ -43,6 +43,14 @@ _PRODUCT_ANCHOR_FIELDS = {
 # Canonical-requirement signals identify the direct factual field.  They are
 # intentionally independent of P42 IDs and specific document/chunk IDs.
 _DIRECT_FIELD_SIGNALS = {
+    "ISA.transfer.additional_tax_credit": {
+        # A summary table can contain the cap without the conversion-rate
+        # rule.  The direct long-form source states both, so do not let the
+        # former satisfy a request for the rate *and* cap.
+        "required_all": ("ISA", "10%", "300만원"),
+        "required_any": (),
+        "forbidden_any": (),
+    },
     "product.total_fee": {
         "required_all": ("지급비율", "연간", "총 보수"),
         "required_any": (),
@@ -51,6 +59,14 @@ _DIRECT_FIELD_SIGNALS = {
     "retirement_income.IRP_transfer.tax_timing": {
         "required_all": ("연금수령", "과세"),
         "required_any": ("퇴직소득", "이연퇴직소득", "과세이연", "인출 전"),
+        "forbidden_any": (),
+    },
+    "IRP.early_withdrawal.allowed_reasons": {
+        # A list of examples alone does not establish the legal boundary of
+        # this field.  Bind the primary text that says IRP withdrawal grounds
+        # are enumerated by law, alongside the allowed-reasons table.
+        "required_all": ("IRP", "중도인출"),
+        "required_any": ("중도인출 사유를 법으로 열거", "근퇴법 적용"),
         "forbidden_any": (),
     },
 }

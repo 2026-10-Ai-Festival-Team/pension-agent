@@ -1,0 +1,18 @@
+{
+  "artifact": "submission_runtime_freeze_v1",
+  "decision": "FROZEN_GO",
+  "final_generator": "HCX-007",
+  "prompt_version": "generator_prompt_final_v2_1",
+  "prompt_sha256": "05763afaa082af98832a04d29001a9d2ee1f353308cd4cc8e651e3b15b9c83a8",
+  "runtime_route": "API Gateway -> public candidate gateway -> p50v4-regression-v8-142aa57 candidate core",
+  "p50_regression_artifact": "evaluation/fresh_p50_v2_regression_execution_v8.json",
+  "p50_regression_sha256": "142aa57bbda61c4dc87a61eb9d72a41b21cd3c8fefbbcc041745ddb0e51fc4b9",
+  "public_runtime_smoke": "evaluation/ncp_public_runtime_smoke_v1.json",
+  "api_gateway_smoke": "evaluation/ncp_api_gateway_final_smoke_v1.json",
+  "constraints": {
+    "business_logic_changes": "forbidden",
+    "prompt_changes": "forbidden",
+    "selector_retrieval_evidence_policy_changes": "forbidden",
+    "additional_holdout_generation": "forbidden"
+  }
+}

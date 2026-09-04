@@ -9,7 +9,7 @@ from src.orchestration.agent import PensionAgent
 
 class Retriever:
     def search(self, query, top_k=5):
-        item=SearchResult(rank=1,chunk_id="gold",source_id="s",source_path="x.pdf",source_format="pdf",document_type="pension_guide",locator=ChunkLocator(page_start=1,page_end=1),element_ids=["e"],score=1,text="DB DC")
+        item=SearchResult(rank=1,chunk_id="gold",source_id="s",source_path="x.pdf",source_format="pdf",document_type="pension_guide",locator=ChunkLocator(page_start=1,page_end=1),element_ids=["e"],score=1,text="DB DC",metadata={"document_id":"DOC-TEST00000005"})
         return SearchResponse(query=query,tokenizer="simple",total_candidates=1,results=[item])
 
 

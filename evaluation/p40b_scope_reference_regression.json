@@ -1,0 +1,1088 @@
+{
+  "experiment": "P40-B Scope/Reference Regression",
+  "input": {
+    "holdout": "question_bank/holdouts/p40_scope_reference_holdout.jsonl",
+    "frozen_selector_result": "evaluation/p40_scope_reference_holdout.json",
+    "frozen_selector_output_hashes": {
+      "P40-001": "1af56ea5fd70f161e19fdad2bcc7d1fa1d972ec975899f20e0393c421a6c31e9",
+      "P40-002": "a283e62f3e11898860ecce4c92fe395f079088a76a8d4e04e8be7522b20f579c",
+      "P40-003": "8f8e9c76f5c89836338ad56c09f6c5dd9718238a2ddd8e1bcf34d35842ebb650",
+      "P40-004": "8d5a474692f4707894e25954b09af3d6bf11a9b1c7144fd955021297acf83342",
+      "P40-005": "6f87e57f542b2fdb3ca29b39c7a60422bb17bfb45aee4ee0de36b50858bbd3ff",
+      "P40-006": "52e2ae565ee46301b0e9a51ba2ba2cae3a27237d232bcafb168755183480dd95",
+      "P40-007": "fed059cd08c07a536d74f3618e728b1c48ac67b3598044d79bb31a37a368c386",
+      "P40-008": "316450078d7f0810eccd7537aca055428a9cd72286fb6541d328028ca315eeb3",
+      "P40-009": "504133fb0739facede3da30c7536acf0b7afc63fc97df4158a0bc5fee45800c9",
+      "P40-010": "903de4ee8685b578332a51f53012a5336cd7e2716dcb2473dff2c0f08544ee70",
+      "P40-011": "e2388882666fb7bccf9fba3bcacb0e55a09b1726b8301b07148fab4af97dd010",
+      "P40-012": "354bd7c30dab317e8e4caefb2e45a05d1e98182b07d13262233220338c11d1f0",
+      "P40-013": "143a77fbeb89adff7eff83f28f4cb6fd1ba62b5c3fc6dc44ce61f7c66308a81c",
+      "P40-014": "db63c07d40795d62e204eb4ad93dc7b03be971b05a0b84299fa563a4960d6820",
+      "P40-015": "a5ec3b5839d8634aa9df0dede474f24a4f88a47eadcb0d5cc338ce3e00b280e1",
+      "P40-016": "f72c518136d8a534314263823c368f20626a3881d45456041162e157a7b0f62d",
+      "P40-017": "c76159125683681a632cd56c655ed8aa2a831fcc74390258546380e192897a90",
+      "P40-018": "c4c694dcad02ac09f595075f2f6be6a9a5f0b651e99f4d1399208fc6ebb7ca7d"
+    }
+  },
+  "contract": {
+    "hcx_calls": 0,
+    "selector_enum_prompt_changed": false,
+    "candidate_agent_changed": false,
+    "retrieval_used": false
+  },
+  "scope_metrics": {
+    "resolved_reference_accuracy": {
+      "correct": 14,
+      "total": 15,
+      "accuracy": 0.9333
+    },
+    "unresolved_reference_safety": {
+      "correct": 3,
+      "total": 3,
+      "accuracy": 1.0
+    },
+    "subject_requirement_binding_error_count": 0,
+    "ambiguous_reference_unsafe_resolution_count": 0
+  },
+  "details": [
+    {
+      "id": "P40-001",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "후자",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "product:KR5114450222"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR5114450222"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5114450222"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5114450222",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-002",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "전자",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "product:KR5114420022"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR5114420022"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5114420022"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5114420022",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-003",
+      "selected_requirements": [
+        "product.tracking_index"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR510902773M",
+          "product:KR5127450215"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR510902773M",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5127450215",
+            "order": 2,
+            "start": 17,
+            "end": 29,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "두 번째 상품",
+            "kind": "ordinal_product_reference",
+            "resolved_to": [
+              "product:KR5127450215"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR5127450215"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5127450215"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR5127450215",
+            "requirement": "product.tracking_index",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-004",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222",
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "order": 3,
+            "start": 28,
+            "end": 40,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "마지막 상품",
+            "kind": "ordinal_product_reference",
+            "resolved_to": [
+              "product:KR510902773M"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-005",
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "unresolved_references": [
+          "그 상품"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "product.risk_grade.current",
+            "status": "unresolved_reference"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [
+          "그 상품"
+        ],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-006",
+      "selected_requirements": [
+        "DB.operation_party",
+        "DC.operation_party"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 4,
+            "end": 6,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "unresolved_references": [
+          "그 제도"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "DB.operation_party",
+            "status": "unresolved_reference"
+          },
+          {
+            "subject": null,
+            "requirement": "DC.operation_party",
+            "status": "unresolved_reference"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [
+          "그 제도"
+        ],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-007",
+      "selected_requirements": [
+        "DC.early_withdrawal.allowed_reasons",
+        "DC.early_withdrawal.required_documents"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DC",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "그 계좌",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.early_withdrawal.required_documents",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-008",
+      "selected_requirements": [
+        "DC.operation_party"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "DB"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "DB와 달리",
+            "kind": "closed_pair_contrast",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "inferred_closed_pair"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.operation_party",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-009",
+      "selected_requirements": [
+        "DC.employer_contribution",
+        "DC.operation_party"
+      ],
+      "resolution": {
+        "explicit_subjects": [],
+        "subject_mentions": [],
+        "references": [],
+        "active_subjects": [],
+        "unresolved_references": [
+          "그 계좌"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.employer_contribution",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.operation_party",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": false,
+      "binding_error": false
+    },
+    {
+      "id": "P40-010",
+      "selected_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "IRP",
+            "order": 2,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "두 번째 계좌",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "IRP"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "IRP",
+            "requirement": "IRP.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "IRP",
+            "requirement": "IRP.withdrawal.tax_treatment",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-011",
+      "selected_requirements": [
+        "product.total_fee"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR510902773M",
+          "product:KR5127450215"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR510902773M",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5127450215",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "앞에 적은 상품",
+            "kind": "ordinal_product_reference",
+            "resolved_to": [
+              "product:KR510902773M"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.total_fee",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-012",
+      "selected_requirements": [
+        "product.period_cost"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222",
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR5114420022",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR5114450222",
+            "order": 2,
+            "start": 14,
+            "end": 26,
+            "source": "explicit_product_code"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "order": 3,
+            "start": 28,
+            "end": 40,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [
+          {
+            "expression": "마지막 상품",
+            "kind": "ordinal_product_reference",
+            "resolved_to": [
+              "product:KR510902773M"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.period_cost",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-013",
+      "selected_requirements": [
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "이 계좌",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "pension_savings"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "pension_savings"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "pension_savings"
+        ],
+        "bindings": [
+          {
+            "subject": "pension_savings",
+            "requirement": "pension_savings.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "pension_savings",
+            "requirement": "pension_savings.withdrawal.tax_treatment",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-014",
+      "selected_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "IRP",
+            "order": 1,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "이 계좌",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "IRP"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "IRP"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "IRP",
+            "requirement": "retirement_income.IRP_transfer.tax_timing",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-015",
+      "selected_requirements": [
+        "product.risk_grade.change_possibility",
+        "product.risk_grade.current"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "product:KR510902773M"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "product:KR510902773M",
+            "order": 1,
+            "start": 0,
+            "end": 12,
+            "source": "explicit_product_code"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "product:KR510902773M"
+        ],
+        "bindings": [
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.risk_grade.change_possibility",
+            "status": "bound"
+          },
+          {
+            "subject": "product:KR510902773M",
+            "requirement": "product.risk_grade.current",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-016",
+      "selected_requirements": [
+        "ISA.transfer.additional_tax_credit",
+        "ISA.transfer.deadline"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "ISA"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "ISA",
+            "order": 1,
+            "start": 0,
+            "end": 3,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "이 계좌",
+            "kind": "nearest_anaphora",
+            "resolved_to": [
+              "ISA"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "ISA"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "ISA"
+        ],
+        "bindings": [
+          {
+            "subject": "ISA",
+            "requirement": "ISA.transfer.additional_tax_credit",
+            "status": "bound"
+          },
+          {
+            "subject": "ISA",
+            "requirement": "ISA.transfer.deadline",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-017",
+      "selected_requirements": [
+        "DC.benefit_determination",
+        "DC.operation_party"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "DB",
+          "DC"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "DB",
+            "order": 1,
+            "start": 0,
+            "end": 2,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "DC",
+            "order": 2,
+            "start": 4,
+            "end": 6,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [
+          {
+            "expression": "두 번째 제도",
+            "kind": "ordinal_subject_reference",
+            "resolved_to": [
+              "DC"
+            ],
+            "confidence": "deterministic"
+          }
+        ],
+        "active_subjects": [
+          "DC"
+        ],
+        "unresolved_references": []
+      },
+      "binding": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.benefit_determination",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.operation_party",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    },
+    {
+      "id": "P40-018",
+      "selected_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "pension_savings.early_withdrawal.allowed_reasons"
+      ],
+      "resolution": {
+        "explicit_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "subject_mentions": [
+          {
+            "subject": "pension_savings",
+            "order": 1,
+            "start": 0,
+            "end": 4,
+            "source": "explicit_account"
+          },
+          {
+            "subject": "IRP",
+            "order": 2,
+            "start": 6,
+            "end": 9,
+            "source": "explicit_account"
+          }
+        ],
+        "references": [],
+        "active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "unresolved_references": [
+          "그 계좌"
+        ]
+      },
+      "binding": {
+        "active_subjects": [
+          "pension_savings",
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": null,
+            "requirement": "IRP.early_withdrawal.allowed_reasons",
+            "status": "unresolved_reference"
+          },
+          {
+            "subject": null,
+            "requirement": "pension_savings.early_withdrawal.allowed_reasons",
+            "status": "unresolved_reference"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [
+          "그 계좌"
+        ],
+        "incomplete_reasons": []
+      },
+      "reference_correct": true,
+      "binding_error": false
+    }
+  ]
+}

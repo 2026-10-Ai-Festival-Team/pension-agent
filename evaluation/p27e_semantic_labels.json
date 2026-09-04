@@ -1,0 +1,409 @@
+{
+  "dataset": "P27-E Native Structured Outputs 실행 결과의 수동 의미 품질 라벨",
+  "source_execution_files": [
+    "evaluation/p27e_batch_01_execution.jsonl",
+    "evaluation/p27e_batch_02_execution.jsonl"
+  ],
+  "labels": [
+    {
+      "question_id": "R-001",
+      "answer_hash": "8d761aac53eeb04fb0e57d46408cb2dfbcde86e0fa700c7ebd715ef90b6e9e85",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-002",
+      "answer_hash": "2d7747bc81025a4338c9e49fd37c411ebf9d5a55edf0b5244e61f064a6a81991",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-003",
+      "answer_hash": "b5b72980f3469fb4e9c5cab68a5aa3d80ed2d4e9a7d428327f69c3afad9e25fb",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-004",
+      "answer_hash": "ba1b68534b661715e457c31add6d73778459aebc30c8fd5a62b7f8fca03c80de",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-005",
+      "answer_hash": "4c2104470f75bb9d5b748ad6962d77ede60a7eac561e009d4ffaa91d57cb5fd1",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-006",
+      "answer_hash": "a5ed3681183f873ef40bdef379fb15c4dcbffd24a0ff015e77657b9db6de3ef1",
+      "semantic_correctness": "partial",
+      "requirement_coverage": "partial",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "requirement_omission"
+    },
+    {
+      "question_id": "R-007",
+      "answer_hash": "b771f142c9292008d5cf08f23c421f02e60f695aa97cfa6ca665b7dd45ec7384",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-008",
+      "answer_hash": "b6e7d4b238659197a3c65d97093ca88c5ee41bcf8cffccbcd8c2e8899fa81ff4",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-009",
+      "answer_hash": "7b92037ea0b1e1bedc90bbeb2d8104334cc96c9326125c5c469a267f65190e8c",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-010",
+      "answer_hash": "cc157791d25bfc04b51227e31694c73528aaf4ee36a79dea853f9885b4aa59cd",
+      "semantic_correctness": "partial",
+      "requirement_coverage": "partial",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "requirement_omission"
+    },
+    {
+      "question_id": "R-011",
+      "answer_hash": "178baaef99c7dbf025dc5bdd9db307f74c5526385a18db691bc6dad2f411d008",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "answer_irrelevance"
+    },
+    {
+      "question_id": "R-012",
+      "answer_hash": "f0efa1a9a2ced90bc59ccdd8e76121cd4097ac6a6d5c595d3912e70feba7ebd2",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-013",
+      "answer_hash": "f7fac87c33d3da0e2d93cc3b6714110a927558513d4c9feb8f1e50d53de49ac2",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-014",
+      "answer_hash": "687731ea302a7a807a0082210e817a0fd48d01a38a02117eb52014568cab35f9",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-015",
+      "answer_hash": "a3bd98f75471ecb7f560fdc315fe396d38e4be3759f3c593cdcb700b081b36a0",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-016",
+      "answer_hash": "4209be707f2cfd59eca779cf85ddc193f72961bb28d2c5d59ccc676599d7e3ad",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-017",
+      "answer_hash": "e7703989955ce38e1e24286638ce62dff52040f249982ec2fc0886375f0b3aa7",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-018",
+      "answer_hash": "bec921cea8f92dcfa2c25fa222d54484af3dfcd55856da86e478c22d53d7ca58",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-019",
+      "answer_hash": "1348c1b2930acbb70f05b97ebc0a7a0188374f1c26b08502637901e8b6d44f7c",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "partial",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "requirement_omission"
+    },
+    {
+      "question_id": "R-020",
+      "answer_hash": "8df656a1d015ffb9b7409567e06e98cc7bfb6aa8e6c17da6a3ab751e9b596239",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-021",
+      "answer_hash": "2cfee87c3ad820207c1c6b9d6f7eb876fcf20feb52f78a884915288866dd050f",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-022",
+      "answer_hash": "0ab47cbd1563781152a3ac81c1a0a6177e2c67f8ee87afe0f3ec86b01900fb03",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-023",
+      "answer_hash": "676b0453e705e801a9a36b8620c53a28752aac2cb016b1e53d62e269eaf578b0",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-024",
+      "answer_hash": "4ecf52d37c01191b0794ae22adf86da0d660446db5b97af6671184fab39a32ba",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-025",
+      "answer_hash": "f706c9b7d963c399d91ecf022d1240adec2c8a44fac608806db47faad7c61fa8",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-026",
+      "answer_hash": "3206cd1621ea6fb52d8cc1ea7727dd7e0d5a1302bb0f5fd5cfe98d667d85b8f5",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-027",
+      "answer_hash": "547cef4e2edd8a21cdb3729c8deb82cfb708644209947f4974b736d36a4cbd4b",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-028",
+      "answer_hash": "5e85ebe5fb646a61d758b858945459c623542554a3249153379992a11bf140df",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-029",
+      "answer_hash": "c84a98557d5273415b5ca601097262ff04223954a5c26ae4b540feeb2b265dcc",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-030",
+      "answer_hash": "b95d92b352ab3f249d54cfd2019adb97751afc0c0f8d55a4a5de46ed1006fca2",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-031",
+      "answer_hash": "2bb2f6a60735c4a34743641c86041858572313791a8fc1bea2c7ab408f974c50",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-032",
+      "answer_hash": "be71fa3fda828f3d814b3c1a80961c9243e4c65820a9432340fc545fc28c372a",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-033",
+      "answer_hash": "fcef2d4252281320e8386183814815a673f5fa23ac750d42031e354217ac5b2a",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "unsupported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "product_field_confusion"
+    },
+    {
+      "question_id": "R-034",
+      "answer_hash": "a256d83e5e20ebbd7dfb044ec6133356b5e7a497897689ad0749ae0cd2cf8298",
+      "semantic_correctness": "partial",
+      "requirement_coverage": "partial",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "numeric_confusion"
+    },
+    {
+      "question_id": "R-035",
+      "answer_hash": "cb566e6ca5ec3ef66dcb6127640359491b215993ef220f0519f371d3f057e58a",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "partially_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "product_field_confusion"
+    },
+    {
+      "question_id": "R-036",
+      "answer_hash": "9d47c3609932209baea1be737b01512e9e55349d30a9e227af512a0777ef9340",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-037",
+      "answer_hash": "18328c4b86251d309f3d212736044e7037ad2a86ce4d3a94cc2b350f5abf03c6",
+      "semantic_correctness": "correct",
+      "requirement_coverage": "full",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": true,
+      "failure_reason": null
+    },
+    {
+      "question_id": "R-038",
+      "answer_hash": "474ca41bcde481f4815b804f8c6f3e1cd23f64797dd4bf721885b5c55bc45716",
+      "semantic_correctness": "incorrect",
+      "requirement_coverage": "missing",
+      "grounding": "fully_supported",
+      "policy_behavior": "n/a",
+      "strict_useful": false,
+      "failure_reason": "answer_irrelevance"
+    },
+    {
+      "question_id": "R-039",
+      "answer_hash": "41b15e3d8968d1c6d2a2c700415b28bef646e98f3460fea7172b7048faa8eed3",
+      "semantic_correctness": "not_evaluable",
+      "requirement_coverage": "missing",
+      "grounding": "unsupported",
+      "policy_behavior": "correct",
+      "strict_useful": false,
+      "failure_reason": "policy_block"
+    },
+    {
+      "question_id": "R-040",
+      "answer_hash": "84c38b29df62e1b53019b041f81e5a9877ba9d7c2712c1628b290c057f201403",
+      "semantic_correctness": "not_evaluable",
+      "requirement_coverage": "missing",
+      "grounding": "unsupported",
+      "policy_behavior": "correct",
+      "strict_useful": false,
+      "failure_reason": "policy_block"
+    }
+  ]
+}

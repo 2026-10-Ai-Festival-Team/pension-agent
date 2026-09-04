@@ -26,7 +26,7 @@ class SlideChunker:
                 text = join_non_empty(item.text for item in buffer)
                 if text:
                     ids = collect_element_ids(buffer)
-                    chunks.append(SearchChunk(chunk_id=make_chunk_id(document.source_id, ChunkType.SLIDE, ids, f"slide-{slide}-{len(chunks)}"), source_id=document.source_id, source_path=document.relative_path, source_format=document.source_format.value, document_type=document.document_type.value, title=document.title, section=None, chunk_type=ChunkType.SLIDE, text=text, locator=ChunkLocator(slide_start=slide, slide_end=slide), product_codes=document.product_codes, date_candidates=document.date_candidates, element_ids=ids, metadata={"character_count": len(text)}))
+                    chunks.append(SearchChunk(chunk_id=make_chunk_id(document.source_id, ChunkType.SLIDE, ids, f"slide-{slide}-{len(chunks)}"), source_id=document.source_id, source_path=document.relative_path, source_format=document.source_format.value, document_type=document.document_type.value, source_type=document.source_type, authority_level=document.authority_level, as_of_date=document.as_of_date or document.effective_date, title=document.title, section=None, chunk_type=ChunkType.SLIDE, text=text, locator=ChunkLocator(slide_start=slide, slide_end=slide), product_codes=document.product_codes, date_candidates=document.date_candidates, element_ids=ids, metadata={"character_count": len(text)}))
                 buffer = []
             for element in elements:
                 if element.kind == ElementType.TABLE:

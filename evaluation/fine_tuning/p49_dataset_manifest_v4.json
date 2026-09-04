@@ -1,0 +1,20 @@
+{
+  "dataset_status": "draft_awaiting_human_approval",
+  "source_v3_positive_sha256": "84c0e5f200a095d5b5c28b66a9ec0ccdd3814b7739e43162a263657a946f618b",
+  "source_v3_contrastive_sha256": "92bddd43e44e111d083bcd5d6834ffe18c2af1d5cbe804541bb1a984c549d18f",
+  "positive_draft_sha256": "2518bbd7173eb715b0666532edd9dcf1d78bca313401b3be003077d2baca6c75",
+  "contrastive_draft_sha256": "617c9bf4788ec0fe7fd7939d32cf26e46ff5b2881d11ce8fa249b2e4cf5e7c9b",
+  "record_count": 38,
+  "answer_policy_contract": {
+    "outcome": "supported_answer",
+    "evidence_status": "full",
+    "missing_conditions": [],
+    "unsupported_requirements": [],
+    "notice_when_no_user_caution": "없음"
+  },
+  "automatic_qa_pass": 38,
+  "human_approved": 0,
+  "human_pending": 38,
+  "tuning_api_calls": 0,
+  "ncp_resource_changes": 0
+}

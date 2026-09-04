@@ -1,0 +1,925 @@
+{
+  "experiment": "P32-B generalized orchestration offline regression",
+  "hcx_called": false,
+  "p15_regressions": [],
+  "p31_regressions": [],
+  "p32_expected_behavior_pass": "25/25",
+  "p32_rows": [
+    {
+      "question_id": "P32-001",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "simple",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": true,
+        "reason": "simple_evidence_present",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "fc71bcf7cc90f68d-table-b61600a4705c",
+          "fc71bcf7cc90f68d-paragraph_group-fa61de5a0ee2",
+          "04782a392f49293e-table-bc16c5284b58",
+          "fc71bcf7cc90f68d-table-c1ac92bf85cc",
+          "46551bfa35d467ed-paragraph_group-9e04f792dc29",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+          "49ed30e0f7b42e68-table-0910adeedcae",
+          "46551bfa35d467ed-table-997963f26544",
+          "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-002",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_tax_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "irp_contribution_and_tax_deduction_limit",
+        "slot_keys": [
+          "irp_contribution_limit",
+          "irp_tax_deduction_limit"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+          "7cce439d30d5a8b0-table-20114875d339"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-003",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "simple",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": true,
+        "reason": "simple_evidence_present",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "4607500e74afcdf8-paragraph_group-45b428961c7a",
+          "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+          "61c5315b1e7c0f25-table-157955da38bf",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+          "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+          "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+          "46551bfa35d467ed-paragraph_group-8b734b27f449",
+          "dc5f01c34172a900-paragraph_group-91a1ef8d8430",
+          "2ce564b5ddde4f21-paragraph_group-866cbf482ac1"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-004",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "compound",
+        "category": "annuity_age_and_duration",
+        "slot_keys": [
+          "annuity_age",
+          "annuity_duration"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "ef05c9c97fbadd27-paragraph_group-98497575ff11"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-005",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "simple",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": true,
+        "reason": "simple_evidence_present",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+          "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+          "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+          "4607500e74afcdf8-table-6f164502cbce",
+          "ae713c70a631594f-paragraph_group-3f366b654f2b",
+          "ae713c70a631594f-paragraph_group-acf255b8eff3",
+          "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+          "d1728c489e13ad51-paragraph_group-b9ebd3d1be31",
+          "0a1c8fece530be69-paragraph_group-e55ae3e51f5f",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-006",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "db_dc_benefit_calculation",
+        "slot_keys": [
+          "db_benefit",
+          "dc_benefit",
+          "db_operation",
+          "dc_operation"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "4607500e74afcdf8-table-6f164502cbce"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-007",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "compound",
+        "category": "severance_and_pension_comparison",
+        "slot_keys": [
+          "severance_payment",
+          "pension_accumulation"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-008",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_tax_caveat",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "compound",
+        "category": "annuity_and_lump_sum_tax",
+        "slot_keys": [
+          "annuity_tax_timing",
+          "lump_sum_tax_difference"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "7878a3be5806fef4-paragraph_group-4db22464421b"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-009",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "db_dc_conversion",
+        "slot_keys": [
+          "conversion_eligibility",
+          "dc_employer_contribution"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "fc71bcf7cc90f68d-table-b61600a4705c"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-010",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "irp_withdrawal_and_cancellation",
+        "slot_keys": [
+          "irp_housing_withdrawal",
+          "irp_cancellation_principle"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "ef05c9c97fbadd27-table-df471ef8e98c",
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-011",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "simple",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR510902773M:risk_grade"
+        ],
+        "evidence_sufficient": true,
+        "reason": "simple_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-012",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR5111450067:total_fee",
+          "KR5111450067:example_cost"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "04ef7a87ca9ba103-paragraph_group-70fe82959ea1"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-013",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR5120450018:total_fee",
+          "KR5120450018:example_cost"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "6cf691c50b1e1ce9-table-ceaaa4f448c6"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-014",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "simple",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR5114420016:principal_loss_possible"
+        ],
+        "evidence_sufficient": true,
+        "reason": "simple_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "0a1c8fece530be69-table-a606f95d8da1"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-015",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR510902773M:risk_grade",
+          "KR510902773M:investment_strategy"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+          "cf922cacac95fad9-paragraph_group-cfae7830e38d"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-016",
+      "answerability": "answerable",
+      "expected_policy_behavior": "clarify_before_recommendation",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "conditional_recommendation_requires_user_conditions",
+        "generator_would_be_called": false,
+        "policy_action": "clarify"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-017",
+      "answerability": "answerable",
+      "expected_policy_behavior": "comparison_not_single_recommendation",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "recommendation_comparison_only",
+        "generator_would_be_called": false,
+        "policy_action": "comparison"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-018",
+      "answerability": "answerable",
+      "expected_policy_behavior": "clarify_or_limit",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "conditional_recommendation_requires_user_conditions",
+        "generator_would_be_called": false,
+        "policy_action": "clarify"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-019",
+      "answerability": "answerable",
+      "expected_policy_behavior": "clarify_before_recommendation",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "personal_tax_conditions_required",
+        "generator_would_be_called": false,
+        "policy_action": "clarify"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-020",
+      "answerability": "unsupported",
+      "expected_policy_behavior": "safe_block",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "unsupported",
+        "category": "personal_account_lookup",
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "personal_account_lookup",
+        "generator_would_be_called": false,
+        "policy_action": "safe_block"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-021",
+      "answerability": "unsupported",
+      "expected_policy_behavior": "safe_block",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "unsupported",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "unsupported_or_personal_or_conditional",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "37adcdadd2f3f902-paragraph_group-3e08b8cbea95",
+          "a30a18cb28a80488-table-da9a3a699b05",
+          "5a8516a0215f8754-slide-27b31b18c69d",
+          "ea8b1476d7598766-table-2e53e039fbe2",
+          "ea8b1476d7598766-table-f1d52b3cd9a6",
+          "7875bce4243126a0-paragraph_group-1f5b801814a0",
+          "c44aea99e08117cf-paragraph_group-9daf24c7c894",
+          "fecffc9866eb7cca-paragraph_group-e2abc099c97e",
+          "52e63bd25a4a03bb-paragraph_group-71346acaae77",
+          "df53afbeea3c89ed-paragraph_group-5e6352078cba"
+        ],
+        "generator_would_be_called": false,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-022",
+      "answerability": "unsupported",
+      "expected_policy_behavior": "safe_block",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "unsupported",
+        "category": "personal_account_lookup",
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "personal_account_lookup",
+        "generator_would_be_called": false,
+        "policy_action": "safe_block"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-023",
+      "answerability": "answerable",
+      "expected_policy_behavior": "correct_premise_with_source",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "simple",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": true,
+        "reason": "simple_evidence_present",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "ec6207f6286e8df1-paragraph_group-7fafbf9fe263",
+          "9fd1c894a3530639-table-6924a6b24bfd",
+          "c787719b514f51da-table-94fdc4ab85f6",
+          "196f909548daade7-table-1c78d837458a",
+          "2040f262e360632f-table-09c54a66177c",
+          "ce1ad510383fb454-table-694b80e33af2",
+          "71758d888c643ea0-table-6e088ec848fe",
+          "158fe24cfe635d61-table-fb5d6ba98eea",
+          "07f976e170d46627-table-662f4931d304",
+          "ee456f94444d0030-table-91438bba7384"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-024",
+      "answerability": "answerable",
+      "expected_policy_behavior": "correct_premise_with_source",
+      "previous_strict_useful": true,
+      "state": {
+        "route": "simple",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": true,
+        "reason": "simple_evidence_present",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "379bc9f53c58895a-paragraph_group-52df6c010ca6",
+          "d1118ff26efd3d24-paragraph_group-7f26857f846b",
+          "3b82d1b0fede8161-table-ebfc62787eb5",
+          "ea8b1476d7598766-table-4f15ebfb908f",
+          "8743383ada56b594-paragraph_group-0ebd222e829f",
+          "07f976e170d46627-paragraph_group-0e65c8b7ccf6",
+          "96ed24394cd022ab-paragraph_group-64172e9b3ebb",
+          "1892c6a58f2f816f-paragraph_group-b4f3da01968f",
+          "c787719b514f51da-paragraph_group-5c6b69d25137",
+          "fc3cd93441450fa8-paragraph_group-4867044839e9"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-025",
+      "answerability": "answerable",
+      "expected_policy_behavior": "correct_premise_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "simple",
+        "category": "past_performance_premise",
+        "slot_keys": [
+          "past_performance_not_guarantee",
+          "past_performance_suitability"
+        ],
+        "evidence_sufficient": true,
+        "reason": "simple_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "71758d888c643ea0-table-660e77513fdd",
+          "ac97d050d2b39ec2-table-3c3be297fdb7"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    }
+  ],
+  "p32_previously_failed": [
+    {
+      "question_id": "P32-002",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_tax_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "irp_contribution_and_tax_deduction_limit",
+        "slot_keys": [
+          "irp_contribution_limit",
+          "irp_tax_deduction_limit"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+          "7cce439d30d5a8b0-table-20114875d339"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-006",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "db_dc_benefit_calculation",
+        "slot_keys": [
+          "db_benefit",
+          "dc_benefit",
+          "db_operation",
+          "dc_operation"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "4607500e74afcdf8-table-6f164502cbce"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-009",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "db_dc_conversion",
+        "slot_keys": [
+          "conversion_eligibility",
+          "dc_employer_contribution"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "fc71bcf7cc90f68d-table-b61600a4705c"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-010",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "irp_withdrawal_and_cancellation",
+        "slot_keys": [
+          "irp_housing_withdrawal",
+          "irp_cancellation_principle"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "ef05c9c97fbadd27-table-df471ef8e98c",
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-012",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR5111450067:total_fee",
+          "KR5111450067:example_cost"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "04ef7a87ca9ba103-paragraph_group-70fe82959ea1"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-013",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR5120450018:total_fee",
+          "KR5120450018:example_cost"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "6cf691c50b1e1ce9-table-ceaaa4f448c6"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-014",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "simple",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR5114420016:principal_loss_possible"
+        ],
+        "evidence_sufficient": true,
+        "reason": "simple_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "0a1c8fece530be69-table-a606f95d8da1"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-015",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source_and_risk_caveat",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "compound",
+        "category": "product_fields",
+        "slot_keys": [
+          "KR510902773M:risk_grade",
+          "KR510902773M:investment_strategy"
+        ],
+        "evidence_sufficient": true,
+        "reason": "compound_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+          "cf922cacac95fad9-paragraph_group-cfae7830e38d"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-016",
+      "answerability": "answerable",
+      "expected_policy_behavior": "clarify_before_recommendation",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "conditional_recommendation_requires_user_conditions",
+        "generator_would_be_called": false,
+        "policy_action": "clarify"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-017",
+      "answerability": "answerable",
+      "expected_policy_behavior": "comparison_not_single_recommendation",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "recommendation_comparison_only",
+        "generator_would_be_called": false,
+        "policy_action": "comparison"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-018",
+      "answerability": "answerable",
+      "expected_policy_behavior": "clarify_or_limit",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "conditional_recommendation_requires_user_conditions",
+        "generator_would_be_called": false,
+        "policy_action": "clarify"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-019",
+      "answerability": "answerable",
+      "expected_policy_behavior": "clarify_before_recommendation",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "policy",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "personal_tax_conditions_required",
+        "generator_would_be_called": false,
+        "policy_action": "clarify"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-020",
+      "answerability": "unsupported",
+      "expected_policy_behavior": "safe_block",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "unsupported",
+        "category": "personal_account_lookup",
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "personal_account_lookup",
+        "generator_would_be_called": false,
+        "policy_action": "safe_block"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-021",
+      "answerability": "unsupported",
+      "expected_policy_behavior": "safe_block",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "unsupported",
+        "category": null,
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "unsupported_or_personal_or_conditional",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "37adcdadd2f3f902-paragraph_group-3e08b8cbea95",
+          "a30a18cb28a80488-table-da9a3a699b05",
+          "5a8516a0215f8754-slide-27b31b18c69d",
+          "ea8b1476d7598766-table-2e53e039fbe2",
+          "ea8b1476d7598766-table-f1d52b3cd9a6",
+          "7875bce4243126a0-paragraph_group-1f5b801814a0",
+          "c44aea99e08117cf-paragraph_group-9daf24c7c894",
+          "fecffc9866eb7cca-paragraph_group-e2abc099c97e",
+          "52e63bd25a4a03bb-paragraph_group-71346acaae77",
+          "df53afbeea3c89ed-paragraph_group-5e6352078cba"
+        ],
+        "generator_would_be_called": false,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-022",
+      "answerability": "unsupported",
+      "expected_policy_behavior": "safe_block",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "unsupported",
+        "category": "personal_account_lookup",
+        "slot_keys": [],
+        "evidence_sufficient": false,
+        "reason": "personal_account_lookup",
+        "generator_would_be_called": false,
+        "policy_action": "safe_block"
+      },
+      "expected_deterministic_behavior_pass": true
+    },
+    {
+      "question_id": "P32-025",
+      "answerability": "answerable",
+      "expected_policy_behavior": "correct_premise_with_source",
+      "previous_strict_useful": false,
+      "state": {
+        "route": "simple",
+        "category": "past_performance_premise",
+        "slot_keys": [
+          "past_performance_not_guarantee",
+          "past_performance_suitability"
+        ],
+        "evidence_sufficient": true,
+        "reason": "simple_requirements_complete",
+        "missing_slots": [],
+        "selected_chunk_ids": [
+          "71758d888c643ea0-table-660e77513fdd",
+          "ac97d050d2b39ec2-table-3c3be297fdb7"
+        ],
+        "generator_would_be_called": true,
+        "policy_action": null
+      },
+      "expected_deterministic_behavior_pass": true
+    }
+  ],
+  "go_for_new_holdout_only": true
+}

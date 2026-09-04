@@ -1,0 +1,39 @@
+{
+  "experiment": "P27-D native Structured Outputs A/B semantic controls",
+  "labeling_scope": "format 실험의 semantic regression 확인용 control 4문항. P27-C 형식 실패 6문항의 semantic 품질은 이 파일에서 판정하지 않는다.",
+  "labels": [
+    {
+      "question_id": "R-002",
+      "variants": {
+        "A_current_json_prompt": {"semantic_correctness": "correct", "requirement_coverage": "full", "grounding": "fully_supported"},
+        "B_native_structured_output": {"semantic_correctness": "correct", "requirement_coverage": "full", "grounding": "fully_supported"}
+      },
+      "comparison": "no_regression"
+    },
+    {
+      "question_id": "R-019",
+      "variants": {
+        "A_current_json_prompt": {"semantic_correctness": "correct", "requirement_coverage": "partial", "grounding": "fully_supported"},
+        "B_native_structured_output": {"semantic_correctness": "correct", "requirement_coverage": "partial", "grounding": "fully_supported"}
+      },
+      "comparison": "no_regression",
+      "note": "법정사유라는 핵심은 맞지만 구체 사유를 열거하지 않아 requirement coverage는 partial로 유지한다."
+    },
+    {
+      "question_id": "R-024",
+      "variants": {
+        "A_current_json_prompt": {"semantic_correctness": "correct", "requirement_coverage": "full", "grounding": "fully_supported"},
+        "B_native_structured_output": {"semantic_correctness": "correct", "requirement_coverage": "full", "grounding": "fully_supported"}
+      },
+      "comparison": "no_regression"
+    },
+    {
+      "question_id": "R-037",
+      "variants": {
+        "A_current_json_prompt": {"semantic_correctness": "correct", "requirement_coverage": "full", "grounding": "fully_supported"},
+        "B_native_structured_output": {"semantic_correctness": "correct", "requirement_coverage": "full", "grounding": "fully_supported"}
+      },
+      "comparison": "no_regression"
+    }
+  ]
+}

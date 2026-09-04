@@ -1,0 +1,166 @@
+{
+  "experiment": "P41-A Selector Scope/Precision Attribution",
+  "input_result": "evaluation/p41_scope_requirement_holdout.json",
+  "hcx_calls": 0,
+  "attributions": [
+    {
+      "id": "P41-008",
+      "primary_owner": "selector_scope_expansion",
+      "question": "DB와 DC 가운데 가입자가 직접 운용방법을 정하는 쪽의 퇴직급여 금액은 무엇으로 정해지나요?",
+      "gold_requirements": [
+        "DC.benefit_determination"
+      ],
+      "predicted_requirements": [
+        "DB.benefit_determination",
+        "DC.benefit_determination"
+      ],
+      "unsupported_extra_requirements": [
+        "DB.benefit_determination"
+      ],
+      "raw_active_subjects": [
+        "DB",
+        "DC"
+      ],
+      "effective_bound_subjects": [
+        "DB",
+        "DC"
+      ],
+      "binder_behavior": {
+        "active_subjects": [
+          "DB",
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DB",
+            "requirement": "DB.benefit_determination",
+            "status": "bound"
+          },
+          {
+            "subject": "DC",
+            "requirement": "DC.benefit_determination",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "fix_boundary": "resolver-first scope restriction requires an indirect DC subject resolver; current raw resolver leaves DB/DC plural"
+    },
+    {
+      "id": "P41-010",
+      "primary_owner": "selector_scope_expansion",
+      "question": "연금저축과 IRP를 순서대로 언급했을 때 두 번째 계좌의 중도인출 법정사유와 인출 과세는 어떻게 다른가요?",
+      "gold_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment"
+      ],
+      "predicted_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment",
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "unsupported_extra_requirements": [
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "raw_active_subjects": [
+        "IRP"
+      ],
+      "effective_bound_subjects": [
+        "IRP"
+      ],
+      "binder_behavior": {
+        "active_subjects": [
+          "IRP"
+        ],
+        "bindings": [
+          {
+            "subject": "IRP",
+            "requirement": "IRP.early_withdrawal.allowed_reasons",
+            "status": "bound"
+          },
+          {
+            "subject": "IRP",
+            "requirement": "IRP.withdrawal.tax_treatment",
+            "status": "bound"
+          },
+          {
+            "subject": "pension_savings",
+            "requirement": "pension_savings.early_withdrawal.allowed_reasons",
+            "status": "conflict"
+          },
+          {
+            "subject": "pension_savings",
+            "requirement": "pension_savings.withdrawal.tax_treatment",
+            "status": "conflict"
+          }
+        ],
+        "scope_conflicts": [
+          "subject_requirement_conflict:pension_savings:pension_savings.early_withdrawal.allowed_reasons",
+          "subject_requirement_conflict:pension_savings:pension_savings.withdrawal.tax_treatment"
+        ],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "fix_boundary": "resolver-first scope restriction can present only IRP-scoped requirements because ordinal account resolution is already deterministic"
+    },
+    {
+      "id": "P41-011",
+      "primary_owner": "selector_extra_requirement",
+      "question": "DC 제도에서 가입자 교육은 최소 얼마나 자주 해야 하고, 이 제도의 교육을 외부에 맡길 수 있나요?",
+      "gold_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "predicted_requirements": [
+        "DC.operation_party",
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "unsupported_extra_requirements": [
+        "DC.operation_party"
+      ],
+      "raw_active_subjects": [
+        "DC"
+      ],
+      "effective_bound_subjects": [
+        "DC"
+      ],
+      "binder_behavior": {
+        "active_subjects": [
+          "DC"
+        ],
+        "bindings": [
+          {
+            "subject": "DC",
+            "requirement": "DC.operation_party",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.frequency",
+            "status": "bound"
+          },
+          {
+            "subject": null,
+            "requirement": "retirement_pension.participant_education.outsourcing",
+            "status": "bound"
+          }
+        ],
+        "scope_conflicts": [],
+        "unresolved_references": [],
+        "incomplete_reasons": []
+      },
+      "fix_boundary": "scope restriction alone is insufficient; DC.operation_party is in-scope but not requested"
+    }
+  ],
+  "architecture_findings": {
+    "p41_010": "The resolver can narrow IRP before selection, but the current execution calls the selector without that scope input.",
+    "p41_008": "Scope cannot be restricted safely until the resolver also understands the indirect '가입자가 직접 운용방법을 정하는 쪽' closed-pair predicate.",
+    "p41_011": "An active-subject enum restriction cannot remove extra requirements belonging to the active subject; selector precision remains a separate contract."
+  },
+  "decision": "Do not patch individual P41 questions. Design a resolver-first, subject-filtered selector contract plus an independent no-extra-requirement precision contract."
+}

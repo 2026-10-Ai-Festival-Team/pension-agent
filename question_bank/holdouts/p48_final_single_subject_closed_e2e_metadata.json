@@ -1,0 +1,10 @@
+{
+  "experiment": "P48 Final Fresh Single-Subject Closed E2E",
+  "question_count": 18,
+  "supported_lane": "single-active-subject Closed factual",
+  "excluded_capability": "genuine multi-subject comparison; non_unique_active_subject remains unresolved",
+  "execution_preparation_contract": "DirectRequirementE2EAgent._frontend_payload passes status, active_subject, selected_requirements, and scoped allowed_requirements to ScopedFrontendPreparationShadow.prepare",
+  "manifest_sha256": "d0894d03e8e7df7164d5ba8fd3e416ead0f42aadbf5ef3dc7f14daeabe89bff1",
+  "frozen_before_hcx": true,
+  "hcx_calls": 0
+}

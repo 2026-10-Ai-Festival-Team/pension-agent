@@ -1,0 +1,28 @@
+{
+  "seed_count": 19,
+  "family_counts": {
+    "field_distinction": 6,
+    "table_enumeration_completeness": 7,
+    "required_field_completeness": 4,
+    "evidence_fidelity": 2
+  },
+  "source_result_hashes": {
+    "P45": "dddb6833856fc1ba481c8a1953dba940b9695aea868322e2b4e0bad43223fc22",
+    "P46": "3c7d72efbfa1730de4dd30e90345375c8c4d620116958c1a7d07e7ff8a5d9c97",
+    "P47": "f558dc5ad63bba3b8cf3331ab6da9d623a603b7f988542deedfa1d6ff29fc18c",
+    "P48": "8feadb381d9942d5bd6e781d1e44ef23fa0398459201ee502459241a4b9398cf"
+  },
+  "semantic_label_hashes": {
+    "P45": "abf1f5fbe343b0644abfce513fe51d8261f0528aa000017217377300db7c3a6c",
+    "P46": "9f4976c6e1380cfd1429adfcab96105419ad417e5d10931415c95eee03dd7dbb",
+    "P47": "b3e84a3769f6b68d41893a929dcd5f95002a0d3c07ad3f2df5f20ca25d133b4f",
+    "P48": "aadf9bac5c7f6f7b86f8b97de48073087f2a90c7a6a34d4081d8d1277f55452d"
+  },
+  "manifest_hashes": {
+    "P45": "e16da8b9b70b86432663de18188e5b5416f7d4b4af0299790b41e107ed446810",
+    "P46": "497826ea123e96a58bb6c60cbc1cf123cfce3f3e36afa428a35b12fcd0eea649",
+    "P47": "dd11d361dac1dfcd89222d4ea5bc65ff78ad91c62f8edd06c20dfd6d0be4a086",
+    "P48": "d0894d03e8e7df7164d5ba8fd3e416ead0f42aadbf5ef3dc7f14daeabe89bff1"
+  },
+  "tuning_api_calls": 0
+}

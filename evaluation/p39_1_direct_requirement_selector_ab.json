@@ -1,0 +1,1888 @@
+{
+  "experiment": "P39-1 isolated direct canonical-requirement selector A/B/C",
+  "scope": "P38-2 18 development questions only; no candidate integration",
+  "candidate_agent_changed": false,
+  "retrieval_used": false,
+  "answer_generation_used": false,
+  "citation_used": false,
+  "policy_used": false,
+  "input": {
+    "manifest": "question_bank/development/p39_1_direct_requirement_selector_gold.jsonl",
+    "manifest_sha256": "0bcf5771a8399b5120e3abcd2b9b11f66c242b5211db3335f2da9993f366c499",
+    "question_count": 18
+  },
+  "contract": {
+    "model": "HCX-007",
+    "native_structured_outputs": true,
+    "thinking_effort": "none",
+    "min_request_start_interval_seconds": 6.0,
+    "direct_multi_label_enum": true,
+    "product_identity_deterministic": true
+  },
+  "methods": {
+    "A_existing_production_planner": {
+      "question_count": 18,
+      "requirement_precision": 0.9231,
+      "requirement_recall": 0.2857,
+      "requirement_exact": {
+        "exact": 3,
+        "total": 18,
+        "accuracy": 0.1667
+      },
+      "multi_requirement_recall": {
+        "matched": 12,
+        "gold": 40,
+        "recall": 0.3
+      },
+      "unsupported_extra_requirement_count": 1,
+      "false_missing_requirement_count": 30,
+      "details": [
+        {
+          "source_question_id": "P38-2-001",
+          "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+          "gold_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "matched_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-002",
+          "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+          "gold_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-003",
+          "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+          "gold_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-004",
+          "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+          "gold_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-005",
+          "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+          "gold_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-006",
+          "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+          "gold_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "predicted_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "matched_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-007",
+          "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+          "gold_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-008",
+          "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+          "gold_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-009",
+          "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+          "gold_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route",
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route",
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-010",
+          "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+          "gold_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "matched_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-011",
+          "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+          "gold_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.risk_grade.change_possibility"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-012",
+          "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+          "gold_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "predicted_requirements": [
+            "product.equity_allocation_limit"
+          ],
+          "matched_requirements": [
+            "product.equity_allocation_limit"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.tracking_index"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-013",
+          "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+          "gold_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-014",
+          "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+          "gold_requirements": [
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.risk_grade.current"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-015",
+          "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+          "gold_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "product.risk_grade.historical"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-016",
+          "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+          "gold_requirements": [
+            "DC.employer_contribution",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.operation_party",
+            "DC.operation_party"
+          ],
+          "matched_requirements": [
+            "DC.operation_party"
+          ],
+          "unsupported_extra_requirements": [
+            "DB.operation_party"
+          ],
+          "false_missing_requirements": [
+            "DC.employer_contribution"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-017",
+          "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+          "gold_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-018",
+          "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+          "gold_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        }
+      ],
+      "runtime": {
+        "live_hcx_calls": 0,
+        "provider_errors": 0
+      }
+    },
+    "B_frozen_p38_v21_atom_parser": {
+      "question_count": 18,
+      "requirement_precision": 0.9355,
+      "requirement_recall": 0.6905,
+      "requirement_exact": {
+        "exact": 11,
+        "total": 18,
+        "accuracy": 0.6111
+      },
+      "multi_requirement_recall": {
+        "matched": 27,
+        "gold": 40,
+        "recall": 0.675
+      },
+      "unsupported_extra_requirement_count": 2,
+      "false_missing_requirement_count": 13,
+      "details": [
+        {
+          "source_question_id": "P38-2-001",
+          "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+          "gold_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.benefit_determination",
+            "DC.benefit_determination",
+            "DC.employer_contribution"
+          ],
+          "matched_requirements": [
+            "DB.benefit_determination",
+            "DC.benefit_determination"
+          ],
+          "unsupported_extra_requirements": [
+            "DC.employer_contribution"
+          ],
+          "false_missing_requirements": [
+            "DB.operation_party",
+            "DC.operation_party"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-002",
+          "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+          "gold_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "predicted_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "matched_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-003",
+          "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+          "gold_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "matched_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-004",
+          "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+          "gold_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "predicted_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "matched_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-005",
+          "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+          "gold_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "predicted_requirements": [],
+          "matched_requirements": [],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.0
+        },
+        {
+          "source_question_id": "P38-2-006",
+          "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+          "gold_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "predicted_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "matched_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-007",
+          "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+          "gold_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment"
+          ],
+          "matched_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-008",
+          "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+          "gold_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "predicted_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "matched_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-009",
+          "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+          "gold_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route",
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "matched_requirements": [
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.3333
+        },
+        {
+          "source_question_id": "P38-2-010",
+          "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+          "gold_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "matched_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-011",
+          "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+          "gold_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-012",
+          "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+          "gold_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "predicted_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "matched_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-013",
+          "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+          "gold_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "predicted_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "matched_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-014",
+          "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+          "gold_requirements": [
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-015",
+          "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+          "gold_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [
+            "product.risk_grade.change_possibility"
+          ],
+          "false_missing_requirements": [
+            "product.risk_grade.historical"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-016",
+          "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+          "gold_requirements": [
+            "DC.employer_contribution",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DC.employer_contribution"
+          ],
+          "matched_requirements": [
+            "DC.employer_contribution"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "DC.operation_party"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-017",
+          "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+          "gold_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "predicted_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "matched_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-018",
+          "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+          "gold_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.partial_withdrawal.condition"
+          ],
+          "matched_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.partial_withdrawal.condition"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        }
+      ],
+      "runtime": {
+        "artifact": "evaluation/p38_7b_v21_ab_p38_2_subset.json",
+        "live_hcx_calls": 0,
+        "provider_errors": 0
+      }
+    },
+    "C_p39_direct_requirement_selector": {
+      "question_count": 18,
+      "requirement_precision": 0.9756,
+      "requirement_recall": 0.9524,
+      "requirement_exact": {
+        "exact": 16,
+        "total": 18,
+        "accuracy": 0.8889
+      },
+      "multi_requirement_recall": {
+        "matched": 38,
+        "gold": 40,
+        "recall": 0.95
+      },
+      "unsupported_extra_requirement_count": 1,
+      "false_missing_requirement_count": 2,
+      "details": [
+        {
+          "source_question_id": "P38-2-001",
+          "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+          "gold_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "matched_requirements": [
+            "DB.benefit_determination",
+            "DB.operation_party",
+            "DC.benefit_determination",
+            "DC.operation_party"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-002",
+          "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+          "gold_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "predicted_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "matched_requirements": [
+            "DC.early_withdrawal.allowed_reasons",
+            "DC.early_withdrawal.required_documents"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-003",
+          "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+          "gold_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "matched_requirements": [
+            "retirement_pension.participant_education.frequency",
+            "retirement_pension.participant_education.outsourcing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-004",
+          "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+          "gold_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "predicted_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "matched_requirements": [
+            "pension_savings.tax_credit.limit",
+            "pension_savings_IRP.tax_credit.combined_limit"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-005",
+          "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+          "gold_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "predicted_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "matched_requirements": [
+            "general_account.investment_income.tax_timing",
+            "pension_account.investment_income.not_tax_exempt",
+            "pension_account.investment_income.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-006",
+          "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+          "gold_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "predicted_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "matched_requirements": [
+            "foreign_ETF.general_account.tax_timing",
+            "foreign_ETF.pension_account.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-007",
+          "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+          "gold_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "matched_requirements": [
+            "IRP.early_withdrawal.allowed_reasons",
+            "IRP.withdrawal.tax_treatment",
+            "pension_savings.early_withdrawal.allowed_reasons",
+            "pension_savings.withdrawal.tax_treatment"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-008",
+          "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+          "gold_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "predicted_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "matched_requirements": [
+            "ISA.transfer.additional_tax_credit",
+            "ISA.transfer.deadline"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-009",
+          "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+          "gold_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route",
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "matched_requirements": [
+            "retirement_pension.in_kind_transfer.DB_DC.application_route",
+            "retirement_pension.in_kind_transfer.IRP.application_route"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [
+            "retirement_pension.in_kind_transfer.definition"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.6667
+        },
+        {
+          "source_question_id": "P38-2-010",
+          "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+          "gold_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "predicted_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "matched_requirements": [
+            "retirement_pension.ETF.direct_trade_scope",
+            "retirement_pension.ETF.leverage_inverse_restriction"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-011",
+          "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+          "gold_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.change_possibility",
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-012",
+          "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+          "gold_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "predicted_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "matched_requirements": [
+            "product.equity_allocation_limit",
+            "product.tracking_index"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-013",
+          "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+          "gold_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "predicted_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "matched_requirements": [
+            "product.period_cost",
+            "product.total_fee"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-014",
+          "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+          "gold_requirements": [
+            "product.risk_grade.current"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-015",
+          "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+          "gold_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "predicted_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "matched_requirements": [
+            "product.risk_grade.current",
+            "product.risk_grade.historical"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        },
+        {
+          "source_question_id": "P38-2-016",
+          "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+          "gold_requirements": [
+            "DC.employer_contribution",
+            "DC.operation_party"
+          ],
+          "predicted_requirements": [
+            "DB.operation_party",
+            "DC.employer_contribution"
+          ],
+          "matched_requirements": [
+            "DC.employer_contribution"
+          ],
+          "unsupported_extra_requirements": [
+            "DB.operation_party"
+          ],
+          "false_missing_requirements": [
+            "DC.operation_party"
+          ],
+          "requirement_exact": false,
+          "multi_requirement_recall": 0.5
+        },
+        {
+          "source_question_id": "P38-2-017",
+          "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+          "gold_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "predicted_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "matched_requirements": [
+            "retirement_income.IRP_transfer.tax_timing"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": null
+        },
+        {
+          "source_question_id": "P38-2-018",
+          "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+          "gold_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "predicted_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "matched_requirements": [
+            "pension_account.account_closure.condition",
+            "pension_account.account_closure.tax_treatment",
+            "pension_account.partial_withdrawal.condition",
+            "pension_account.partial_withdrawal.tax_treatment"
+          ],
+          "unsupported_extra_requirements": [],
+          "false_missing_requirements": [],
+          "requirement_exact": true,
+          "multi_requirement_recall": 1.0
+        }
+      ],
+      "runtime": {
+        "schema_valid": {
+          "valid": 18,
+          "total": 18
+        },
+        "ontology_valid": {
+          "valid": 18,
+          "total": 18
+        },
+        "unknown_requirement_count": 0,
+        "provider_errors": 0,
+        "live_hcx_calls": 18
+      }
+    }
+  },
+  "C_runtime": {
+    "schema_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "ontology_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "unknown_requirement_count": 0,
+    "provider_errors": 0,
+    "live_hcx_calls": 18
+  },
+  "C_product_identity_resolution": {
+    "exact": 18,
+    "total": 18
+  },
+  "C_selector_outputs": [
+    {
+      "source_question_id": "P38-2-001",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "DB.benefit_determination",
+        "DB.operation_party",
+        "DC.benefit_determination",
+        "DC.operation_party"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6457,
+        "lexical_normalization_applied": true,
+        "rate_limit_wait_ms": 0.0,
+        "request_started_offset_ms": 0.033,
+        "http_status": 200,
+        "request_completed_offset_ms": 1404.301,
+        "raw_content_sha256": "a036db81d18d19caf7154fc90f959ae47ccf1193f868aad5dbdb3f09aebade54",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6457,
+            "lexical_normalization_applied": true,
+            "rate_limit_wait_ms": 0.0,
+            "request_started_offset_ms": 0.033,
+            "http_status": 200,
+            "request_completed_offset_ms": 1404.301,
+            "raw_content_sha256": "a036db81d18d19caf7154fc90f959ae47ccf1193f868aad5dbdb3f09aebade54",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-002",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "DC.early_withdrawal.allowed_reasons",
+        "DC.early_withdrawal.required_documents"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6461,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4697.708,
+        "request_started_offset_ms": 4697.878,
+        "http_status": 200,
+        "request_completed_offset_ms": 6141.311,
+        "raw_content_sha256": "2a4cc2b0de000add0669fd117daa9ce166429c19d592ade63bd33f1dbcbbb644",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6461,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4697.708,
+            "request_started_offset_ms": 4697.878,
+            "http_status": 200,
+            "request_completed_offset_ms": 6141.311,
+            "raw_content_sha256": "2a4cc2b0de000add0669fd117daa9ce166429c19d592ade63bd33f1dbcbbb644",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-003",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6441,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4657.651,
+        "request_started_offset_ms": 4657.861,
+        "http_status": 200,
+        "request_completed_offset_ms": 6090.019,
+        "raw_content_sha256": "5d5e469a37f84cd218c3e3b55ff38bc4f128496f3929fbc28d71db9548b45774",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6441,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4657.651,
+            "request_started_offset_ms": 4657.861,
+            "http_status": 200,
+            "request_completed_offset_ms": 6090.019,
+            "raw_content_sha256": "5d5e469a37f84cd218c3e3b55ff38bc4f128496f3929fbc28d71db9548b45774",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-004",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "pension_savings.tax_credit.limit",
+        "pension_savings_IRP.tax_credit.combined_limit"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6469,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4668.404,
+        "request_started_offset_ms": 4668.528,
+        "http_status": 200,
+        "request_completed_offset_ms": 6174.929,
+        "raw_content_sha256": "cc7ebb0952dd6f511c1009d20f904631398832fe60e2a5ad265b426447812465",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6469,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4668.404,
+            "request_started_offset_ms": 4668.528,
+            "http_status": 200,
+            "request_completed_offset_ms": 6174.929,
+            "raw_content_sha256": "cc7ebb0952dd6f511c1009d20f904631398832fe60e2a5ad265b426447812465",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-005",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "general_account.investment_income.tax_timing",
+        "pension_account.investment_income.not_tax_exempt",
+        "pension_account.investment_income.tax_timing"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6523,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4597.159,
+        "request_started_offset_ms": 4597.325,
+        "http_status": 200,
+        "request_completed_offset_ms": 6094.164,
+        "raw_content_sha256": "aeb130aec48975a9734a09521a61ea4cf7a8304b9d2f5582ec72492a058c01bc",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6523,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4597.159,
+            "request_started_offset_ms": 4597.325,
+            "http_status": 200,
+            "request_completed_offset_ms": 6094.164,
+            "raw_content_sha256": "aeb130aec48975a9734a09521a61ea4cf7a8304b9d2f5582ec72492a058c01bc",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-006",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "foreign_ETF.general_account.tax_timing",
+        "foreign_ETF.pension_account.tax_timing"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6495,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4606.216,
+        "request_started_offset_ms": 4606.416,
+        "http_status": 200,
+        "request_completed_offset_ms": 5940.944,
+        "raw_content_sha256": "472481ecd3019051ba0c858e41fdbd8e431abe7f5c3c8c57cffc08b574fc7dd1",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6495,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4606.216,
+            "request_started_offset_ms": 4606.416,
+            "http_status": 200,
+            "request_completed_offset_ms": 5940.944,
+            "raw_content_sha256": "472481ecd3019051ba0c858e41fdbd8e431abe7f5c3c8c57cffc08b574fc7dd1",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-007",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment",
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6449,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4770.36,
+        "request_started_offset_ms": 4770.448,
+        "http_status": 200,
+        "request_completed_offset_ms": 6522.944,
+        "raw_content_sha256": "cbed86ee56c7bf3bfd4652c47d8590c9c813addc8e673ad3e095c126df4601ee",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6449,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4770.36,
+            "request_started_offset_ms": 4770.448,
+            "http_status": 200,
+            "request_completed_offset_ms": 6522.944,
+            "raw_content_sha256": "cbed86ee56c7bf3bfd4652c47d8590c9c813addc8e673ad3e095c126df4601ee",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-008",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "ISA.transfer.additional_tax_credit",
+        "ISA.transfer.deadline"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6476,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4350.279,
+        "request_started_offset_ms": 4350.407,
+        "http_status": 200,
+        "request_completed_offset_ms": 5127.935,
+        "raw_content_sha256": "eed322650b4e8f52aa194e5ddcbc7339433b6819851d49e91da77fa78c2d5e2c",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6476,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4350.279,
+            "request_started_offset_ms": 4350.407,
+            "http_status": 200,
+            "request_completed_offset_ms": 5127.935,
+            "raw_content_sha256": "eed322650b4e8f52aa194e5ddcbc7339433b6819851d49e91da77fa78c2d5e2c",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-009",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "retirement_pension.in_kind_transfer.DB_DC.application_route",
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6489,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5323.429,
+        "request_started_offset_ms": 5323.581,
+        "http_status": 200,
+        "request_completed_offset_ms": 6749.475,
+        "raw_content_sha256": "f052ee136e3cb350a2bdf39dcf3d0598fd3b17f66b77443aa4507f3f22ed4667",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6489,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5323.429,
+            "request_started_offset_ms": 5323.581,
+            "http_status": 200,
+            "request_completed_offset_ms": 6749.475,
+            "raw_content_sha256": "f052ee136e3cb350a2bdf39dcf3d0598fd3b17f66b77443aa4507f3f22ed4667",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-010",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "retirement_pension.ETF.direct_trade_scope",
+        "retirement_pension.ETF.leverage_inverse_restriction"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6480,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4678.815,
+        "request_started_offset_ms": 4678.957,
+        "http_status": 200,
+        "request_completed_offset_ms": 5665.318,
+        "raw_content_sha256": "655142bf51c77e4dd87d5339ac0abb110409f0df7d82c7b542004b6a095a5099",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6480,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4678.815,
+            "request_started_offset_ms": 4678.957,
+            "http_status": 200,
+            "request_completed_offset_ms": 5665.318,
+            "raw_content_sha256": "655142bf51c77e4dd87d5339ac0abb110409f0df7d82c7b542004b6a095a5099",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-011",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "product.risk_grade.change_possibility",
+        "product.risk_grade.current"
+      ],
+      "resolved_product_codes": [
+        "KR510902773M"
+      ],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6461,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5118.268,
+        "request_started_offset_ms": 5118.439,
+        "http_status": 200,
+        "request_completed_offset_ms": 6498.03,
+        "raw_content_sha256": "08b63ccef336d15cc45a88f2839f5321ebde08b929514fa08f8c7a21fa23a8c1",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6461,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5118.268,
+            "request_started_offset_ms": 5118.439,
+            "http_status": 200,
+            "request_completed_offset_ms": 6498.03,
+            "raw_content_sha256": "08b63ccef336d15cc45a88f2839f5321ebde08b929514fa08f8c7a21fa23a8c1",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-012",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "product.equity_allocation_limit",
+        "product.tracking_index"
+      ],
+      "resolved_product_codes": [
+        "KR5127450215"
+      ],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6459,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4720.742,
+        "request_started_offset_ms": 4720.868,
+        "http_status": 200,
+        "request_completed_offset_ms": 5949.488,
+        "raw_content_sha256": "442c2e8aed6d62cd32e047fd0724b477aef2898157dce3b8ff7aef06d5e36dd9",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6459,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4720.742,
+            "request_started_offset_ms": 4720.868,
+            "http_status": 200,
+            "request_completed_offset_ms": 5949.488,
+            "raw_content_sha256": "442c2e8aed6d62cd32e047fd0724b477aef2898157dce3b8ff7aef06d5e36dd9",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-013",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "product.period_cost",
+        "product.total_fee"
+      ],
+      "resolved_product_codes": [
+        "KR510902773M"
+      ],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6476,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4871.379,
+        "request_started_offset_ms": 4871.544,
+        "http_status": 200,
+        "request_completed_offset_ms": 5727.305,
+        "raw_content_sha256": "41b2b75b5fef23fa91df5658220efcb3f8338c2ab616dff63df9fc8d6e28ffdb",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6476,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4871.379,
+            "request_started_offset_ms": 4871.544,
+            "http_status": 200,
+            "request_completed_offset_ms": 5727.305,
+            "raw_content_sha256": "41b2b75b5fef23fa91df5658220efcb3f8338c2ab616dff63df9fc8d6e28ffdb",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-014",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "resolved_product_codes": [
+        "KR5114420022",
+        "KR5114450222"
+      ],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6452,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5247.519,
+        "request_started_offset_ms": 5247.641,
+        "http_status": 200,
+        "request_completed_offset_ms": 6422.561,
+        "raw_content_sha256": "68507f2dd29018276a6efc9841e15262b8d0fcc53650a04157d1e8e278d5c878",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6452,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5247.519,
+            "request_started_offset_ms": 5247.641,
+            "http_status": 200,
+            "request_completed_offset_ms": 6422.561,
+            "raw_content_sha256": "68507f2dd29018276a6efc9841e15262b8d0fcc53650a04157d1e8e278d5c878",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-015",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.historical"
+      ],
+      "resolved_product_codes": [
+        "KR5120420039",
+        "KR5120420091"
+      ],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6447,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4929.197,
+        "request_started_offset_ms": 4929.327,
+        "http_status": 200,
+        "request_completed_offset_ms": 6316.111,
+        "raw_content_sha256": "d09a078e98283628f615e98d8fe4e09383b42f1acd055ffd6bb657fcaeedc8d9",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6447,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4929.197,
+            "request_started_offset_ms": 4929.327,
+            "http_status": 200,
+            "request_completed_offset_ms": 6316.111,
+            "raw_content_sha256": "d09a078e98283628f615e98d8fe4e09383b42f1acd055ffd6bb657fcaeedc8d9",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-016",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "DB.operation_party",
+        "DC.employer_contribution"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6476,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4716.385,
+        "request_started_offset_ms": 4716.527,
+        "http_status": 200,
+        "request_completed_offset_ms": 5589.27,
+        "raw_content_sha256": "9fa9ba02262db490512e9e3c5caa9e47118a1f3f509febca6da02721ec703cc2",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6476,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4716.385,
+            "request_started_offset_ms": 4716.527,
+            "http_status": 200,
+            "request_completed_offset_ms": 5589.27,
+            "raw_content_sha256": "9fa9ba02262db490512e9e3c5caa9e47118a1f3f509febca6da02721ec703cc2",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-017",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6484,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5229.02,
+        "request_started_offset_ms": 5229.156,
+        "http_status": 200,
+        "request_completed_offset_ms": 6047.137,
+        "raw_content_sha256": "dc5182c1dc5811efb4f764a51d40587739ccedc3451bd8eaaba63fc4a3ddbb07",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6484,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5229.02,
+            "request_started_offset_ms": 5229.156,
+            "http_status": 200,
+            "request_completed_offset_ms": 6047.137,
+            "raw_content_sha256": "dc5182c1dc5811efb4f764a51d40587739ccedc3451bd8eaaba63fc4a3ddbb07",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-018",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unresolved": false,
+      "selected_requirements": [
+        "pension_account.account_closure.condition",
+        "pension_account.account_closure.tax_treatment",
+        "pension_account.partial_withdrawal.condition",
+        "pension_account.partial_withdrawal.tax_treatment"
+      ],
+      "resolved_product_codes": [],
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6471,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5286.698,
+        "request_started_offset_ms": 5286.838,
+        "http_status": 200,
+        "request_completed_offset_ms": 6583.225,
+        "raw_content_sha256": "93cfa11292d9864c05e0a2b728797e7d8a322457556c47dcb64bca5026560dae",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6471,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5286.698,
+            "request_started_offset_ms": 5286.838,
+            "http_status": 200,
+            "request_completed_offset_ms": 6583.225,
+            "raw_content_sha256": "93cfa11292d9864c05e0a2b728797e7d8a322457556c47dcb64bca5026560dae",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    }
+  ]
+}

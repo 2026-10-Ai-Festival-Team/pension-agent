@@ -1,0 +1,45 @@
+{
+  "source": {
+    "branch": "origin/feature/yw-pension-agent",
+    "commit": "ee2e42cc8ca5895190f6a064630df9d671af3289",
+    "document": "docs/retrieval_failure_analysis_normalized.md",
+    "scope": "teammate dev retrieval analysis only"
+  },
+  "crosswalk": {
+    "query_document_vocabulary_gap": {
+      "current_possible_owners": [
+        "semantic_normalization",
+        "retrieval_query_formulation"
+      ],
+      "automatic_equivalence": false
+    },
+    "chunk_too_broad": {
+      "current_possible_owners": [
+        "chunking_granularity",
+        "evidence_selection"
+      ],
+      "automatic_equivalence": false
+    },
+    "evidence_spans_multiple_chunks": {
+      "current_possible_owners": [
+        "requirement_composition",
+        "multi_evidence_composition"
+      ],
+      "automatic_equivalence": false
+    },
+    "repetitive_document_noise": {
+      "current_possible_owners": [
+        "retrieval_ranking",
+        "evidence_selection"
+      ],
+      "automatic_equivalence": false
+    },
+    "table_rendering": {
+      "current_possible_owners": [
+        "table_parsing",
+        "table_field_retrieval"
+      ],
+      "automatic_equivalence": false
+    }
+  }
+}

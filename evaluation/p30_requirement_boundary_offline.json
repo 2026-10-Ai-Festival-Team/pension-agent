@@ -1,0 +1,91 @@
+{
+  "experiment": "P30 requirement planner and product field boundary",
+  "hcx_called": false,
+  "production_agent_changed": false,
+  "shared_preparation_parity": "40/40",
+  "shared_preparation_parity_failures": [],
+  "planner_targets": [
+    {
+      "question_id": "R-011",
+      "expected_slot_keys": [
+        "retirement_income_transfer_tax_deferral",
+        "retirement_income_annuity_tax_timing"
+      ],
+      "generated_slot_keys": [
+        "retirement_income_transfer_tax_deferral",
+        "retirement_income_annuity_tax_timing"
+      ],
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "04782a392f49293e-paragraph_group-f6d10875adfc",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ]
+    },
+    {
+      "question_id": "R-019",
+      "expected_slot_keys": [
+        "dc_withdrawal_eligibility",
+        "dc_withdrawal_legal_grounds"
+      ],
+      "generated_slot_keys": [
+        "dc_withdrawal_eligibility",
+        "dc_withdrawal_legal_grounds"
+      ],
+      "evidence_sufficient": false,
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ]
+    },
+    {
+      "question_id": "R-035",
+      "expected_slot_keys": [
+        "KR5113420012:investment_risk",
+        "KR5113420012:principal_loss_possible"
+      ],
+      "generated_slot_keys": [
+        "KR5113420012:investment_risk",
+        "KR5113420012:principal_loss_possible"
+      ],
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "c61c1c27df94646e-paragraph_group-2a998d4c5aa1",
+        "c61c1c27df94646e-table-d2bef6cfaf63"
+      ]
+    },
+    {
+      "question_id": "R-038",
+      "expected_slot_keys": [
+        "early_withdrawal_eligibility",
+        "early_withdrawal_legal_grounds"
+      ],
+      "generated_slot_keys": [
+        "early_withdrawal_eligibility",
+        "early_withdrawal_legal_grounds"
+      ],
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ef05c9c97fbadd27-table-df471ef8e98c"
+      ]
+    }
+  ],
+  "planner_target_failures": [],
+  "field_target": {
+    "question_id": "R-034",
+    "generated_slot_keys": [
+      "KR5110501016:total_fee",
+      "KR5110501016:investment_target"
+    ],
+    "evidence_sufficient": true,
+    "selected_chunk_ids": [
+      "1294013a2a74e0a4-table-89c0989d7512",
+      "1294013a2a74e0a4-paragraph_group-9e0ae3542266"
+    ]
+  },
+  "field_boundary_ok": true,
+  "p15_route_gate_regressions": [],
+  "known_false_rejection": [],
+  "known_unsafe_pass": [],
+  "mean_selected_contexts": 6.88,
+  "go": true
+}

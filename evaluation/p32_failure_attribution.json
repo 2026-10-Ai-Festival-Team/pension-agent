@@ -1,0 +1,166 @@
+{
+  "experiment": "P32-A Failure Attribution",
+  "source_execution": "evaluation/p32_holdout_execution.jsonl",
+  "source_labels": "evaluation/p32_semantic_labels.json",
+  "scope": {
+    "answerable_questions": 22,
+    "strict_useful": 9,
+    "failed": 13,
+    "unsupported_questions": 3,
+    "unsupported_safely_blocked": 3
+  },
+  "evidence_audit": {
+    "manifest_required_chunks": 24,
+    "required_chunks_present_in_corpus": 24,
+    "corresponding_raw_source_files_present": 24,
+    "conclusion": "No answerable P32 failure is primarily corpus_missing."
+  },
+  "primary_cause_counts": {
+    "planner_miss": 3,
+    "matcher_miss": 1,
+    "requirement_omission": 3,
+    "field_confusion": 1,
+    "generation_misread": 1,
+    "policy_false_reject": 3,
+    "policy_unsafe_pass": 1,
+    "corpus_missing": 0,
+    "retrieval_missing": 0,
+    "gate_false_reject": 0,
+    "evidence_incomplete": 0,
+    "manifest_issue": 0
+  },
+  "cases": [
+    {
+      "question_id": "P32-001",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-002",
+      "outcome": "failed",
+      "primary_cause": "requirement_omission",
+      "trace": "Original and corpus support the separate 1,800만원 deposit and 900만원 tax-deduction limits. A semantic-equivalent candidate contained both facts, but the simple route created no requirements and the answer only denied full deduction without stating the required limit distinction."
+    },
+    {
+      "question_id": "P32-003",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-004",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-005",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-006",
+      "outcome": "failed",
+      "primary_cause": "generation_misread",
+      "trace": "The requirement plan contained DB/DC operation and benefit-calculation slots; the selected comparison table directly supported all four. HCX nevertheless described both plans as average-wage based, contradicting the DC contribution-plus-investment-return field."
+    },
+    {
+      "question_id": "P32-007",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-008",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-009",
+      "outcome": "failed",
+      "primary_cause": "planner_miss",
+      "trace": "The selected DB/DC comparison table contains conversion and DC contribution information, but the plan required an unasked regulation/agreement condition and omitted the requested DC company-contribution criterion. The resulting gate block is a planner symptom, not a corpus or retrieval failure."
+    },
+    {
+      "question_id": "P32-010",
+      "outcome": "failed",
+      "primary_cause": "requirement_omission",
+      "trace": "Housing-purchase withdrawal evidence and the IRP withdrawal principle reached the candidate set. The question was sent down the simple path with no slots, so HCX only stated that the two actions differ and omitted the legal reason and general-rule comparison."
+    },
+    {
+      "question_id": "P32-011",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-012",
+      "outcome": "failed",
+      "primary_cause": "requirement_omission",
+      "trace": "The product-field plan and a same-document table covering annual fees and period-cost examples passed the gate. HCX correctly said the concepts differ but omitted the required annual-fee and three-year-example explanation."
+    },
+    {
+      "question_id": "P32-013",
+      "outcome": "failed",
+      "primary_cause": "field_confusion",
+      "trace": "The exact A1 table was selected and the plan required total_fee plus example_cost. HCX read the 0.8% sales-fee ceiling as total expense and the two-year 218천원 value as the three-year cost, instead of 0.6644% and 292천원."
+    },
+    {
+      "question_id": "P32-014",
+      "outcome": "failed",
+      "primary_cause": "matcher_miss",
+      "trace": "The selected original table explicitly states 4등급, 실적배당, no deposit protection, and possible principal loss. The product-bound principal-loss slot was nevertheless marked unsatisfied, causing a pre-generation block."
+    },
+    {
+      "question_id": "P32-015",
+      "outcome": "failed",
+      "primary_cause": "planner_miss",
+      "trace": "The plan generated only a risk-grade slot, although the question also required the equity-allocation strategy. No strategy-specific retrieval was issued, and HCX omitted the required 90% or-more allocation fact."
+    },
+    {
+      "question_id": "P32-016",
+      "outcome": "failed",
+      "primary_cause": "policy_false_reject",
+      "trace": "A condition-poor recommendation should return a first-turn clarification for period, risk tolerance, and purpose. Policy routed it to generic unsupported blocking instead."
+    },
+    {
+      "question_id": "P32-017",
+      "outcome": "failed",
+      "primary_cause": "planner_miss",
+      "trace": "The compound route was selected, but no requirement plan was generated. The gate then blocked a question that should have produced a non-single-product comparison response using the stated horizon and risk tolerance."
+    },
+    {
+      "question_id": "P32-018",
+      "outcome": "failed",
+      "primary_cause": "policy_false_reject",
+      "trace": "The loss-avoidance versus equity-fund conflict should be explained in the first response. Policy produced generic unsupported blocking rather than the required limit/clarification behavior."
+    },
+    {
+      "question_id": "P32-019",
+      "outcome": "failed",
+      "primary_cause": "policy_unsafe_pass",
+      "trace": "The conditional personal-tax request took the simple evidence-present path and HCX made a single lowest-tax recommendation. Policy should have required personal conditions and provided a first-turn clarification instead."
+    },
+    {
+      "question_id": "P32-023",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-024",
+      "outcome": "strict_useful",
+      "primary_cause": null,
+      "trace": "original/corpus/candidate/gate/HCX/policy all passed"
+    },
+    {
+      "question_id": "P32-025",
+      "outcome": "failed",
+      "primary_cause": "policy_false_reject",
+      "trace": "The safety-premise question has original/corpus evidence that past performance does not assure future performance. Policy misclassified its future-looking wording as unsupported recommendation and blocked it before retrieval-backed premise correction."
+    }
+  ]
+}

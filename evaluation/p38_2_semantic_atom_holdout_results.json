@@ -1,0 +1,810 @@
+{
+  "experiment": "P38-1 isolated compositional parser",
+  "candidate_agent_changed": false,
+  "gold_path": "question_bank/holdouts/p38_2_semantic_atom_holdout.jsonl",
+  "question_count": 18,
+  "component_metrics": {
+    "subjects": {
+      "true_positive": 27,
+      "false_positive": 0,
+      "false_negative": 3,
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1": 0.9474
+    },
+    "actions": {
+      "true_positive": 18,
+      "false_positive": 2,
+      "false_negative": 8,
+      "precision": 0.9,
+      "recall": 0.6923,
+      "f1": 0.7826
+    },
+    "fields": {
+      "true_positive": 16,
+      "false_positive": 1,
+      "false_negative": 14,
+      "precision": 0.9412,
+      "recall": 0.5333,
+      "f1": 0.6809
+    },
+    "modifiers": {
+      "true_positive": 18,
+      "false_positive": 3,
+      "false_negative": 15,
+      "precision": 0.8571,
+      "recall": 0.5455,
+      "f1": 0.6667
+    }
+  },
+  "requirement_composition": {
+    "exact": 4,
+    "total": 18,
+    "accuracy": 0.2222
+  },
+  "details": [
+    {
+      "id": "ATOM-P38-2-001",
+      "source_question_id": "P38-2-001",
+      "predicted": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [
+          "compare",
+          "manage"
+        ],
+        "fields": [
+          "operation_party"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [
+          "manage",
+          "compare"
+        ],
+        "fields": [
+          "operation_party",
+          "benefit_determination"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "predicted_requirements": [
+        "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+      ],
+      "gold_requirements": [
+        "account:DB+account:DC.compare+manage.benefit_determination[account_specific+comparison]",
+        "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-002",
+      "source_question_id": "P38-2-002",
+      "predicted": {
+        "subjects": [
+          "account:DC"
+        ],
+        "actions": [],
+        "fields": [],
+        "modifiers": []
+      },
+      "gold": {
+        "subjects": [
+          "account:DC"
+        ],
+        "actions": [
+          "withdraw"
+        ],
+        "fields": [
+          "withdrawal_reason",
+          "required_document"
+        ],
+        "modifiers": [
+          "before_retirement"
+        ]
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:DC.withdraw.required_document[before_retirement]",
+        "account:DC.withdraw.withdrawal_reason[before_retirement]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-003",
+      "source_question_id": "P38-2-003",
+      "predicted": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "educate"
+        ],
+        "fields": [
+          "education_outsourcing",
+          "operation_party"
+        ],
+        "modifiers": [
+          "annual_rate"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "educate"
+        ],
+        "fields": [
+          "education_frequency",
+          "education_outsourcing"
+        ],
+        "modifiers": []
+      },
+      "predicted_requirements": [
+        "system:retirement_pension.educate.education_outsourcing[annual_rate]",
+        "system:retirement_pension.educate.operation_party[annual_rate]"
+      ],
+      "gold_requirements": [
+        "system:retirement_pension.educate.education_frequency[none]",
+        "system:retirement_pension.educate.education_outsourcing[none]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-004",
+      "source_question_id": "P38-2-004",
+      "predicted": {
+        "subjects": [
+          "account:IRP",
+          "account:pension_savings"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "account_specific"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:pension_savings",
+          "account:IRP"
+        ],
+        "actions": [
+          "contribute",
+          "compare"
+        ],
+        "fields": [
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "account_specific",
+          "combined_limit",
+          "comparison"
+        ]
+      },
+      "predicted_requirements": [
+        "account:IRP+account:pension_savings..tax_credit_limit[account_specific]"
+      ],
+      "gold_requirements": [
+        "account:IRP+account:pension_savings.compare+contribute.tax_credit_limit[account_specific+combined_limit+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-005",
+      "source_question_id": "P38-2-005",
+      "predicted": {
+        "subjects": [],
+        "actions": [
+          "receive"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": [
+          "not_tax_exempt"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:general",
+          "account:pension"
+        ],
+        "actions": [
+          "receive",
+          "compare"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison",
+          "not_tax_exempt"
+        ]
+      },
+      "predicted_requirements": [
+        ".receive.tax_timing[not_tax_exempt]"
+      ],
+      "gold_requirements": [
+        "account:general+account:pension.compare+receive.tax_timing[account_specific+comparison+not_tax_exempt]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-006",
+      "source_question_id": "P38-2-006",
+      "predicted": {
+        "subjects": [
+          "account:pension",
+          "product:foreign_etf"
+        ],
+        "actions": [
+          "compare",
+          "invest"
+        ],
+        "fields": [],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "product:foreign_etf",
+          "account:general",
+          "account:pension"
+        ],
+        "actions": [
+          "invest",
+          "compare"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:general+account:pension+product:foreign_etf.compare+invest.tax_timing[account_specific+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-007",
+      "source_question_id": "P38-2-007",
+      "predicted": {
+        "subjects": [
+          "account:IRP",
+          "account:pension_savings"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:pension_savings",
+          "account:IRP"
+        ],
+        "actions": [
+          "withdraw",
+          "compare"
+        ],
+        "fields": [
+          "withdrawal_reason",
+          "tax_treatment"
+        ],
+        "modifiers": [
+          "before_retirement",
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:IRP+account:pension_savings.compare+withdraw.tax_treatment[account_specific+before_retirement+comparison]",
+        "account:IRP+account:pension_savings.compare+withdraw.withdrawal_reason[account_specific+before_retirement+comparison]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-008",
+      "source_question_id": "P38-2-008",
+      "predicted": {
+        "subjects": [
+          "account:ISA",
+          "account:pension"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "account_specific",
+          "additional_credit"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:ISA",
+          "account:pension"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "transfer_deadline",
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "maturity_event",
+          "additional_credit",
+          "account_specific"
+        ]
+      },
+      "predicted_requirements": [
+        "account:ISA+account:pension..tax_credit_limit[account_specific+additional_credit]"
+      ],
+      "gold_requirements": [
+        "account:ISA+account:pension.transfer.tax_credit_limit[account_specific+additional_credit+maturity_event]",
+        "account:ISA+account:pension.transfer.transfer_deadline[account_specific+additional_credit+maturity_event]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-009",
+      "source_question_id": "P38-2-009",
+      "predicted": {
+        "subjects": [
+          "account:DB",
+          "account:DC",
+          "account:IRP"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:DB",
+          "account:DC",
+          "account:IRP"
+        ],
+        "actions": [
+          "transfer",
+          "compare"
+        ],
+        "fields": [
+          "transfer_definition",
+          "application_route"
+        ],
+        "modifiers": [
+          "in_kind",
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:DB+account:DC+account:IRP.compare+transfer.application_route[account_specific+comparison+in_kind]",
+        "account:DB+account:DC+account:IRP.compare+transfer.transfer_definition[account_specific+comparison+in_kind]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-010",
+      "source_question_id": "P38-2-010",
+      "predicted": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "etf_direct_trade",
+          "leverage_inverse_restriction"
+        ],
+        "modifiers": []
+      },
+      "gold": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "etf_direct_trade",
+          "leverage_inverse_restriction"
+        ],
+        "modifiers": []
+      },
+      "predicted_requirements": [
+        "system:retirement_pension.invest.etf_direct_trade[none]",
+        "system:retirement_pension.invest.leverage_inverse_restriction[none]"
+      ],
+      "gold_requirements": [
+        "system:retirement_pension.invest.etf_direct_trade[none]",
+        "system:retirement_pension.invest.leverage_inverse_restriction[none]"
+      ],
+      "requirement_exact": true
+    },
+    {
+      "id": "ATOM-P38-2-011",
+      "source_question_id": "P38-2-011",
+      "predicted": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "modifiers": [
+          "change_possibility",
+          "current"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "modifiers": [
+          "current",
+          "change_possibility"
+        ]
+      },
+      "predicted_requirements": [
+        "product:KR510902773M.invest.risk_grade[change_possibility+current]",
+        "product:KR510902773M.invest.risk_grade_changeability[change_possibility+current]"
+      ],
+      "gold_requirements": [
+        "product:KR510902773M.invest.risk_grade[change_possibility+current]",
+        "product:KR510902773M.invest.risk_grade_changeability[change_possibility+current]"
+      ],
+      "requirement_exact": true
+    },
+    {
+      "id": "ATOM-P38-2-012",
+      "source_question_id": "P38-2-012",
+      "predicted": {
+        "subjects": [
+          "product:KR5127450215"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "equity_allocation_limit"
+        ],
+        "modifiers": []
+      },
+      "gold": {
+        "subjects": [
+          "product:KR5127450215"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "tracking_index",
+          "equity_allocation_limit"
+        ],
+        "modifiers": []
+      },
+      "predicted_requirements": [
+        "product:KR5127450215.invest.equity_allocation_limit[none]"
+      ],
+      "gold_requirements": [
+        "product:KR5127450215.invest.equity_allocation_limit[none]",
+        "product:KR5127450215.invest.tracking_index[none]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-013",
+      "source_question_id": "P38-2-013",
+      "predicted": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [
+          "compare",
+          "invest"
+        ],
+        "fields": [
+          "cost_example"
+        ],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "total_fee",
+          "cost_example"
+        ],
+        "modifiers": [
+          "annual_rate",
+          "holding_period",
+          "field_boundary"
+        ]
+      },
+      "predicted_requirements": [
+        "product:KR510902773M.compare+invest.cost_example[comparison]"
+      ],
+      "gold_requirements": [
+        "product:KR510902773M.invest.cost_example[annual_rate+field_boundary+holding_period]",
+        "product:KR510902773M.invest.total_fee[annual_rate+field_boundary+holding_period]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-014",
+      "source_question_id": "P38-2-014",
+      "predicted": {
+        "subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": [
+          "comparison",
+          "relative_low_risk"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": [
+          "comparison",
+          "relative_low_risk"
+        ]
+      },
+      "predicted_requirements": [
+        "product:KR5114420022+product:KR5114450222.compare.risk_grade[comparison+relative_low_risk]"
+      ],
+      "gold_requirements": [
+        "product:KR5114420022+product:KR5114450222.compare.risk_grade[comparison+relative_low_risk]"
+      ],
+      "requirement_exact": true
+    },
+    {
+      "id": "ATOM-P38-2-015",
+      "source_question_id": "P38-2-015",
+      "predicted": {
+        "subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": []
+      },
+      "gold": {
+        "subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": [
+          "comparison",
+          "current",
+          "historical"
+        ]
+      },
+      "predicted_requirements": [
+        "product:KR5120420039+product:KR5120420091.invest.risk_grade[none]"
+      ],
+      "gold_requirements": [
+        "product:KR5120420039+product:KR5120420091.compare.risk_grade[comparison+current+historical]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-016",
+      "source_question_id": "P38-2-016",
+      "predicted": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [
+          "compare",
+          "manage"
+        ],
+        "fields": [
+          "contribution_structure",
+          "operation_party"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [
+          "manage",
+          "compare"
+        ],
+        "fields": [
+          "contribution_structure",
+          "operation_party"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "predicted_requirements": [
+        "account:DB+account:DC.compare+manage.contribution_structure[account_specific+comparison]",
+        "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+      ],
+      "gold_requirements": [
+        "account:DB+account:DC.compare+manage.contribution_structure[account_specific+comparison]",
+        "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+      ],
+      "requirement_exact": true
+    },
+    {
+      "id": "ATOM-P38-2-017",
+      "source_question_id": "P38-2-017",
+      "predicted": {
+        "subjects": [
+          "account:IRP"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": [
+          "current"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:IRP"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "predicted_requirements": [
+        "account:IRP.transfer.tax_timing[current]"
+      ],
+      "gold_requirements": [
+        "account:IRP.transfer.tax_timing[none]"
+      ],
+      "requirement_exact": false
+    },
+    {
+      "id": "ATOM-P38-2-018",
+      "source_question_id": "P38-2-018",
+      "predicted": {
+        "subjects": [
+          "account:pension"
+        ],
+        "actions": [
+          "compare",
+          "withdraw"
+        ],
+        "fields": [],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "gold": {
+        "subjects": [
+          "account:pension"
+        ],
+        "actions": [
+          "withdraw",
+          "compare"
+        ],
+        "fields": [
+          "withdrawal_reason",
+          "tax_treatment"
+        ],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "predicted_requirements": [],
+      "gold_requirements": [
+        "account:pension.compare+withdraw.tax_treatment[comparison]",
+        "account:pension.compare+withdraw.withdrawal_reason[comparison]"
+      ],
+      "requirement_exact": false
+    }
+  ],
+  "holdout": {
+    "manifest_sha256": "a8f2c972c589dd012375fa422cb714e0695e0999349624171217abb946f2213e",
+    "status": "frozen_before_isolated_parser_execution",
+    "go_criteria": {
+      "subject_f1": 0.9,
+      "action_f1": 0.9,
+      "field_f1": 0.85,
+      "modifier_f1": 0.8,
+      "requirement_exact": 0.8
+    }
+  },
+  "hcx_calls": 0
+}

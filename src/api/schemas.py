@@ -1,6 +1,7 @@
 from typing import Any, Optional
 from pydantic import BaseModel, Field
 from src.models.chunk import ChunkLocator
+from src.models.document import AuthorityLevel, SourceType
 
 
 class AnswerRequest(BaseModel):
@@ -10,6 +11,9 @@ class AnswerRequest(BaseModel):
 
 class Evidence(BaseModel):
     chunk_id: str; source_id: str; source_path: str; locator: ChunkLocator; element_ids: list[str]; score: float; text: str
+    source_type: SourceType = SourceType.ORIGINAL
+    authority_level: AuthorityLevel = AuthorityLevel.PRIMARY
+    as_of_date: Optional[str] = None
 
 
 class AnswerResponse(BaseModel):

@@ -1,0 +1,40 @@
+{
+  "runs": [
+    {
+      "artifact": "p22_smoke_hcx.json",
+      "phase": "smoke",
+      "minimum_interval_seconds": 2.0,
+      "question_count": 6,
+      "duration_ms": 12789.52,
+      "observed_minimum_start_delta_ms": 2000.053,
+      "spacing_policy_satisfied": true,
+      "http_429": 0,
+      "retry_after_seen": 0,
+      "full_run_permitted": true
+    },
+    {
+      "artifact": "p23_smoke_3s_hcx.json",
+      "phase": "smoke",
+      "minimum_interval_seconds": 3.0,
+      "question_count": 6,
+      "duration_ms": 26403.879,
+      "observed_minimum_start_delta_ms": 2999.985,
+      "spacing_policy_satisfied": true,
+      "http_429": 0,
+      "retry_after_seen": 0,
+      "full_run_permitted": true
+    },
+    {
+      "artifact": "p23_smoke_4s_hcx.json",
+      "phase": "smoke",
+      "minimum_interval_seconds": 4.0,
+      "question_count": 6,
+      "duration_ms": 62731.634,
+      "observed_minimum_start_delta_ms": 3999.99,
+      "spacing_policy_satisfied": true,
+      "http_429": 0,
+      "retry_after_seen": 0,
+      "full_run_permitted": true
+    }
+  ]
+}

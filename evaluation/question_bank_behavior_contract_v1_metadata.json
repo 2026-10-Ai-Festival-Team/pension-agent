@@ -1,0 +1,26 @@
+{
+  "intent_annotation_status": "all records need human decomposition annotation",
+  "known_coverage_gaps": [
+    "answer_and_clarify mixed-intent fixtures",
+    "linguistic variation annotation: abbreviation, colloquial, typo, spacing",
+    "per-intent source scope and required clarification annotations"
+  ],
+  "overall_behavior_counts": {
+    "abstain": 6,
+    "answer": 43,
+    "clarify": 5,
+    "correct_and_answer": 6
+  },
+  "purpose": "development behavior-contract overlay; not fresh holdout or training data",
+  "safety_area_counts": {
+    "general": 27,
+    "out_of_scope": 3,
+    "product": 11,
+    "prompt_injection": 2,
+    "recommendation": 7,
+    "tax": 10
+  },
+  "source_question_bank": "evaluation/question_bank_v1.jsonl",
+  "total": 60,
+  "version": "1.0"
+}

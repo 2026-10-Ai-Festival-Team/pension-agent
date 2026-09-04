@@ -1,0 +1,573 @@
+{
+  "phase": "P36-A",
+  "experiment": "P36 Closed Pre-HCX Failure Attribution",
+  "manifest_sha256": "6ee433b5fbe323be49889c2c13690d5fb96874a5069ac5e7b40ce6a5621913a8",
+  "hcx_calls": 0,
+  "candidate_code_modified": false,
+  "frozen_execution_modified": false,
+  "summary": {
+    "total": 18,
+    "semantic_requirement_coverage": 5,
+    "evidence_sufficient": 13,
+    "primary_original": 18,
+    "primary_owner_counts": {
+      "normalization_alias_miss": 1,
+      "normalization_semantic_miss": 7,
+      "canonical_field_miss": 5,
+      "matcher_field_miss": 1
+    },
+    "source_relevance_population": "fully_planned_semantic_requirements_only",
+    "source_relevance": {
+      "exact_gold": 1,
+      "semantic_equivalent": 3,
+      "partial": 0,
+      "wrong_scope": 1
+    },
+    "fully_planned_cases": 5,
+    "hcx_calls": 0
+  },
+  "cases": [
+    {
+      "question_id": "P36-001",
+      "category": "institution_closed",
+      "semantic_requirements": [
+        "DB·DC 급여 결정 방식",
+        "DB·DC 운용 주체",
+        "DC 회사 부담금 기준"
+      ],
+      "actual_requirement_category": "db_dc_general_comparison",
+      "actual_slot_keys": [
+        "db_dc_operation_party",
+        "db_dc_benefit_determination",
+        "db_dc_contribution_structure"
+      ],
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "source_relevance": "semantic_equivalent",
+      "source_relevance_reason": "현재 DB/DC 비교표가 운용 주체, 급여 결정 방식, DC 회사 부담금 구조를 함께 직접 지지한다. gold paragraph와 달라도 subject·field·value·scope가 동일하다.",
+      "primary_owner": null,
+      "missing_canonical_concepts": [],
+      "reason": "Semantic requirements and selected source evidence meet the frozen Closed factual contract."
+    },
+    {
+      "question_id": "P36-002",
+      "category": "institution_closed",
+      "semantic_requirements": [
+        "교육 실시 주체",
+        "최소 실시 주기",
+        "위탁 가능 여부"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-74768cb22e60",
+        "ae713c70a631594f-paragraph_group-fd1124e92346",
+        "ae713c70a631594f-table-a298329937af",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "dcadae976b4a52e5-paragraph_group-e422bd973379",
+        "ae713c70a631594f-paragraph_group-f1e9cc30f5a8"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_semantic_miss",
+      "missing_canonical_concepts": [
+        "가입자 교육 책임·실시 주체",
+        "최소 연간 주기",
+        "전문기관 위탁 가능 여부"
+      ],
+      "reason": "‘책임지고 시행’, ‘1년에’, ‘전문기관에 위임’이 participant_education canonical intent와 세 factual slot으로 정규화되지 않아 simple fallback으로 남았다."
+    },
+    {
+      "question_id": "P36-003",
+      "category": "institution_closed",
+      "semantic_requirements": [
+        "퇴직연금 ETF 직접매매 범위",
+        "레버리지·인버스 제한"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "selected_chunk_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "46551bfa35d467ed-paragraph_group-2af13db7bef2",
+        "55f36905c388adb6-paragraph_group-ec73e8644b04",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_semantic_miss",
+      "missing_canonical_concepts": [
+        "두 배로 움직임 → 레버리지 ETF",
+        "반대로 움직임 → 인버스 ETF"
+      ],
+      "reason": "DC·IRP ETF 직접매매 entity는 보이지만 배수·반대 추종 표현이 leverage/inverse restriction concept로 정규화되지 않아 restriction plan과 field query가 생성되지 않았다."
+    },
+    {
+      "question_id": "P36-004",
+      "category": "tax_closed",
+      "semantic_requirements": [
+        "연금저축 단독 세액공제 대상 한도",
+        "IRP 포함 합산 세액공제 대상 한도"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "selected_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339",
+        "0a1c8fece530be69-paragraph_group-24118dd71bd9",
+        "4ae16261de11da35-table-cae3223cb315",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-bdf681407cec",
+        "0a1c8fece530be69-table-28c362628f03",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "5a8516a0215f8754-table-c9040203457a",
+        "745f9a08e811b6b1-paragraph_group-338b912547fc"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_alias_miss",
+      "missing_canonical_concepts": [
+        "개인연금 저축계좌 → 연금저축",
+        "개인형퇴직연금 → IRP"
+      ],
+      "reason": "질문의 두 계좌 표현이 canonical account entity로 결속되지 않아 연금저축 단독과 IRP 포함 한도를 각각 요구하는 tax comparison schema가 발동하지 않았다."
+    },
+    {
+      "question_id": "P36-005",
+      "category": "tax_closed",
+      "semantic_requirements": [
+        "일반계좌 과세 시점",
+        "연금계좌 과세이연의 조건·시점"
+      ],
+      "actual_requirement_category": "pension_account_tax_deferral_comparison",
+      "actual_slot_keys": [
+        "general_account_tax_timing",
+        "pension_account_tax_deferral"
+      ],
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "de4f8448134189df-table-ce8fee5b43be",
+        "eec10989c7067926-paragraph_group-15cf127eb9b9"
+      ],
+      "source_relevance": "semantic_equivalent",
+      "source_relevance_reason": "현재 선택 표와 설명 문단이 일반계좌와 연금계좌의 과세 시점 및 과세이연 조건을 직접 비교한다. gold IDs와 달라도 같은 tax timing facts를 지지한다.",
+      "primary_owner": null,
+      "missing_canonical_concepts": [],
+      "reason": "Semantic requirements and selected source evidence meet the frozen Closed factual contract."
+    },
+    {
+      "question_id": "P36-006",
+      "category": "tax_closed",
+      "semantic_requirements": [
+        "일반계좌 매매차익·분배금 과세",
+        "연금계좌 과세 시점",
+        "문서의 조건·유의사항"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "13621d38202e2fc3-paragraph_group-ae6b841e4074",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "13621d38202e2fc3-table-5431011b44b5",
+        "13621d38202e2fc3-paragraph_group-41027eb1c16a",
+        "13621d38202e2fc3-table-c64398404ba4",
+        "de4f8448134189df-table-3b9ac10c94d4",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "13621d38202e2fc3-paragraph_group-81d30048d288"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_semantic_miss",
+      "missing_canonical_concepts": [
+        "국내 거래소 상장 해외 ETF",
+        "계좌 밖 → 일반계좌",
+        "일반계좌 대 연금계좌 과세 비교"
+      ],
+      "reason": "상품 성격과 ‘계좌 밖’의 일반계좌 scope가 foreign ETF account-tax comparison으로 함께 정규화되지 않아 복수 과세 requirement가 생성되지 않았다."
+    },
+    {
+      "question_id": "P36-007",
+      "category": "procedure_closed",
+      "semantic_requirements": [
+        "연금저축 인출 범위",
+        "IRP 법정 중도인출 사유",
+        "인출 과세 처리"
+      ],
+      "actual_requirement_category": "pension_savings_irp_withdrawal_comparison",
+      "actual_slot_keys": [
+        "pension_savings_withdrawal_scope",
+        "irp_withdrawal_legal_grounds_comparison",
+        "account_withdrawal_tax_treatment"
+      ],
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "5a8516a0215f8754-slide-30fa544ed87e",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "source_relevance": "wrong_scope",
+      "source_relevance_reason": "세 번째 문단은 인출 과세 일부를 지지할 수 있지만 앞의 두 selected evidence는 ISA 문서의 연금저축 언급·ISA 이전 문단이다. 연금저축 인출 범위와 IRP 법정 중도인출 사유를 대체할 수 없다.",
+      "primary_owner": "matcher_field_miss",
+      "missing_canonical_concepts": [],
+      "reason": "연금저축·IRP 인출 비교 plan과 직접 gold chunks가 candidate에 있었지만, matcher/selection은 ISA 문서의 연금저축 언급과 ISA 이전 문단을 계좌별 인출 범위·IRP 법정 사유 근거로 선택했다. account + field + scope 결속 실패다."
+    },
+    {
+      "question_id": "P36-008",
+      "category": "procedure_closed",
+      "semantic_requirements": [
+        "DC 중도인출 가능 사유",
+        "신청 절차·증빙"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-14d84248067c",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "f973e4f0b2fb3c5a-spreadsheet_rows-749cb23d1504",
+        "ef05c9c97fbadd27-paragraph_group-98497575ff11",
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_semantic_miss",
+      "missing_canonical_concepts": [
+        "퇴직 전에 꺼내기 → DC 중도인출",
+        "입증자료 → 신청 절차·증빙"
+      ],
+      "reason": "중도인출의 간접 표현과 입증자료가 withdrawal condition/procedure concepts로 연결되지 않아 DC 법정 사유와 증빙을 분리한 plan이 만들어지지 않았다."
+    },
+    {
+      "question_id": "P36-009",
+      "category": "procedure_closed",
+      "semantic_requirements": [
+        "ISA 만기자금 이전 기한",
+        "추가 세액공제 계산 기준·한도"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "selected_chunk_ids": [
+        "5a8516a0215f8754-slide-c1523d81c161",
+        "ae22159be59440b6-table-433001f3f808",
+        "f02d4ff049aa3a92-table-8f388f98d25c",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "1bfc399c9b3d6a67-table-c9ca47302c31",
+        "4ae16261de11da35-table-cae3223cb315",
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "44402680fa9fc2b0-table-e34484dc33e8",
+        "5a8516a0215f8754-slide-d1c93150f64c",
+        "eefb7f7b407d91de-table-b7687945a0bb"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_semantic_miss",
+      "missing_canonical_concepts": [
+        "ISA가 끝난 뒤 → ISA 만기",
+        "연금계좌로 이전",
+        "이전 후 추가 세액공제 계산"
+      ],
+      "reason": "‘ISA가 끝난 뒤’가 만기 event로 canonicalize되지 않아 이전 기한과 추가 세액공제라는 두 requirement의 transfer schema가 발동하지 않았다."
+    },
+    {
+      "question_id": "P36-010",
+      "category": "compound_closed",
+      "semantic_requirements": [
+        "실물이전 정의·적용 범위",
+        "DB·DC 신청 경로",
+        "IRP 신청 경로"
+      ],
+      "actual_requirement_category": "db_dc_conversion",
+      "actual_slot_keys": [
+        "conversion_eligibility"
+      ],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "93b9b09c57458c3b-paragraph_group-fd7b1d062026",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef",
+        "46551bfa35d467ed-paragraph_group-ef7c4c45d935",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_semantic_miss",
+      "missing_canonical_concepts": [
+        "환매하지 않고 사업자 변경 → 실물이전",
+        "DB·DC와 IRP의 신청 경로 비교"
+      ],
+      "reason": "표면상 사업자 변경이 DB→DC 전환 intent로 먼저 흡수됐다. 환매 없는 이전이라는 operation meaning과 account별 신청 경로가 in-kind transfer schema로 복원되지 않았다."
+    },
+    {
+      "question_id": "P36-011",
+      "category": "compound_closed",
+      "semantic_requirements": [
+        "DC·IRP ETF 직접매매 범위",
+        "레버리지·인버스 ETF 제한"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "204e759f6e34eba2-table-7c4ee6d4c782",
+        "61e1be50db4b0854-paragraph_group-6fd8e7e1fafa",
+        "204e759f6e34eba2-table-2f5f9607907c",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "82c9f1e8e7f8c736-table-c3543ae69754",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "204e759f6e34eba2-table-e7be04cca42f",
+        "0a1c8fece530be69-table-6387628364fe",
+        "82c9f1e8e7f8c736-table-751ee67d86e5",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "normalization_semantic_miss",
+      "missing_canonical_concepts": [
+        "상승·하락 배수 추종 → 레버리지 ETF",
+        "반대 방향 추종 → 인버스 ETF"
+      ],
+      "reason": "P36-003과 같은 semantic normalization 공백이다. ETF 직접매매 limitation을 묻지만 배수/반대 추종 표현이 restriction field로 들어가지 않았다."
+    },
+    {
+      "question_id": "P36-012",
+      "category": "compound_closed",
+      "semantic_requirements": [
+        "DB·DC 운용 주체",
+        "DB·DC 급여 결정 방식",
+        "DC 부담금 구조"
+      ],
+      "actual_requirement_category": "db_dc_benefit_calculation",
+      "actual_slot_keys": [
+        "db_benefit",
+        "dc_benefit",
+        "db_operation",
+        "dc_operation"
+      ],
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "source_relevance": "semantic_equivalent",
+      "source_relevance_reason": "현재 DB/DC 비교표가 운용 주체, 급여 결정 방식, DC 부담금 구조를 직접 제시해 db_dc_benefit_calculation schema와 의미적으로 동등하다.",
+      "primary_owner": null,
+      "missing_canonical_concepts": [],
+      "reason": "Semantic requirements and selected source evidence meet the frozen Closed factual contract."
+    },
+    {
+      "question_id": "P36-013",
+      "category": "product_fact",
+      "semantic_requirements": [
+        "KR510902773M 위험등급",
+        "위험등급 변경 가능성"
+      ],
+      "actual_requirement_category": "product_fields",
+      "actual_slot_keys": [
+        "KR510902773M:investment_risk",
+        "KR510902773M:principal_loss_possible"
+      ],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-8942dee048de"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "canonical_field_miss",
+      "missing_canonical_concepts": [
+        "투자위험 분류 → risk_grade",
+        "시장 조건·운용 실적에 따른 조정 → risk_grade_changeability"
+      ],
+      "reason": "product plan은 생성됐지만 위험 분류와 변경 가능성을 generic investment risk/principal loss로 축약했다. 현재 등급과 등급 변경 가능성은 서로 다른 factual fields여야 한다."
+    },
+    {
+      "question_id": "P36-014",
+      "category": "product_fact",
+      "semantic_requirements": [
+        "KR5127450215 투자전략",
+        "KR5127450215 주식 관련 자산 투자비율"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "8297231e70bc792a-table-535577e1d8dc",
+        "8297231e70bc792a-table-aba78a8fa1e6",
+        "8297231e70bc792a-paragraph_group-bf845e88d414",
+        "8297231e70bc792a-table-c3567ecc05be",
+        "8297231e70bc792a-paragraph_group-74c1d35c71ea",
+        "8297231e70bc792a-paragraph_group-d5457a67cf0f",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90",
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976",
+        "8297231e70bc792a-paragraph_group-b118a750668b"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "canonical_field_miss",
+      "missing_canonical_concepts": [
+        "특정 지수 성과 반영 → investment_strategy",
+        "주식 관련 자산 편입 비율 상한 → equity_allocation_limit"
+      ],
+      "reason": "지수 성과와 편입비율 상한이 product strategy/asset allocation canonical fields로 결속되지 않아 product factual requirement가 생성되지 않았다."
+    },
+    {
+      "question_id": "P36-015",
+      "category": "product_fact",
+      "semantic_requirements": [
+        "KR510902773M C-e 총보수·비용",
+        "KR510902773M 기간별 비용 예시",
+        "연간 비율과 기간별 예시의 차이"
+      ],
+      "actual_requirement_category": "product_fields",
+      "actual_slot_keys": [
+        "KR510902773M:total_fee"
+      ],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-table-29d9d83f7944"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "canonical_field_miss",
+      "missing_canonical_concepts": [
+        "연간 총보수 비율",
+        "3년 보유 가정 비용 예시",
+        "두 비용 표현의 구분"
+      ],
+      "reason": "총보수는 인식됐지만 기간 보유 가정 금액이 cost_example field로 분리되지 않았다. 비율과 기간별 금액을 동일 cost field로 취급하면 질문의 field boundary requirement를 놓친다."
+    },
+    {
+      "question_id": "P36-016",
+      "category": "product_fact_comparison",
+      "semantic_requirements": [
+        "KR510902773M 위험등급",
+        "KR510902777M 위험등급",
+        "위험등급 비교"
+      ],
+      "actual_requirement_category": "product_fields",
+      "actual_slot_keys": [
+        "KR510902773M:risk_grade",
+        "KR510902777M:risk_grade"
+      ],
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "c787719b514f51da-paragraph_group-f00a2b356930"
+      ],
+      "source_relevance": "exact_gold",
+      "source_relevance_reason": "선택 evidence에 frozen manifest gold chunk가 포함되어 있으며 해당 requirement를 직접 지지한다.",
+      "primary_owner": null,
+      "missing_canonical_concepts": [],
+      "reason": "Semantic requirements and selected source evidence meet the frozen Closed factual contract."
+    },
+    {
+      "question_id": "P36-017",
+      "category": "product_fact_comparison",
+      "semantic_requirements": [
+        "KR5114420022 위험등급",
+        "KR5114450222 위험등급",
+        "낮은 위험 비교"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "selected_chunk_ids": [
+        "f24a347b7c7a170c-paragraph_group-b9386391843e",
+        "545de7c663ff2726-paragraph_group-911bbd5e58e0",
+        "f24a347b7c7a170c-table-8d22c6b04c9f",
+        "545de7c663ff2726-table-3a476f233fcf",
+        "f24a347b7c7a170c-paragraph_group-653a82011391",
+        "545de7c663ff2726-paragraph_group-4095b58eed49",
+        "f24a347b7c7a170c-table-25ec4140c4ed",
+        "545de7c663ff2726-table-d27a629d857d",
+        "545de7c663ff2726-paragraph_group-e121ec0b7077",
+        "f24a347b7c7a170c-paragraph_group-b9c5e9faf2a1"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "canonical_field_miss",
+      "missing_canonical_concepts": [
+        "몇 단계 위험 → risk_grade",
+        "보수적으로 분류 → 상대적 낮은 위험 비교"
+      ],
+      "reason": "두 product subject는 있으나 ‘몇 단계 위험’과 보수적 분류 표현이 risk_grade 및 comparative risk field로 정규화되지 않아 direct field retrieval query가 생성되지 않았다."
+    },
+    {
+      "question_id": "P36-018",
+      "category": "product_fact_comparison",
+      "semantic_requirements": [
+        "KR5120420039 위험등급",
+        "KR5120420091 위험등급",
+        "상대적 위험 비교"
+      ],
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "selected_chunk_ids": [
+        "eefb7f7b407d91de-paragraph_group-e41211088478",
+        "fc3cd93441450fa8-paragraph_group-784d1e2202e3",
+        "fc3cd93441450fa8-paragraph_group-8eeffec71236",
+        "fc3cd93441450fa8-paragraph_group-a67611d52901",
+        "eefb7f7b407d91de-table-f86945b02582",
+        "eefb7f7b407d91de-paragraph_group-3cea7c1d7c7f",
+        "fc3cd93441450fa8-paragraph_group-67aa90993870",
+        "fc3cd93441450fa8-paragraph_group-eef1cc423622",
+        "eefb7f7b407d91de-table-a3a9e6ad4f57",
+        "eefb7f7b407d91de-paragraph_group-053c6d5a8639"
+      ],
+      "source_relevance": "not_evaluable_due_to_front_end_failure",
+      "source_relevance_reason": "semantic requirement plan이 불완전해 source relevance를 factual requirement 단위로 판정할 수 없다.",
+      "primary_owner": "canonical_field_miss",
+      "missing_canonical_concepts": [
+        "투자위험 분류 → risk_grade",
+        "낮은 위험 단계 → relative risk comparison"
+      ],
+      "reason": "P36-017과 같은 product field normalization 공백이다. 두 상품의 risk-grade values와 낮은 쪽 비교가 별도 requirement로 만들어지지 않았다."
+    }
+  ]
+}

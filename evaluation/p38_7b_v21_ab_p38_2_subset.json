@@ -1,0 +1,2883 @@
+{
+  "experiment": "P38-7B Isolated HCX Structured Semantic Parser v2.1 A/B",
+  "scope": "P38-2 18 development questions only",
+  "candidate_agent_changed": false,
+  "retrieval_used": false,
+  "answer_generation_used": false,
+  "citation_used": false,
+  "policy_used": false,
+  "input": {
+    "manifest": "question_bank/development/semantic_contract_v2_manual_gold.jsonl",
+    "manifest_sha256": "2249f41fcc4938935ebeba93051f39147ee9b96f7a698efcb8427cae816a2c2f",
+    "question_count": 18
+  },
+  "contract": {
+    "model": "HCX-007",
+    "native_structured_outputs": true,
+    "thinking_effort": "none",
+    "min_request_start_interval_seconds": 6.0,
+    "generic_comparison_model_output": false,
+    "directional_transfer_model_output": true,
+    "precision_first": true
+  },
+  "runtime": {
+    "schema_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "ontology_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "unknown_ontology_values": 0,
+    "provider_errors": 0,
+    "live_hcx_calls": 18
+  },
+  "metrics": {
+    "question_count": 18,
+    "component_metrics": {
+      "subjects": {
+        "true_positive": 23,
+        "false_positive": 7,
+        "false_negative": 7,
+        "precision": 0.7667,
+        "recall": 0.7667,
+        "f1": 0.7667
+      },
+      "fields": {
+        "true_positive": 27,
+        "false_positive": 3,
+        "false_negative": 5,
+        "precision": 0.9,
+        "recall": 0.8438,
+        "f1": 0.871
+      },
+      "essential_qualifiers": {
+        "true_positive": 3,
+        "false_positive": 5,
+        "false_negative": 9,
+        "precision": 0.375,
+        "recall": 0.25,
+        "f1": 0.3
+      },
+      "directional_transfers": {
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 1,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5
+      }
+    },
+    "semantic_requirement_coverage": {
+      "matched_requirements": 21,
+      "gold_requirements": 43,
+      "recall": 0.4884
+    },
+    "requirement_exact": {
+      "exact": 6,
+      "total": 18,
+      "accuracy": 0.3333
+    },
+    "real_semantic_miss_count": 22,
+    "unsupported_extra_atom_count": 16,
+    "details": [
+      {
+        "source_question_id": "P38-2-001",
+        "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+        "gold": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "fields": [
+            "operation_party",
+            "benefit_determination"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "fields": [
+            "benefit_determination",
+            "contribution_structure"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:DB+account:DC.benefit_determination",
+          "account:DB+account:DC.operation_party",
+          "relation.comparison.account:DB+account:DC<->account:DB+account:DC"
+        ],
+        "predicted_requirements": [
+          "account:DB+account:DC.benefit_determination",
+          "account:DB+account:DC.contribution_structure",
+          "relation.comparison.account:DB+account:DC<->account:DB+account:DC"
+        ],
+        "semantic_requirement_coverage": 0.6667,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [
+            "operation_party"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [
+            "contribution_structure"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-002",
+        "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+        "gold": {
+          "subjects": [
+            "account:DC"
+          ],
+          "fields": [
+            "withdrawal_reason",
+            "required_document"
+          ],
+          "essential_qualifiers": [
+            "before_retirement"
+          ],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:DC"
+          ],
+          "fields": [
+            "required_document",
+            "withdrawal_reason"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:DC.early_withdrawal.allowed_reason",
+          "account:DC.early_withdrawal.required_document"
+        ],
+        "predicted_requirements": [
+          "account:DC.withdrawal.allowed_reason",
+          "account:DC.withdrawal.required_document"
+        ],
+        "semantic_requirement_coverage": 0.0,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [
+            "before_retirement"
+          ],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 0
+      },
+      {
+        "source_question_id": "P38-2-003",
+        "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+        "gold": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "fields": [
+            "education_frequency",
+            "education_outsourcing"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:general"
+          ],
+          "fields": [
+            "education_frequency",
+            "education_outsourcing"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "system:retirement_pension.education_frequency",
+          "system:retirement_pension.education_outsourcing"
+        ],
+        "predicted_requirements": [
+          "account:general.education_frequency",
+          "account:general.education_outsourcing"
+        ],
+        "semantic_requirement_coverage": 0.0,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [
+            "account:general"
+          ],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-004",
+        "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+        "gold": {
+          "subjects": [
+            "account:pension_savings",
+            "account:IRP"
+          ],
+          "fields": [
+            "tax_credit_limit"
+          ],
+          "essential_qualifiers": [
+            "combined_limit"
+          ],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:IRP",
+            "account:pension_savings"
+          ],
+          "fields": [
+            "tax_credit_limit"
+          ],
+          "essential_qualifiers": [
+            "additional_credit"
+          ],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:IRP+account:pension_savings.tax_credit_limit",
+          "relation.comparison.account:IRP+account:pension_savings<->account:IRP+account:pension_savings"
+        ],
+        "predicted_requirements": [
+          "account:IRP+account:pension_savings.tax_credit_limit",
+          "relation.comparison.account:IRP+account:pension_savings<->account:IRP+account:pension_savings"
+        ],
+        "semantic_requirement_coverage": 1.0,
+        "requirement_exact": true,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [
+            "combined_limit"
+          ],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [
+            "additional_credit"
+          ],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-005",
+        "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+        "gold": {
+          "subjects": [
+            "account:general",
+            "account:pension"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "essential_qualifiers": [
+            "not_tax_exempt"
+          ],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:general",
+            "system:retirement_pension"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:general+account:pension.tax_timing"
+        ],
+        "predicted_requirements": [
+          "account:general+system:retirement_pension.tax_timing"
+        ],
+        "semantic_requirement_coverage": 0.0,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [
+            "account:pension"
+          ],
+          "fields": [],
+          "essential_qualifiers": [
+            "not_tax_exempt"
+          ],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 2,
+        "unsupported_extras": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-006",
+        "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+        "gold": {
+          "subjects": [
+            "product:foreign_etf",
+            "account:general",
+            "account:pension"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:general",
+            "account:pension",
+            "product:foreign_etf"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:general+account:pension+product:foreign_etf.tax_timing",
+          "relation.comparison.account:general+account:pension+product:foreign_etf<->account:general+account:pension+product:foreign_etf"
+        ],
+        "predicted_requirements": [
+          "account:general+account:pension+product:foreign_etf.tax_timing",
+          "relation.comparison.account:general+account:pension+product:foreign_etf<->account:general+account:pension+product:foreign_etf"
+        ],
+        "semantic_requirement_coverage": 1.0,
+        "requirement_exact": true,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 0,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 0
+      },
+      {
+        "source_question_id": "P38-2-007",
+        "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+        "gold": {
+          "subjects": [
+            "account:pension_savings",
+            "account:IRP"
+          ],
+          "fields": [
+            "withdrawal_reason",
+            "tax_treatment"
+          ],
+          "essential_qualifiers": [
+            "before_retirement"
+          ],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:IRP",
+            "account:pension"
+          ],
+          "fields": [
+            "tax_treatment",
+            "withdrawal_reason"
+          ],
+          "essential_qualifiers": [
+            "before_retirement"
+          ],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:IRP+account:pension_savings.early_withdrawal.allowed_reason",
+          "account:IRP+account:pension_savings.tax_treatment",
+          "relation.comparison.account:IRP+account:pension_savings<->account:IRP+account:pension_savings"
+        ],
+        "predicted_requirements": [
+          "account:IRP+account:pension.early_withdrawal.allowed_reason",
+          "account:IRP+account:pension.tax_treatment",
+          "relation.comparison.account:IRP+account:pension<->account:IRP+account:pension"
+        ],
+        "semantic_requirement_coverage": 0.0,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [
+            "account:pension_savings"
+          ],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [
+            "account:pension"
+          ],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-008",
+        "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+        "gold": {
+          "subjects": [
+            "account:ISA",
+            "account:pension"
+          ],
+          "fields": [
+            "transfer_deadline",
+            "tax_credit_limit"
+          ],
+          "essential_qualifiers": [
+            "isa_maturity",
+            "additional_credit"
+          ],
+          "directional_transfers": [
+            {
+              "source": "account:ISA",
+              "destination": "account:pension"
+            }
+          ]
+        },
+        "predicted": {
+          "subjects": [
+            "account:ISA",
+            "system:retirement_pension"
+          ],
+          "fields": [
+            "tax_credit_limit",
+            "transfer_deadline"
+          ],
+          "essential_qualifiers": [
+            "isa_maturity"
+          ],
+          "directional_transfers": [
+            {
+              "source": "account:ISA",
+              "destination": "system:retirement_pension"
+            }
+          ]
+        },
+        "gold_requirements": [
+          "account:ISA+account:pension.tax_credit_limit",
+          "account:ISA+account:pension.transfer_deadline",
+          "relation.transfer.account:ISA->account:pension"
+        ],
+        "predicted_requirements": [
+          "account:ISA+system:retirement_pension.tax_credit_limit",
+          "account:ISA+system:retirement_pension.transfer_deadline",
+          "relation.transfer.account:ISA->system:retirement_pension"
+        ],
+        "semantic_requirement_coverage": 0.0,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [
+            "account:pension"
+          ],
+          "fields": [],
+          "essential_qualifiers": [
+            "additional_credit"
+          ],
+          "directional_transfers": [
+            "account:ISA->account:pension"
+          ]
+        },
+        "real_semantic_miss_count": 3,
+        "unsupported_extras": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": [
+            "account:ISA->system:retirement_pension"
+          ]
+        },
+        "unsupported_extra_atom_count": 2
+      },
+      {
+        "source_question_id": "P38-2-009",
+        "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+        "gold": {
+          "subjects": [
+            "account:DB",
+            "account:DC",
+            "account:IRP"
+          ],
+          "fields": [
+            "transfer_definition",
+            "application_route"
+          ],
+          "essential_qualifiers": [
+            "in_kind"
+          ],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "event:retirement_benefit"
+          ],
+          "fields": [
+            "procedure",
+            "transfer_definition"
+          ],
+          "essential_qualifiers": [
+            "before_retirement"
+          ],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:DB+account:DC+account:IRP.application_route",
+          "account:DB+account:DC+account:IRP.transfer_definition"
+        ],
+        "predicted_requirements": [
+          "event:retirement_benefit.early_withdrawal.procedure",
+          "event:retirement_benefit.transfer_definition"
+        ],
+        "semantic_requirement_coverage": 0.0,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [
+            "account:DB",
+            "account:DC",
+            "account:IRP"
+          ],
+          "fields": [
+            "application_route"
+          ],
+          "essential_qualifiers": [
+            "in_kind"
+          ],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 5,
+        "unsupported_extras": {
+          "subjects": [
+            "event:retirement_benefit"
+          ],
+          "fields": [
+            "procedure"
+          ],
+          "essential_qualifiers": [
+            "before_retirement"
+          ],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 3
+      },
+      {
+        "source_question_id": "P38-2-010",
+        "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+        "gold": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "fields": [
+            "etf_direct_trade",
+            "leverage_inverse_restriction"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "product:foreign_etf",
+            "system:retirement_pension"
+          ],
+          "fields": [
+            "etf_direct_trade",
+            "leverage_inverse_restriction"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "system:retirement_pension.etf_direct_trade",
+          "system:retirement_pension.leverage_inverse_restriction"
+        ],
+        "predicted_requirements": [
+          "product:foreign_etf+system:retirement_pension.etf_direct_trade",
+          "product:foreign_etf+system:retirement_pension.leverage_inverse_restriction"
+        ],
+        "semantic_requirement_coverage": 0.0,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 0,
+        "unsupported_extras": {
+          "subjects": [
+            "product:foreign_etf"
+          ],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-011",
+        "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+        "gold": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "fields": [
+            "risk_grade",
+            "risk_grade_changeability"
+          ],
+          "essential_qualifiers": [
+            "current",
+            "change_possibility"
+          ],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "fields": [
+            "risk_grade",
+            "risk_grade_changeability"
+          ],
+          "essential_qualifiers": [
+            "current"
+          ],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "product:KR510902773M.risk_grade.current",
+          "product:KR510902773M.risk_grade_changeability"
+        ],
+        "predicted_requirements": [
+          "product:KR510902773M.risk_grade.current",
+          "product:KR510902773M.risk_grade_changeability"
+        ],
+        "semantic_requirement_coverage": 1.0,
+        "requirement_exact": true,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [
+            "change_possibility"
+          ],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 0
+      },
+      {
+        "source_question_id": "P38-2-012",
+        "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+        "gold": {
+          "subjects": [
+            "product:KR5127450215"
+          ],
+          "fields": [
+            "tracking_index",
+            "equity_allocation_limit"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "product:KR5127450215"
+          ],
+          "fields": [
+            "equity_allocation_limit",
+            "tracking_index"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "product:KR5127450215.equity_allocation_limit",
+          "product:KR5127450215.tracking_index"
+        ],
+        "predicted_requirements": [
+          "product:KR5127450215.equity_allocation_limit",
+          "product:KR5127450215.tracking_index"
+        ],
+        "semantic_requirement_coverage": 1.0,
+        "requirement_exact": true,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 0,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 0
+      },
+      {
+        "source_question_id": "P38-2-013",
+        "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+        "gold": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "fields": [
+            "total_fee",
+            "cost_example"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "fields": [
+            "cost_example",
+            "total_fee"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "product:KR510902773M.cost_example",
+          "product:KR510902773M.total_fee"
+        ],
+        "predicted_requirements": [
+          "product:KR510902773M.cost_example",
+          "product:KR510902773M.total_fee"
+        ],
+        "semantic_requirement_coverage": 1.0,
+        "requirement_exact": true,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 0,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 0
+      },
+      {
+        "source_question_id": "P38-2-014",
+        "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+        "gold": {
+          "subjects": [
+            "product:KR5114420022",
+            "product:KR5114450222"
+          ],
+          "fields": [
+            "risk_grade"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "product:KR5114420022",
+            "product:KR5114450222"
+          ],
+          "fields": [
+            "risk_grade"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "product:KR5114420022+product:KR5114450222.risk_grade",
+          "relation.comparison.product:KR5114420022+product:KR5114450222<->product:KR5114420022+product:KR5114450222"
+        ],
+        "predicted_requirements": [
+          "product:KR5114420022+product:KR5114450222.risk_grade",
+          "relation.comparison.product:KR5114420022+product:KR5114450222<->product:KR5114420022+product:KR5114450222"
+        ],
+        "semantic_requirement_coverage": 1.0,
+        "requirement_exact": true,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 0,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 0
+      },
+      {
+        "source_question_id": "P38-2-015",
+        "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+        "gold": {
+          "subjects": [
+            "product:KR5120420039",
+            "product:KR5120420091"
+          ],
+          "fields": [
+            "risk_grade"
+          ],
+          "essential_qualifiers": [
+            "current",
+            "historical"
+          ],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "product:KR5120420039",
+            "product:KR5120420091"
+          ],
+          "fields": [
+            "risk_grade",
+            "risk_grade_changeability"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "product:KR5120420039+product:KR5120420091.risk_grade.current",
+          "product:KR5120420039+product:KR5120420091.risk_grade.historical",
+          "relation.comparison.product:KR5120420039+product:KR5120420091<->product:KR5120420039+product:KR5120420091"
+        ],
+        "predicted_requirements": [
+          "product:KR5120420039+product:KR5120420091.risk_grade",
+          "product:KR5120420039+product:KR5120420091.risk_grade_changeability",
+          "relation.comparison.product:KR5120420039+product:KR5120420091<->product:KR5120420039+product:KR5120420091"
+        ],
+        "semantic_requirement_coverage": 0.3333,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [
+            "current",
+            "historical"
+          ],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 2,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [
+            "risk_grade_changeability"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-016",
+        "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+        "gold": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "fields": [
+            "contribution_structure",
+            "operation_party"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "fields": [
+            "contribution_structure"
+          ],
+          "essential_qualifiers": [
+            "current"
+          ],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:DB+account:DC.contribution_structure",
+          "account:DB+account:DC.operation_party",
+          "relation.comparison.account:DB+account:DC<->account:DB+account:DC"
+        ],
+        "predicted_requirements": [
+          "account:DB+account:DC.contribution_structure",
+          "relation.comparison.account:DB+account:DC<->account:DB+account:DC"
+        ],
+        "semantic_requirement_coverage": 0.6667,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [
+            "operation_party"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [
+            "current"
+          ],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 1
+      },
+      {
+        "source_question_id": "P38-2-017",
+        "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+        "gold": {
+          "subjects": [
+            "account:IRP"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "essential_qualifiers": [
+            "tax_timing_on_transfer"
+          ],
+          "directional_transfers": [
+            {
+              "source": "event:retirement_benefit",
+              "destination": "account:IRP"
+            }
+          ]
+        },
+        "predicted": {
+          "subjects": [
+            "account:IRP",
+            "event:retirement_benefit"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "essential_qualifiers": [
+            "before_retirement",
+            "current"
+          ],
+          "directional_transfers": [
+            {
+              "source": "event:retirement_benefit",
+              "destination": "account:IRP"
+            }
+          ]
+        },
+        "gold_requirements": [
+          "account:IRP.transfer.tax_timing",
+          "relation.transfer.event:retirement_benefit->account:IRP"
+        ],
+        "predicted_requirements": [
+          "account:IRP+event:retirement_benefit.tax_timing",
+          "relation.transfer.event:retirement_benefit->account:IRP"
+        ],
+        "semantic_requirement_coverage": 0.5,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [
+            "tax_timing_on_transfer"
+          ],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 1,
+        "unsupported_extras": {
+          "subjects": [
+            "event:retirement_benefit"
+          ],
+          "fields": [],
+          "essential_qualifiers": [
+            "before_retirement",
+            "current"
+          ],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 3
+      },
+      {
+        "source_question_id": "P38-2-018",
+        "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+        "gold": {
+          "subjects": [
+            "account:pension"
+          ],
+          "fields": [
+            "partial_withdrawal_condition",
+            "account_closure_condition",
+            "partial_withdrawal_tax",
+            "account_closure_tax"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "predicted": {
+          "subjects": [
+            "account:pension"
+          ],
+          "fields": [
+            "account_closure_condition",
+            "partial_withdrawal_condition"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "gold_requirements": [
+          "account:pension.account_closure.condition",
+          "account:pension.account_closure.tax_treatment",
+          "account:pension.partial_withdrawal.condition",
+          "account:pension.partial_withdrawal.tax_treatment",
+          "relation.comparison.account:pension<->account:pension"
+        ],
+        "predicted_requirements": [
+          "account:pension.account_closure.condition",
+          "account:pension.partial_withdrawal.condition",
+          "relation.comparison.account:pension<->account:pension"
+        ],
+        "semantic_requirement_coverage": 0.6,
+        "requirement_exact": false,
+        "real_semantic_misses": {
+          "subjects": [],
+          "fields": [
+            "account_closure_tax",
+            "partial_withdrawal_tax"
+          ],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "real_semantic_miss_count": 2,
+        "unsupported_extras": {
+          "subjects": [],
+          "fields": [],
+          "essential_qualifiers": [],
+          "directional_transfers": []
+        },
+        "unsupported_extra_atom_count": 0
+      }
+    ]
+  },
+  "essential_condition_tracker": {
+    "before_retirement": {
+      "source_question_id": "P38-2-002",
+      "recovered": false
+    },
+    "combined_limit": {
+      "source_question_id": "P38-2-004",
+      "recovered": false
+    },
+    "not_tax_exempt": {
+      "source_question_id": "P38-2-005",
+      "recovered": false
+    },
+    "isa_maturity": {
+      "source_question_id": "P38-2-008",
+      "recovered": true
+    },
+    "additional_credit": {
+      "source_question_id": "P38-2-008",
+      "recovered": false
+    },
+    "in_kind": {
+      "source_question_id": "P38-2-009",
+      "recovered": false
+    },
+    "current": {
+      "source_question_id": "P38-2-011",
+      "recovered": true
+    },
+    "change_possibility": {
+      "source_question_id": "P38-2-011",
+      "recovered": false
+    },
+    "historical": {
+      "source_question_id": "P38-2-015",
+      "recovered": false
+    },
+    "tax_timing_on_transfer": {
+      "source_question_id": "P38-2-017",
+      "recovered": false
+    },
+    "partial_vs_closure_tax": {
+      "source_question_id": "P38-2-018",
+      "recovered": false
+    }
+  },
+  "frozen_v2_baseline": {
+    "artifact": "evaluation/p38_6_v2_ab_p38_2_subset.json",
+    "runtime": {
+      "schema_valid": {
+        "valid": 18,
+        "total": 18,
+        "rate": 1.0
+      },
+      "ontology_valid": {
+        "valid": 18,
+        "total": 18,
+        "rate": 1.0
+      },
+      "unknown_ontology_values": 0,
+      "provider_errors": 0,
+      "live_hcx_calls": 18,
+      "reused_outputs": 0
+    },
+    "metrics": {
+      "question_count": 18,
+      "component_metrics": {
+        "subjects": {
+          "true_positive": 25,
+          "false_positive": 9,
+          "false_negative": 5,
+          "precision": 0.7353,
+          "recall": 0.8333,
+          "f1": 0.7812
+        },
+        "fields": {
+          "true_positive": 28,
+          "false_positive": 2,
+          "false_negative": 4,
+          "precision": 0.9333,
+          "recall": 0.875,
+          "f1": 0.9032
+        },
+        "essential_qualifiers": {
+          "true_positive": 5,
+          "false_positive": 4,
+          "false_negative": 7,
+          "precision": 0.5556,
+          "recall": 0.4167,
+          "f1": 0.4762
+        },
+        "relations": {
+          "true_positive": 2,
+          "false_positive": 4,
+          "false_negative": 10,
+          "precision": 0.3333,
+          "recall": 0.1667,
+          "f1": 0.2222
+        }
+      },
+      "semantic_requirement_coverage": {
+        "matched_requirements": 16,
+        "gold_requirements": 45,
+        "recall": 0.3556
+      },
+      "requirement_exact": {
+        "exact": 3,
+        "total": 18,
+        "accuracy": 0.1667
+      },
+      "unsupported_extra_atoms": 19,
+      "details": [
+        {
+          "source_question_id": "P38-2-001",
+          "gold": {
+            "subjects": [
+              "account:DB",
+              "account:DC"
+            ],
+            "fields": [
+              "operation_party",
+              "benefit_determination"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:DB",
+              "account:DC"
+            ],
+            "fields": [
+              "benefit_determination",
+              "operation_party"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "gold_requirements": [
+            "account:DB+account:DC.benefit_determination",
+            "account:DB+account:DC.operation_party",
+            "relation.comparison.account:DB+account:DC<->account:DB+account:DC"
+          ],
+          "predicted_requirements": [
+            "account:DB+account:DC.benefit_determination",
+            "account:DB+account:DC.operation_party"
+          ],
+          "semantic_requirement_coverage": 0.6667,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 0
+        },
+        {
+          "source_question_id": "P38-2-002",
+          "gold": {
+            "subjects": [
+              "account:DC"
+            ],
+            "fields": [
+              "withdrawal_reason",
+              "required_document"
+            ],
+            "essential_qualifiers": [
+              "before_retirement"
+            ],
+            "relations": []
+          },
+          "predicted": {
+            "subjects": [
+              "account:DC"
+            ],
+            "fields": [
+              "required_document",
+              "withdrawal_reason"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "gold_requirements": [
+            "account:DC.early_withdrawal.allowed_reason",
+            "account:DC.early_withdrawal.required_document"
+          ],
+          "predicted_requirements": [
+            "account:DC.withdrawal.allowed_reason",
+            "account:DC.withdrawal.required_document"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 0
+        },
+        {
+          "source_question_id": "P38-2-003",
+          "gold": {
+            "subjects": [
+              "system:retirement_pension"
+            ],
+            "fields": [
+              "education_frequency",
+              "education_outsourcing"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "predicted": {
+            "subjects": [
+              "account:general"
+            ],
+            "fields": [
+              "education_frequency",
+              "education_outsourcing"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "gold_requirements": [
+            "system:retirement_pension.education_frequency",
+            "system:retirement_pension.education_outsourcing"
+          ],
+          "predicted_requirements": [
+            "account:general.education_frequency",
+            "account:general.education_outsourcing"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-004",
+          "gold": {
+            "subjects": [
+              "account:pension_savings",
+              "account:IRP"
+            ],
+            "fields": [
+              "tax_credit_limit"
+            ],
+            "essential_qualifiers": [
+              "combined_limit"
+            ],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:IRP",
+              "account:pension_savings"
+            ],
+            "fields": [
+              "tax_credit_limit"
+            ],
+            "essential_qualifiers": [
+              "in_kind"
+            ],
+            "relations": []
+          },
+          "gold_requirements": [
+            "account:IRP+account:pension_savings.tax_credit_limit",
+            "relation.comparison.account:IRP+account:pension_savings<->account:IRP+account:pension_savings"
+          ],
+          "predicted_requirements": [
+            "account:IRP+account:pension_savings.tax_credit_limit"
+          ],
+          "semantic_requirement_coverage": 0.5,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-005",
+          "gold": {
+            "subjects": [
+              "account:general",
+              "account:pension"
+            ],
+            "fields": [
+              "tax_timing"
+            ],
+            "essential_qualifiers": [
+              "not_tax_exempt"
+            ],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:general",
+              "system:retirement_pension"
+            ],
+            "fields": [
+              "tax_timing"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "gold_requirements": [
+            "account:general+account:pension.tax_timing",
+            "relation.comparison.account:general+account:pension<->account:general+account:pension"
+          ],
+          "predicted_requirements": [
+            "account:general+system:retirement_pension.tax_timing"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-006",
+          "gold": {
+            "subjects": [
+              "product:foreign_etf",
+              "account:general",
+              "account:pension"
+            ],
+            "fields": [
+              "tax_timing"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:ISA",
+              "account:general",
+              "product:foreign_etf"
+            ],
+            "fields": [
+              "tax_timing"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "gold_requirements": [
+            "account:general+account:pension+product:foreign_etf.tax_timing",
+            "relation.comparison.account:general+account:pension+product:foreign_etf<->account:general+account:pension+product:foreign_etf"
+          ],
+          "predicted_requirements": [
+            "account:ISA+account:general+product:foreign_etf.tax_timing"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-007",
+          "gold": {
+            "subjects": [
+              "account:pension_savings",
+              "account:IRP"
+            ],
+            "fields": [
+              "withdrawal_reason",
+              "tax_treatment"
+            ],
+            "essential_qualifiers": [
+              "before_retirement"
+            ],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:pension_savings",
+              "event:retirement_benefit"
+            ],
+            "fields": [
+              "tax_treatment",
+              "withdrawal_reason"
+            ],
+            "essential_qualifiers": [
+              "before_retirement"
+            ],
+            "relations": []
+          },
+          "gold_requirements": [
+            "account:IRP+account:pension_savings.early_withdrawal.allowed_reason",
+            "account:IRP+account:pension_savings.tax_treatment",
+            "relation.comparison.account:IRP+account:pension_savings<->account:IRP+account:pension_savings"
+          ],
+          "predicted_requirements": [
+            "account:pension_savings+event:retirement_benefit.early_withdrawal.allowed_reason",
+            "account:pension_savings+event:retirement_benefit.tax_treatment"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-008",
+          "gold": {
+            "subjects": [
+              "account:ISA",
+              "account:pension"
+            ],
+            "fields": [
+              "transfer_deadline",
+              "tax_credit_limit"
+            ],
+            "essential_qualifiers": [
+              "isa_maturity",
+              "additional_credit"
+            ],
+            "relations": [
+              {
+                "type": "transfer",
+                "source": "account:ISA",
+                "destination": "account:pension",
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:ISA",
+              "system:retirement_pension"
+            ],
+            "fields": [
+              "tax_credit_limit",
+              "transfer_deadline"
+            ],
+            "essential_qualifiers": [
+              "isa_maturity"
+            ],
+            "relations": [
+              {
+                "type": "transfer",
+                "source": "account:ISA",
+                "destination": "system:retirement_pension",
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "gold_requirements": [
+            "account:ISA+account:pension.tax_credit_limit",
+            "account:ISA+account:pension.transfer_deadline",
+            "relation.transfer.account:ISA->account:pension"
+          ],
+          "predicted_requirements": [
+            "account:ISA+system:retirement_pension.tax_credit_limit",
+            "account:ISA+system:retirement_pension.transfer_deadline",
+            "relation.transfer.account:ISA->system:retirement_pension"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 2
+        },
+        {
+          "source_question_id": "P38-2-009",
+          "gold": {
+            "subjects": [
+              "account:DB",
+              "account:DC",
+              "account:IRP"
+            ],
+            "fields": [
+              "transfer_definition",
+              "application_route"
+            ],
+            "essential_qualifiers": [
+              "in_kind"
+            ],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:DB",
+              "account:DC",
+              "account:IRP",
+              "event:retirement_benefit"
+            ],
+            "fields": [
+              "procedure"
+            ],
+            "essential_qualifiers": [
+              "before_retirement"
+            ],
+            "relations": [
+              {
+                "type": "transfer",
+                "source": null,
+                "destination": null,
+                "left": "event:retirement_benefit",
+                "right": null
+              }
+            ]
+          },
+          "gold_requirements": [
+            "account:DB+account:DC+account:IRP.application_route",
+            "account:DB+account:DC+account:IRP.transfer_definition",
+            "relation.comparison.account:DB+account:DC+account:IRP<->account:DB+account:DC+account:IRP"
+          ],
+          "predicted_requirements": [
+            "account:DB+account:DC+account:IRP+event:retirement_benefit.early_withdrawal.procedure",
+            "relation.transfer.None->None"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 4
+        },
+        {
+          "source_question_id": "P38-2-010",
+          "gold": {
+            "subjects": [
+              "system:retirement_pension"
+            ],
+            "fields": [
+              "etf_direct_trade",
+              "leverage_inverse_restriction"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "predicted": {
+            "subjects": [
+              "product:foreign_etf",
+              "system:retirement_pension"
+            ],
+            "fields": [
+              "etf_direct_trade",
+              "leverage_inverse_restriction"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "gold_requirements": [
+            "system:retirement_pension.etf_direct_trade",
+            "system:retirement_pension.leverage_inverse_restriction"
+          ],
+          "predicted_requirements": [
+            "product:foreign_etf+system:retirement_pension.etf_direct_trade",
+            "product:foreign_etf+system:retirement_pension.leverage_inverse_restriction"
+          ],
+          "semantic_requirement_coverage": 0.0,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-011",
+          "gold": {
+            "subjects": [
+              "product:KR510902773M"
+            ],
+            "fields": [
+              "risk_grade",
+              "risk_grade_changeability"
+            ],
+            "essential_qualifiers": [
+              "current",
+              "change_possibility"
+            ],
+            "relations": []
+          },
+          "predicted": {
+            "subjects": [
+              "product:KR510902773M"
+            ],
+            "fields": [
+              "risk_grade",
+              "risk_grade_changeability"
+            ],
+            "essential_qualifiers": [
+              "current"
+            ],
+            "relations": []
+          },
+          "gold_requirements": [
+            "product:KR510902773M.risk_grade.current",
+            "product:KR510902773M.risk_grade_changeability"
+          ],
+          "predicted_requirements": [
+            "product:KR510902773M.risk_grade.current",
+            "product:KR510902773M.risk_grade_changeability"
+          ],
+          "semantic_requirement_coverage": 1.0,
+          "requirement_exact": true,
+          "unsupported_extra_atoms": 0
+        },
+        {
+          "source_question_id": "P38-2-012",
+          "gold": {
+            "subjects": [
+              "product:KR5127450215"
+            ],
+            "fields": [
+              "tracking_index",
+              "equity_allocation_limit"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "predicted": {
+            "subjects": [
+              "product:KR5127450215"
+            ],
+            "fields": [
+              "equity_allocation_limit",
+              "tracking_index"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "gold_requirements": [
+            "product:KR5127450215.equity_allocation_limit",
+            "product:KR5127450215.tracking_index"
+          ],
+          "predicted_requirements": [
+            "product:KR5127450215.equity_allocation_limit",
+            "product:KR5127450215.tracking_index"
+          ],
+          "semantic_requirement_coverage": 1.0,
+          "requirement_exact": true,
+          "unsupported_extra_atoms": 0
+        },
+        {
+          "source_question_id": "P38-2-013",
+          "gold": {
+            "subjects": [
+              "product:KR510902773M"
+            ],
+            "fields": [
+              "total_fee",
+              "cost_example"
+            ],
+            "essential_qualifiers": [],
+            "relations": []
+          },
+          "predicted": {
+            "subjects": [
+              "product:KR510902773M"
+            ],
+            "fields": [
+              "cost_example",
+              "total_fee"
+            ],
+            "essential_qualifiers": [
+              "current"
+            ],
+            "relations": []
+          },
+          "gold_requirements": [
+            "product:KR510902773M.cost_example",
+            "product:KR510902773M.total_fee"
+          ],
+          "predicted_requirements": [
+            "product:KR510902773M.cost_example",
+            "product:KR510902773M.total_fee"
+          ],
+          "semantic_requirement_coverage": 1.0,
+          "requirement_exact": true,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-014",
+          "gold": {
+            "subjects": [
+              "product:KR5114420022",
+              "product:KR5114450222"
+            ],
+            "fields": [
+              "risk_grade"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "product:KR5114420022",
+              "product:KR5114450222"
+            ],
+            "fields": [
+              "risk_grade"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": "product:KR5114420022",
+                "right": "product:KR5114450222"
+              }
+            ]
+          },
+          "gold_requirements": [
+            "product:KR5114420022+product:KR5114450222.risk_grade",
+            "relation.comparison.product:KR5114420022+product:KR5114450222<->product:KR5114420022+product:KR5114450222"
+          ],
+          "predicted_requirements": [
+            "product:KR5114420022+product:KR5114450222.risk_grade",
+            "relation.comparison.product:KR5114420022<->product:KR5114450222"
+          ],
+          "semantic_requirement_coverage": 0.5,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-015",
+          "gold": {
+            "subjects": [
+              "product:KR5120420039",
+              "product:KR5120420091"
+            ],
+            "fields": [
+              "risk_grade"
+            ],
+            "essential_qualifiers": [
+              "current",
+              "historical"
+            ],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "product:KR5120420039",
+              "product:KR5120420091"
+            ],
+            "fields": [
+              "risk_grade",
+              "risk_grade_changeability"
+            ],
+            "essential_qualifiers": [
+              "current",
+              "historical"
+            ],
+            "relations": []
+          },
+          "gold_requirements": [
+            "product:KR5120420039+product:KR5120420091.risk_grade.current",
+            "product:KR5120420039+product:KR5120420091.risk_grade.historical",
+            "relation.comparison.product:KR5120420039+product:KR5120420091<->product:KR5120420039+product:KR5120420091"
+          ],
+          "predicted_requirements": [
+            "product:KR5120420039+product:KR5120420091.risk_grade.current",
+            "product:KR5120420039+product:KR5120420091.risk_grade.historical",
+            "product:KR5120420039+product:KR5120420091.risk_grade_changeability"
+          ],
+          "semantic_requirement_coverage": 0.6667,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-016",
+          "gold": {
+            "subjects": [
+              "account:DB",
+              "account:DC"
+            ],
+            "fields": [
+              "contribution_structure",
+              "operation_party"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:DB",
+              "account:DC"
+            ],
+            "fields": [
+              "contribution_structure",
+              "operation_party"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": "account:DB",
+                "right": "account:DC"
+              }
+            ]
+          },
+          "gold_requirements": [
+            "account:DB+account:DC.contribution_structure",
+            "account:DB+account:DC.operation_party",
+            "relation.comparison.account:DB+account:DC<->account:DB+account:DC"
+          ],
+          "predicted_requirements": [
+            "account:DB+account:DC.contribution_structure",
+            "account:DB+account:DC.operation_party",
+            "relation.comparison.account:DB<->account:DC"
+          ],
+          "semantic_requirement_coverage": 0.6667,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        },
+        {
+          "source_question_id": "P38-2-017",
+          "gold": {
+            "subjects": [
+              "account:IRP"
+            ],
+            "fields": [
+              "tax_timing"
+            ],
+            "essential_qualifiers": [
+              "tax_timing_on_transfer"
+            ],
+            "relations": [
+              {
+                "type": "transfer",
+                "source": "event:retirement_benefit",
+                "destination": "account:IRP",
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:IRP",
+              "event:retirement_benefit"
+            ],
+            "fields": [
+              "tax_timing"
+            ],
+            "essential_qualifiers": [
+              "current"
+            ],
+            "relations": [
+              {
+                "type": "transfer",
+                "source": "event:retirement_benefit",
+                "destination": "account:IRP",
+                "left": null,
+                "right": null
+              }
+            ]
+          },
+          "gold_requirements": [
+            "account:IRP.transfer.tax_timing",
+            "relation.transfer.event:retirement_benefit->account:IRP"
+          ],
+          "predicted_requirements": [
+            "account:IRP+event:retirement_benefit.tax_timing",
+            "relation.transfer.event:retirement_benefit->account:IRP"
+          ],
+          "semantic_requirement_coverage": 0.5,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 2
+        },
+        {
+          "source_question_id": "P38-2-018",
+          "gold": {
+            "subjects": [
+              "account:pension"
+            ],
+            "fields": [
+              "partial_withdrawal_condition",
+              "account_closure_condition",
+              "partial_withdrawal_tax",
+              "account_closure_tax"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": "partial_withdrawal",
+                "right": "account_closure"
+              }
+            ]
+          },
+          "predicted": {
+            "subjects": [
+              "account:pension",
+              "event:retirement_benefit"
+            ],
+            "fields": [
+              "account_closure_condition",
+              "partial_withdrawal_condition"
+            ],
+            "essential_qualifiers": [],
+            "relations": [
+              {
+                "type": "comparison",
+                "source": null,
+                "destination": null,
+                "left": "partial_withdrawal",
+                "right": "account_closure"
+              }
+            ]
+          },
+          "gold_requirements": [
+            "account:pension.account_closure.condition",
+            "account:pension.account_closure.tax_treatment",
+            "account:pension.partial_withdrawal.condition",
+            "account:pension.partial_withdrawal.tax_treatment",
+            "relation.comparison.partial_withdrawal<->account_closure"
+          ],
+          "predicted_requirements": [
+            "account:pension+event:retirement_benefit.account_closure.condition",
+            "account:pension+event:retirement_benefit.partial_withdrawal.condition",
+            "relation.comparison.partial_withdrawal<->account_closure"
+          ],
+          "semantic_requirement_coverage": 0.2,
+          "requirement_exact": false,
+          "unsupported_extra_atoms": 1
+        }
+      ]
+    }
+  },
+  "planner_outputs": [
+    {
+      "source_question_id": "P38-2-001",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "fields": [
+          "benefit_determination",
+          "contribution_structure"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4002,
+        "lexical_normalization_applied": true,
+        "rate_limit_wait_ms": 0.0,
+        "request_started_offset_ms": 0.027,
+        "http_status": 200,
+        "request_completed_offset_ms": 1641.948,
+        "raw_content_sha256": "01da7cd4aa5daa25714bb29bb559bcc7a062b15a443abeac0d953bbb6198b86f",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4002,
+            "lexical_normalization_applied": true,
+            "rate_limit_wait_ms": 0.0,
+            "request_started_offset_ms": 0.027,
+            "http_status": 200,
+            "request_completed_offset_ms": 1641.948,
+            "raw_content_sha256": "01da7cd4aa5daa25714bb29bb559bcc7a062b15a443abeac0d953bbb6198b86f",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-002",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:DC"
+        ],
+        "fields": [
+          "required_document",
+          "withdrawal_reason"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4006,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4460.889,
+        "request_started_offset_ms": 4461.111,
+        "http_status": 200,
+        "request_completed_offset_ms": 6187.892,
+        "raw_content_sha256": "1f136b4c918a4df481708ef357d8c131a911c431259bcd33cc8bb49b6cdf7145",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4006,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4460.889,
+            "request_started_offset_ms": 4461.111,
+            "http_status": 200,
+            "request_completed_offset_ms": 6187.892,
+            "raw_content_sha256": "1f136b4c918a4df481708ef357d8c131a911c431259bcd33cc8bb49b6cdf7145",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-003",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:general"
+        ],
+        "fields": [
+          "education_frequency",
+          "education_outsourcing"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 3986,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4377.805,
+        "request_started_offset_ms": 4377.982,
+        "http_status": 200,
+        "request_completed_offset_ms": 6029.316,
+        "raw_content_sha256": "a498cabd832a2aea723427557796c5e46ace28bf1c11b532ac2b4ed350ba4b18",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 3986,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4377.805,
+            "request_started_offset_ms": 4377.982,
+            "http_status": 200,
+            "request_completed_offset_ms": 6029.316,
+            "raw_content_sha256": "a498cabd832a2aea723427557796c5e46ace28bf1c11b532ac2b4ed350ba4b18",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-004",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:IRP",
+          "account:pension_savings"
+        ],
+        "fields": [
+          "tax_credit_limit"
+        ],
+        "essential_qualifiers": [
+          "additional_credit"
+        ],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4014,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4453.283,
+        "request_started_offset_ms": 4453.46,
+        "http_status": 200,
+        "request_completed_offset_ms": 6522.999,
+        "raw_content_sha256": "03fb725da2fd8f6b292ff5458dddc7463b43e8f526ab2df1b01635a297af4d17",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4014,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4453.283,
+            "request_started_offset_ms": 4453.46,
+            "http_status": 200,
+            "request_completed_offset_ms": 6522.999,
+            "raw_content_sha256": "03fb725da2fd8f6b292ff5458dddc7463b43e8f526ab2df1b01635a297af4d17",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-005",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:general",
+          "system:retirement_pension"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4068,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4035.181,
+        "request_started_offset_ms": 4035.299,
+        "http_status": 200,
+        "request_completed_offset_ms": 5588.033,
+        "raw_content_sha256": "7a66a24cd4e64539e7a447a0b3a5e0be528e762cd975d2d2f809cd3ba9edb8c0",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4068,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4035.181,
+            "request_started_offset_ms": 4035.299,
+            "http_status": 200,
+            "request_completed_offset_ms": 5588.033,
+            "raw_content_sha256": "7a66a24cd4e64539e7a447a0b3a5e0be528e762cd975d2d2f809cd3ba9edb8c0",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-006",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:general",
+          "account:pension",
+          "product:foreign_etf"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4040,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4552.045,
+        "request_started_offset_ms": 4554.254,
+        "http_status": 200,
+        "request_completed_offset_ms": 5577.43,
+        "raw_content_sha256": "9a7bed060cf9190a0ccc670a0cd2eef958d0cd7049bf15e6ffea16f42839eaf6",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4040,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4552.045,
+            "request_started_offset_ms": 4554.254,
+            "http_status": 200,
+            "request_completed_offset_ms": 5577.43,
+            "raw_content_sha256": "9a7bed060cf9190a0ccc670a0cd2eef958d0cd7049bf15e6ffea16f42839eaf6",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-007",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:IRP",
+          "account:pension"
+        ],
+        "fields": [
+          "tax_treatment",
+          "withdrawal_reason"
+        ],
+        "essential_qualifiers": [
+          "before_retirement"
+        ],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 3994,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5079.489,
+        "request_started_offset_ms": 5079.64,
+        "http_status": 200,
+        "request_completed_offset_ms": 6713.036,
+        "raw_content_sha256": "2c2953858344ed4e9fc68145ad18441b2128fc96a03883557ff498a5cfc3a7bf",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 3994,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5079.489,
+            "request_started_offset_ms": 5079.64,
+            "http_status": 200,
+            "request_completed_offset_ms": 6713.036,
+            "raw_content_sha256": "2c2953858344ed4e9fc68145ad18441b2128fc96a03883557ff498a5cfc3a7bf",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-008",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:ISA",
+          "system:retirement_pension"
+        ],
+        "fields": [
+          "tax_credit_limit",
+          "transfer_deadline"
+        ],
+        "essential_qualifiers": [
+          "isa_maturity"
+        ],
+        "directional_transfers": [
+          {
+            "source": "account:ISA",
+            "destination": "system:retirement_pension"
+          }
+        ]
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4021,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4470.711,
+        "request_started_offset_ms": 4470.953,
+        "http_status": 200,
+        "request_completed_offset_ms": 6958.617,
+        "raw_content_sha256": "f9d69fdd3e28fdfb763508baa8bed111c16af4e1a3efff4c75daf986be9bb3f8",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4021,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4470.711,
+            "request_started_offset_ms": 4470.953,
+            "http_status": 200,
+            "request_completed_offset_ms": 6958.617,
+            "raw_content_sha256": "f9d69fdd3e28fdfb763508baa8bed111c16af4e1a3efff4c75daf986be9bb3f8",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-009",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "event:retirement_benefit"
+        ],
+        "fields": [
+          "procedure",
+          "transfer_definition"
+        ],
+        "essential_qualifiers": [
+          "before_retirement"
+        ],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4034,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 3617.121,
+        "request_started_offset_ms": 3617.342,
+        "http_status": 200,
+        "request_completed_offset_ms": 5056.409,
+        "raw_content_sha256": "bd41a62b2b33ff7c04121a1d3bd85f07cb76805f66e1ca8413e5f62789cf16e1",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4034,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 3617.121,
+            "request_started_offset_ms": 3617.342,
+            "http_status": 200,
+            "request_completed_offset_ms": 5056.409,
+            "raw_content_sha256": "bd41a62b2b33ff7c04121a1d3bd85f07cb76805f66e1ca8413e5f62789cf16e1",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-010",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "product:foreign_etf",
+          "system:retirement_pension"
+        ],
+        "fields": [
+          "etf_direct_trade",
+          "leverage_inverse_restriction"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4025,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4662.512,
+        "request_started_offset_ms": 4662.678,
+        "http_status": 200,
+        "request_completed_offset_ms": 6899.628,
+        "raw_content_sha256": "51c5ea838b43a54358a82c583fa97b016be2a46d032c4d2b99dcb448553af759",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4025,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4662.512,
+            "request_started_offset_ms": 4662.678,
+            "http_status": 200,
+            "request_completed_offset_ms": 6899.628,
+            "raw_content_sha256": "51c5ea838b43a54358a82c583fa97b016be2a46d032c4d2b99dcb448553af759",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-011",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "essential_qualifiers": [
+          "current"
+        ],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4006,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 3867.095,
+        "request_started_offset_ms": 3867.261,
+        "http_status": 200,
+        "request_completed_offset_ms": 5121.196,
+        "raw_content_sha256": "e2566de991d8bc22daffab801bd34b16cbda915ea0fe438b587388e807e37b4a",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4006,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 3867.095,
+            "request_started_offset_ms": 3867.261,
+            "http_status": 200,
+            "request_completed_offset_ms": 5121.196,
+            "raw_content_sha256": "e2566de991d8bc22daffab801bd34b16cbda915ea0fe438b587388e807e37b4a",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-012",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "product:KR5127450215"
+        ],
+        "fields": [
+          "equity_allocation_limit",
+          "tracking_index"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4004,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4846.386,
+        "request_started_offset_ms": 4846.567,
+        "http_status": 200,
+        "request_completed_offset_ms": 6436.195,
+        "raw_content_sha256": "8b4daba0d2af47a25e40e0c384b53b47f6ce31cfbf7a5f1706b5b5104df12047",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4004,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4846.386,
+            "request_started_offset_ms": 4846.567,
+            "http_status": 200,
+            "request_completed_offset_ms": 6436.195,
+            "raw_content_sha256": "8b4daba0d2af47a25e40e0c384b53b47f6ce31cfbf7a5f1706b5b5104df12047",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-013",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "fields": [
+          "cost_example",
+          "total_fee"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4021,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4511.167,
+        "request_started_offset_ms": 4511.331,
+        "http_status": 200,
+        "request_completed_offset_ms": 6110.805,
+        "raw_content_sha256": "c251bc36fbf4084715c7d98d1c209542cb0d4baa030da3dcb09e5d3681c08087",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4021,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4511.167,
+            "request_started_offset_ms": 4511.331,
+            "http_status": 200,
+            "request_completed_offset_ms": 6110.805,
+            "raw_content_sha256": "c251bc36fbf4084715c7d98d1c209542cb0d4baa030da3dcb09e5d3681c08087",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-014",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "fields": [
+          "risk_grade"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 3997,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4505.248,
+        "request_started_offset_ms": 4505.409,
+        "http_status": 200,
+        "request_completed_offset_ms": 6068.165,
+        "raw_content_sha256": "7fdd26354653589ece85352d88079a0d81c3931af65d7659104711800414767b",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 3997,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4505.248,
+            "request_started_offset_ms": 4505.409,
+            "http_status": 200,
+            "request_completed_offset_ms": 6068.165,
+            "raw_content_sha256": "7fdd26354653589ece85352d88079a0d81c3931af65d7659104711800414767b",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-015",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 3992,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4541.907,
+        "request_started_offset_ms": 4542.041,
+        "http_status": 200,
+        "request_completed_offset_ms": 6166.348,
+        "raw_content_sha256": "8d13b76d99a877f8fdcab736126cc92b64b298cc43bc41fcf1771303d56613f5",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 3992,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4541.907,
+            "request_started_offset_ms": 4542.041,
+            "http_status": 200,
+            "request_completed_offset_ms": 6166.348,
+            "raw_content_sha256": "8d13b76d99a877f8fdcab736126cc92b64b298cc43bc41fcf1771303d56613f5",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-016",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "fields": [
+          "contribution_structure"
+        ],
+        "essential_qualifiers": [
+          "current"
+        ],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4021,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4479.708,
+        "request_started_offset_ms": 4479.887,
+        "http_status": 200,
+        "request_completed_offset_ms": 5709.689,
+        "raw_content_sha256": "8098d8b78c1f7a3bc9c97a37ac0a659b9cc9fc170d6d6e2004d2bb72ce61e25a",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4021,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4479.708,
+            "request_started_offset_ms": 4479.887,
+            "http_status": 200,
+            "request_completed_offset_ms": 5709.689,
+            "raw_content_sha256": "8098d8b78c1f7a3bc9c97a37ac0a659b9cc9fc170d6d6e2004d2bb72ce61e25a",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-017",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:IRP",
+          "event:retirement_benefit"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "essential_qualifiers": [
+          "before_retirement",
+          "current"
+        ],
+        "directional_transfers": [
+          {
+            "source": "event:retirement_benefit",
+            "destination": "account:IRP"
+          }
+        ]
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4029,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4872.473,
+        "request_started_offset_ms": 4872.614,
+        "http_status": 200,
+        "request_completed_offset_ms": 6747.656,
+        "raw_content_sha256": "f16d6ccf7750b60118f9d5390dc1776186991d0827c36f0a229d1b1e59eb2512",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4029,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4872.473,
+            "request_started_offset_ms": 4872.614,
+            "http_status": 200,
+            "request_completed_offset_ms": 6747.656,
+            "raw_content_sha256": "f16d6ccf7750b60118f9d5390dc1776186991d0827c36f0a229d1b1e59eb2512",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-018",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "plan": {
+        "subjects": [
+          "account:pension"
+        ],
+        "fields": [
+          "account_closure_condition",
+          "partial_withdrawal_condition"
+        ],
+        "essential_qualifiers": [],
+        "directional_transfers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 4016,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4229.809,
+        "request_started_offset_ms": 4229.899,
+        "http_status": 200,
+        "request_completed_offset_ms": 5257.117,
+        "raw_content_sha256": "67d96d920567b7c2bf3519cd0f1ba210d981ea96757613cbbd867539286909a3",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 4016,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4229.809,
+            "request_started_offset_ms": 4229.899,
+            "http_status": 200,
+            "request_completed_offset_ms": 5257.117,
+            "raw_content_sha256": "67d96d920567b7c2bf3519cd0f1ba210d981ea96757613cbbd867539286909a3",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    }
+  ]
+}

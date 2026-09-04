@@ -1,0 +1,771 @@
+{
+  "version": "1.0",
+  "status": "frozen_before_pre_hcx_execution",
+  "purpose": "P36 fresh holdout: Closed factual front-end generalisation after P35-B. No HCX before the pre-HCX gate.",
+  "candidate": "P35-B deterministic Closed front-end regression candidate",
+  "scope": {
+    "included": [
+      "institution",
+      "tax",
+      "procedure",
+      "compound closed",
+      "product factual",
+      "product factual comparison"
+    ],
+    "excluded": [
+      "personalised recommendation",
+      "suitability",
+      "clarify",
+      "abstain",
+      "prompt injection",
+      "external real-time information"
+    ]
+  },
+  "denominators": {
+    "total": 18,
+    "answerable": 18,
+    "unsupported": 0
+  },
+  "pre_hcx_go_criteria": {
+    "semantic_requirement_coverage": 1.0,
+    "evidence_sufficiency": 1.0,
+    "original_primary": 1.0,
+    "source_relevance_exact_or_semantic_equivalent": 1.0,
+    "partial": 0,
+    "wrong_scope": 0
+  },
+  "questions": [
+    {
+      "question_id": "P36-001",
+      "question": "DB와 DC에서 적립금 관리는 각각 누가 맡고, 퇴직 뒤 받는 금액은 어떤 기준으로 정해지나요? DC에 회사가 넣어야 하는 최소 금액도 함께 알려주세요.",
+      "category": "institution_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "db_dc_general_comparison",
+      "expected_slot_keys": [
+        "db_dc_operation_party",
+        "db_dc_benefit_determination",
+        "db_dc_contribution_structure"
+      ],
+      "required_requirements": [
+        "DB·DC 급여 결정 방식",
+        "DB·DC 운용 주체",
+        "DC 회사 부담금 기준"
+      ],
+      "gold_answer_points": [
+        "DB는 급여 수준이 사전에 정해지는 구조",
+        "DC는 회사가 부담금을 정하고 가입자가 운용",
+        "DC 회사 부담금은 연간 임금총액의 12분의 1 이상"
+      ],
+      "evidence_groups": [
+        [
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+        ]
+      ],
+      "must_not_include": [
+        "DB와 DC의 운용 주체를 동일하다고 설명"
+      ],
+      "freshness_note": "운용 주체·급여 산정·회사 부담금의 세 축을 ‘관리/받는 금액’ 표현으로 결합했다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "4607500e74afcdf8",
+        "fc71bcf7cc90f68d"
+      ],
+      "acceptable_equivalent_evidence": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+      ]
+    },
+    {
+      "question_id": "P36-002",
+      "question": "가입자 교육은 누가 책임지고 시행하나요? 1년에 최소 몇 번인지와 교육 업무를 전문기관에 위임할 수 있는지도 궁금합니다.",
+      "category": "institution_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "participant_education",
+      "expected_slot_keys": [
+        "education_provider",
+        "education_frequency",
+        "education_outsourcing"
+      ],
+      "required_requirements": [
+        "교육 실시 주체",
+        "최소 실시 주기",
+        "위탁 가능 여부"
+      ],
+      "gold_answer_points": [
+        "사용자가 가입자 교육을 실시",
+        "매년 1회 이상",
+        "퇴직연금사업자 또는 전문기관 위탁 가능"
+      ],
+      "evidence_groups": [
+        [
+          "ae713c70a631594f-paragraph_group-b665fce408b0",
+          "ae713c70a631594f-paragraph_group-fd1124e92346"
+        ]
+      ],
+      "must_not_include": [
+        "교육 주기를 문서 밖 횟수로 단정"
+      ],
+      "freshness_note": "직접 실시/외부 맡김 대신 책임·위임이라는 표현으로 교육의 세 requirement를 묻는다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "ae713c70a631594f"
+      ],
+      "acceptable_equivalent_evidence": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ]
+    },
+    {
+      "question_id": "P36-003",
+      "question": "DC나 IRP에서 일반 ETF 주문을 직접 낼 수 있다면, 두 배로 움직이거나 반대로 움직이는 ETF도 제한 없이 살 수 있나요?",
+      "category": "institution_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "retirement_etf_restriction",
+      "expected_slot_keys": [
+        "retirement_etf_direct_trade",
+        "retirement_etf_leverage_inverse_restriction"
+      ],
+      "required_requirements": [
+        "퇴직연금 ETF 직접매매 범위",
+        "레버리지·인버스 제한"
+      ],
+      "gold_answer_points": [
+        "DC·IRP에서 허용된 ETF는 직접 매매 가능",
+        "레버리지·인버스 ETF는 금지 유지"
+      ],
+      "evidence_groups": [
+        [
+          "570a48e8debe22bd-paragraph_group-e79299cb589a"
+        ]
+      ],
+      "must_not_include": [
+        "레버리지·인버스 ETF가 제한 없이 가능하다고 안내"
+      ],
+      "freshness_note": "레버리지·인버스의 명칭 없이 상품 특성을 이용해 허용 범위와 제한을 분리한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "570a48e8debe22bd"
+      ],
+      "acceptable_equivalent_evidence": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ]
+    },
+    {
+      "question_id": "P36-004",
+      "question": "개인연금 저축계좌에만 납입한 경우와 개인형퇴직연금까지 보탠 경우를 비교하면, 세액공제 대상으로 잡히는 납입액 한도는 각각 어디까지인가요?",
+      "category": "tax_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "pension_savings_irp_tax_limit_comparison",
+      "expected_slot_keys": [
+        "pension_savings_only_deduction_limit",
+        "pension_savings_irp_combined_deduction_limit"
+      ],
+      "required_requirements": [
+        "연금저축 단독 세액공제 대상 한도",
+        "IRP 포함 합산 세액공제 대상 한도"
+      ],
+      "gold_answer_points": [
+        "연금저축 단독 한도와 IRP를 포함한 합산 한도는 구분",
+        "문서상 한도 수치를 각각 제시"
+      ],
+      "evidence_groups": [
+        [
+          "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+          "7cce439d30d5a8b0-table-20114875d339"
+        ]
+      ],
+      "must_not_include": [
+        "연간 납입한도 전체를 세액공제 한도와 동일시",
+        "개인별 최종 세액 단정"
+      ],
+      "freshness_note": "연금저축/IRP의 정식 명칭이 아닌 확장 표현과 ‘대상 납입액’ 범위를 사용한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "7cce439d30d5a8b0"
+      ],
+      "acceptable_equivalent_evidence": [
+        "7cce439d30d5a8b0-paragraph_group-f2f6ed313014",
+        "7cce439d30d5a8b0-table-20114875d339"
+      ]
+    },
+    {
+      "question_id": "P36-005",
+      "question": "연금계좌에서 운용수익에 세금을 바로 떼지 않는다고 하면 영영 안 낸다는 뜻인가요? 일반계좌와 비교해 실제 과세되는 때를 설명해 주세요.",
+      "category": "tax_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "pension_account_tax_deferral_comparison",
+      "expected_slot_keys": [
+        "general_account_tax_timing",
+        "pension_account_tax_deferral"
+      ],
+      "required_requirements": [
+        "일반계좌 과세 시점",
+        "연금계좌 과세이연의 조건·시점"
+      ],
+      "gold_answer_points": [
+        "과세이연은 면제가 아니라 과세 시점 이연",
+        "연금계좌는 인출·연금수령 단계의 과세를 구분"
+      ],
+      "evidence_groups": [
+        [
+          "de4f8448134189df-paragraph_group-2a4335a2587e",
+          "de4f8448134189df-paragraph_group-4394f7247e77"
+        ]
+      ],
+      "must_not_include": [
+        "과세이연을 영구 비과세로 표현",
+        "개인별 세율 확정"
+      ],
+      "freshness_note": "과세이연과 ‘세금을 나중에 낸다’ 대신 운용수익·즉시 원천징수 여부로 시점 개념을 묻는다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "de4f8448134189df"
+      ],
+      "acceptable_equivalent_evidence": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ]
+    },
+    {
+      "question_id": "P36-006",
+      "question": "국내 거래소에 상장된 해외 ETF의 이익과 분배금을 계좌 밖에서 보유할 때와 연금계좌에 담을 때, 과세 시점이 어떻게 달라지나요?",
+      "category": "tax_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "foreign_etf_account_tax_comparison",
+      "expected_slot_keys": [
+        "foreign_etf_general_account_tax",
+        "foreign_etf_pension_account_tax",
+        "foreign_etf_tax_condition"
+      ],
+      "required_requirements": [
+        "일반계좌 매매차익·분배금 과세",
+        "연금계좌 과세 시점",
+        "문서의 조건·유의사항"
+      ],
+      "gold_answer_points": [
+        "일반계좌와 연금계좌의 과세 시점 구분",
+        "연금계좌의 과세이연을 인출·수령과 연결"
+      ],
+      "evidence_groups": [
+        [
+          "de4f8448134189df-paragraph_group-2a4335a2587e",
+          "de4f8448134189df-paragraph_group-4394f7247e77",
+          "de4f8448134189df-table-ce8fee5b43be"
+        ]
+      ],
+      "must_not_include": [
+        "모든 해외 ETF에 동일한 결과·세율을 단정"
+      ],
+      "freshness_note": "매매차익/분배금과 일반계좌를 ‘계좌 밖’ 표현으로 바꾸고 두 소득 흐름을 결합했다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "de4f8448134189df"
+      ],
+      "acceptable_equivalent_evidence": [
+        "de4f8448134189df-paragraph_group-2a4335a2587e",
+        "de4f8448134189df-paragraph_group-4394f7247e77",
+        "de4f8448134189df-table-ce8fee5b43be"
+      ]
+    },
+    {
+      "question_id": "P36-007",
+      "question": "퇴직 전에 연금저축 돈은 일부 인출할 수 있다는데 IRP도 가능한가요? 두 계좌의 허용 사유와 인출 때 세금 기준을 나눠 알려주세요.",
+      "category": "procedure_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "pension_savings_irp_withdrawal_comparison",
+      "expected_slot_keys": [
+        "pension_savings_withdrawal_scope",
+        "irp_withdrawal_legal_grounds_comparison",
+        "account_withdrawal_tax_treatment"
+      ],
+      "required_requirements": [
+        "연금저축 인출 범위",
+        "IRP 법정 중도인출 사유",
+        "인출 과세 처리"
+      ],
+      "gold_answer_points": [
+        "연금저축과 IRP의 인출 조건은 동일하지 않음",
+        "IRP에는 법정사유가 필요",
+        "세법상 사유와 과세 처리를 구분"
+      ],
+      "evidence_groups": [
+        [
+          "e8d7e6a69504e042-paragraph_group-35993691d717",
+          "e8d7e6a69504e042-table-e07c4f8c5781",
+          "e8d7e6a69504e042-table-05de077f1213"
+        ]
+      ],
+      "must_not_include": [
+        "IRP와 연금저축 인출 제한이 같다고 설명",
+        "법정사유와 세법상 부득이한 사유를 동일시"
+      ],
+      "freshness_note": "‘중간에 찾기’ 없이 퇴직 전·일부 인출이라는 별도 표현으로 계좌별 조건과 과세를 요구한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "e8d7e6a69504e042"
+      ],
+      "acceptable_equivalent_evidence": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-05de077f1213",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ]
+    },
+    {
+      "question_id": "P36-008",
+      "question": "DC 적립금을 퇴직 전에 꺼내려면 어떤 법정 요건을 봐야 하나요? 사유가 있더라도 제출 절차와 입증자료가 필요한지도 알려주세요.",
+      "category": "procedure_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "withdrawal_condition_and_procedure",
+      "expected_slot_keys": [
+        "dc_withdrawal_conditions",
+        "withdrawal_procedure"
+      ],
+      "required_requirements": [
+        "DC 중도인출 가능 사유",
+        "신청 절차·증빙"
+      ],
+      "gold_answer_points": [
+        "중도인출 가능 사유를 문서 기준으로 확인",
+        "사유별 증빙·신청 절차가 필요할 수 있음"
+      ],
+      "evidence_groups": [
+        [
+          "04782a392f49293e-paragraph_group-37b3740ca9e9",
+          "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+        ]
+      ],
+      "must_not_include": [
+        "사유만 있으면 증빙 없이 자동 처리된다고 안내"
+      ],
+      "freshness_note": "중도인출의 동의어 대신 ‘퇴직 전 꺼내기’와 입증자료를 사용해 조건·절차를 함께 검증한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "04782a392f49293e"
+      ],
+      "acceptable_equivalent_evidence": [
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+      ]
+    },
+    {
+      "question_id": "P36-009",
+      "question": "ISA가 끝난 뒤 그 자금을 연금계좌로 이전 납입하려면 마감일이 언제이고, 추가 세액공제 금액은 어떤 산식과 한도로 정해지나요?",
+      "category": "procedure_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "isa_maturity_transfer",
+      "expected_slot_keys": [
+        "isa_transfer_deadline",
+        "isa_transfer_additional_tax_credit"
+      ],
+      "required_requirements": [
+        "ISA 만기자금 이전 기한",
+        "추가 세액공제 계산 기준·한도"
+      ],
+      "gold_answer_points": [
+        "60일 이내 전환납입",
+        "전환납입액의 10% 추가 공제 대상",
+        "추가 공제 한도 300만원"
+      ],
+      "evidence_groups": [
+        [
+          "ae22159be59440b6-paragraph_group-8d64cc53348b",
+          "ae22159be59440b6-table-433001f3f808"
+        ]
+      ],
+      "must_not_include": [
+        "개인 소득 조건과 무관한 최종 세액 단정"
+      ],
+      "freshness_note": "‘넘길’ 없이 이전 납입·마감일·산식이라는 표현으로 ISA 두 requirement를 묻는다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "ae22159be59440b6"
+      ],
+      "acceptable_equivalent_evidence": [
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "ae22159be59440b6-table-433001f3f808"
+      ]
+    },
+    {
+      "question_id": "P36-010",
+      "question": "보유 중인 펀드를 환매하지 않은 채 퇴직연금 사업자만 바꾸는 경우, 재직 중인 DB·DC와 IRP는 신청 경로가 어떻게 구분되나요?",
+      "category": "compound_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "in_kind_transfer_application",
+      "expected_slot_keys": [
+        "in_kind_transfer_meaning",
+        "db_dc_in_kind_transfer_application",
+        "irp_in_kind_transfer_application"
+      ],
+      "required_requirements": [
+        "실물이전 정의·적용 범위",
+        "DB·DC 신청 경로",
+        "IRP 신청 경로"
+      ],
+      "gold_answer_points": [
+        "동일 제도 안에서 매도 없이 금융기관 변경",
+        "DB·DC는 회사 경유",
+        "IRP는 영업점 또는 모바일 신청"
+      ],
+      "evidence_groups": [
+        [
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+        ]
+      ],
+      "must_not_include": [
+        "DB에서 IRP로 실물이전 가능",
+        "모든 보유상품이 이전 가능하다고 단정"
+      ],
+      "freshness_note": "실물이전이라는 명칭을 쓰지 않고 보유상품 유지·사업자 변경의 절차 차이를 묻는다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "afc99f5bd68cc78b"
+      ],
+      "acceptable_equivalent_evidence": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ]
+    },
+    {
+      "question_id": "P36-011",
+      "question": "퇴직연금 안의 ETF는 직접 거래가 가능하다고 들었습니다. 그렇다면 상승·하락 배수를 추종하는 ETF도 같은 대상에 포함되나요?",
+      "category": "compound_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "retirement_etf_restriction",
+      "expected_slot_keys": [
+        "retirement_etf_direct_trade",
+        "retirement_etf_leverage_inverse_restriction"
+      ],
+      "required_requirements": [
+        "DC·IRP ETF 직접매매 범위",
+        "레버리지·인버스 ETF 제한"
+      ],
+      "gold_answer_points": [
+        "직접 거래가 허용되는 ETF 범위와 제한 상품을 구분",
+        "레버리지·인버스 금지 유지"
+      ],
+      "evidence_groups": [
+        [
+          "570a48e8debe22bd-paragraph_group-e79299cb589a"
+        ]
+      ],
+      "must_not_include": [
+        "직접매매 허용을 레버리지·인버스 허용으로 확대 해석"
+      ],
+      "freshness_note": "ETF 제한을 ‘배수 추종’의 의미로 표현해 직접거래와 제한 상품을 동시에 요구한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "570a48e8debe22bd"
+      ],
+      "acceptable_equivalent_evidence": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ]
+    },
+    {
+      "question_id": "P36-012",
+      "question": "DB에서는 회사와 가입자 중 누가 적립금을 운용하고, DC에서는 누가 운용방법을 정하나요? 두 제도의 퇴직급여 계산 기준도 같이 비교해 주세요.",
+      "category": "compound_closed",
+      "difficulty": "compound",
+      "expected_requirement_category": "db_dc_general_comparison",
+      "expected_slot_keys": [
+        "db_dc_operation_party",
+        "db_dc_benefit_determination",
+        "db_dc_contribution_structure"
+      ],
+      "required_requirements": [
+        "DB·DC 운용 주체",
+        "DB·DC 급여 결정 방식",
+        "DC 부담금 구조"
+      ],
+      "gold_answer_points": [
+        "DB는 회사가 적립금을 운용",
+        "DC는 근로자가 운용방법을 선택",
+        "DB·DC의 급여·부담금 구조를 구분"
+      ],
+      "evidence_groups": [
+        [
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+          "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+        ]
+      ],
+      "must_not_include": [
+        "DC 적립금을 회사가 운용한다고 설명"
+      ],
+      "freshness_note": "DB/DC의 운용 역할을 주체별 질문으로 풀고 급여 산정 축을 결합했다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "4607500e74afcdf8",
+        "fc71bcf7cc90f68d"
+      ],
+      "acceptable_equivalent_evidence": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "fc71bcf7cc90f68d-paragraph_group-4d522b97d9ef"
+      ]
+    },
+    {
+      "question_id": "P36-013",
+      "question": "KR510902773M의 현재 투자위험 분류는 몇 단계인가요? 운용 실적이나 시장 조건에 따라 나중에 다시 조정될 수 있는지도 확인해 주세요.",
+      "category": "product_fact",
+      "difficulty": "compound",
+      "expected_requirement_category": "product_fields",
+      "expected_slot_keys": [
+        "KR510902773M:risk_grade"
+      ],
+      "required_requirements": [
+        "KR510902773M 위험등급",
+        "위험등급 변경 가능성"
+      ],
+      "gold_answer_points": [
+        "3등급(다소 높은 위험)",
+        "운용실적·시장 상황 등에 따라 위험등급이 변경될 수 있음"
+      ],
+      "evidence_groups": [
+        [
+          "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+        ]
+      ],
+      "must_not_include": [
+        "위험등급이 영구적으로 고정된다고 단정"
+      ],
+      "freshness_note": "‘위험등급몇등급’·‘계속 고정’ 대신 분류 단계와 재조정 가능성으로 두 factual claim을 요구한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "cf922cacac95fad9"
+      ],
+      "acceptable_equivalent_evidence": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ]
+    },
+    {
+      "question_id": "P36-014",
+      "question": "KR5127450215는 특정 지수 성과를 반영하도록 설계된 상품인가요? 주식 관련 자산 편입 비율의 상한도 제시해 주세요.",
+      "category": "product_fact",
+      "difficulty": "compound",
+      "expected_requirement_category": "product_fields",
+      "expected_slot_keys": [
+        "KR5127450215:investment_strategy",
+        "KR5127450215:investment_target"
+      ],
+      "required_requirements": [
+        "KR5127450215 투자전략",
+        "KR5127450215 주식 관련 자산 투자비율"
+      ],
+      "gold_answer_points": [
+        "코스닥150 지수 수익률 추종",
+        "주식 및 주식관련 파생상품 60% 이상"
+      ],
+      "evidence_groups": [
+        [
+          "8297231e70bc792a-paragraph_group-3455eeb10f78",
+          "8297231e70bc792a-table-c3567ecc05be"
+        ]
+      ],
+      "must_not_include": [
+        "지수 추종을 원금 보장으로 표현"
+      ],
+      "freshness_note": "지수추종/지수를 따라감 대신 성과 반영 설계와 편입 상한으로 전략·비율을 묻는다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "8297231e70bc792a"
+      ],
+      "acceptable_equivalent_evidence": [
+        "8297231e70bc792a-paragraph_group-3455eeb10f78",
+        "8297231e70bc792a-table-c3567ecc05be"
+      ]
+    },
+    {
+      "question_id": "P36-015",
+      "question": "KR510902773M C-e 문서의 매년 적용되는 총보수율과 3년 보유를 가정한 비용 금액은 왜 같은 단위로 읽으면 안 되나요?",
+      "category": "product_fact",
+      "difficulty": "compound",
+      "expected_requirement_category": "product_fields",
+      "expected_slot_keys": [
+        "KR510902773M:total_fee",
+        "KR510902773M:example_cost"
+      ],
+      "required_requirements": [
+        "KR510902773M C-e 총보수·비용",
+        "KR510902773M 기간별 비용 예시",
+        "연간 비율과 기간별 예시의 차이"
+      ],
+      "gold_answer_points": [
+        "총보수·비용은 연간 비율",
+        "기간별 예시는 투자금·수익률 가정의 비용 예시",
+        "두 수치를 같은 단위로 혼동하지 않음"
+      ],
+      "evidence_groups": [
+        [
+          "cf922cacac95fad9-table-27acbea49e02",
+          "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+          "cf922cacac95fad9-paragraph_group-50171832b91f"
+        ]
+      ],
+      "must_not_include": [
+        "기간별 비용 예시를 연간 총보수율로 표현"
+      ],
+      "freshness_note": "총보수와 기간별 예시를 비율·보유 가정·금액이라는 다른 field-boundary 표현으로 분리한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "cf922cacac95fad9"
+      ],
+      "acceptable_equivalent_evidence": [
+        "cf922cacac95fad9-paragraph_group-50171832b91f",
+        "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+        "cf922cacac95fad9-table-27acbea49e02"
+      ]
+    },
+    {
+      "question_id": "P36-016",
+      "question": "KR510902773M과 KR510902777M의 위험 분류 숫자를 각각 확인하고, 숫자가 낮은 쪽이 더 높은 위험을 뜻하는지도 비교해 주세요.",
+      "category": "product_fact_comparison",
+      "difficulty": "compound",
+      "expected_requirement_category": "product_fields",
+      "expected_slot_keys": [
+        "KR510902773M:risk_grade",
+        "KR510902777M:risk_grade"
+      ],
+      "required_requirements": [
+        "KR510902773M 위험등급",
+        "KR510902777M 위험등급",
+        "위험등급 비교"
+      ],
+      "gold_answer_points": [
+        "KR510902773M은 3등급",
+        "KR510902777M은 2등급",
+        "2등급이 더 높은 위험으로 표시"
+      ],
+      "evidence_groups": [
+        [
+          "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+          "c787719b514f51da-paragraph_group-f00a2b356930"
+        ]
+      ],
+      "must_not_include": [
+        "두 상품의 위험등급을 뒤바꿈",
+        "위험등급만으로 적합성 단정"
+      ],
+      "freshness_note": "두 코드의 등급값과 ordinal direction을 ‘위험 분류 숫자’로 묻는다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "c787719b514f51da",
+        "cf922cacac95fad9"
+      ],
+      "acceptable_equivalent_evidence": [
+        "c787719b514f51da-paragraph_group-f00a2b356930",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ]
+    },
+    {
+      "question_id": "P36-017",
+      "question": "KR5114420022와 KR5114450222는 각각 몇 단계 위험으로 표시돼 있나요? 그중 보수적으로 분류된 쪽이 어느 상품인지 근거와 함께 비교해 주세요.",
+      "category": "product_fact_comparison",
+      "difficulty": "compound",
+      "expected_requirement_category": "product_fields",
+      "expected_slot_keys": [
+        "KR5114420022:risk_grade",
+        "KR5114450222:risk_grade"
+      ],
+      "required_requirements": [
+        "KR5114420022 위험등급",
+        "KR5114450222 위험등급",
+        "낮은 위험 비교"
+      ],
+      "gold_answer_points": [
+        "KR5114420022는 5등급",
+        "KR5114450222는 2등급",
+        "5등급이 낮은 위험으로 표시"
+      ],
+      "evidence_groups": [
+        [
+          "f24a347b7c7a170c-paragraph_group-41f23d8eef8c",
+          "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+        ]
+      ],
+      "must_not_include": [
+        "위험등급을 수익 또는 원금보장으로 해석"
+      ],
+      "freshness_note": "‘더 비싼 위험등급’ 대신 등급 단계와 보수적 분류를 사용한 two-product factual comparison이다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "545de7c663ff2726",
+        "f24a347b7c7a170c"
+      ],
+      "acceptable_equivalent_evidence": [
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c"
+      ]
+    },
+    {
+      "question_id": "P36-018",
+      "question": "KR5120420039와 KR5120420091의 투자위험 분류를 각각 제시하고, 더 낮은 위험 단계로 적힌 상품을 골라 주세요.",
+      "category": "product_fact_comparison",
+      "difficulty": "compound",
+      "expected_requirement_category": "product_fields",
+      "expected_slot_keys": [
+        "KR5120420039:risk_grade",
+        "KR5120420091:risk_grade"
+      ],
+      "required_requirements": [
+        "KR5120420039 위험등급",
+        "KR5120420091 위험등급",
+        "상대적 위험 비교"
+      ],
+      "gold_answer_points": [
+        "KR5120420039는 5등급",
+        "KR5120420091은 6등급",
+        "6등급이 더 낮은 위험으로 표시"
+      ],
+      "evidence_groups": [
+        [
+          "fc3cd93441450fa8-paragraph_group-a91cddf920fd",
+          "eefb7f7b407d91de-paragraph_group-07cc1c409cef"
+        ]
+      ],
+      "must_not_include": [
+        "6등급을 원금보장으로 단정",
+        "서로 다른 상품의 등급을 교차 인용"
+      ],
+      "freshness_note": "안전 쪽 등급 대신 직접적인 위험 단계 비교를 사용하되 두 값 모두 요구한다.",
+      "answerability": "answerable",
+      "expected_policy_behavior": "answer_with_source",
+      "required_original_sources": [
+        "eefb7f7b407d91de",
+        "fc3cd93441450fa8"
+      ],
+      "acceptable_equivalent_evidence": [
+        "eefb7f7b407d91de-paragraph_group-07cc1c409cef",
+        "fc3cd93441450fa8-paragraph_group-a91cddf920fd"
+      ]
+    }
+  ],
+  "manifest_sha256": "6ee433b5fbe323be49889c2c13690d5fb96874a5069ac5e7b40ce6a5621913a8",
+  "validation": {
+    "exact_normalised_overlap_with_prior_evaluation_files": 0,
+    "declared_gold_chunk_ids": 29,
+    "missing_declared_gold_chunk_ids": 0,
+    "group_counts": {
+      "compound_closed": 3,
+      "institution_closed": 3,
+      "procedure_closed": 3,
+      "product_fact": 3,
+      "product_fact_comparison": 3,
+      "tax_closed": 3
+    }
+  }
+}

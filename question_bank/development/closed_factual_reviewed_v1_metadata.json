@@ -1,0 +1,25 @@
+{
+  "name": "Closed Factual Reviewed Rubric v1",
+  "scope": "Closed factual only; open/advisory items intentionally excluded.",
+  "question_count": 18,
+  "normal_closed_count": 13,
+  "robustness_closed_count": 5,
+  "source_sha256": {
+    "normal_questions.jsonl": "3c5dfef96f413061b2367284dc3619b9d27f8f1001e8882d606f1fca8c7e156a",
+    "robustness_questions.jsonl": "ca2fd13f0654ac51be64f11d2ff4f7ddaded0cf2d1eb5d6b71ba73566fafc66b"
+  },
+  "manifest_sha256": "60d418c942f741adc6300a4e107196776475bcc3195d68808babf00ea8fca1d0",
+  "status_counts": {
+    "evidence_pending_additional_source_link": 1,
+    "reviewed_accepted": 6,
+    "reviewed_rubric_inherited": 5,
+    "reviewed_rubric_narrowed": 4,
+    "reviewed_wording_refined": 2
+  },
+  "pending_evidence_confirmation": [
+    "N-014"
+  ],
+  "fresh_holdout": false,
+  "hcx_calls": 0,
+  "candidate_agent_changed": false
+}

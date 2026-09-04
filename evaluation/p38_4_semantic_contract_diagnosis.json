@@ -1,0 +1,1264 @@
+{
+  "experiment": "P38-4 Semantic Contract Diagnosis",
+  "input_artifact": "evaluation/p38_3_hcx_semantic_planner_results.json",
+  "hcx_calls": 0,
+  "candidate_agent_changed": false,
+  "purpose": "Frozen-artifact contract review; it does not modify or re-score the P38-3 feasibility result.",
+  "summary": {
+    "question_count": 18,
+    "field_exact": 12,
+    "missing_action_modifier_atoms": 50,
+    "essential_missing_action_modifier_atoms": 11,
+    "ontology_redundant_missing_atoms": 37,
+    "questions_with_semantic_loss_from_action_modifier": 9,
+    "owner_counts": {
+      "gold_contract_issue": 1,
+      "ontology_granularity_mismatch": 4,
+      "ontology_redundancy": 37,
+      "prompt_salience_miss": 8,
+      "semantic_inference_failure": 3
+    }
+  },
+  "interpretation": {
+    "action_contract": "Most missing actions duplicate a field-specific operation and should not alone fail semantic requirement coverage.",
+    "modifier_contract": "Some missing modifiers are essential factual qualifiers (for example early withdrawal, combined limit, ISA maturity, and in-kind transfer); others duplicate field or subject structure.",
+    "requirement_exact": "The P38-3 0/18 exact score is overly sensitive to redundant action/modifier atom mismatches and must not be treated as pure semantic-inference failure."
+  },
+  "rows": [
+    {
+      "source_question_id": "P38-2-001",
+      "question": "확정급여형과 확정기여형에서는 적립 자산을 실제로 누가 굴리며, 퇴직급여 액수는 각각 어떤 방식으로 정해집니까?",
+      "gold": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [
+          "manage",
+          "compare"
+        ],
+        "fields": [
+          "operation_party",
+          "benefit_determination"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [],
+        "fields": [
+          "benefit_determination"
+        ],
+        "modifiers": []
+      },
+      "field_exact": false,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "DB+DC subjects and paired fields carry the factual comparison scope."
+          },
+          {
+            "atom": "manage",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "operation_party already names the management fact."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Both account subjects are explicit."
+          },
+          {
+            "atom": "comparison",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The pair of subjects and fields already requires two factual lookups."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [
+          "operation_party"
+        ],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-002",
+      "question": "직장에 다니는 동안 DC 적립금 일부를 쓰려면 인정되는 이유와 입증 문서를 무엇을 준비해야 하나요?",
+      "gold": {
+        "subjects": [
+          "account:DC"
+        ],
+        "actions": [
+          "withdraw"
+        ],
+        "fields": [
+          "withdrawal_reason",
+          "required_document"
+        ],
+        "modifiers": [
+          "before_retirement"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:DC"
+        ],
+        "actions": [],
+        "fields": [
+          "required_document",
+          "withdrawal_reason"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "withdraw",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "withdrawal_reason and required_document encode the operation."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "before_retirement",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "Early withdrawal is narrower than a generic withdrawal query."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-003",
+      "question": "가입자 안내 교육은 매년 최소 몇 차례 해야 하고, 외부 전문기관에게 맡겨도 되나요?",
+      "gold": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "educate"
+        ],
+        "fields": [
+          "education_frequency",
+          "education_outsourcing"
+        ],
+        "modifiers": []
+      },
+      "hcx": {
+        "subjects": [
+          "account:general"
+        ],
+        "actions": [],
+        "fields": [
+          "education_frequency",
+          "education_outsourcing"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "educate",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "education_frequency and education_outsourcing identify the education requirement."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [
+          "system:retirement_pension"
+        ],
+        "extra_subjects": [
+          "account:general"
+        ],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-004",
+      "question": "연금저축에 혼자 불입한 경우와 IRP까지 합쳐 불입한 경우, 돌려받는 세금 공제의 상한은 어떻게 다릅니까?",
+      "gold": {
+        "subjects": [
+          "account:pension_savings",
+          "account:IRP"
+        ],
+        "actions": [
+          "contribute",
+          "compare"
+        ],
+        "fields": [
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "account_specific",
+          "combined_limit",
+          "comparison"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:IRP",
+          "account:pension"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The two account scopes are explicit."
+          },
+          {
+            "atom": "contribute",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "tax_credit_limit is a contribution-limit field."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Both account subjects are explicit."
+          },
+          {
+            "atom": "combined_limit",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "Individual and combined deduction limits are distinct factual scopes."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [
+          "account:pension_savings"
+        ],
+        "extra_subjects": [
+          "account:pension"
+        ],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-005",
+      "question": "보통 투자통장에서 난 이익은 언제 세금을 매기고, 노후계좌 안의 운용 이익은 언제 과세되는 건가요? 세금이 사라지는 것은 아닌지도 알려주세요.",
+      "gold": {
+        "subjects": [
+          "account:general",
+          "account:pension"
+        ],
+        "actions": [
+          "receive",
+          "compare"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison",
+          "not_tax_exempt"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:general",
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "General and pension account subjects express the two scopes."
+          },
+          {
+            "atom": "receive",
+            "owner": "ontology_granularity_mismatch",
+            "essential": false,
+            "rationale": "The action label does not precisely express investment-gain taxation; tax_timing is the factual field."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Both account subjects are explicit."
+          },
+          {
+            "atom": "comparison",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The paired account scopes support the comparison."
+          },
+          {
+            "atom": "not_tax_exempt",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "The user explicitly asks whether tax disappears, beyond timing alone."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [
+          "account:pension"
+        ],
+        "extra_subjects": [
+          "system:retirement_pension"
+        ],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-006",
+      "question": "국내 거래소의 해외 ETF를 일반 통장에 둘 때와 연금계좌에 담을 때 매매 이익·분배금의 세금 부과 시점이 어떻게 달라지나요?",
+      "gold": {
+        "subjects": [
+          "product:foreign_etf",
+          "account:general",
+          "account:pension"
+        ],
+        "actions": [
+          "invest",
+          "compare"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:general",
+          "account:pension",
+          "product:foreign_etf"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Two account subjects supply the factual comparison scope."
+          },
+          {
+            "atom": "invest",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The foreign ETF product subject supplies the investment object."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Both account subjects are explicit."
+          },
+          {
+            "atom": "comparison",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The paired account scopes support the comparison."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-007",
+      "question": "55세가 되기 전 연금저축과 IRP에서 자금을 꺼낼 수 있는 근거와 세금 처리는 서로 같은가요?",
+      "gold": {
+        "subjects": [
+          "account:pension_savings",
+          "account:IRP"
+        ],
+        "actions": [
+          "withdraw",
+          "compare"
+        ],
+        "fields": [
+          "withdrawal_reason",
+          "tax_treatment"
+        ],
+        "modifiers": [
+          "before_retirement",
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:IRP",
+          "account:pension"
+        ],
+        "actions": [
+          "educate",
+          "withdraw"
+        ],
+        "fields": [
+          "tax_treatment",
+          "withdrawal_reason"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The two account subjects and shared fields imply comparison."
+          }
+        ],
+        "extra_actions": [
+          {
+            "atom": "educate",
+            "owner": "semantic_inference_failure",
+            "rationale": "No education meaning appears in the question."
+          }
+        ],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Both account subjects are explicit."
+          },
+          {
+            "atom": "before_retirement",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "The 55-before condition narrows withdrawal evidence."
+          },
+          {
+            "atom": "comparison",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The two account subjects and shared fields imply comparison."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [
+          "account:pension_savings"
+        ],
+        "extra_subjects": [
+          "account:pension"
+        ],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-008",
+      "question": "ISA 만료 자금을 연금계좌로 옮겨 넣으려면 며칠 안에 처리해야 하고, 추가 공제액은 어떤 한도까지 계산되나요?",
+      "gold": {
+        "subjects": [
+          "account:ISA",
+          "account:pension"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "transfer_deadline",
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "maturity_event",
+          "additional_credit",
+          "account_specific"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:ISA",
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "tax_credit_limit",
+          "transfer_deadline"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "ISA and pension account subjects are explicit."
+          },
+          {
+            "atom": "additional_credit",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "The question asks for the special additional credit, not the generic limit."
+          },
+          {
+            "atom": "maturity_event",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "The transfer deadline is conditional on ISA maturity."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [
+          "account:pension"
+        ],
+        "extra_subjects": [
+          "system:retirement_pension"
+        ],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-009",
+      "question": "들고 있는 펀드를 팔지 않은 상태에서 퇴직연금 금융사를 갈아타면, DB·DC 재직자와 IRP 가입자는 어디로 접수해야 하나요?",
+      "gold": {
+        "subjects": [
+          "account:DB",
+          "account:DC",
+          "account:IRP"
+        ],
+        "actions": [
+          "transfer",
+          "compare"
+        ],
+        "fields": [
+          "transfer_definition",
+          "application_route"
+        ],
+        "modifiers": [
+          "in_kind",
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:DB",
+          "account:DC",
+          "account:IRP"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "application_route"
+        ],
+        "modifiers": [
+          "before_retirement"
+        ]
+      },
+      "field_exact": false,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The DB/DC/IRP subjects already require separate routing facts."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "DB, DC, and IRP scopes are explicit."
+          },
+          {
+            "atom": "comparison",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The subject list retains the route comparison scope."
+          },
+          {
+            "atom": "in_kind",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "Not selling the fund is a distinct in-kind transfer condition."
+          }
+        ],
+        "extra_modifiers": [
+          {
+            "atom": "before_retirement",
+            "owner": "semantic_inference_failure",
+            "rationale": "Being a current worker is not an early-withdrawal condition."
+          }
+        ]
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [
+          "transfer_definition"
+        ],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-010",
+      "question": "퇴직연금에서 ETF를 직접 사고팔 수 있다면 가격이 두 배로 움직이거나 반대 방향을 따르는 ETF도 매수할 수 있나요?",
+      "gold": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "etf_direct_trade",
+          "leverage_inverse_restriction"
+        ],
+        "modifiers": []
+      },
+      "hcx": {
+        "subjects": [
+          "product:foreign_etf",
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "etf_direct_trade"
+        ],
+        "modifiers": []
+      },
+      "field_exact": false,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "invest",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "ETF trading restrictions are already encoded by the requested fields."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [
+          "product:foreign_etf"
+        ],
+        "missing_fields": [
+          "leverage_inverse_restriction"
+        ],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-011",
+      "question": "KR510902773M의 위험 단계는 현재 몇 등급이고, 시장 여건이 변하면 그 표시도 앞으로 달라질 수 있나요?",
+      "gold": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "modifiers": [
+          "current",
+          "change_possibility"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "modifiers": [
+          "change_possibility",
+          "current"
+        ]
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "invest",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "A product risk-grade field does not require an independent invest action."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-012",
+      "question": "KR5127450215는 어떤 기준지수의 움직임을 따르며, 주식성 자산은 최대 어느 비중까지 담을 수 있나요?",
+      "gold": {
+        "subjects": [
+          "product:KR5127450215"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "tracking_index",
+          "equity_allocation_limit"
+        ],
+        "modifiers": []
+      },
+      "hcx": {
+        "subjects": [
+          "product:KR5127450215"
+        ],
+        "actions": [],
+        "fields": [
+          "equity_allocation_limit",
+          "tracking_index"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "invest",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Product tracking-index and allocation fields identify the factual request."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-013",
+      "question": "KR510902773M C-e에서 해마다 적용되는 보수율과 3년 동안 보유했을 때 금액으로 보이는 비용은 어떤 점이 다른가요?",
+      "gold": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [
+          "invest"
+        ],
+        "fields": [
+          "total_fee",
+          "cost_example"
+        ],
+        "modifiers": [
+          "annual_rate",
+          "holding_period",
+          "field_boundary"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [],
+        "fields": [
+          "cost_example",
+          "total_fee"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "invest",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The product fee fields already define the request."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "annual_rate",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "total_fee canonically represents the annual fee rate."
+          },
+          {
+            "atom": "field_boundary",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The total_fee plus cost_example pair expresses the requested distinction."
+          },
+          {
+            "atom": "holding_period",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "cost_example canonically represents a period-specific example."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-014",
+      "question": "KR5114420022와 KR5114450222의 위험 분류를 나란히 보면, 더 안정적으로 표시된 것은 어느 쪽인가요?",
+      "gold": {
+        "subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": [
+          "comparison",
+          "relative_low_risk"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "actions": [],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The response retained both product subjects and comparison modifier."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "relative_low_risk",
+            "owner": "ontology_granularity_mismatch",
+            "essential": false,
+            "rationale": "Comparing the two risk_grade values yields this relation; it is not an independent evidence field."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-015",
+      "question": "KR5120420039와 KR5120420091의 최신 위험 단계와 예전에 적힌 등급을 구별해서 각각 알려주세요.",
+      "gold": {
+        "subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": [
+          "comparison",
+          "current",
+          "historical"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "modifiers": [
+          "change_possibility",
+          "current"
+        ]
+      },
+      "field_exact": false,
+      "action_modifier_review": {
+        "missing_actions": [],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "comparison",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "Both product subjects are retained."
+          },
+          {
+            "atom": "historical",
+            "owner": "gold_contract_issue",
+            "essential": true,
+            "rationale": "Historical was required by gold but deliberately absent from the P38-3 enum schema."
+          }
+        ],
+        "extra_modifiers": [
+          {
+            "atom": "change_possibility",
+            "owner": "semantic_inference_failure",
+            "rationale": "Past-versus-current comparison was misread as future change possibility."
+          }
+        ]
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [],
+        "extra_fields": [
+          "risk_grade_changeability"
+        ]
+      }
+    },
+    {
+      "source_question_id": "P38-2-016",
+      "question": "DB와 DC 중 회사가 적립해야 하는 금액 기준이 적용되는 제도는 무엇이고, 그 제도에서 운용 결정은 누가 하나요?",
+      "gold": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [
+          "manage",
+          "compare"
+        ],
+        "fields": [
+          "contribution_structure",
+          "operation_party"
+        ],
+        "modifiers": [
+          "account_specific",
+          "comparison"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [],
+        "fields": [
+          "benefit_determination",
+          "contribution_structure"
+        ],
+        "modifiers": []
+      },
+      "field_exact": false,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "DB and DC subjects supply the requested contrast."
+          },
+          {
+            "atom": "manage",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "operation_party encodes the management fact."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "account_specific",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "DB and DC are explicit subjects."
+          },
+          {
+            "atom": "comparison",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "The two account subjects supply the contrast."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": false,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [],
+        "missing_fields": [
+          "operation_party"
+        ],
+        "extra_fields": [
+          "benefit_determination"
+        ]
+      }
+    },
+    {
+      "source_question_id": "P38-2-017",
+      "question": "퇴직급여를 IRP로 넘기면 지금 세금을 내는 대신 나중에 연금으로 받을 때 내는 구조인지, 과세 시점을 설명해 주세요.",
+      "gold": {
+        "subjects": [
+          "account:IRP"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "hcx": {
+        "subjects": [
+          "account:IRP",
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "field_exact": true,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "transfer",
+            "owner": "prompt_salience_miss",
+            "essential": true,
+            "rationale": "Tax timing is specifically conditioned on moving retirement pay into IRP."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [],
+        "extra_subjects": [
+          "system:retirement_pension"
+        ],
+        "missing_fields": [],
+        "extra_fields": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-018",
+      "question": "연금계좌에서 중도에 해지하지 않고 필요한 금액만 빼는 것과 계좌를 완전히 끝내는 것은 어떻게 다른가요?",
+      "gold": {
+        "subjects": [
+          "account:pension"
+        ],
+        "actions": [
+          "withdraw",
+          "compare"
+        ],
+        "fields": [
+          "withdrawal_reason",
+          "tax_treatment"
+        ],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "hcx": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "procedure",
+          "withdrawal_reason"
+        ],
+        "modifiers": []
+      },
+      "field_exact": false,
+      "action_modifier_review": {
+        "missing_actions": [
+          {
+            "atom": "compare",
+            "owner": "ontology_granularity_mismatch",
+            "essential": true,
+            "rationale": "The ontology has no separate close-account operation for the second side of the comparison."
+          },
+          {
+            "atom": "withdraw",
+            "owner": "ontology_redundancy",
+            "essential": false,
+            "rationale": "withdrawal_reason and tax_treatment encode the withdrawal subject matter."
+          }
+        ],
+        "extra_actions": [],
+        "missing_modifiers": [
+          {
+            "atom": "comparison",
+            "owner": "ontology_granularity_mismatch",
+            "essential": true,
+            "rationale": "Partial withdrawal versus full closure needs an operation-pair representation, not only a generic comparison flag."
+          }
+        ],
+        "extra_modifiers": []
+      },
+      "semantic_loss_from_missing_action_or_modifier": true,
+      "non_contract_atom_errors": {
+        "missing_subjects": [
+          "account:pension"
+        ],
+        "extra_subjects": [
+          "system:retirement_pension"
+        ],
+        "missing_fields": [
+          "tax_treatment"
+        ],
+        "extra_fields": [
+          "procedure"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Evaluation provenance only; this bridge is not read by runtime retrieval.",
+  "records": [
+    {
+      "document_id": "DOC-1F6FA2E8AA5A",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-34D1B016008A",
+      "mapping_status": "verified",
+      "corpus_source_ids": [
+        "1294013a2a74e0a4"
+      ],
+      "corpus_source_paths": [
+        "투자설명서/KR5110501016/R2_KR5110501016.pdf"
+      ],
+      "verification_basis": "single-product question-bank evidence plus canonical name/code in original prospectus"
+    },
+    {
+      "document_id": "DOC-36E4D3EFE3AE",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-38F22263B9C1",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-553AE0B2F90A",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-611D890D1043",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-61711D13FCFE",
+      "mapping_status": "verified",
+      "corpus_source_ids": [
+        "1bfc399c9b3d6a67"
+      ],
+      "corpus_source_paths": [
+        "투자설명서/KR5111420047/R2_KR5111420047.pdf"
+      ],
+      "verification_basis": "single-product question-bank evidence plus canonical name/code in original prospectus"
+    },
+    {
+      "document_id": "DOC-6A8F97DF8657",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-72A6D95438AE",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-73FDB0C90010",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-788C48C0A279",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-79D244278E30",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-7FB4C074DD06",
+      "mapping_status": "verified",
+      "corpus_source_ids": [
+        "ac97d050d2b39ec2"
+      ],
+      "corpus_source_paths": [
+        "투자설명서/KR510902511M/R2_KR510902511M.pdf"
+      ],
+      "verification_basis": "single-product question-bank evidence plus canonical name/code in original prospectus"
+    },
+    {
+      "document_id": "DOC-8B978BADB27D",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-94B91F47B234",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-950945272028",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-A5F9FD683CD0",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-ABBBBBFBAD9D",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-B19E5A9BB2BB",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-C1AFC2F600B1",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-D5DCD0A16F02",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-DC66A07B78D9",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-EBCE86691193",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    },
+    {
+      "document_id": "DOC-F825392DAA19",
+      "mapping_status": "unresolved",
+      "corpus_source_ids": [],
+      "corpus_source_paths": [],
+      "verification_basis": "no trusted DOC-ID namespace mapping supplied by corpus metadata"
+    }
+  ],
+  "summary": {
+    "total": 24,
+    "verified": 3,
+    "unresolved": 21
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "experiment":"P48-A Failure Attribution",
+  "source_result":"evaluation/p48_final_single_subject_closed_e2e.json",
+  "source_result_sha256":"8feadb381d9942d5bd6e781d1e44ef23fa0398459201ee502459241a4b9398cf",
+  "method":"No HCX recall. Frozen answer hashes, resolver/selector trace, selected contexts, and manually frozen gold evidence were compared.",
+  "failures":[
+    {"id":"P48-002","primary_owner":"generation_misread","finding":"The exact DC contribution floor chunk was supplied and cited. HCX correctly stated 1/12 이상 but then added an unsupported upper-bound implication ('초과하지 않는 범위').","exact_gold_context_present":true},
+    {"id":"P48-005","primary_owner":"generation_misread","finding":"The selected direct tax-timing evidence was supplied and cited. HCX answered a different tax-rate distinction and omitted both 과세이연 during operation and timing at pension receipt.","exact_gold_context_present":true},
+    {"id":"P48-008","primary_owner":"generation_omission","finding":"Both risk-grade requirements and direct chunks were supplied. HCX stated only the current 5등급 and omitted change possibility.","exact_gold_context_present":true},
+    {"id":"P48-009","primary_owner":"generation_omission","finding":"The direct historical-risk table was supplied and cited. HCX referred to a non-user-facing 'first evidence document' rather than identifying the change history with before/after grades and reasons.","exact_gold_context_present":true},
+    {"id":"P48-010","primary_owner":"generation_omission","finding":"The direct annual fee table was supplied and cited. HCX named only the table and omitted the total-fee / composite-total-fee column.","exact_gold_context_present":true},
+    {"id":"P48-011","primary_owner":"generation_omission","finding":"The exact period-cost table was supplied and cited. HCX returned only '3년' and omitted the requested table identity and column relation.","exact_gold_context_present":true},
+    {"id":"P48-014","primary_owner":"generation_field_confusion","finding":"The direct total-fee table was supplied and cited. HCX returned a share-class label instead of the total-fee column, confusing product class with the requested fee field.","exact_gold_context_present":true}
+  ],
+  "owner_summary":{"front_end":0,"retrieval_or_evidence":0,"generation_omission":4,"generation_misread":2,"generation_field_confusion":1},
+  "conclusion":"P48 satisfies the pre-finetuning orchestration condition: fresh front-end, retrieval/evidence, scope, provider/schema, and citation failures are all zero. The seven substantive failures are generation-owned and evidence-faithful. This is sufficient evidence to end single-subject Closed orchestration iteration and begin a tightly scoped fine-tuning dataset-design phase."
+}

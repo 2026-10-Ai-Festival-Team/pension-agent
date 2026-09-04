@@ -1,0 +1,246 @@
+{
+  "phase": "P35-B",
+  "experiment": "P35 generalized Closed front-end current evidence revalidation",
+  "manifest_sha256": "bb8eda3bd2f76bf8798b2ab6b531fc0ce6856a656a7f6fcd046363650fd03ad7",
+  "hcx_called": false,
+  "summary": {
+    "total": 18,
+    "semantic_requirement_coverage": 18,
+    "exact_gold": 14,
+    "semantic_equivalent": 4,
+    "exact_or_equivalent": 18,
+    "partial": 0,
+    "wrong_scope": 0,
+    "needs_revalidation": 0
+  },
+  "go_for_new_holdout_only": true,
+  "rows": [
+    {
+      "question_id": "P35-001",
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-002",
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-003",
+      "selected_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-004",
+      "selected_chunk_ids": [
+        "7cce439d30d5a8b0-table-20114875d339"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-005",
+      "selected_chunk_ids": [
+        "de4f8448134189df-table-ce8fee5b43be",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed"
+      ],
+      "source_relevance_status": "semantic_equivalent",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [
+        "일반계좌는 보유기간에 과세되고 연금계좌는 인출 전까지 과세이연",
+        "과세이연은 면제가 아니라 인출·연금수령 시점으로 과세가 미뤄지는 구조"
+      ],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-006",
+      "selected_chunk_ids": [
+        "13621d38202e2fc3-table-5431011b44b5",
+        "de4f8448134189df-table-ce8fee5b43be",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-007",
+      "selected_chunk_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-008",
+      "selected_chunk_ids": [
+        "15fb5460a23aa10d-paragraph_group-9b55ec13ba82"
+      ],
+      "source_relevance_status": "semantic_equivalent",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [
+        "DC 중도인출은 법정 사유·요건에서만 가능",
+        "중도인출신청서와 사유별 증빙서류를 준비해 회사에 제출"
+      ],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-009",
+      "selected_chunk_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d"
+      ],
+      "source_relevance_status": "semantic_equivalent",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [
+        "ISA 만기자금은 60일 이내 연금계좌로 이전",
+        "전환금액의 10%, 최대 300만원을 추가 세액공제 대상으로 계산"
+      ],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-010",
+      "selected_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-011",
+      "selected_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-012",
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c"
+      ],
+      "source_relevance_status": "semantic_equivalent",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [
+        "DB는 회사가 운용하고 평균임금×계속근로기간으로 급여 산정",
+        "DC는 근로자가 운용하고 부담금 누계액±운용손익으로 급여 산정"
+      ],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-013",
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [
+        "KR510902773M:risk_grade_changeability"
+      ],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-014",
+      "selected_chunk_ids": [
+        "8297231e70bc792a-table-c3567ecc05be",
+        "8297231e70bc792a-table-332d5aafe603"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-015",
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-c9052c282f1a",
+        "cf922cacac95fad9-paragraph_group-50171832b91f"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-016",
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "c787719b514f51da-paragraph_group-f00a2b356930"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-017",
+      "selected_chunk_ids": [
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c",
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    },
+    {
+      "question_id": "P35-018",
+      "selected_chunk_ids": [
+        "fc3cd93441450fa8-paragraph_group-a91cddf920fd",
+        "eefb7f7b407d91de-paragraph_group-e41211088478"
+      ],
+      "source_relevance_status": "exact_gold",
+      "semantic_requirements_covered": true,
+      "additional_semantic_slot_keys": [],
+      "equivalence_requirements": [],
+      "evidence_set_drift": false
+    }
+  ]
+}

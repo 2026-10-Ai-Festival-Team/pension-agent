@@ -25,6 +25,8 @@ class ParagraphChunker:
                     chunk_id=make_chunk_id(document.source_id, ChunkType.PARAGRAPH_GROUP, ids, f"segment-{len(chunks)}"),
                     source_id=document.source_id, source_path=document.relative_path,
                     source_format=document.source_format.value, document_type=document.document_type.value,
+                    source_type=document.source_type, authority_level=document.authority_level,
+                    as_of_date=document.as_of_date or document.effective_date,
                     title=document.title, section=section, chunk_type=ChunkType.PARAGRAPH_GROUP, text=text,
                     locator=ChunkLocator(page_start=min(pages) if pages else None, page_end=max(pages) if pages else None),
                     product_codes=document.product_codes, date_candidates=document.date_candidates, element_ids=ids,

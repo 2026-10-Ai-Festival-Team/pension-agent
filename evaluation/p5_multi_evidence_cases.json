@@ -1,0 +1,19 @@
+{
+  "version": "0.1",
+  "purpose": "P5 소규모 A/B 실험. 슬롯은 질문의 요구 항목만 구조화하며, 선택기는 기존 BM25 Top-10 밖을 검색하지 않는다.",
+  "cases": [
+    {"question_id":"R-002","role":"target","generation_enabled":true,"slots":[{"name":"DB 퇴직급여 산정","terms":["DB","퇴직급여","평균임금"],"min_matches":2},{"name":"DC 퇴직급여 산정","terms":["DC","부담금","운용 손익"],"min_matches":3}]},
+    {"question_id":"R-005","role":"target","generation_enabled":true,"slots":[{"name":"퇴직금 지급 방식","terms":["퇴직금","사용자","지급"],"min_matches":2},{"name":"퇴직연금 적립·지급 방식","terms":["퇴직연금","금융기관","적립"],"min_matches":2}]},
+    {"question_id":"R-010","role":"target","generation_enabled":true,"slots":[{"name":"해지 가산세","terms":["해지","가산세"],"min_matches":2},{"name":"연금외수령 과세","terms":["연금외수령","기타소득"],"min_matches":2},{"name":"예외 사유","terms":["예외","사유"],"min_matches":2}]},
+    {"question_id":"R-011","role":"target","generation_enabled":true,"slots":[{"name":"세금 납부 시점","terms":["세금납부시점","연금 수령"],"min_matches":2},{"name":"과세이연","terms":["과세이연","연금 수령"],"min_matches":2}]},
+    {"question_id":"R-013","role":"target","generation_enabled":true,"slots":[{"name":"IRP 의무이전 원칙","terms":["IRP","의무","이전"],"min_matches":2},{"name":"예외 사유","terms":["예외","사유"],"min_matches":2}]},
+    {"question_id":"R-027","role":"target","generation_enabled":true,"slots":[{"name":"원리금보장 운용방법 분류","terms":["원리금보장","운용방법"],"min_matches":2},{"name":"채권형 펀드 분류","terms":["채권형","펀드"],"min_matches":2}]},
+    {"question_id":"R-001","role":"control_single_evidence","generation_enabled":true,"slots":[{"name":"DB·DC 적립금 운용 주체","terms":["DB","DC","적립금 운용 주체"],"min_matches":3}]},
+    {"question_id":"R-004","role":"control_single_evidence","generation_enabled":true,"slots":[{"name":"DC 회사 부담금","terms":["DC","회사","부담금"],"min_matches":2}]},
+    {"question_id":"R-009","role":"control_single_evidence","generation_enabled":true,"slots":[{"name":"연금수령 과세","terms":["퇴직소득세","연금수령"],"min_matches":2}]},
+    {"question_id":"R-024","role":"audit_retrieval_missing","generation_enabled":false,"slots":[{"name":"투자대상","terms":["미국 달러화 표시 채권"],"min_matches":1},{"name":"위험등급","terms":["4등급","보통 위험"],"min_matches":2}]},
+    {"question_id":"R-028","role":"audit_retrieval_missing","generation_enabled":false,"slots":[{"name":"투자대상","terms":["장기성장주","국내 주식"],"min_matches":2},{"name":"운용전략","terms":["투자전략","장기성장주"],"min_matches":2}]},
+    {"question_id":"R-036","role":"audit_semantic_equivalent","generation_enabled":false,"semantic_equivalent_allowed":true,"slots":[{"name":"작성기준일","terms":["작성기준일"],"min_matches":1},{"name":"운용전략","terms":["단기 채권","90일"],"min_matches":1}]},
+    {"question_id":"R-037","role":"audit_retrieval_missing","generation_enabled":false,"slots":[{"name":"DB 적립금 운용 주체","terms":["DB","회사","적립금 운용 주체"],"min_matches":3},{"name":"DC 적립금 운용 주체","terms":["DC","근로자","적립금 운용 주체"],"min_matches":3}]}
+  ]
+}

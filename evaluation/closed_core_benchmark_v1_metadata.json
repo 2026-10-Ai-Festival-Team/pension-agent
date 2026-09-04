@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "purpose": "development-only closed factual QA regression; not a fresh holdout",
+  "source_question_bank": "evaluation/question_bank_v1.jsonl",
+  "total": 46,
+  "group_counts": {
+    "compound_closed": 10,
+    "institution_closed": 10,
+    "procedure_closed": 7,
+    "product_fact": 3,
+    "product_fact_comparison": 7,
+    "tax_closed": 9
+  },
+  "excluded": [
+    "personalized recommendation and suitability",
+    "clarify/abstain/safe-response policy cases",
+    "out-of-scope and prompt-injection cases"
+  ]
+}

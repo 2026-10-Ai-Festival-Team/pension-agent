@@ -21,6 +21,20 @@ class DocumentType(str, Enum):
     UNKNOWN = "unknown"
 
 
+class SourceType(str, Enum):
+    """원천 데이터와 검색 보강 데이터를 구분한다."""
+
+    ORIGINAL = "original"
+    AUGMENTED = "augmented"
+
+
+class AuthorityLevel(str, Enum):
+    """금융 사실을 확정할 때의 근거 권위를 표시한다."""
+
+    PRIMARY = "primary"
+    SECONDARY = "secondary"
+
+
 class ElementType(str, Enum):
     TITLE = "title"
     HEADING = "heading"
@@ -71,6 +85,10 @@ class ParsedDocument(BaseModel):
     filename: str
     source_format: SourceFormat
     document_type: DocumentType
+    source_type: SourceType = SourceType.ORIGINAL
+    authority_level: AuthorityLevel = AuthorityLevel.PRIMARY
+    # 원문에 명시된 기준일이 있다면 effective_date와 같은 값으로 보존한다.
+    as_of_date: Optional[str] = None
     title: Optional[str] = None
     product_codes: List[str] = Field(default_factory=list)
     effective_date: Optional[str] = None

@@ -1,0 +1,66 @@
+{
+  "source": {
+    "branch": "origin/feature/yw-pension-agent",
+    "commit": "ee2e42cc8ca5895190f6a064630df9d671af3289",
+    "path": "src/retrieval/query_normalizer.py"
+  },
+  "role": "lexical_baseline_only",
+  "production_import_prohibited": true,
+  "rules": [
+    {
+      "phrase": "개인부담금",
+      "aliases": [
+        "본인 부담금"
+      ],
+      "observed_dev_case": "R-007"
+    },
+    {
+      "phrase": "세액공제",
+      "aliases": [
+        "세액 공제 혜택"
+      ],
+      "observed_dev_case": "R-008"
+    },
+    {
+      "phrase": "세금상 불이익",
+      "aliases": [
+        "연금외수령",
+        "기타소득세"
+      ],
+      "observed_dev_case": "R-010"
+    },
+    {
+      "phrase": "세액공제 대상",
+      "aliases": [
+        "종합소득",
+        "세액공제 납입한도"
+      ],
+      "observed_dev_case": "R-012"
+    },
+    {
+      "phrase": "다른 금융회사로 이전",
+      "aliases": [
+        "사업자이전",
+        "계약이전"
+      ],
+      "observed_dev_case": "R-014"
+    },
+    {
+      "phrase": "퇴직연금 제도 변경",
+      "aliases": [
+        "퇴직급여 제도 변경",
+        "퇴직연금규약"
+      ],
+      "observed_dev_case": "R-017"
+    },
+    {
+      "phrase": "연금으로 수령",
+      "aliases": [
+        "수급요건",
+        "연금 지급기간"
+      ],
+      "observed_dev_case": "R-022"
+    }
+  ],
+  "comparison_hypothesis": "Use only in a future P38 comparison against compositional parsing; do not copy these phrase rules into a candidate normalizer."
+}

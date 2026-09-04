@@ -31,6 +31,8 @@ class TableChunker:
                 chunk_id=make_chunk_id(document.source_id, ChunkType.TABLE, element_ids, f"rows-{row_start}-{row_end}"),
                 source_id=document.source_id, source_path=document.relative_path, source_format=document.source_format.value,
                 document_type=document.document_type.value, title=document.title, section=section, chunk_type=ChunkType.TABLE, text=text,
+                source_type=document.source_type, authority_level=document.authority_level,
+                as_of_date=document.as_of_date or document.effective_date,
                 locator=ChunkLocator(page_start=element.locator.page, page_end=element.locator.page, slide_start=element.locator.slide, slide_end=element.locator.slide, sheet=element.locator.sheet, cell_range=element.locator.cell_range),
                 product_codes=document.product_codes, date_candidates=document.date_candidates, element_ids=element_ids,
                 metadata={"header_row_count": 1, "data_row_start": row_start, "data_row_end": row_end, "merged_ranges": element.table.merged_ranges},

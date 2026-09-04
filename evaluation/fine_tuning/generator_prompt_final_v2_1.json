@@ -1,0 +1,13 @@
+{
+  "prompt_id": "generator_prompt_final_v2_1",
+  "status": "candidate_supported_style_enforcement",
+  "base_prompt_id": "generator_prompt_final_v2",
+  "base_prompt_sha256": "8a6a694d33aacb02ee7f9e58770ea03f3a52cfebf56670b8209b8b3324a02832",
+  "style_rules_append": [
+    "supported_answer_requires_direct_answer_plus_evidence_derived_explanation",
+    "supported_answer_explanation_must_not_repeat_the_direct_answer",
+    "supported_answer_explanation_is_omitted_only_when_selected_evidence_has_no_additional_explanatory_meaning"
+  ],
+  "runtime_style_checklist": "반환 직전 확인: 이 규칙은 supported_answer에만 적용합니다. supported_answer의 answer는 반드시 빈 줄로 구분된 두 개의 짧은 문단으로 작성하세요. 첫 문단은 질문에 직접 답하는 완결된 문장입니다. 둘째 문단은 선택된 직접 evidence가 첫 답을 의미하는 이유·적용 방식·차이·조건 중 질문과 가장 관련된 하나를 설명하는 다른 완결된 문장입니다. 둘째 문장은 첫 문단을 바꿔 말하지 말고, evidence 밖 일반론·비교·추천·미래 전망을 추가하지 마세요. 선택된 evidence에 둘째 문장의 설명 근거가 실제로 전혀 없을 때만 이 구조를 만들지 마세요. clarification_required와 bounded_answer에는 이 문단 수 규칙을 적용하지 마세요.",
+  "prompt_sha256": "05763afaa082af98832a04d29001a9d2ee1f353308cd4cc8e651e3b15b9c83a8"
+}

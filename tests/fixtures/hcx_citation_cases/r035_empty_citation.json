@@ -1,0 +1,9 @@
+{
+  "case": "R-035 sanitized HCX response",
+  "result": {
+    "message": {
+      "content": "```json\n{\"answer\":\"[REDACTED]\",\"cited_chunk_ids\":[]}\n```"
+    },
+    "stopReason": "stop"
+  }
+}

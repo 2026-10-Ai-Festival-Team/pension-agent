@@ -1,0 +1,58 @@
+"""외부 최종 평가 CSV를 P31 v2 동결 경로로 실행한다."""
+from __future__ import annotations
+import argparse
+import csv
+import hashlib
+import json
+import sys
+import time
+from dataclasses import replace
+from pathlib import Path
+from dotenv import load_dotenv
+from fastapi.testclient import TestClient
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.run_p26_candidate_hcx import _attempts
+from src.api.main import create_app
+from src.config.generation import GenerationSettings
+from src.evaluation.provider_stability import summarize_provider_attempts
+from src.experiments.p27d_structured_output import P27DStructuredOutputAgent
+from src.generation.hcx import HyperClovaXGenerator
+from src.generation.prompt_builder import NativeStructuredOutputPromptBuilder
+from src.generation.rate_limit import GlobalMinIntervalLimiter
+from src.orchestration.retrieval_service import build_frozen_retriever
+
+def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--execute",action="store_true")
+    parser.add_argument("--csv",type=Path,default=ROOT/"eval_questions_final.csv")
+    parser.add_argument("--corpus",type=Path,default=ROOT/"data/parsed/chunks.jsonl")
+    parser.add_argument("--index",type=Path,default=ROOT/"data/indexes/bm25/simple")
+    parser.add_argument("--raw-output",type=Path,default=ROOT/"data/diagnostics/eval_questions_final_raw.json")
+    parser.add_argument("--execution-output",type=Path,default=ROOT/"evaluation/eval_questions_final_execution.jsonl")
+    args=parser.parse_args()
+    if not args.execute: raise SystemExit("실제 HCX 비용이 발생합니다. --execute가 필요합니다.")
+    with args.csv.open(encoding="utf-8-sig",newline="") as file:
+        questions=list(csv.DictReader(file))
+    if len(questions)!=30 or any(not row.get("question_id") or not row.get("question") for row in questions):
+        raise SystemExit("최종 CSV의 30개 question_id/question 형식을 확인하세요.")
+    load_dotenv(ROOT/".env")
+    settings=GenerationSettings.from_env()
+    if settings.generator_backend!="hcx" or settings.hcx_model!="HCX-007":
+        raise SystemExit("이 평가는 GENERATOR_BACKEND=hcx 및 HCX_MODEL=HCX-007이 필요합니다.")
+    settings=replace(settings,hcx_min_interval_seconds=6.0)
+    generator=HyperClovaXGenerator(config=settings,prompt_builder=NativeStructuredOutputPromptBuilder(),rate_limiter=GlobalMinIntervalLimiter(settings.hcx_min_interval_seconds,guard_seconds=settings.hcx_pacing_guard_seconds))
+    agent=P27DStructuredOutputAgent(retriever=build_frozen_retriever(args.corpus,args.index),generator=generator)
+    client=TestClient(create_app(agent)); rows=[]; started=time.perf_counter()
+    for item in questions:
+        response=client.get("/answer",params={"question_id":item["question_id"],"question":item["question"],"top_k":10})
+        body=response.json() if response.status_code==200 else {}; trace=body.get("think_trace",{}); diagnostic=trace.get("generation_diagnostic") or {}
+        rows.append({"question_id":item["question_id"],"difficulty":item["difficulty"],"topic":item["topic"],"subtype":item["subtype"],"question":item["question"],"expected_behavior":item["expected_behavior"],"gold_answer":item["gold_answer"],"expected_source_files":item["expected_source_files"],"evaluation_dimensions":item["evaluation_dimensions"],"status_code":response.status_code,"answer":body.get("answer",""),"answer_hash":hashlib.sha256(body.get("answer","").encode()).hexdigest(),"route":trace.get("route"),"evidence_sufficient":trace.get("evidence_sufficient"),"evidence_reason":trace.get("assessment_reason"),"missing_requirement_slots":trace.get("missing_requirement_slots",[]),"generator_attempted":trace.get("generator_attempted",False),"generator_called":trace.get("generator_called",False),"generation_error":trace.get("generation_error"),"citation_valid":(bool(trace.get("cited_chunk_ids")) and trace.get("generation_error") is None) if trace.get("generator_called") else True,"cited_chunk_ids":trace.get("cited_chunk_ids",[]),"selected_merged_evidence_ids":trace.get("selected_merged_evidence_ids",[]),"generation_attempt_history":diagnostic.get("attempt_history",[]),"semantic_correctness":"pending_manual_review","strict_useful":"pending_manual_review"})
+    attempts=_attempts(rows); provider=summarize_provider_attempts(attempts)
+    payload={"experiment":"eval_questions_final.csv P31-v2 frozen execution","model":settings.hcx_model,"settings":{"native_structured_outputs":True,"thinking_effort":"none","minimum_interval_seconds":6.0,"strict_citation_validator":True},"duration_ms":round((time.perf_counter()-started)*1000,3),"provider_summary":provider,"rows":rows,"attempt_telemetry":attempts}
+    args.raw_output.parent.mkdir(parents=True,exist_ok=True);args.execution_output.parent.mkdir(parents=True,exist_ok=True)
+    args.raw_output.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
+    args.execution_output.write_text("".join(json.dumps(row,ensure_ascii=False)+"\n" for row in rows),encoding="utf-8")
+    print(json.dumps({"questions":len(rows),"generator_attempted":sum(x["generator_attempted"] for x in rows),"provider_summary":provider},ensure_ascii=False))
+if __name__=="__main__": main()

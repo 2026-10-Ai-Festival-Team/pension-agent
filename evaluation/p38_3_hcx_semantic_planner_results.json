@@ -1,0 +1,1601 @@
+{
+  "experiment": "P38-3 isolated HCX-007 Structured Semantic Planner",
+  "purpose": "Feasibility comparison on P38-2 dev data only; not a generalization claim.",
+  "candidate_agent_changed": false,
+  "retrieval_used": false,
+  "answer_generation_used": false,
+  "citation_used": false,
+  "hcx_calls": 18,
+  "input": {
+    "questions": "question_bank/holdouts/p38_2_semantic_atom_holdout.jsonl",
+    "manifest_sha256": "a8f2c972c589dd012375fa422cb714e0695e0999349624171217abb946f2213e",
+    "status": "frozen_before_isolated_parser_execution"
+  },
+  "hcx_contract": {
+    "model": "HCX-007",
+    "native_structured_outputs": true,
+    "thinking_effort": "none",
+    "min_request_start_interval_seconds": 6.0,
+    "ontology_constrained": true
+  },
+  "planner_contract": {
+    "lexical_normalization": "explicit entity aliases and product-code casing only",
+    "ontology_validator": "fail closed on malformed or unknown atom values",
+    "raw_response_persisted": false
+  },
+  "runtime": {
+    "schema_valid": {
+      "valid": 18,
+      "total": 18,
+      "rate": 1.0
+    },
+    "ontology_valid": {
+      "valid": 18,
+      "total": 18,
+      "rate": 1.0
+    },
+    "unknown_ontology_values": 0,
+    "provider_errors": 0,
+    "missing_atoms": 61,
+    "extra_atoms": 14
+  },
+  "metrics": {
+    "experiment": "P38-1 isolated compositional parser",
+    "candidate_agent_changed": false,
+    "gold_path": "question_bank/holdouts/p38_2_semantic_atom_holdout.jsonl",
+    "question_count": 18,
+    "component_metrics": {
+      "subjects": {
+        "true_positive": 24,
+        "false_positive": 8,
+        "false_negative": 6,
+        "precision": 0.75,
+        "recall": 0.8,
+        "f1": 0.7742
+      },
+      "actions": {
+        "true_positive": 4,
+        "false_positive": 1,
+        "false_negative": 22,
+        "precision": 0.8,
+        "recall": 0.1538,
+        "f1": 0.2581
+      },
+      "fields": {
+        "true_positive": 25,
+        "false_positive": 3,
+        "false_negative": 5,
+        "precision": 0.8929,
+        "recall": 0.8333,
+        "f1": 0.8621
+      },
+      "modifiers": {
+        "true_positive": 5,
+        "false_positive": 2,
+        "false_negative": 28,
+        "precision": 0.7143,
+        "recall": 0.1515,
+        "f1": 0.25
+      }
+    },
+    "requirement_composition": {
+      "exact": 0,
+      "total": 18,
+      "accuracy": 0.0
+    },
+    "multi_atom_field_recall": {
+      "true_positive": 19,
+      "gold_total": 24,
+      "recall": 0.7917
+    },
+    "details": [
+      {
+        "id": "ATOM-P38-2-001",
+        "source_question_id": "P38-2-001",
+        "predicted": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "actions": [],
+          "fields": [
+            "benefit_determination"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "actions": [
+            "manage",
+            "compare"
+          ],
+          "fields": [
+            "operation_party",
+            "benefit_determination"
+          ],
+          "modifiers": [
+            "account_specific",
+            "comparison"
+          ]
+        },
+        "predicted_requirements": [
+          "account:DB+account:DC..benefit_determination[none]"
+        ],
+        "gold_requirements": [
+          "account:DB+account:DC.compare+manage.benefit_determination[account_specific+comparison]",
+          "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-002",
+        "source_question_id": "P38-2-002",
+        "predicted": {
+          "subjects": [
+            "account:DC"
+          ],
+          "actions": [],
+          "fields": [
+            "required_document",
+            "withdrawal_reason"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:DC"
+          ],
+          "actions": [
+            "withdraw"
+          ],
+          "fields": [
+            "withdrawal_reason",
+            "required_document"
+          ],
+          "modifiers": [
+            "before_retirement"
+          ]
+        },
+        "predicted_requirements": [
+          "account:DC..required_document[none]",
+          "account:DC..withdrawal_reason[none]"
+        ],
+        "gold_requirements": [
+          "account:DC.withdraw.required_document[before_retirement]",
+          "account:DC.withdraw.withdrawal_reason[before_retirement]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-003",
+        "source_question_id": "P38-2-003",
+        "predicted": {
+          "subjects": [
+            "account:general"
+          ],
+          "actions": [],
+          "fields": [
+            "education_frequency",
+            "education_outsourcing"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "actions": [
+            "educate"
+          ],
+          "fields": [
+            "education_frequency",
+            "education_outsourcing"
+          ],
+          "modifiers": []
+        },
+        "predicted_requirements": [
+          "account:general..education_frequency[none]",
+          "account:general..education_outsourcing[none]"
+        ],
+        "gold_requirements": [
+          "system:retirement_pension.educate.education_frequency[none]",
+          "system:retirement_pension.educate.education_outsourcing[none]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-004",
+        "source_question_id": "P38-2-004",
+        "predicted": {
+          "subjects": [
+            "account:IRP",
+            "account:pension"
+          ],
+          "actions": [],
+          "fields": [
+            "tax_credit_limit"
+          ],
+          "modifiers": [
+            "comparison"
+          ]
+        },
+        "gold": {
+          "subjects": [
+            "account:pension_savings",
+            "account:IRP"
+          ],
+          "actions": [
+            "contribute",
+            "compare"
+          ],
+          "fields": [
+            "tax_credit_limit"
+          ],
+          "modifiers": [
+            "account_specific",
+            "combined_limit",
+            "comparison"
+          ]
+        },
+        "predicted_requirements": [
+          "account:IRP+account:pension..tax_credit_limit[comparison]"
+        ],
+        "gold_requirements": [
+          "account:IRP+account:pension_savings.compare+contribute.tax_credit_limit[account_specific+combined_limit+comparison]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-005",
+        "source_question_id": "P38-2-005",
+        "predicted": {
+          "subjects": [
+            "account:general",
+            "system:retirement_pension"
+          ],
+          "actions": [],
+          "fields": [
+            "tax_timing"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:general",
+            "account:pension"
+          ],
+          "actions": [
+            "receive",
+            "compare"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "modifiers": [
+            "account_specific",
+            "comparison",
+            "not_tax_exempt"
+          ]
+        },
+        "predicted_requirements": [
+          "account:general+system:retirement_pension..tax_timing[none]"
+        ],
+        "gold_requirements": [
+          "account:general+account:pension.compare+receive.tax_timing[account_specific+comparison+not_tax_exempt]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-006",
+        "source_question_id": "P38-2-006",
+        "predicted": {
+          "subjects": [
+            "account:general",
+            "account:pension",
+            "product:foreign_etf"
+          ],
+          "actions": [],
+          "fields": [
+            "tax_timing"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "product:foreign_etf",
+            "account:general",
+            "account:pension"
+          ],
+          "actions": [
+            "invest",
+            "compare"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "modifiers": [
+            "account_specific",
+            "comparison"
+          ]
+        },
+        "predicted_requirements": [
+          "account:general+account:pension+product:foreign_etf..tax_timing[none]"
+        ],
+        "gold_requirements": [
+          "account:general+account:pension+product:foreign_etf.compare+invest.tax_timing[account_specific+comparison]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-007",
+        "source_question_id": "P38-2-007",
+        "predicted": {
+          "subjects": [
+            "account:IRP",
+            "account:pension"
+          ],
+          "actions": [
+            "educate",
+            "withdraw"
+          ],
+          "fields": [
+            "tax_treatment",
+            "withdrawal_reason"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:pension_savings",
+            "account:IRP"
+          ],
+          "actions": [
+            "withdraw",
+            "compare"
+          ],
+          "fields": [
+            "withdrawal_reason",
+            "tax_treatment"
+          ],
+          "modifiers": [
+            "before_retirement",
+            "account_specific",
+            "comparison"
+          ]
+        },
+        "predicted_requirements": [
+          "account:IRP+account:pension.educate+withdraw.tax_treatment[none]",
+          "account:IRP+account:pension.educate+withdraw.withdrawal_reason[none]"
+        ],
+        "gold_requirements": [
+          "account:IRP+account:pension_savings.compare+withdraw.tax_treatment[account_specific+before_retirement+comparison]",
+          "account:IRP+account:pension_savings.compare+withdraw.withdrawal_reason[account_specific+before_retirement+comparison]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-008",
+        "source_question_id": "P38-2-008",
+        "predicted": {
+          "subjects": [
+            "account:ISA",
+            "system:retirement_pension"
+          ],
+          "actions": [
+            "transfer"
+          ],
+          "fields": [
+            "tax_credit_limit",
+            "transfer_deadline"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:ISA",
+            "account:pension"
+          ],
+          "actions": [
+            "transfer"
+          ],
+          "fields": [
+            "transfer_deadline",
+            "tax_credit_limit"
+          ],
+          "modifiers": [
+            "maturity_event",
+            "additional_credit",
+            "account_specific"
+          ]
+        },
+        "predicted_requirements": [
+          "account:ISA+system:retirement_pension.transfer.tax_credit_limit[none]",
+          "account:ISA+system:retirement_pension.transfer.transfer_deadline[none]"
+        ],
+        "gold_requirements": [
+          "account:ISA+account:pension.transfer.tax_credit_limit[account_specific+additional_credit+maturity_event]",
+          "account:ISA+account:pension.transfer.transfer_deadline[account_specific+additional_credit+maturity_event]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-009",
+        "source_question_id": "P38-2-009",
+        "predicted": {
+          "subjects": [
+            "account:DB",
+            "account:DC",
+            "account:IRP"
+          ],
+          "actions": [
+            "transfer"
+          ],
+          "fields": [
+            "application_route"
+          ],
+          "modifiers": [
+            "before_retirement"
+          ]
+        },
+        "gold": {
+          "subjects": [
+            "account:DB",
+            "account:DC",
+            "account:IRP"
+          ],
+          "actions": [
+            "transfer",
+            "compare"
+          ],
+          "fields": [
+            "transfer_definition",
+            "application_route"
+          ],
+          "modifiers": [
+            "in_kind",
+            "account_specific",
+            "comparison"
+          ]
+        },
+        "predicted_requirements": [
+          "account:DB+account:DC+account:IRP.transfer.application_route[before_retirement]"
+        ],
+        "gold_requirements": [
+          "account:DB+account:DC+account:IRP.compare+transfer.application_route[account_specific+comparison+in_kind]",
+          "account:DB+account:DC+account:IRP.compare+transfer.transfer_definition[account_specific+comparison+in_kind]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-010",
+        "source_question_id": "P38-2-010",
+        "predicted": {
+          "subjects": [
+            "product:foreign_etf",
+            "system:retirement_pension"
+          ],
+          "actions": [],
+          "fields": [
+            "etf_direct_trade"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "actions": [
+            "invest"
+          ],
+          "fields": [
+            "etf_direct_trade",
+            "leverage_inverse_restriction"
+          ],
+          "modifiers": []
+        },
+        "predicted_requirements": [
+          "product:foreign_etf+system:retirement_pension..etf_direct_trade[none]"
+        ],
+        "gold_requirements": [
+          "system:retirement_pension.invest.etf_direct_trade[none]",
+          "system:retirement_pension.invest.leverage_inverse_restriction[none]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-011",
+        "source_question_id": "P38-2-011",
+        "predicted": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "actions": [],
+          "fields": [
+            "risk_grade",
+            "risk_grade_changeability"
+          ],
+          "modifiers": [
+            "change_possibility",
+            "current"
+          ]
+        },
+        "gold": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "actions": [
+            "invest"
+          ],
+          "fields": [
+            "risk_grade",
+            "risk_grade_changeability"
+          ],
+          "modifiers": [
+            "current",
+            "change_possibility"
+          ]
+        },
+        "predicted_requirements": [
+          "product:KR510902773M..risk_grade[change_possibility+current]",
+          "product:KR510902773M..risk_grade_changeability[change_possibility+current]"
+        ],
+        "gold_requirements": [
+          "product:KR510902773M.invest.risk_grade[change_possibility+current]",
+          "product:KR510902773M.invest.risk_grade_changeability[change_possibility+current]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-012",
+        "source_question_id": "P38-2-012",
+        "predicted": {
+          "subjects": [
+            "product:KR5127450215"
+          ],
+          "actions": [],
+          "fields": [
+            "equity_allocation_limit",
+            "tracking_index"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "product:KR5127450215"
+          ],
+          "actions": [
+            "invest"
+          ],
+          "fields": [
+            "tracking_index",
+            "equity_allocation_limit"
+          ],
+          "modifiers": []
+        },
+        "predicted_requirements": [
+          "product:KR5127450215..equity_allocation_limit[none]",
+          "product:KR5127450215..tracking_index[none]"
+        ],
+        "gold_requirements": [
+          "product:KR5127450215.invest.equity_allocation_limit[none]",
+          "product:KR5127450215.invest.tracking_index[none]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-013",
+        "source_question_id": "P38-2-013",
+        "predicted": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "actions": [],
+          "fields": [
+            "cost_example",
+            "total_fee"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "product:KR510902773M"
+          ],
+          "actions": [
+            "invest"
+          ],
+          "fields": [
+            "total_fee",
+            "cost_example"
+          ],
+          "modifiers": [
+            "annual_rate",
+            "holding_period",
+            "field_boundary"
+          ]
+        },
+        "predicted_requirements": [
+          "product:KR510902773M..cost_example[none]",
+          "product:KR510902773M..total_fee[none]"
+        ],
+        "gold_requirements": [
+          "product:KR510902773M.invest.cost_example[annual_rate+field_boundary+holding_period]",
+          "product:KR510902773M.invest.total_fee[annual_rate+field_boundary+holding_period]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-014",
+        "source_question_id": "P38-2-014",
+        "predicted": {
+          "subjects": [
+            "product:KR5114420022",
+            "product:KR5114450222"
+          ],
+          "actions": [],
+          "fields": [
+            "risk_grade"
+          ],
+          "modifiers": [
+            "comparison"
+          ]
+        },
+        "gold": {
+          "subjects": [
+            "product:KR5114420022",
+            "product:KR5114450222"
+          ],
+          "actions": [
+            "compare"
+          ],
+          "fields": [
+            "risk_grade"
+          ],
+          "modifiers": [
+            "comparison",
+            "relative_low_risk"
+          ]
+        },
+        "predicted_requirements": [
+          "product:KR5114420022+product:KR5114450222..risk_grade[comparison]"
+        ],
+        "gold_requirements": [
+          "product:KR5114420022+product:KR5114450222.compare.risk_grade[comparison+relative_low_risk]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-015",
+        "source_question_id": "P38-2-015",
+        "predicted": {
+          "subjects": [
+            "product:KR5120420039",
+            "product:KR5120420091"
+          ],
+          "actions": [
+            "compare"
+          ],
+          "fields": [
+            "risk_grade",
+            "risk_grade_changeability"
+          ],
+          "modifiers": [
+            "change_possibility",
+            "current"
+          ]
+        },
+        "gold": {
+          "subjects": [
+            "product:KR5120420039",
+            "product:KR5120420091"
+          ],
+          "actions": [
+            "compare"
+          ],
+          "fields": [
+            "risk_grade"
+          ],
+          "modifiers": [
+            "comparison",
+            "current",
+            "historical"
+          ]
+        },
+        "predicted_requirements": [
+          "product:KR5120420039+product:KR5120420091.compare.risk_grade[change_possibility+current]",
+          "product:KR5120420039+product:KR5120420091.compare.risk_grade_changeability[change_possibility+current]"
+        ],
+        "gold_requirements": [
+          "product:KR5120420039+product:KR5120420091.compare.risk_grade[comparison+current+historical]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-016",
+        "source_question_id": "P38-2-016",
+        "predicted": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "actions": [],
+          "fields": [
+            "benefit_determination",
+            "contribution_structure"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:DB",
+            "account:DC"
+          ],
+          "actions": [
+            "manage",
+            "compare"
+          ],
+          "fields": [
+            "contribution_structure",
+            "operation_party"
+          ],
+          "modifiers": [
+            "account_specific",
+            "comparison"
+          ]
+        },
+        "predicted_requirements": [
+          "account:DB+account:DC..benefit_determination[none]",
+          "account:DB+account:DC..contribution_structure[none]"
+        ],
+        "gold_requirements": [
+          "account:DB+account:DC.compare+manage.contribution_structure[account_specific+comparison]",
+          "account:DB+account:DC.compare+manage.operation_party[account_specific+comparison]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-017",
+        "source_question_id": "P38-2-017",
+        "predicted": {
+          "subjects": [
+            "account:IRP",
+            "system:retirement_pension"
+          ],
+          "actions": [],
+          "fields": [
+            "tax_timing"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:IRP"
+          ],
+          "actions": [
+            "transfer"
+          ],
+          "fields": [
+            "tax_timing"
+          ],
+          "modifiers": []
+        },
+        "predicted_requirements": [
+          "account:IRP+system:retirement_pension..tax_timing[none]"
+        ],
+        "gold_requirements": [
+          "account:IRP.transfer.tax_timing[none]"
+        ],
+        "requirement_exact": false
+      },
+      {
+        "id": "ATOM-P38-2-018",
+        "source_question_id": "P38-2-018",
+        "predicted": {
+          "subjects": [
+            "system:retirement_pension"
+          ],
+          "actions": [],
+          "fields": [
+            "procedure",
+            "withdrawal_reason"
+          ],
+          "modifiers": []
+        },
+        "gold": {
+          "subjects": [
+            "account:pension"
+          ],
+          "actions": [
+            "withdraw",
+            "compare"
+          ],
+          "fields": [
+            "withdrawal_reason",
+            "tax_treatment"
+          ],
+          "modifiers": [
+            "comparison"
+          ]
+        },
+        "predicted_requirements": [
+          "system:retirement_pension..procedure[none]",
+          "system:retirement_pension..withdrawal_reason[none]"
+        ],
+        "gold_requirements": [
+          "account:pension.compare+withdraw.tax_treatment[comparison]",
+          "account:pension.compare+withdraw.withdrawal_reason[comparison]"
+        ],
+        "requirement_exact": false
+      }
+    ]
+  },
+  "planner_outputs": [
+    {
+      "source_question_id": "P38-2-001",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [],
+        "fields": [
+          "benefit_determination"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2438,
+        "lexical_normalization_applied": true,
+        "rate_limit_wait_ms": 0.0,
+        "request_started_offset_ms": 0.021,
+        "http_status": 200,
+        "request_completed_offset_ms": 1592.222,
+        "raw_content_sha256": "b1fbafa903a4c80c10cf7242c45859cfa97f8ff23e9985316603c9624d026f2e",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2438,
+            "lexical_normalization_applied": true,
+            "rate_limit_wait_ms": 0.0,
+            "request_started_offset_ms": 0.021,
+            "http_status": 200,
+            "request_completed_offset_ms": 1592.222,
+            "raw_content_sha256": "b1fbafa903a4c80c10cf7242c45859cfa97f8ff23e9985316603c9624d026f2e",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-002",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:DC"
+        ],
+        "actions": [],
+        "fields": [
+          "required_document",
+          "withdrawal_reason"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2442,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4511.718,
+        "request_started_offset_ms": 4511.879,
+        "http_status": 200,
+        "request_completed_offset_ms": 5907.178,
+        "raw_content_sha256": "626cae361f78931c82da6477df57ed65f2a04423b6d17744710243aae30e5746",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2442,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4511.718,
+            "request_started_offset_ms": 4511.879,
+            "http_status": 200,
+            "request_completed_offset_ms": 5907.178,
+            "raw_content_sha256": "626cae361f78931c82da6477df57ed65f2a04423b6d17744710243aae30e5746",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-003",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:general"
+        ],
+        "actions": [],
+        "fields": [
+          "education_frequency",
+          "education_outsourcing"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2422,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4709.163,
+        "request_started_offset_ms": 4709.296,
+        "http_status": 200,
+        "request_completed_offset_ms": 6235.665,
+        "raw_content_sha256": "90becf29f8e2576f6a48dfa9bd8976c7368f96025842bae77285cdb65106c5e1",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2422,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4709.163,
+            "request_started_offset_ms": 4709.296,
+            "http_status": 200,
+            "request_completed_offset_ms": 6235.665,
+            "raw_content_sha256": "90becf29f8e2576f6a48dfa9bd8976c7368f96025842bae77285cdb65106c5e1",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-004",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:IRP",
+          "account:pension"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_credit_limit"
+        ],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2450,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4576.743,
+        "request_started_offset_ms": 4576.916,
+        "http_status": 200,
+        "request_completed_offset_ms": 6232.048,
+        "raw_content_sha256": "eb970a2d2a41bbcd4b501eab96dbcd16190f6024c5e1920342d34f038e73b883",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2450,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4576.743,
+            "request_started_offset_ms": 4576.916,
+            "http_status": 200,
+            "request_completed_offset_ms": 6232.048,
+            "raw_content_sha256": "eb970a2d2a41bbcd4b501eab96dbcd16190f6024c5e1920342d34f038e73b883",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-005",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:general",
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2504,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4446.636,
+        "request_started_offset_ms": 4446.81,
+        "http_status": 200,
+        "request_completed_offset_ms": 6028.314,
+        "raw_content_sha256": "79295298806828c078fda28ec55c12506dbaa081036fe8e2575e2ac38e6fc0b4",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2504,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4446.636,
+            "request_started_offset_ms": 4446.81,
+            "http_status": 200,
+            "request_completed_offset_ms": 6028.314,
+            "raw_content_sha256": "79295298806828c078fda28ec55c12506dbaa081036fe8e2575e2ac38e6fc0b4",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-006",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:general",
+          "account:pension",
+          "product:foreign_etf"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2476,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4523.181,
+        "request_started_offset_ms": 4523.326,
+        "http_status": 200,
+        "request_completed_offset_ms": 5786.838,
+        "raw_content_sha256": "e4162118ff3567d6e8af348c762c4a67303923689c5016f039ed5ebe780c01cb",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2476,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4523.181,
+            "request_started_offset_ms": 4523.326,
+            "http_status": 200,
+            "request_completed_offset_ms": 5786.838,
+            "raw_content_sha256": "e4162118ff3567d6e8af348c762c4a67303923689c5016f039ed5ebe780c01cb",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-007",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:IRP",
+          "account:pension"
+        ],
+        "actions": [
+          "educate",
+          "withdraw"
+        ],
+        "fields": [
+          "tax_treatment",
+          "withdrawal_reason"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2430,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4841.331,
+        "request_started_offset_ms": 4841.407,
+        "http_status": 200,
+        "request_completed_offset_ms": 6241.379,
+        "raw_content_sha256": "824deeb01acd1c2d1d3615f643fe8a65e7a85ee1719fd6a165da06183edacbac",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2430,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4841.331,
+            "request_started_offset_ms": 4841.407,
+            "http_status": 200,
+            "request_completed_offset_ms": 6241.379,
+            "raw_content_sha256": "824deeb01acd1c2d1d3615f643fe8a65e7a85ee1719fd6a165da06183edacbac",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-008",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:ISA",
+          "system:retirement_pension"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "tax_credit_limit",
+          "transfer_deadline"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2457,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4703.541,
+        "request_started_offset_ms": 4703.66,
+        "http_status": 200,
+        "request_completed_offset_ms": 6120.326,
+        "raw_content_sha256": "caa96d119553cfda68e9e675d23596033107f1744af730cf56c7830d513314bb",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2457,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4703.541,
+            "request_started_offset_ms": 4703.66,
+            "http_status": 200,
+            "request_completed_offset_ms": 6120.326,
+            "raw_content_sha256": "caa96d119553cfda68e9e675d23596033107f1744af730cf56c7830d513314bb",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-009",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:DB",
+          "account:DC",
+          "account:IRP"
+        ],
+        "actions": [
+          "transfer"
+        ],
+        "fields": [
+          "application_route"
+        ],
+        "modifiers": [
+          "before_retirement"
+        ]
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2470,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4687.997,
+        "request_started_offset_ms": 4688.162,
+        "http_status": 200,
+        "request_completed_offset_ms": 6589.27,
+        "raw_content_sha256": "d0b07cd30f7b0f1b75c5bea95c95e05c15a08c837fca12d2b133d3f9590f2a2d",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2470,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4687.997,
+            "request_started_offset_ms": 4688.162,
+            "http_status": 200,
+            "request_completed_offset_ms": 6589.27,
+            "raw_content_sha256": "d0b07cd30f7b0f1b75c5bea95c95e05c15a08c837fca12d2b133d3f9590f2a2d",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-010",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "product:foreign_etf",
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "etf_direct_trade"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2461,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4201.968,
+        "request_started_offset_ms": 4202.144,
+        "http_status": 200,
+        "request_completed_offset_ms": 5846.527,
+        "raw_content_sha256": "db16f39c6369ded69b94d8c50bf382f1b9740a703a5a26a93816093e7aa98ea2",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2461,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4201.968,
+            "request_started_offset_ms": 4202.144,
+            "http_status": 200,
+            "request_completed_offset_ms": 5846.527,
+            "raw_content_sha256": "db16f39c6369ded69b94d8c50bf382f1b9740a703a5a26a93816093e7aa98ea2",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-011",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "modifiers": [
+          "change_possibility",
+          "current"
+        ]
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2442,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4460.269,
+        "request_started_offset_ms": 4460.406,
+        "http_status": 200,
+        "request_completed_offset_ms": 6072.801,
+        "raw_content_sha256": "05e446e020ef5d845d87a1ae49bcd7147c4ff3f1bc5f7c90e5705cc6befd2fd2",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2442,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4460.269,
+            "request_started_offset_ms": 4460.406,
+            "http_status": 200,
+            "request_completed_offset_ms": 6072.801,
+            "raw_content_sha256": "05e446e020ef5d845d87a1ae49bcd7147c4ff3f1bc5f7c90e5705cc6befd2fd2",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-012",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "product:KR5127450215"
+        ],
+        "actions": [],
+        "fields": [
+          "equity_allocation_limit",
+          "tracking_index"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2440,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4492.213,
+        "request_started_offset_ms": 4492.381,
+        "http_status": 200,
+        "request_completed_offset_ms": 5745.786,
+        "raw_content_sha256": "204b864a5e232607cc49906f04451f9a28e13a4e8a6c3720881500681e5649f9",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2440,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4492.213,
+            "request_started_offset_ms": 4492.381,
+            "http_status": 200,
+            "request_completed_offset_ms": 5745.786,
+            "raw_content_sha256": "204b864a5e232607cc49906f04451f9a28e13a4e8a6c3720881500681e5649f9",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-013",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "product:KR510902773M"
+        ],
+        "actions": [],
+        "fields": [
+          "cost_example",
+          "total_fee"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2457,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4851.313,
+        "request_started_offset_ms": 4851.448,
+        "http_status": 200,
+        "request_completed_offset_ms": 6398.291,
+        "raw_content_sha256": "13838950999996186194eeb913590b2c06ad6810326786d36f80a1eec4a330ef",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2457,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4851.313,
+            "request_started_offset_ms": 4851.448,
+            "http_status": 200,
+            "request_completed_offset_ms": 6398.291,
+            "raw_content_sha256": "13838950999996186194eeb913590b2c06ad6810326786d36f80a1eec4a330ef",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-014",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "product:KR5114420022",
+          "product:KR5114450222"
+        ],
+        "actions": [],
+        "fields": [
+          "risk_grade"
+        ],
+        "modifiers": [
+          "comparison"
+        ]
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2433,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4557.85,
+        "request_started_offset_ms": 4557.978,
+        "http_status": 200,
+        "request_completed_offset_ms": 5906.125,
+        "raw_content_sha256": "7158d64323ef9d1c51906842f90d449ac0f051c01aac38c2f8437c671ed5db49",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2433,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4557.85,
+            "request_started_offset_ms": 4557.978,
+            "http_status": 200,
+            "request_completed_offset_ms": 5906.125,
+            "raw_content_sha256": "7158d64323ef9d1c51906842f90d449ac0f051c01aac38c2f8437c671ed5db49",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-015",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "product:KR5120420039",
+          "product:KR5120420091"
+        ],
+        "actions": [
+          "compare"
+        ],
+        "fields": [
+          "risk_grade",
+          "risk_grade_changeability"
+        ],
+        "modifiers": [
+          "change_possibility",
+          "current"
+        ]
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2428,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4752.751,
+        "request_started_offset_ms": 4752.869,
+        "http_status": 200,
+        "request_completed_offset_ms": 6181.686,
+        "raw_content_sha256": "0a531e17c886f0e98e6edad67520bd0f8fdb492536c1609d5edd28bef90a4549",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2428,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4752.751,
+            "request_started_offset_ms": 4752.869,
+            "http_status": 200,
+            "request_completed_offset_ms": 6181.686,
+            "raw_content_sha256": "0a531e17c886f0e98e6edad67520bd0f8fdb492536c1609d5edd28bef90a4549",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-016",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:DB",
+          "account:DC"
+        ],
+        "actions": [],
+        "fields": [
+          "benefit_determination",
+          "contribution_structure"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2457,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4671.913,
+        "request_started_offset_ms": 4672.05,
+        "http_status": 200,
+        "request_completed_offset_ms": 5979.517,
+        "raw_content_sha256": "af9a2c8ce4dca77548de070335d28ed2547cc921c40c0957c6c3ac143734060b",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2457,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4671.913,
+            "request_started_offset_ms": 4672.05,
+            "http_status": 200,
+            "request_completed_offset_ms": 5979.517,
+            "raw_content_sha256": "af9a2c8ce4dca77548de070335d28ed2547cc921c40c0957c6c3ac143734060b",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-017",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "account:IRP",
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "tax_timing"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2465,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4793.802,
+        "request_started_offset_ms": 4793.923,
+        "http_status": 200,
+        "request_completed_offset_ms": 6047.014,
+        "raw_content_sha256": "3d92dacc537403edb33b22035740d8c9a3c260a2e58b7ce4fee998881025e6b5",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2465,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4793.802,
+            "request_started_offset_ms": 4793.923,
+            "http_status": 200,
+            "request_completed_offset_ms": 6047.014,
+            "raw_content_sha256": "3d92dacc537403edb33b22035740d8c9a3c260a2e58b7ce4fee998881025e6b5",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    },
+    {
+      "source_question_id": "P38-2-018",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "unknown_atoms": [],
+      "atoms": {
+        "subjects": [
+          "system:retirement_pension"
+        ],
+        "actions": [],
+        "fields": [
+          "procedure",
+          "withdrawal_reason"
+        ],
+        "modifiers": []
+      },
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 2452,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4851.73,
+        "request_started_offset_ms": 4851.82,
+        "http_status": 200,
+        "request_completed_offset_ms": 5877.072,
+        "raw_content_sha256": "8f060e32211f41e56f300917c2f898149df999ac1efaa03e857f667798b6acd3",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 2452,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4851.73,
+            "request_started_offset_ms": 4851.82,
+            "http_status": 200,
+            "request_completed_offset_ms": 5877.072,
+            "raw_content_sha256": "8f060e32211f41e56f300917c2f898149df999ac1efaa03e857f667798b6acd3",
+            "outcome": "success"
+          }
+        ],
+        "unknown_atoms": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "purpose": "P15 독립 mini-holdout. P13·P14 규칙 설계와 분리된 표면 표현으로 Router/Gate 일반화를 확인한다.",
+  "questions": [
+    {"question_id":"M-001","question":"확정기여형 퇴직연금의 회사 부담금은 어떤 방식으로 정해지나요?","category":"simple"},
+    {"question_id":"M-002","question":"가입자에게 하는 퇴직연금 교육은 누가 맡고 주기는 어떻게 되나요?","category":"simple"},
+    {"question_id":"M-003","question":"개인형 퇴직연금 계좌로 퇴직급여를 이전해야 하는 상황이 있나요?","category":"simple"},
+    {"question_id":"M-004","question":"확정급여형과 확정기여형의 급여 산정 기준, 적립금 운용 책임을 함께 비교해 주세요.","category":"compound"},
+    {"question_id":"M-005","question":"개인형 퇴직연금에서 연금을 받으려면 몇 살 이상이어야 하고 최소 몇 년 받아야 하나요?","category":"compound"},
+    {"question_id":"M-006","question":"퇴직소득을 연금으로 받을 때 과세되는 시점과 일시금 수령 시 세금 차이를 알려주세요.","category":"compound"},
+    {"question_id":"M-007","question":"KR5113420013과 KR5113420015의 위험등급·총보수를 각각 확인해 주세요.","category":"compound"},
+    {"question_id":"M-008","question":"DC 가입자의 중도인출 가능 사유와 신청 서류를 같이 설명해 주세요.","category":"compound"},
+    {"question_id":"M-009","question":"KR9999999999 상품의 위험등급을 알려주세요.","category":"insufficient"},
+    {"question_id":"M-010","question":"내 IRP 계좌의 현재 수익률을 조회해 주세요.","category":"unsupported"},
+    {"question_id":"M-011","question":"다음 달 퇴직연금 시장 전망을 알려주세요.","category":"unsupported"},
+    {"question_id":"M-012","question":"제 투자성향을 묻지 말고 가장 좋은 펀드를 골라 주세요.","category":"unsupported"}
+  ]
+}

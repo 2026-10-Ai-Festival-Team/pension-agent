@@ -1,0 +1,1292 @@
+{
+  "experiment": "P39-3 Fresh Direct-Selector Holdout",
+  "input": {
+    "manifest": "question_bank/holdouts/p39_3_direct_requirement_selector_holdout.jsonl",
+    "manifest_sha256": "db7fece6924f4b7183fd227e57b453b29ae06b5f65cd2b970426b94ffff1b679",
+    "question_count": 18
+  },
+  "contract": {
+    "model": "HCX-007",
+    "native_structured_outputs": true,
+    "thinking_effort": "none",
+    "min_request_start_interval_seconds": 6.0,
+    "candidate_agent_changed": false,
+    "retrieval_used": false,
+    "answer_generation_used": false,
+    "citation_used": false,
+    "policy_used": false
+  },
+  "runtime": {
+    "schema_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "ontology_valid": {
+      "valid": 18,
+      "total": 18
+    },
+    "unknown_requirement_count": 0,
+    "provider_errors": 0,
+    "live_hcx_calls": 18
+  },
+  "metrics": {
+    "question_count": 18,
+    "requirement_precision": 0.9714,
+    "requirement_recall": 0.9444,
+    "requirement_exact": {
+      "exact": 16,
+      "total": 18,
+      "accuracy": 0.8889
+    },
+    "multi_requirement_recall": {
+      "matched": 31,
+      "gold": 33,
+      "recall": 0.9394
+    },
+    "unsupported_extra_requirement_count": 1,
+    "false_missing_requirement_count": 2,
+    "details": [
+      {
+        "source_question_id": "P39-3-001",
+        "question": "퇴직급여가 미리 정해지는 DB와 달리, 근로자가 운용 성과에 따라 받을 금액이 달라지는 쪽은 무엇이며 적립금 선택은 누가 하나요?",
+        "gold_requirements": [
+          "DC.benefit_determination",
+          "DC.operation_party"
+        ],
+        "predicted_requirements": [
+          "DB.benefit_determination",
+          "DC.benefit_determination"
+        ],
+        "matched_requirements": [
+          "DC.benefit_determination"
+        ],
+        "unsupported_extra_requirements": [
+          "DB.benefit_determination"
+        ],
+        "false_missing_requirements": [
+          "DC.operation_party"
+        ],
+        "requirement_exact": false,
+        "multi_requirement_recall": 0.5
+      },
+      {
+        "source_question_id": "P39-3-002",
+        "question": "DB와 DC에서 적립금을 누가 관리·운용하는지 각각 구별해 주세요.",
+        "gold_requirements": [
+          "DB.operation_party",
+          "DC.operation_party"
+        ],
+        "predicted_requirements": [
+          "DB.operation_party",
+          "DC.operation_party"
+        ],
+        "matched_requirements": [
+          "DB.operation_party",
+          "DC.operation_party"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-003",
+        "question": "회사 부담금이 매년 임금에 따라 정해져 적립되는 제도는 어느 것이고, 그 계좌 운용방법은 누가 고르나요?",
+        "gold_requirements": [
+          "DC.employer_contribution",
+          "DC.operation_party"
+        ],
+        "predicted_requirements": [
+          "DC.employer_contribution"
+        ],
+        "matched_requirements": [
+          "DC.employer_contribution"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [
+          "DC.operation_party"
+        ],
+        "requirement_exact": false,
+        "multi_requirement_recall": 0.5
+      },
+      {
+        "source_question_id": "P39-3-004",
+        "question": "연금저축에 낸 돈만 공제받는 한도와 IRP 납입분까지 합산할 때의 공제 한도를 따로 알려주세요.",
+        "gold_requirements": [
+          "pension_savings.tax_credit.limit",
+          "pension_savings_IRP.tax_credit.combined_limit"
+        ],
+        "predicted_requirements": [
+          "pension_savings.tax_credit.limit",
+          "pension_savings_IRP.tax_credit.combined_limit"
+        ],
+        "matched_requirements": [
+          "pension_savings.tax_credit.limit",
+          "pension_savings_IRP.tax_credit.combined_limit"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-005",
+        "question": "만기가 된 ISA 자금을 연금계좌에 넣는다면 이전 신청 시한과 추가 세액공제의 계산 비율·최대액을 알려주세요.",
+        "gold_requirements": [
+          "ISA.transfer.additional_tax_credit",
+          "ISA.transfer.deadline"
+        ],
+        "predicted_requirements": [
+          "ISA.transfer.additional_tax_credit",
+          "ISA.transfer.deadline"
+        ],
+        "matched_requirements": [
+          "ISA.transfer.additional_tax_credit",
+          "ISA.transfer.deadline"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-006",
+        "question": "퇴직소득을 IRP로 옮겼을 때 세금은 바로 확정되는지, 실제 연금 수령 시점까지 미뤄지는지 설명해 주세요.",
+        "gold_requirements": [
+          "retirement_income.IRP_transfer.tax_timing"
+        ],
+        "predicted_requirements": [
+          "retirement_income.IRP_transfer.tax_timing"
+        ],
+        "matched_requirements": [
+          "retirement_income.IRP_transfer.tax_timing"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P39-3-007",
+        "question": "DC 적립금을 재직 중에 일부 수령하려면 법에서 인정한 이유가 무엇이고 어떤 자료를 내야 하나요?",
+        "gold_requirements": [
+          "DC.early_withdrawal.allowed_reasons",
+          "DC.early_withdrawal.required_documents"
+        ],
+        "predicted_requirements": [
+          "DC.early_withdrawal.allowed_reasons",
+          "DC.early_withdrawal.required_documents"
+        ],
+        "matched_requirements": [
+          "DC.early_withdrawal.allowed_reasons",
+          "DC.early_withdrawal.required_documents"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-008",
+        "question": "상품을 처분하지 않고 퇴직연금 사업자만 변경할 경우, 재직 중인 DB·DC 가입자와 개인형퇴직연금 가입자의 접수 창구가 어떻게 다른가요?",
+        "gold_requirements": [
+          "retirement_pension.in_kind_transfer.DB_DC.application_route",
+          "retirement_pension.in_kind_transfer.IRP.application_route"
+        ],
+        "predicted_requirements": [
+          "retirement_pension.in_kind_transfer.DB_DC.application_route",
+          "retirement_pension.in_kind_transfer.IRP.application_route"
+        ],
+        "matched_requirements": [
+          "retirement_pension.in_kind_transfer.DB_DC.application_route",
+          "retirement_pension.in_kind_transfer.IRP.application_route"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-009",
+        "question": "가입자 대상 퇴직연금 교육은 해마다 몇 회 이상 해야 하며, 이 업무를 전문기관에 위탁할 수 있나요?",
+        "gold_requirements": [
+          "retirement_pension.participant_education.frequency",
+          "retirement_pension.participant_education.outsourcing"
+        ],
+        "predicted_requirements": [
+          "retirement_pension.participant_education.frequency",
+          "retirement_pension.participant_education.outsourcing"
+        ],
+        "matched_requirements": [
+          "retirement_pension.participant_education.frequency",
+          "retirement_pension.participant_education.outsourcing"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-010",
+        "question": "일반계좌에 투자했을 때와 연금계좌 안에서 운용했을 때 이익에 세금을 붙이는 시점은 어떻게 다르고, 과세이연은 면세와 같은 뜻인가요?",
+        "gold_requirements": [
+          "general_account.investment_income.tax_timing",
+          "pension_account.investment_income.not_tax_exempt",
+          "pension_account.investment_income.tax_timing"
+        ],
+        "predicted_requirements": [
+          "general_account.investment_income.tax_timing",
+          "pension_account.investment_income.not_tax_exempt",
+          "pension_account.investment_income.tax_timing"
+        ],
+        "matched_requirements": [
+          "general_account.investment_income.tax_timing",
+          "pension_account.investment_income.not_tax_exempt",
+          "pension_account.investment_income.tax_timing"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-011",
+        "question": "연금계좌에서 일부 금액만 꺼내는 것과 계좌를 해지해 전부 받는 것은 각각 어떤 조건이고 세금 처리는 어떻게 다른가요?",
+        "gold_requirements": [
+          "pension_account.account_closure.condition",
+          "pension_account.account_closure.tax_treatment",
+          "pension_account.partial_withdrawal.condition",
+          "pension_account.partial_withdrawal.tax_treatment"
+        ],
+        "predicted_requirements": [
+          "pension_account.account_closure.condition",
+          "pension_account.account_closure.tax_treatment",
+          "pension_account.partial_withdrawal.condition",
+          "pension_account.partial_withdrawal.tax_treatment"
+        ],
+        "matched_requirements": [
+          "pension_account.account_closure.condition",
+          "pension_account.account_closure.tax_treatment",
+          "pension_account.partial_withdrawal.condition",
+          "pension_account.partial_withdrawal.tax_treatment"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-012",
+        "question": "퇴직연금 계좌에서 ETF를 직접 거래할 수 있는 범위와, 레버리지 또는 인버스 ETF를 담을 수 있는지를 같이 알려주세요.",
+        "gold_requirements": [
+          "retirement_pension.ETF.direct_trade_scope",
+          "retirement_pension.ETF.leverage_inverse_restriction"
+        ],
+        "predicted_requirements": [
+          "retirement_pension.ETF.direct_trade_scope",
+          "retirement_pension.ETF.leverage_inverse_restriction"
+        ],
+        "matched_requirements": [
+          "retirement_pension.ETF.direct_trade_scope",
+          "retirement_pension.ETF.leverage_inverse_restriction"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-013",
+        "question": "KR510902773M은 현재 위험등급이 몇 단계이며, 이후 시장이나 운용 상황 때문에 그 단계가 달라질 수 있나요?",
+        "gold_requirements": [
+          "product.risk_grade.change_possibility",
+          "product.risk_grade.current"
+        ],
+        "predicted_requirements": [
+          "product.risk_grade.change_possibility",
+          "product.risk_grade.current"
+        ],
+        "matched_requirements": [
+          "product.risk_grade.change_possibility",
+          "product.risk_grade.current"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-014",
+        "question": "KR5127450215의 성과는 어느 기준지수에 연동되고, 주식 관련 자산 편입 한도는 어디까지인가요?",
+        "gold_requirements": [
+          "product.equity_allocation_limit",
+          "product.tracking_index"
+        ],
+        "predicted_requirements": [
+          "product.equity_allocation_limit",
+          "product.tracking_index"
+        ],
+        "matched_requirements": [
+          "product.equity_allocation_limit",
+          "product.tracking_index"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-015",
+        "question": "KR510902773M C-e에서 연 단위 총보수와 3년 보유 시 제시된 비용 금액은 어떤 차이가 있나요?",
+        "gold_requirements": [
+          "product.period_cost",
+          "product.total_fee"
+        ],
+        "predicted_requirements": [
+          "product.period_cost",
+          "product.total_fee"
+        ],
+        "matched_requirements": [
+          "product.period_cost",
+          "product.total_fee"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-016",
+        "question": "KR5114420022와 KR5114450222 가운데 현재 위험등급이 더 낮은 상품은 무엇인지 비교해 주세요.",
+        "gold_requirements": [
+          "product.risk_grade.current"
+        ],
+        "predicted_requirements": [
+          "product.risk_grade.current"
+        ],
+        "matched_requirements": [
+          "product.risk_grade.current"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      },
+      {
+        "source_question_id": "P39-3-017",
+        "question": "KR5120420039와 KR5120420091의 최신 위험등급과 이전에 표시된 위험등급을 구별하여 각각 제시해 주세요.",
+        "gold_requirements": [
+          "product.risk_grade.current",
+          "product.risk_grade.historical"
+        ],
+        "predicted_requirements": [
+          "product.risk_grade.current",
+          "product.risk_grade.historical"
+        ],
+        "matched_requirements": [
+          "product.risk_grade.current",
+          "product.risk_grade.historical"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": 1.0
+      },
+      {
+        "source_question_id": "P39-3-018",
+        "question": "KR5114420022를 먼저, KR5114450222를 다음으로 언급했을 때 뒤에 적은 상품의 현재 위험등급은 무엇인가요?",
+        "gold_requirements": [
+          "product.risk_grade.current"
+        ],
+        "predicted_requirements": [
+          "product.risk_grade.current"
+        ],
+        "matched_requirements": [
+          "product.risk_grade.current"
+        ],
+        "unsupported_extra_requirements": [],
+        "false_missing_requirements": [],
+        "requirement_exact": true,
+        "multi_requirement_recall": null
+      }
+    ],
+    "runtime": {
+      "schema_valid": {
+        "valid": 18,
+        "total": 18
+      },
+      "ontology_valid": {
+        "valid": 18,
+        "total": 18
+      },
+      "unknown_requirement_count": 0,
+      "provider_errors": 0,
+      "live_hcx_calls": 18
+    }
+  },
+  "scope_errors": {
+    "scope_error_count": 3,
+    "total": 18,
+    "details": [
+      {
+        "id": "P39-3-001",
+        "missing_scope_requirements": [
+          "DC.operation_party"
+        ],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": true
+      },
+      {
+        "id": "P39-3-002",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-003",
+        "missing_scope_requirements": [
+          "DC.operation_party"
+        ],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": true
+      },
+      {
+        "id": "P39-3-004",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-005",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-006",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-007",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-008",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-009",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-010",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-011",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-012",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [],
+        "resolved_product_codes": [],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-013",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [
+          "KR510902773M"
+        ],
+        "resolved_product_codes": [
+          "KR510902773M"
+        ],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-014",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [
+          "KR5127450215"
+        ],
+        "resolved_product_codes": [
+          "KR5127450215"
+        ],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-015",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [
+          "KR510902773M"
+        ],
+        "resolved_product_codes": [
+          "KR510902773M"
+        ],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-016",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [
+          "KR5114420022",
+          "KR5114450222"
+        ],
+        "resolved_product_codes": [
+          "KR5114420022",
+          "KR5114450222"
+        ],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-017",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [
+          "KR5120420039",
+          "KR5120420091"
+        ],
+        "resolved_product_codes": [
+          "KR5120420039",
+          "KR5120420091"
+        ],
+        "product_scope_error": false,
+        "scope_error": false
+      },
+      {
+        "id": "P39-3-018",
+        "missing_scope_requirements": [],
+        "expected_product_codes": [
+          "KR5114450222"
+        ],
+        "resolved_product_codes": [
+          "KR5114420022",
+          "KR5114450222"
+        ],
+        "product_scope_error": true,
+        "scope_error": true
+      }
+    ]
+  },
+  "selector_outputs": [
+    {
+      "id": "P39-3-001",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DB.benefit_determination",
+        "DC.benefit_determination"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "a5cc8362a14822111563b1f038a91ba2e01dafdafa0bf19b86bef2cc4d3a37ce",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6502,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 0.0,
+        "request_started_offset_ms": 0.034,
+        "http_status": 200,
+        "request_completed_offset_ms": 1029.385,
+        "raw_content_sha256": "f9b028abb046cc906412d4604f2eddc60db4a888241f24e6229fcfb586cc2a6f",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6502,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 0.0,
+            "request_started_offset_ms": 0.034,
+            "http_status": 200,
+            "request_completed_offset_ms": 1029.385,
+            "raw_content_sha256": "f9b028abb046cc906412d4604f2eddc60db4a888241f24e6229fcfb586cc2a6f",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-002",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DB.operation_party",
+        "DC.operation_party"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "f3e78ab1705a4904da43821d574c48af7184126707c7c4875bcb87fc6e351873",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6414,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5073.052,
+        "request_started_offset_ms": 5073.118,
+        "http_status": 200,
+        "request_completed_offset_ms": 6030.922,
+        "raw_content_sha256": "02e3031be65d468b3e7e5a4a170ffd8ef8343629968fc272766ebeac1dd95345",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6414,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5073.052,
+            "request_started_offset_ms": 5073.118,
+            "http_status": 200,
+            "request_completed_offset_ms": 6030.922,
+            "raw_content_sha256": "02e3031be65d468b3e7e5a4a170ffd8ef8343629968fc272766ebeac1dd95345",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-003",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DC.employer_contribution"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "88650aad6816b279e0fe7ea7357e54b464de6deecb01c17bb42b10eed4f3734d",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6470,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5146.52,
+        "request_started_offset_ms": 5146.613,
+        "http_status": 200,
+        "request_completed_offset_ms": 5975.812,
+        "raw_content_sha256": "674238d7c2341a931d3a51855d7a8871ced30a43da2d36ec0b91a7d4181655d5",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6470,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5146.52,
+            "request_started_offset_ms": 5146.613,
+            "http_status": 200,
+            "request_completed_offset_ms": 5975.812,
+            "raw_content_sha256": "674238d7c2341a931d3a51855d7a8871ced30a43da2d36ec0b91a7d4181655d5",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-004",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "pension_savings.tax_credit.limit",
+        "pension_savings_IRP.tax_credit.combined_limit"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "bc8849d725d0fb0ab453174b6e719af756bc834234903369faaa4698bc034257",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6455,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5274.14,
+        "request_started_offset_ms": 5274.264,
+        "http_status": 200,
+        "request_completed_offset_ms": 6454.642,
+        "raw_content_sha256": "572c49545adf8d48dd5946a2dfc738615f14d08899fe7698eb23937d12f4450a",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6455,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5274.14,
+            "request_started_offset_ms": 5274.264,
+            "http_status": 200,
+            "request_completed_offset_ms": 6454.642,
+            "raw_content_sha256": "572c49545adf8d48dd5946a2dfc738615f14d08899fe7698eb23937d12f4450a",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-005",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "ISA.transfer.additional_tax_credit",
+        "ISA.transfer.deadline"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "2c2c387d3582bfde7273b40998409db141519086327a8438c9c4d3d364e2cb67",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6476,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4923.99,
+        "request_started_offset_ms": 4924.086,
+        "http_status": 200,
+        "request_completed_offset_ms": 5907.037,
+        "raw_content_sha256": "3feb6c0f42f49e15a9ba2e84b36b253235952b1e1639906a8e3d7da1de02a42e",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6476,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4923.99,
+            "request_started_offset_ms": 4924.086,
+            "http_status": 200,
+            "request_completed_offset_ms": 5907.037,
+            "raw_content_sha256": "3feb6c0f42f49e15a9ba2e84b36b253235952b1e1639906a8e3d7da1de02a42e",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-006",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "ccc4344ad44553e3db6308fa17362eec8c522a22d597be35f1b0fcd14e32be75",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6469,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5118.48,
+        "request_started_offset_ms": 5118.596,
+        "http_status": 200,
+        "request_completed_offset_ms": 5942.082,
+        "raw_content_sha256": "f23465ba8ffef2f4812df7e31b3da078392bfa992da1fa0551cbcac30aa9b61c",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6469,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5118.48,
+            "request_started_offset_ms": 5118.596,
+            "http_status": 200,
+            "request_completed_offset_ms": 5942.082,
+            "raw_content_sha256": "f23465ba8ffef2f4812df7e31b3da078392bfa992da1fa0551cbcac30aa9b61c",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-007",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "DC.early_withdrawal.allowed_reasons",
+        "DC.early_withdrawal.required_documents"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "b11f579c5e0bd2d2afe64fc445235d52f7417fbaf8774ebaeaddf81c903170e1",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6458,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5280.938,
+        "request_started_offset_ms": 5281.028,
+        "http_status": 200,
+        "request_completed_offset_ms": 6258.755,
+        "raw_content_sha256": "b2bb3746879a8a46cf3423f9abc3445e9b707539746a95e76cd16654274d79ae",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6458,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5280.938,
+            "request_started_offset_ms": 5281.028,
+            "http_status": 200,
+            "request_completed_offset_ms": 6258.755,
+            "raw_content_sha256": "b2bb3746879a8a46cf3423f9abc3445e9b707539746a95e76cd16654274d79ae",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-008",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "retirement_pension.in_kind_transfer.DB_DC.application_route",
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "d448c8fbab161380344edf97f7ec169fc5c77845a6a86dc874e5d527ca488c10",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6493,
+        "lexical_normalization_applied": true,
+        "rate_limit_wait_ms": 5125.858,
+        "request_started_offset_ms": 5125.967,
+        "http_status": 200,
+        "request_completed_offset_ms": 6186.079,
+        "raw_content_sha256": "4825731bcf50d777f990e17166a6f9bfe72eb9f6e3f53f458ac500d7c7520cbc",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6493,
+            "lexical_normalization_applied": true,
+            "rate_limit_wait_ms": 5125.858,
+            "request_started_offset_ms": 5125.967,
+            "http_status": 200,
+            "request_completed_offset_ms": 6186.079,
+            "raw_content_sha256": "4825731bcf50d777f990e17166a6f9bfe72eb9f6e3f53f458ac500d7c7520cbc",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-009",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "8f4e929d3bb13daf3f4407cafd228b28b7ed83d25a64e8e1d1ef2b667f3b5847",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6462,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5043.469,
+        "request_started_offset_ms": 5043.632,
+        "http_status": 200,
+        "request_completed_offset_ms": 6097.662,
+        "raw_content_sha256": "36e22eed078d852b0f8896c7c72f63248103d65c8c0b07514280ddf319da52c3",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6462,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5043.469,
+            "request_started_offset_ms": 5043.632,
+            "http_status": 200,
+            "request_completed_offset_ms": 6097.662,
+            "raw_content_sha256": "36e22eed078d852b0f8896c7c72f63248103d65c8c0b07514280ddf319da52c3",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-010",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "general_account.investment_income.tax_timing",
+        "pension_account.investment_income.not_tax_exempt",
+        "pension_account.investment_income.tax_timing"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "194f1f4fb4c6e1d7067459371f96e1d0b7147e5a1e2e948905be063205af793a",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6511,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5048.679,
+        "request_started_offset_ms": 5048.803,
+        "http_status": 200,
+        "request_completed_offset_ms": 6317.105,
+        "raw_content_sha256": "8fdf5753b7a3c82d10bc6d57a2cc5d24e2227339afa5051efe8d8f87b00579a6",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6511,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5048.679,
+            "request_started_offset_ms": 5048.803,
+            "http_status": 200,
+            "request_completed_offset_ms": 6317.105,
+            "raw_content_sha256": "8fdf5753b7a3c82d10bc6d57a2cc5d24e2227339afa5051efe8d8f87b00579a6",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-011",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "pension_account.account_closure.condition",
+        "pension_account.account_closure.tax_treatment",
+        "pension_account.partial_withdrawal.condition",
+        "pension_account.partial_withdrawal.tax_treatment"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "cad8d835a66d99b92f33d621c1cf1d0df52f1b36a0286053a7db61e5920c9c0f",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6489,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4831.25,
+        "request_started_offset_ms": 4831.378,
+        "http_status": 200,
+        "request_completed_offset_ms": 6111.724,
+        "raw_content_sha256": "f42bd5d55321cc177236ebb2cf15198bd034c4023e59a027c06a052d29e26dff",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6489,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4831.25,
+            "request_started_offset_ms": 4831.378,
+            "http_status": 200,
+            "request_completed_offset_ms": 6111.724,
+            "raw_content_sha256": "f42bd5d55321cc177236ebb2cf15198bd034c4023e59a027c06a052d29e26dff",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-012",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "retirement_pension.ETF.direct_trade_scope",
+        "retirement_pension.ETF.leverage_inverse_restriction"
+      ],
+      "resolved_product_codes": [],
+      "unresolved": false,
+      "output_hash": "29a0d2f1884542f90b9868f9f58952f5c52e6522dd0b22ca6de0d1799617cf67",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6484,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 4819.978,
+        "request_started_offset_ms": 4820.104,
+        "http_status": 200,
+        "request_completed_offset_ms": 5897.681,
+        "raw_content_sha256": "415369539164f84b7c5d30eebd7d2ff71efee54b65a331788b5ecefbe7cba350",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6484,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 4819.978,
+            "request_started_offset_ms": 4820.104,
+            "http_status": 200,
+            "request_completed_offset_ms": 5897.681,
+            "raw_content_sha256": "415369539164f84b7c5d30eebd7d2ff71efee54b65a331788b5ecefbe7cba350",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-013",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.risk_grade.change_possibility",
+        "product.risk_grade.current"
+      ],
+      "resolved_product_codes": [
+        "KR510902773M"
+      ],
+      "unresolved": false,
+      "output_hash": "129fc28ad0dc3531cbcd5fff1b2b6ab7e3777ca80cea89311da274fc77c8869d",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6467,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5024.141,
+        "request_started_offset_ms": 5024.271,
+        "http_status": 200,
+        "request_completed_offset_ms": 5994.423,
+        "raw_content_sha256": "25a49799cf02dc00b73e4ace6c3d61a6ed17b10718a3babb93a17d0f3d4f0ce6",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6467,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5024.141,
+            "request_started_offset_ms": 5024.271,
+            "http_status": 200,
+            "request_completed_offset_ms": 5994.423,
+            "raw_content_sha256": "25a49799cf02dc00b73e4ace6c3d61a6ed17b10718a3babb93a17d0f3d4f0ce6",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-014",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.equity_allocation_limit",
+        "product.tracking_index"
+      ],
+      "resolved_product_codes": [
+        "KR5127450215"
+      ],
+      "unresolved": false,
+      "output_hash": "05300e8227c227f921cd0826935bce16b36dafc50827216053d846f37db80982",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6451,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5130.8,
+        "request_started_offset_ms": 5130.898,
+        "http_status": 200,
+        "request_completed_offset_ms": 6048.652,
+        "raw_content_sha256": "a3d1a1057f6dac299d0763ca291dbd99d830d4d3a7a25012eb5e2bba2298c907",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6451,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5130.8,
+            "request_started_offset_ms": 5130.898,
+            "http_status": 200,
+            "request_completed_offset_ms": 6048.652,
+            "raw_content_sha256": "a3d1a1057f6dac299d0763ca291dbd99d830d4d3a7a25012eb5e2bba2298c907",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-015",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.period_cost",
+        "product.total_fee"
+      ],
+      "resolved_product_codes": [
+        "KR510902773M"
+      ],
+      "unresolved": false,
+      "output_hash": "d1c3fc78cf8ea898f16d573e0b0f614e55e2601bba276bd26bfd995089225b92",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6445,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5186.219,
+        "request_started_offset_ms": 5186.327,
+        "http_status": 200,
+        "request_completed_offset_ms": 6140.944,
+        "raw_content_sha256": "2944199374633db65fc0afa411e4169cc65e7efccaa599f8012f5bebb8554706",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6445,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5186.219,
+            "request_started_offset_ms": 5186.327,
+            "http_status": 200,
+            "request_completed_offset_ms": 6140.944,
+            "raw_content_sha256": "2944199374633db65fc0afa411e4169cc65e7efccaa599f8012f5bebb8554706",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-016",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "resolved_product_codes": [
+        "KR5114420022",
+        "KR5114450222"
+      ],
+      "unresolved": false,
+      "output_hash": "2757f88c2528abf51dc40e151452d0907a6928b43ba2bb0018690e42ad30c5e6",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6444,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5147.64,
+        "request_started_offset_ms": 5147.731,
+        "http_status": 200,
+        "request_completed_offset_ms": 6075.38,
+        "raw_content_sha256": "620a277d7fb48bedcae5678585efeaf48f8dc9cb2ff4f3b676e1f7e513a65db2",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6444,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5147.64,
+            "request_started_offset_ms": 5147.731,
+            "http_status": 200,
+            "request_completed_offset_ms": 6075.38,
+            "raw_content_sha256": "620a277d7fb48bedcae5678585efeaf48f8dc9cb2ff4f3b676e1f7e513a65db2",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-017",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.historical"
+      ],
+      "resolved_product_codes": [
+        "KR5120420039",
+        "KR5120420091"
+      ],
+      "unresolved": false,
+      "output_hash": "1b503bf267364c34d79dc8b8501c325b381af2a00ab4d991eb8602b0faa5e0df",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6459,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5175.048,
+        "request_started_offset_ms": 5175.211,
+        "http_status": 200,
+        "request_completed_offset_ms": 6167.943,
+        "raw_content_sha256": "10908859382a69812570282667351ecdd9503e7f5361e47ca7a41e063696fb81",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6459,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5175.048,
+            "request_started_offset_ms": 5175.211,
+            "http_status": 200,
+            "request_completed_offset_ms": 6167.943,
+            "raw_content_sha256": "10908859382a69812570282667351ecdd9503e7f5361e47ca7a41e063696fb81",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    },
+    {
+      "id": "P39-3-018",
+      "schema_valid": true,
+      "ontology_valid": true,
+      "selected_requirements": [
+        "product.risk_grade.current"
+      ],
+      "resolved_product_codes": [
+        "KR5114420022",
+        "KR5114450222"
+      ],
+      "unresolved": false,
+      "output_hash": "2757f88c2528abf51dc40e151452d0907a6928b43ba2bb0018690e42ad30c5e6",
+      "unknown_requirements": [],
+      "diagnostic": {
+        "attempt": 1,
+        "request_payload_bytes": 6461,
+        "lexical_normalization_applied": false,
+        "rate_limit_wait_ms": 5111.218,
+        "request_started_offset_ms": 5111.334,
+        "http_status": 200,
+        "request_completed_offset_ms": 5966.457,
+        "raw_content_sha256": "15113e8c6ab3c9cc17f2c476c855c88c56a2ccd011a42c41b34821b9b68a0e9a",
+        "attempts": [
+          {
+            "attempt": 1,
+            "request_payload_bytes": 6461,
+            "lexical_normalization_applied": false,
+            "rate_limit_wait_ms": 5111.218,
+            "request_started_offset_ms": 5111.334,
+            "http_status": 200,
+            "request_completed_offset_ms": 5966.457,
+            "raw_content_sha256": "15113e8c6ab3c9cc17f2c476c855c88c56a2ccd011a42c41b34821b9b68a0e9a",
+            "outcome": "success"
+          }
+        ],
+        "unknown_requirements": []
+      }
+    }
+  ]
+}

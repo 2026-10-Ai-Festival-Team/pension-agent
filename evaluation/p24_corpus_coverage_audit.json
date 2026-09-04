@@ -1,0 +1,258 @@
+{
+  "audit": "P24-A corpus coverage audit",
+  "scope": [
+    "R-010",
+    "R-024",
+    "R-028",
+    "R-037"
+  ],
+  "method": "raw source -> parsed corpus -> P22 candidate/selected evidence; no HCX call",
+  "owner_counts": {
+    "evidence_matcher": 2,
+    "parsing_or_ocr_gap": 0,
+    "retrieval_recall": 2,
+    "selection": 0,
+    "true_data_gap": 0
+  },
+  "records": [
+    {
+      "question_id": "R-010",
+      "source": {
+        "relative_path": "docs_renamed/doc20.docx",
+        "format": "docx",
+        "raw_file_found": true,
+        "raw_pages_checked": [],
+        "native_text_terms_found": {
+          "연금외수령": true,
+          "기타소득세": true,
+          "부득이한 사유": true
+        }
+      },
+      "corpus": {
+        "required_chunk_ids": [
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+          "e8d7e6a69504e042-table-05de077f1213"
+        ],
+        "required_chunks_found": {
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec": true,
+          "e8d7e6a69504e042-table-05de077f1213": true
+        }
+      },
+      "p22_retrieval": {
+        "candidate_chunk_ids": [
+          "55f36905c388adb6-table-aaec2abb0a55",
+          "37adcdadd2f3f902-table-08a7c9924f4f",
+          "545de7c663ff2726-table-04ce37349669",
+          "f24a347b7c7a170c-table-0238e1315fc4",
+          "ed9a44f422ed81cc-table-da00c576e08b",
+          "fecffc9866eb7cca-table-04493f5a9dba",
+          "dbf5c74748e751a9-table-c1a858c273a1",
+          "fba2a2502fc335a4-table-54d125ef4a99",
+          "c249bf0050445a4a-table-05a85dfb95c6",
+          "745f9a08e811b6b1-table-5b26881cf7ac"
+        ],
+        "selected_merged_evidence_ids": [
+          "37adcdadd2f3f902-table-08a7c9924f4f",
+          "55f36905c388adb6-table-aaec2abb0a55"
+        ],
+        "semantic_candidate_ids": [
+          "37adcdadd2f3f902-table-08a7c9924f4f"
+        ],
+        "semantic_candidates_in_p22": {
+          "37adcdadd2f3f902-table-08a7c9924f4f": true
+        },
+        "semantic_candidates_cover_all_requirements": true,
+        "selected_support_ids": [
+          "37adcdadd2f3f902-table-08a7c9924f4f"
+        ],
+        "selected_support_in_p22": {
+          "37adcdadd2f3f902-table-08a7c9924f4f": true
+        },
+        "missing_requirement_slots": [
+          "해지 과세 예외"
+        ]
+      },
+      "primary_owner": "evidence_matcher",
+      "finding": "The selected table expresses the exception as '부득이한 연금외수령 사유', while the slot required the narrower phrase '해지' + '부득이한 사유'."
+    },
+    {
+      "question_id": "R-024",
+      "source": {
+        "relative_path": "투자설명서/KR5144420081/R2_KR5144420081.pdf",
+        "format": "pdf",
+        "raw_file_found": true,
+        "raw_pages_checked": [
+          1,
+          5
+        ],
+        "native_text_terms_found": {
+          "4등급": true,
+          "보통 위험": true,
+          "미국 달러화로 표시되는 채권": true
+        }
+      },
+      "corpus": {
+        "required_chunk_ids": [
+          "42226bacb5f3829a-paragraph_group-7dbc09f70d2b",
+          "42226bacb5f3829a-table-5d852ad4c548"
+        ],
+        "required_chunks_found": {
+          "42226bacb5f3829a-paragraph_group-7dbc09f70d2b": true,
+          "42226bacb5f3829a-table-5d852ad4c548": true
+        }
+      },
+      "p22_retrieval": {
+        "candidate_chunk_ids": [
+          "42226bacb5f3829a-table-fbb4c956b5ed",
+          "42226bacb5f3829a-table-e186cdf5d835",
+          "42226bacb5f3829a-paragraph_group-78dd337a8d89",
+          "42226bacb5f3829a-table-99ab8a1a25a9",
+          "42226bacb5f3829a-paragraph_group-3412b1bd6c8b",
+          "42226bacb5f3829a-paragraph_group-74d6c6d29299",
+          "42226bacb5f3829a-paragraph_group-0f3c48de2259",
+          "42226bacb5f3829a-paragraph_group-776f618a0f93",
+          "42226bacb5f3829a-paragraph_group-180a3a930ea8",
+          "42226bacb5f3829a-paragraph_group-0902c2ef52af",
+          "42226bacb5f3829a-paragraph_group-f1c1e9cb58f5",
+          "42226bacb5f3829a-paragraph_group-e2957c701d49",
+          "42226bacb5f3829a-table-9748bbdce95b",
+          "42226bacb5f3829a-table-bfb8366cb303"
+        ],
+        "selected_merged_evidence_ids": [
+          "42226bacb5f3829a-table-9748bbdce95b"
+        ],
+        "semantic_candidate_ids": [
+          "42226bacb5f3829a-table-9748bbdce95b"
+        ],
+        "semantic_candidates_in_p22": {
+          "42226bacb5f3829a-table-9748bbdce95b": true
+        },
+        "semantic_candidates_cover_all_requirements": false,
+        "selected_support_ids": [
+          "42226bacb5f3829a-table-9748bbdce95b"
+        ],
+        "selected_support_in_p22": {
+          "42226bacb5f3829a-table-9748bbdce95b": true
+        },
+        "missing_requirement_slots": [
+          "KR5144420081 risk_grade"
+        ]
+      },
+      "primary_owner": "retrieval_recall",
+      "finding": "Investment target was selected, but the direct risk-grade chunk was absent from the P22 candidate set."
+    },
+    {
+      "question_id": "R-028",
+      "source": {
+        "relative_path": "투자설명서/KR510902511M/R2_KR510902511M.pdf",
+        "format": "pdf",
+        "raw_file_found": true,
+        "raw_pages_checked": [
+          17
+        ],
+        "native_text_terms_found": {
+          "장기성장주": true,
+          "국내 주식": true,
+          "운용 전략": true
+        }
+      },
+      "corpus": {
+        "required_chunk_ids": [
+          "ac97d050d2b39ec2-paragraph_group-b89270097331"
+        ],
+        "required_chunks_found": {
+          "ac97d050d2b39ec2-paragraph_group-b89270097331": true
+        }
+      },
+      "p22_retrieval": {
+        "candidate_chunk_ids": [
+          "ac97d050d2b39ec2-table-3d0698ba3c6a",
+          "ac97d050d2b39ec2-table-8153bebfab3c",
+          "ac97d050d2b39ec2-paragraph_group-a0d335ee1c31",
+          "ac97d050d2b39ec2-table-bf0a1417c40b",
+          "ac97d050d2b39ec2-table-fe724dd8f9fb",
+          "ac97d050d2b39ec2-paragraph_group-9091aadd06a9",
+          "ac97d050d2b39ec2-table-557cc72c3eac",
+          "ac97d050d2b39ec2-table-a31d7f762bad",
+          "ac97d050d2b39ec2-paragraph_group-968001528330",
+          "ac97d050d2b39ec2-table-ef5d1542c398",
+          "ac97d050d2b39ec2-table-fdab853f4031",
+          "ac97d050d2b39ec2-paragraph_group-b33458a2561e",
+          "ac97d050d2b39ec2-table-86cfee5adb19"
+        ],
+        "selected_merged_evidence_ids": [
+          "ac97d050d2b39ec2-table-fdab853f4031"
+        ],
+        "semantic_candidate_ids": [
+          "ac97d050d2b39ec2-table-fdab853f4031"
+        ],
+        "semantic_candidates_in_p22": {
+          "ac97d050d2b39ec2-table-fdab853f4031": true
+        },
+        "semantic_candidates_cover_all_requirements": true,
+        "selected_support_ids": [
+          "ac97d050d2b39ec2-table-fdab853f4031"
+        ],
+        "selected_support_in_p22": {
+          "ac97d050d2b39ec2-table-fdab853f4031": true
+        },
+        "missing_requirement_slots": [
+          "KR510902511M investment_target"
+        ]
+      },
+      "primary_owner": "evidence_matcher",
+      "finding": "A selected semantic-equivalent chunk contains both the domestic-stock target and strategy, but it lacks the literal '투자대상' field label required by the matcher."
+    },
+    {
+      "question_id": "R-037",
+      "source": {
+        "relative_path": "docs_renamed/doc11.pdf",
+        "format": "pdf",
+        "raw_file_found": true,
+        "raw_pages_checked": [
+          1
+        ],
+        "native_text_terms_found": {
+          "DB제도": true,
+          "DC제도": true,
+          "적립금 운용 주체": true,
+          "근로자": true
+        }
+      },
+      "corpus": {
+        "required_chunk_ids": [
+          "4607500e74afcdf8-table-6f164502cbce"
+        ],
+        "required_chunks_found": {
+          "4607500e74afcdf8-table-6f164502cbce": true
+        }
+      },
+      "p22_retrieval": {
+        "candidate_chunk_ids": [
+          "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+          "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+          "2ce564b5ddde4f21-paragraph_group-22a1d60f3e3d",
+          "2ce564b5ddde4f21-table-899cb955b4a1",
+          "2ce564b5ddde4f21-paragraph_group-502bae338bd5",
+          "2ce564b5ddde4f21-table-df602195ef06",
+          "2ce564b5ddde4f21-paragraph_group-21a528a0c5f6",
+          "04782a392f49293e-paragraph_group-b263be8e0a1c",
+          "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+          "7878a3be5806fef4-paragraph_group-4db22464421b"
+        ],
+        "selected_merged_evidence_ids": [],
+        "semantic_candidate_ids": [],
+        "semantic_candidates_in_p22": {},
+        "semantic_candidates_cover_all_requirements": false,
+        "selected_support_ids": [],
+        "selected_support_in_p22": {},
+        "missing_requirement_slots": [
+          "DB 적립금 운용",
+          "DC 적립금 운용"
+        ]
+      },
+      "primary_owner": "retrieval_recall",
+      "finding": "The DB/DC operation comparison table exists in source and corpus but no semantic equivalent entered the P22 candidate set."
+    }
+  ]
+}

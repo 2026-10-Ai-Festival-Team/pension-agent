@@ -1,0 +1,771 @@
+{
+  "experiment": "P43 Front-End Preparation Shadow",
+  "inputs": {
+    "p42_frozen_output": "evaluation/p42_final_frontend_holdout.json",
+    "corpus": "data/parsed/chunks.jsonl",
+    "index": "data/indexes/bm25/simple"
+  },
+  "boundary": "preparation-only; no new frontend output reaches answer generation",
+  "summary": {
+    "question_count": 18,
+    "frontend_prepared": 14,
+    "frontend_unresolved_scope": 4,
+    "frontend_contract_errors": 0,
+    "context_divergences": 18,
+    "legacy_evidence_sufficient": 17,
+    "hcx_calls": 0,
+    "candidate_agent_changed": false,
+    "browser_changed": false
+  },
+  "rows": [
+    {
+      "id": "P42-001",
+      "question": "KR510902773M과 KR5127450215 가운데 후자가 추종하는 기준지수는 무엇인가요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "product:KR5127450215",
+      "frontend_requirements": [
+        "product.tracking_index"
+      ],
+      "frontend_requirement_candidates": {
+        "product.tracking_index": [
+          "8297231e70bc792a-paragraph_group-7ecf4273221c",
+          "8297231e70bc792a-paragraph_group-945cc5a3a4d7"
+        ]
+      },
+      "frontend_context_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c",
+        "8297231e70bc792a-paragraph_group-945cc5a3a4d7"
+      ],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [],
+      "legacy_context_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c",
+        "8297231e70bc792a-paragraph_group-d2e006f7202a",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90",
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976"
+      ],
+      "legacy_evidence_sufficient": false,
+      "context_overlap_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c"
+      ],
+      "legacy_only_context_ids": [
+        "8297231e70bc792a-paragraph_group-3a0f5f4a5976",
+        "8297231e70bc792a-paragraph_group-d2e006f7202a",
+        "8297231e70bc792a-paragraph_group-e6762d54cdec",
+        "8297231e70bc792a-table-d76e8932cd90"
+      ],
+      "frontend_only_context_ids": [
+        "8297231e70bc792a-paragraph_group-945cc5a3a4d7"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-002",
+      "question": "KR5114420022와 KR5114450222 중 전자의 연간 총보수율을 알려주세요.",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "product:KR5114420022",
+      "frontend_requirements": [
+        "product.total_fee"
+      ],
+      "frontend_requirement_candidates": {
+        "product.total_fee": [
+          "f24a347b7c7a170c-table-976297acc5c3",
+          "f24a347b7c7a170c-paragraph_group-b4dbdb7c37cd"
+        ]
+      },
+      "frontend_context_ids": [
+        "f24a347b7c7a170c-table-976297acc5c3",
+        "f24a347b7c7a170c-paragraph_group-b4dbdb7c37cd"
+      ],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "KR5114420022:total_fee",
+        "KR5114450222:total_fee"
+      ],
+      "legacy_context_ids": [
+        "f24a347b7c7a170c-paragraph_group-55712934ceb5",
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287",
+        "f24a347b7c7a170c-paragraph_group-55712934ceb5"
+      ],
+      "frontend_only_context_ids": [
+        "f24a347b7c7a170c-paragraph_group-b4dbdb7c37cd",
+        "f24a347b7c7a170c-table-976297acc5c3"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-003",
+      "question": "KR5127450215, KR510902773M, KR5114450222를 순서대로 적었을 때 마지막 상품의 현재 위험등급과 등급 변경 가능성을 각각 알려주세요.",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "product:KR5114450222",
+      "frontend_requirements": [
+        "product.risk_grade.change_possibility",
+        "product.risk_grade.current"
+      ],
+      "frontend_requirement_candidates": {
+        "product.risk_grade.change_possibility": [
+          "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+          "545de7c663ff2726-table-0b26f6286e7d"
+        ],
+        "product.risk_grade.current": [
+          "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+          "545de7c663ff2726-paragraph_group-150e75283733"
+        ]
+      },
+      "frontend_context_ids": [
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6",
+        "545de7c663ff2726-table-0b26f6286e7d",
+        "545de7c663ff2726-paragraph_group-150e75283733"
+      ],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "KR5127450215:risk_grade",
+        "KR510902773M:risk_grade",
+        "KR5114450222:risk_grade"
+      ],
+      "legacy_context_ids": [
+        "8297231e70bc792a-table-2114705787fe",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+      ],
+      "legacy_only_context_ids": [
+        "8297231e70bc792a-table-2114705787fe",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "frontend_only_context_ids": [
+        "545de7c663ff2726-paragraph_group-150e75283733",
+        "545de7c663ff2726-table-0b26f6286e7d"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-004",
+      "question": "DB와 달리 적립금 운용 성과에 따라 퇴직급여가 달라지는 쪽의 급여 결정 방식은 무엇인가요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "DC",
+      "frontend_requirements": [
+        "DC.benefit_determination"
+      ],
+      "frontend_requirement_candidates": {
+        "DC.benefit_determination": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "ef05c9c97fbadd27-table-6cb74dcb5e83"
+        ]
+      },
+      "frontend_context_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83"
+      ],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [],
+      "legacy_context_ids": [
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "legacy_only_context_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "fc71bcf7cc90f68d-paragraph_group-72acff87b157"
+      ],
+      "frontend_only_context_ids": [
+        "ef05c9c97fbadd27-table-6cb74dcb5e83"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-005",
+      "question": "연금저축과 IRP를 차례대로 말했을 때 두 번째 계좌에서 연금수령 전 인출이 허용되는 사유와 인출 세금 처리를 알려주세요.",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "IRP",
+      "frontend_requirements": [
+        "IRP.early_withdrawal.allowed_reasons",
+        "IRP.withdrawal.tax_treatment"
+      ],
+      "frontend_requirement_candidates": {
+        "IRP.early_withdrawal.allowed_reasons": [
+          "e8d7e6a69504e042-table-e07c4f8c5781",
+          "e8d7e6a69504e042-table-05de077f1213"
+        ],
+        "IRP.withdrawal.tax_treatment": [
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+          "e8d7e6a69504e042-table-05de077f1213"
+        ]
+      },
+      "frontend_context_ids": [
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+        "e8d7e6a69504e042-table-05de077f1213"
+      ],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "pension_savings_withdrawal_scope",
+        "irp_withdrawal_legal_grounds_comparison",
+        "account_withdrawal_tax_treatment"
+      ],
+      "legacy_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "legacy_only_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717"
+      ],
+      "frontend_only_context_ids": [
+        "e8d7e6a69504e042-table-05de077f1213"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-006",
+      "question": "연금저축 계좌에서는 이 계좌를 연금으로 받기 전 인출할 수 있는 조건과 세금이 어떻게 되나요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "pension_savings",
+      "frontend_requirements": [
+        "pension_savings.early_withdrawal.allowed_reasons",
+        "pension_savings.withdrawal.tax_treatment"
+      ],
+      "frontend_requirement_candidates": {
+        "pension_savings.early_withdrawal.allowed_reasons": [
+          "a1e78e21d33dafed-table-e9ba0606db15",
+          "e8d7e6a69504e042-table-05de077f1213"
+        ],
+        "pension_savings.withdrawal.tax_treatment": [
+          "e8d7e6a69504e042-table-05de077f1213",
+          "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+        ]
+      },
+      "frontend_context_ids": [
+        "a1e78e21d33dafed-table-e9ba0606db15",
+        "e8d7e6a69504e042-table-05de077f1213",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [],
+      "legacy_context_ids": [
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "7878a3be5806fef4-paragraph_group-d24f4b2854ed",
+        "93b9b09c57458c3b-paragraph_group-d4425ff56ac8",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699"
+      ],
+      "frontend_only_context_ids": [
+        "a1e78e21d33dafed-table-e9ba0606db15",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec",
+        "e8d7e6a69504e042-table-05de077f1213"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-007",
+      "question": "DC형 가입자가 퇴직 전 적립금을 일부 꺼내려는 경우, 인정 사유와 증빙 서류를 모두 확인해야 하나요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "DC",
+      "frontend_requirements": [
+        "DC.early_withdrawal.allowed_reasons",
+        "DC.early_withdrawal.required_documents"
+      ],
+      "frontend_requirement_candidates": {
+        "DC.early_withdrawal.allowed_reasons": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ],
+        "DC.early_withdrawal.required_documents": [
+          "04782a392f49293e-paragraph_group-4390ad8476e5",
+          "15fb5460a23aa10d-paragraph_group-9b55ec13ba82"
+        ]
+      },
+      "frontend_context_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "04782a392f49293e-paragraph_group-4390ad8476e5",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "15fb5460a23aa10d-paragraph_group-9b55ec13ba82"
+      ],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [],
+      "legacy_context_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "04782a392f49293e-paragraph_group-09adcb298a6f"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "04782a392f49293e-paragraph_group-37b3740ca9e9",
+        "04782a392f49293e-paragraph_group-5ab22c46ff7c",
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699"
+      ],
+      "frontend_only_context_ids": [
+        "04782a392f49293e-paragraph_group-4390ad8476e5",
+        "15fb5460a23aa10d-paragraph_group-9b55ec13ba82",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-008",
+      "question": "ISA가 끝난 뒤 이 계좌 자금을 연금계좌로 옮기면 언제까지 이전해야 하고 추가 세액공제는 어떤 방식으로 계산되나요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "ISA",
+      "frontend_requirements": [
+        "ISA.transfer.additional_tax_credit",
+        "ISA.transfer.deadline"
+      ],
+      "frontend_requirement_candidates": {
+        "ISA.transfer.additional_tax_credit": [
+          "ae22159be59440b6-table-433001f3f808",
+          "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1"
+        ],
+        "ISA.transfer.deadline": [
+          "ae22159be59440b6-table-5897a6d84778",
+          "ae22159be59440b6-paragraph_group-edb7af982168"
+        ]
+      },
+      "frontend_context_ids": [
+        "ae22159be59440b6-table-433001f3f808",
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "ae22159be59440b6-paragraph_group-edb7af982168"
+      ],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "isa_transfer_deadline",
+        "isa_transfer_additional_tax_credit"
+      ],
+      "legacy_context_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "5a8516a0215f8754-slide-bbf8ab17ae0d"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "ae22159be59440b6-table-5897a6d84778"
+      ],
+      "legacy_only_context_ids": [
+        "5a8516a0215f8754-slide-bbf8ab17ae0d"
+      ],
+      "frontend_only_context_ids": [
+        "ae22159be59440b6-paragraph_group-ec1f3e9c5bc1",
+        "ae22159be59440b6-paragraph_group-edb7af982168",
+        "ae22159be59440b6-table-433001f3f808"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-009",
+      "question": "DC형 가입자 교육은 최소 실시 주기가 어떻게 되고, 해당 교육을 외부 기관에 위탁할 수 있나요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "DC",
+      "frontend_requirements": [
+        "DC.benefit_determination",
+        "retirement_pension.participant_education.frequency",
+        "retirement_pension.participant_education.outsourcing"
+      ],
+      "frontend_requirement_candidates": {
+        "DC.benefit_determination": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "ef05c9c97fbadd27-table-6cb74dcb5e83"
+        ],
+        "retirement_pension.participant_education.frequency": [
+          "ae713c70a631594f-table-800a3663c3f6",
+          "ae713c70a631594f-paragraph_group-b665fce408b0"
+        ],
+        "retirement_pension.participant_education.outsourcing": [
+          "ae713c70a631594f-table-800a3663c3f6",
+          "ae713c70a631594f-paragraph_group-b665fce408b0"
+        ]
+      },
+      "frontend_context_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ae713c70a631594f-table-800a3663c3f6",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83",
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "education_provider",
+        "education_frequency",
+        "education_outsourcing"
+      ],
+      "legacy_context_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "ae713c70a631594f-paragraph_group-b665fce408b0"
+      ],
+      "legacy_only_context_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-fd1124e92346"
+      ],
+      "frontend_only_context_ids": [
+        "4607500e74afcdf8-table-6f164502cbce",
+        "ae713c70a631594f-table-800a3663c3f6",
+        "ef05c9c97fbadd27-table-6cb74dcb5e83"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-010",
+      "question": "KR5114450222와 KR510902773M 중 전자를 3년 보유한다고 볼 때 비용 예시 금액은 얼마인가요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "product:KR5114450222",
+      "frontend_requirements": [
+        "product.period_cost"
+      ],
+      "frontend_requirement_candidates": {
+        "product.period_cost": [
+          "545de7c663ff2726-table-c23d15637943",
+          "545de7c663ff2726-paragraph_group-10110248f7f2"
+        ]
+      },
+      "frontend_context_ids": [
+        "545de7c663ff2726-table-c23d15637943",
+        "545de7c663ff2726-paragraph_group-10110248f7f2"
+      ],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "KR5114450222:example_cost",
+        "KR510902773M:example_cost"
+      ],
+      "legacy_context_ids": [
+        "545de7c663ff2726-paragraph_group-10110248f7f2",
+        "cf922cacac95fad9-paragraph_group-50171832b91f"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "545de7c663ff2726-paragraph_group-10110248f7f2"
+      ],
+      "legacy_only_context_ids": [
+        "cf922cacac95fad9-paragraph_group-50171832b91f"
+      ],
+      "frontend_only_context_ids": [
+        "545de7c663ff2726-table-c23d15637943"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-011",
+      "question": "IRP 가입자는 이 계좌의 실물이전 신청을 어디에서 진행하나요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "IRP",
+      "frontend_requirements": [
+        "retirement_pension.in_kind_transfer.IRP.application_route"
+      ],
+      "frontend_requirement_candidates": {
+        "retirement_pension.in_kind_transfer.IRP.application_route": [
+          "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+          "04782a392f49293e-paragraph_group-09adcb298a6f"
+        ]
+      },
+      "frontend_context_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466",
+        "04782a392f49293e-paragraph_group-09adcb298a6f"
+      ],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "in_kind_transfer_meaning",
+        "db_dc_in_kind_transfer_application",
+        "irp_in_kind_transfer_application"
+      ],
+      "legacy_context_ids": [
+        "0df8c3cfaf3a3b5a-spreadsheet_rows-41aa8c2e4790",
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "04782a392f49293e-paragraph_group-09adcb298a6f",
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "legacy_only_context_ids": [
+        "0df8c3cfaf3a3b5a-spreadsheet_rows-41aa8c2e4790"
+      ],
+      "frontend_only_context_ids": [],
+      "diverged": true
+    },
+    {
+      "id": "P42-012",
+      "question": "DB형에서는 적립금을 누가 운용하고 퇴직급여 금액은 어떤 방식으로 정해지나요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "DB",
+      "frontend_requirements": [
+        "DB.benefit_determination",
+        "DB.operation_party"
+      ],
+      "frontend_requirement_candidates": {
+        "DB.benefit_determination": [
+          "49ed30e0f7b42e68-table-0910adeedcae",
+          "fc71bcf7cc90f68d-table-fc470df2b580"
+        ],
+        "DB.operation_party": [
+          "4607500e74afcdf8-table-6f164502cbce",
+          "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+        ]
+      },
+      "frontend_context_ids": [
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "fc71bcf7cc90f68d-table-fc470df2b580",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [],
+      "legacy_context_ids": [
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce",
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "legacy_only_context_ids": [
+        "0a1c8fece530be69-paragraph_group-e55ae3e51f5f",
+        "61c5315b1e7c0f25-paragraph_group-46bf80f2eb31",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699"
+      ],
+      "frontend_only_context_ids": [
+        "49ed30e0f7b42e68-table-0910adeedcae",
+        "fc71bcf7cc90f68d-table-fc470df2b580"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-013",
+      "question": "KR5127450215의 현재 위험등급과 과거 위험등급 이력을 구분해서 알려주세요.",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "product:KR5127450215",
+      "frontend_requirements": [
+        "product.risk_grade.current",
+        "product.risk_grade.historical"
+      ],
+      "frontend_requirement_candidates": {
+        "product.risk_grade.current": [
+          "8297231e70bc792a-paragraph_group-462abaa9735c",
+          "8297231e70bc792a-table-2114705787fe"
+        ],
+        "product.risk_grade.historical": [
+          "8297231e70bc792a-paragraph_group-06a80bce2773",
+          "8297231e70bc792a-table-7051b9a2f3e0"
+        ]
+      },
+      "frontend_context_ids": [
+        "8297231e70bc792a-paragraph_group-462abaa9735c",
+        "8297231e70bc792a-paragraph_group-06a80bce2773",
+        "8297231e70bc792a-table-2114705787fe",
+        "8297231e70bc792a-table-7051b9a2f3e0"
+      ],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [
+        "KR5127450215:risk_grade"
+      ],
+      "legacy_context_ids": [
+        "8297231e70bc792a-table-2114705787fe"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [
+        "8297231e70bc792a-table-2114705787fe"
+      ],
+      "legacy_only_context_ids": [],
+      "frontend_only_context_ids": [
+        "8297231e70bc792a-paragraph_group-06a80bce2773",
+        "8297231e70bc792a-paragraph_group-462abaa9735c",
+        "8297231e70bc792a-table-7051b9a2f3e0"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-014",
+      "question": "퇴직급여를 IRP로 이체한 경우 이 계좌의 세금은 언제 과세되나요?",
+      "frontend_status": "prepared",
+      "frontend_active_subject": "IRP",
+      "frontend_requirements": [
+        "retirement_income.IRP_transfer.tax_timing"
+      ],
+      "frontend_requirement_candidates": {
+        "retirement_income.IRP_transfer.tax_timing": [
+          "55f36905c388adb6-table-aaec2abb0a55",
+          "7878a3be5806fef4-table-a3623398dbaa"
+        ]
+      },
+      "frontend_context_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [],
+      "legacy_context_ids": [
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1",
+        "4607500e74afcdf8-paragraph_group-45b428961c7a",
+        "04782a392f49293e-paragraph_group-aa7d8f27995b",
+        "68ed4316f0a6a16e-paragraph_group-514fde38e182",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "04782a392f49293e-paragraph_group-aa7d8f27995b",
+        "4607500e74afcdf8-paragraph_group-45b428961c7a",
+        "61c5315b1e7c0f25-paragraph_group-44168a2ba133",
+        "68ed4316f0a6a16e-paragraph_group-514fde38e182",
+        "ef05c9c97fbadd27-paragraph_group-789430c51fb1"
+      ],
+      "frontend_only_context_ids": [
+        "55f36905c388adb6-table-aaec2abb0a55",
+        "7878a3be5806fef4-table-a3623398dbaa"
+      ],
+      "diverged": true
+    },
+    {
+      "id": "P42-015",
+      "question": "KR5114420022와 KR510902773M을 함께 언급한 뒤 그 상품의 위험등급을 요청하면 어떤 상품을 뜻하나요?",
+      "frontend_status": "unresolved_scope",
+      "frontend_active_subject": null,
+      "frontend_requirements": [],
+      "frontend_requirement_candidates": {},
+      "frontend_context_ids": [],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "KR5114420022:risk_grade",
+        "KR510902773M:risk_grade"
+      ],
+      "legacy_context_ids": [
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c",
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c"
+      ],
+      "frontend_only_context_ids": [],
+      "diverged": true
+    },
+    {
+      "id": "P42-016",
+      "question": "연금저축과 IRP를 함께 놓고 해당 계좌의 중도인출 사유를 묻는다면 어느 계좌 기준인가요?",
+      "frontend_status": "unresolved_scope",
+      "frontend_active_subject": null,
+      "frontend_requirements": [],
+      "frontend_requirement_candidates": {},
+      "frontend_context_ids": [],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "pension_savings_withdrawal_scope",
+        "irp_withdrawal_legal_grounds_comparison"
+      ],
+      "legacy_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781"
+      ],
+      "frontend_only_context_ids": [],
+      "diverged": true
+    },
+    {
+      "id": "P42-017",
+      "question": "DB와 DC를 모두 말한 뒤 이 제도의 운용 주체를 물으면 어느 제도를 가리키나요?",
+      "frontend_status": "unresolved_scope",
+      "frontend_active_subject": null,
+      "frontend_requirements": [],
+      "frontend_requirement_candidates": {},
+      "frontend_context_ids": [],
+      "legacy_route": "simple",
+      "legacy_requirement_slots": [
+        "db_operation",
+        "dc_operation"
+      ],
+      "legacy_context_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "2ce564b5ddde4f21-paragraph_group-866cbf482ac1",
+        "2ce564b5ddde4f21-paragraph_group-fc907f93763a",
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "49ed30e0f7b42e68-paragraph_group-31b711d7c5c1",
+        "49ed30e0f7b42e68-paragraph_group-9dd9842bb428"
+      ],
+      "frontend_only_context_ids": [],
+      "diverged": true
+    },
+    {
+      "id": "P42-018",
+      "question": "KR5114450222와 KR5127450215를 말한 다음 그 유형의 총보수를 물으면 어느 상품 기준으로 답해야 하나요?",
+      "frontend_status": "unresolved_scope",
+      "frontend_active_subject": null,
+      "frontend_requirements": [],
+      "frontend_requirement_candidates": {},
+      "frontend_context_ids": [],
+      "legacy_route": "compound",
+      "legacy_requirement_slots": [
+        "KR5114450222:total_fee",
+        "KR5127450215:total_fee"
+      ],
+      "legacy_context_ids": [
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287",
+        "8297231e70bc792a-paragraph_group-8ef4ada87a1a"
+      ],
+      "legacy_evidence_sufficient": true,
+      "context_overlap_ids": [],
+      "legacy_only_context_ids": [
+        "545de7c663ff2726-paragraph_group-9f9f0a3b4287",
+        "8297231e70bc792a-paragraph_group-8ef4ada87a1a"
+      ],
+      "frontend_only_context_ids": [],
+      "diverged": true
+    }
+  ]
+}

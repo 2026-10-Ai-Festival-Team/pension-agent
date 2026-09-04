@@ -1,0 +1,228 @@
+{
+  "experiment": "P34-B current evidence revalidation",
+  "manifest_sha256": "9af34d000cd83b22abd3de3fa44fd4c4c2db5cb589ab5dea6c37245b2fd7e5ba",
+  "hcx_called": false,
+  "adjudication_rule": "subject + field + value/condition + account/product/system scope",
+  "summary": {
+    "total": 18,
+    "exact_gold": 13,
+    "semantic_equivalent": 5,
+    "partial": 0,
+    "wrong_scope": 0,
+    "needs_revalidation": 0,
+    "exact_or_equivalent": 18
+  },
+  "source_relevance_gate_pass": true,
+  "rows": [
+    {
+      "question_id": "P34-001",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "required_selected_chunks": [
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "requirements": [
+        {
+          "subject": "DB·DC 제도",
+          "field": "운용 주체·퇴직급여 산정·DC 부담금 구조",
+          "value_or_condition": "DB는 회사 운용·평균임금×계속근로기간, DC는 근로자 운용·부담금 누계액±운용손익",
+          "scope": "DB와 DC의 동일 제도 비교표"
+        }
+      ]
+    },
+    {
+      "question_id": "P34-002",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "ae713c70a631594f-paragraph_group-3f366b654f2b",
+        "ae713c70a631594f-paragraph_group-b665fce408b0",
+        "ae713c70a631594f-paragraph_group-acf255b8eff3"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-003",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-004",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "04782a392f49293e-table-d2d7171cef89"
+      ],
+      "required_selected_chunks": [
+        "04782a392f49293e-table-d2d7171cef89"
+      ],
+      "requirements": [
+        {
+          "subject": "연금저축·IRP",
+          "field": "세액공제 대상 납입 한도",
+          "value_or_condition": "연금저축 단독 600만원, IRP 포함 합산 900만원",
+          "scope": "동일 계좌유형의 공제한도 비교"
+        }
+      ]
+    },
+    {
+      "question_id": "P34-005",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "de4f8448134189df-table-ce8fee5b43be",
+        "eec10989c7067926-paragraph_group-72065e97ce5d"
+      ],
+      "required_selected_chunks": [
+        "de4f8448134189df-table-ce8fee5b43be",
+        "eec10989c7067926-paragraph_group-72065e97ce5d"
+      ],
+      "requirements": [
+        {
+          "subject": "일반계좌·연금계좌",
+          "field": "과세 시점",
+          "value_or_condition": "일반계좌 과세와 연금계좌 인출 전 과세이연의 대비",
+          "scope": "계좌별 운용수익 과세 시점"
+        }
+      ]
+    },
+    {
+      "question_id": "P34-006",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "13621d38202e2fc3-table-5431011b44b5",
+        "de4f8448134189df-paragraph_group-4394f7247e77"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-007",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "e8d7e6a69504e042-paragraph_group-35993691d717",
+        "e8d7e6a69504e042-table-e07c4f8c5781",
+        "e8d7e6a69504e042-paragraph_group-f8ee1dd5d6ec"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-008",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "15fb5460a23aa10d-paragraph_group-9b55ec13ba82"
+      ],
+      "required_selected_chunks": [
+        "15fb5460a23aa10d-paragraph_group-9b55ec13ba82"
+      ],
+      "requirements": [
+        {
+          "subject": "DC 중도인출",
+          "field": "허용 사유·신청·증빙 절차",
+          "value_or_condition": "법정 사유에서만 허용되며 신청서와 증빙서류가 필요",
+          "scope": "DC와 IRP를 구별해 DC 절차를 직접 명시"
+        }
+      ]
+    },
+    {
+      "question_id": "P34-009",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "ae22159be59440b6-table-5897a6d84778",
+        "ae22159be59440b6-paragraph_group-8d64cc53348b"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-010",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "afc99f5bd68cc78b-paragraph_group-549eae06e466"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-011",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "570a48e8debe22bd-paragraph_group-e79299cb589a"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-012",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "4607500e74afcdf8-paragraph_group-fd0d4e7d80e6",
+        "ef05c9c97fbadd27-paragraph_group-c169d907b699",
+        "4607500e74afcdf8-table-6f164502cbce"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-013",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-014",
+      "verdict": "semantic_equivalent",
+      "selected_chunk_ids": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c",
+        "8297231e70bc792a-table-332d5aafe603"
+      ],
+      "required_selected_chunks": [
+        "8297231e70bc792a-paragraph_group-7ecf4273221c",
+        "8297231e70bc792a-table-332d5aafe603"
+      ],
+      "requirements": [
+        {
+          "subject": "KR5127450215",
+          "field": "지수 추종 전략·주식 관련 자산 비율",
+          "value_or_condition": "코스닥150 수익률 연동, 주식 및 주식관련 파생상품 60% 이상",
+          "scope": "동일 상품의 모투자신탁 전략·투자대상"
+        }
+      ]
+    },
+    {
+      "question_id": "P34-015",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-table-29d9d83f7944",
+        "cf922cacac95fad9-paragraph_group-50171832b91f"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-016",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "cf922cacac95fad9-paragraph_group-4e8c8991d24f",
+        "c787719b514f51da-paragraph_group-f00a2b356930"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-017",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "f24a347b7c7a170c-paragraph_group-41f23d8eef8c",
+        "545de7c663ff2726-paragraph_group-d9754d5d83b6"
+      ],
+      "requirements": []
+    },
+    {
+      "question_id": "P34-018",
+      "verdict": "exact_gold",
+      "selected_chunk_ids": [
+        "fc3cd93441450fa8-paragraph_group-a91cddf920fd",
+        "eefb7f7b407d91de-paragraph_group-e41211088478"
+      ],
+      "requirements": []
+    }
+  ]
+}

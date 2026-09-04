@@ -1,0 +1,209 @@
+{
+  "phase": "P37-A",
+  "manifest_sha256": "31cad5d15e5d93c5e9c42921d9b3398bfb18e54072b10aed9d10481b4470d6b2",
+  "hcx_calls": 0,
+  "candidate_code_modified": false,
+  "summary": {
+    "total": 18,
+    "semantic_requirement_coverage": 5,
+    "evidence_sufficient": 15,
+    "primary_original": 18,
+    "primary_owner_counts": {
+      "canonical_field_miss": 4,
+      "normalization_alias_miss": 1,
+      "normalization_semantic_miss": 7,
+      "planner_multi_requirement_miss": 1
+    },
+    "hcx_calls": 0
+  },
+  "rows": [
+    {
+      "question_id": "P37-001",
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "actual_requirement_category": "db_dc_benefit_calculation",
+      "actual_slot_keys": [
+        "db_benefit",
+        "dc_benefit",
+        "db_operation",
+        "dc_operation"
+      ],
+      "primary_owner": null,
+      "reason": "P37 pre-HCX requirement plan passed; source relevance is deferred until every plan is complete."
+    },
+    {
+      "question_id": "P37-002",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "normalization_semantic_miss",
+      "reason": "교육 시행 책임·최소 주기·전문기관 대행이 participant_education으로 구조화되지 않았다."
+    },
+    {
+      "question_id": "P37-003",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "normalization_semantic_miss",
+      "reason": "‘두 배로 키움’과 ‘역방향으로 따름’이 leverage/inverse restriction concepts로 정규화되지 않았다."
+    },
+    {
+      "question_id": "P37-004",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "normalization_alias_miss",
+      "reason": "‘개인용 연금 저축 계좌’가 연금저축 subject alias로 결속되지 않았다."
+    },
+    {
+      "question_id": "P37-005",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "normalization_semantic_miss",
+      "reason": "‘일반 투자계좌’와 운용이익 과세 시점이 일반계좌 대 연금계좌 tax timing comparison으로 결속되지 않았다."
+    },
+    {
+      "question_id": "P37-006",
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "actual_requirement_category": "foreign_etf_account_tax_comparison",
+      "actual_slot_keys": [
+        "foreign_etf_general_account_tax",
+        "foreign_etf_pension_account_tax",
+        "foreign_etf_tax_condition"
+      ],
+      "primary_owner": null,
+      "reason": "P37 pre-HCX requirement plan passed; source relevance is deferred until every plan is complete."
+    },
+    {
+      "question_id": "P37-007",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": "pension_savings_irp_withdrawal_comparison",
+      "actual_slot_keys": [
+        "pension_savings_withdrawal_scope",
+        "irp_withdrawal_legal_grounds_comparison"
+      ],
+      "primary_owner": "planner_multi_requirement_miss",
+      "reason": "계좌별 인출 범위·IRP 법정사유는 계획됐지만 ‘인출 세율’이 tax-treatment slot을 추가하는 semantic modifier로 인식되지 않았다."
+    },
+    {
+      "question_id": "P37-008",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "normalization_semantic_miss",
+      "reason": "‘근무 중 사용’과 ‘확인 문서’가 DC withdrawal condition/procedure concepts로 정규화되지 않았다."
+    },
+    {
+      "question_id": "P37-009",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "normalization_semantic_miss",
+      "reason": "ISA ‘종료’ event가 maturity transfer event로 canonicalize되지 않았다."
+    },
+    {
+      "question_id": "P37-010",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": "shared_operation_comparison",
+      "actual_slot_keys": [
+        "db_operation",
+        "dc_operation"
+      ],
+      "primary_owner": "normalization_semantic_miss",
+      "reason": "매각 없는 운영 금융기관 변경이 in-kind transfer action으로 복원되지 않고 ‘운영’에 의해 DB/DC operation plan으로 흡수됐다."
+    },
+    {
+      "question_id": "P37-011",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "normalization_semantic_miss",
+      "reason": "‘가격 움직임을 배가’와 ‘반대로 추적’이 ETF leverage/inverse restriction fields로 연결되지 않았다."
+    },
+    {
+      "question_id": "P37-012",
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "actual_requirement_category": "db_dc_benefit_calculation",
+      "actual_slot_keys": [
+        "db_benefit",
+        "dc_benefit",
+        "db_operation",
+        "dc_operation"
+      ],
+      "primary_owner": null,
+      "reason": "P37 pre-HCX requirement plan passed; source relevance is deferred until every plan is complete."
+    },
+    {
+      "question_id": "P37-013",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "canonical_field_miss",
+      "reason": "위험 분류 단계와 시장·운용 결과에 따른 분류 변동 여지가 risk_grade + risk_grade_changeability로 분리되지 않았다."
+    },
+    {
+      "question_id": "P37-014",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": true,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "canonical_field_miss",
+      "reason": "성과 기준 지수와 주식성 자산 최대 편입률이 investment_strategy + investment_target fields로 결속되지 않았다."
+    },
+    {
+      "question_id": "P37-015",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "canonical_field_miss",
+      "reason": "연 단위 보수 비율과 기간 투자 금액이 total_fee + cost_example field boundary로 분해되지 않았다."
+    },
+    {
+      "question_id": "P37-016",
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "actual_requirement_category": "product_fields",
+      "actual_slot_keys": [
+        "KR510902773M:risk_grade",
+        "KR510902777M:risk_grade"
+      ],
+      "primary_owner": null,
+      "reason": "P37 pre-HCX requirement plan passed; source relevance is deferred until every plan is complete."
+    },
+    {
+      "question_id": "P37-017",
+      "semantic_requirement_coverage": true,
+      "evidence_sufficient": true,
+      "actual_requirement_category": "product_fields",
+      "actual_slot_keys": [
+        "KR5114420022:risk_grade",
+        "KR5114450222:risk_grade"
+      ],
+      "primary_owner": null,
+      "reason": "P37 pre-HCX requirement plan passed; source relevance is deferred until every plan is complete."
+    },
+    {
+      "question_id": "P37-018",
+      "semantic_requirement_coverage": false,
+      "evidence_sufficient": false,
+      "actual_requirement_category": null,
+      "actual_slot_keys": [],
+      "primary_owner": "canonical_field_miss",
+      "reason": "리스크 분류 단계와 낮은 위험 수준 비교가 product risk-grade values 및 comparison requirement로 구조화되지 않았다."
+    }
+  ]
+}

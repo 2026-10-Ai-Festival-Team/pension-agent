@@ -1,0 +1,14 @@
+{
+  "experiment": "P47-A Failure Attribution",
+  "source_result": "evaluation/p47_final_single_subject_closed_e2e.json",
+  "source_result_sha256": "f558dc5ad63bba3b8cf3331ab6da9d623a603b7f988542deedfa1d6ff29fc18c",
+  "method": "No HCX recall. Frozen answer hashes, resolver/selector trace, selected contexts, and manually frozen gold evidence were compared.",
+  "failures": [
+    {"id":"P47-004","primary_owner":"exclusive_scope_resolution_miss","stage":"resolver","finding":"The general negative/exclusive form 'IRP는 빼고 연금저축 계좌에만' contains two explicit account subjects, but the resolver's frozen operator catalog does not recognize the Korean connector '빼고'. It fails closed before selector/retrieval despite the pension-savings gold chunk being available.","gold_evidence_available":true,"hcx_answer_called":false},
+    {"id":"P47-008","primary_owner":"generation_omission","stage":"answer_generation","finding":"Both current risk grade and change-possibility requirements were selected; both direct gold chunks were supplied and cited. HCX stated only the current 5등급 and omitted whether the grade can change.","selected_requirement_matches_gold":true,"exact_gold_context_present":true,"hcx_answer_called":true},
+    {"id":"P47-010","primary_owner":"generation_omission","stage":"answer_generation","finding":"The exact annual fee table was supplied and cited. HCX named the 지급비율(연간, %) table but omitted the decisive 총보수·비용/합성총보수·비용 field requested by the question.","selected_requirement_matches_gold":true,"exact_gold_context_present":true,"hcx_answer_called":true},
+    {"id":"P47-014","primary_owner":"generation_omission","stage":"answer_generation","finding":"The direct total-fee table was supplied and cited. HCX named the 총 보수·비용 column but omitted the requested 지급비율(연간, %) table identity.","selected_requirement_matches_gold":true,"exact_gold_context_present":true,"hcx_answer_called":true}
+  ],
+  "owner_summary":{"front_end_scope":1,"retrieval_or_evidence":0,"generation_omission":3,"generation_field_confusion":0,"generation_misread":0},
+  "conclusion":"P47 is No-Go. It improves the P46 front-end result but still contains a fresh exclusive-scope false rejection. The remaining three strict failures are genuine generation omissions with direct gold evidence already in HCX context; however, fine-tuning remains premature until the fresh front-end scope failure is eliminated."
+}
